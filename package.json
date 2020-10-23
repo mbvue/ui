@@ -23,14 +23,15 @@
     "scripts": {
         "dev": "cross-env NODE_ENV=development webpack-dev-server",
         "dist": "cross-env NODE_ENV=production webpack",
-        "lint:types": "eslint --ext .ts --fix \"types/**\"",
-        "lint:src": "eslint --ext .js,.ts,.tsx,.vue,.md --fix \"src/**\"",
+        "lint:docs": "eslint --ext .js --ext .vue --fix ./docs",
+        "lint:types": "eslint --ext .ts --fix ./types",
+        "lint:src": "eslint --ext .tsx --ext .md --fix ./src",
         "lint:style": "stylelint \"**/*.less\" --syntax less --fix",
-        "lint": "run-s lint:types lint:src lint:style"
+        "lint": "run-s lint:docs lint:types lint:src lint:style"
     },
     "devDependencies": {
         "@mbvue/babel-preset-config": "^0.0.3",
-        "@mbvue/eslint-config": "^0.0.8",
+        "@mbvue/eslint-config": "^0.0.10",
         "@mbvue/markdown-loader": "^0.0.3",
         "@mbvue/prettier-config": "^0.1.0",
         "@mbvue/stylelint-config": "^0.1.0",

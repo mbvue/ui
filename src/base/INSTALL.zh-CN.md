@@ -103,14 +103,14 @@ $ yarn add -D less less-loader
 module.exports = {
     css: {
         loaderOptions: {
-            {
+            less: {
                 lessOptions: {
                     javascriptEnabled: true
                 }
             }
         }
     }
-}
+};
 ```
 
 ## 4、 按需加载
@@ -118,9 +118,15 @@ module.exports = {
 ### 4.1、 直接加载组件
 
 ```js
+import { createApp } from 'vue';
+import App from '@/App.vue';
 import Icon from '@mbvue/ui/lib/icon';
 import '@mbvue/ui/base.less'; //或者 import '@mbvue/ui/base.css';（基础标签，可不导入）
 import '@mbvue/ui/lib/icon/style'; // 或者 @mbvue/ui/lib/icon/style/css 加载 css 文件
+
+const app = createApp(App);
+app.component(Icon.name, Icon);
+app.mount('#app');
 ```
 
 ### 4.2、 babel-plugin-import
