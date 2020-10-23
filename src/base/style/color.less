@@ -1,0 +1,43 @@
+.textcolor(@i:length(@style)) when(@i > 0) {
+    @name: extract(@style, @i);
+
+    .text-@{name} {
+        @value: ~'color-@{name}';
+        color: @@value;
+    }
+
+    .text-@{name}-light {
+        @value: ~'color-@{name}-light';
+        color: @@value;
+    }
+
+    .textcolor(@i - 1);
+}
+
+.bgcolor(@i:length(@style)) when(@i > 0) {
+    @name: extract(@style, @i);
+
+    .bg-@{name} {
+        @value: ~'color-@{name}';
+        color: #fff;
+        background-color: @@value;
+    }
+
+    .bg-@{name}-light {
+        @value: ~'color-@{name}-light';
+        color: #fff;
+        background-color: @@value;
+    }
+
+    .bg-@{name}-lighter {
+        @color: ~'color-@{name}';
+        @value: ~'color-@{name}-lighter';
+        color: @@color;
+        background-color: @@value;
+    }
+
+    .bgcolor(@i - 1);
+}
+
+.textcolor();
+.bgcolor();
