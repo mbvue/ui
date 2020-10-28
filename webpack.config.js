@@ -18,6 +18,7 @@ module.exports = {
     },
 
     output: {
+        publicPath: '/ui/',
         path: path.join(__dirname, 'dist'),
         filename: '[name].js'
     },
