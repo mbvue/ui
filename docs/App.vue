@@ -28,13 +28,12 @@
 </template>
 
 <script>
-import documents from './depend/documents';
-import locales from './depend/locales';
+import urls from './depend/urls';
 
 export default {
     data() {
         return {
-            nav: documents[locales.get()]
+            nav: urls.filter(obj => !obj.path)
         };
     }
 };

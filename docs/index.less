@@ -21,8 +21,8 @@ body,
         box-shadow: 3px 0 5px rgba(0, 0, 0, 0.1);
 
         ul {
-            margin: 0;
             padding: 0;
+            margin: 0;
             list-style: none;
 
             h3 {
@@ -72,10 +72,16 @@ body,
             right: 0;
             bottom: 0;
             left: 0;
-            padding: 20px;
-            padding-right: 230px;
             overflow-x: hidden;
             overflow-y: auto;
+        }
+
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            height: 150px;
         }
     }
 
@@ -85,9 +91,21 @@ body,
         align-items: center;
         justify-content: center;
         height: 100%;
+        color: #fff;
         text-align: center;
+        background: linear-gradient(to bottom, #409eff 0%, #f56c6c 100%);
 
-        .table-of-contents {
+        button {
+            color: #fff;
+            background: #f56c6c;
+            border-color: #f56c6c;
+
+            &:hover {
+                background: #fb3e3e;
+            }
+        }
+
+        .markdown-toc {
             display: none;
         }
     }
