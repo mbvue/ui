@@ -1,6 +1,6 @@
 <template>
     <div class="layout">
-        <template v-if="$route.name">
+        <template v-if="$route.name !== '/'">
             <div class="layout-left">
                 <ul>
                     <li v-for="(item, index) in nav" :key="index">

@@ -3,4 +3,4 @@
 Browser、Uni-app
 <br/>
 <br/>
-<a href="/install"><button type="button">快速开始</button></a>
+<a href="/ui/#/install"><button type="button">快速开始</button></a>
