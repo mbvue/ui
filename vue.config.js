@@ -12,5 +12,16 @@ module.exports = {
 
     html: {
         title: 'MBVUE UI'
+    },
+
+    output: {
+        publicPath: '/ui/'
+    },
+
+    devServer: {
+        historyApiFallback: {
+            rewrites: [{ from: /./, to: '/ui/index.html' }]
+        },
+        publicPath: '/ui/'
     }
 };

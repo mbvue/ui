@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import urls from './urls';
 
-const routerHistory = createWebHistory();
+const routerHistory = createWebHashHistory('/ui/');
 const getRoutes = () => {
     const routes = [];
 

@@ -214,7 +214,7 @@
     <h5>1、水平左靠齐：.flex .row-left</h5>
     <div class="flex row-left">
         <div class="box" style="background: #00a0e9; margin-right: 10px; color: #fff;">1</div>
-        <div class="box" style="background: #00a0e9; margin-right: 10px color: #fff;">2</div>
+        <div class="box" style="background: #00a0e9; margin-right: 10px; color: #fff;">2</div>
         <div class="box" style="background: #00a0e9; color: #fff;">3</div>
     </div>
     <h5>2、水平居中：.flex .row-center</h5>
