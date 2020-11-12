@@ -83,14 +83,16 @@
         <div class="box border-right">.border-right</div>
         <div class="box border-bottom">.border-bottom</div>
         <div class="box border-left">.border-left</div>
+        <div class="box border-left border-right">.border-left<br/>.border-right</div>
     </div>
     <br />
     <div class="flex row-around">
-        <div class="box border-0">.border-0</div>
-        <div class="box border-top-0">.border-top-0</div>
-        <div class="box border-right-0">.border-right-0</div>
-        <div class="box border-bottom-0">.border-bottom-0</div>
-        <div class="box border-left-0">.border-left-0</div>
+        <div class="box border border-0">.border-0</div>
+        <div class="box border border-top-0">.border-top-0</div>
+        <div class="box border border-right-0">.border-right-0</div>
+        <div class="box border border-bottom-0">.border-bottom-0</div>
+        <div class="box border border-left-0">.border-left-0</div>
+        <div class="box border border-left-0 border-right-0">.border-left-0<br/>.border-right-0</div>
     </div>
     <br />
     <div class="flex row-around">
@@ -118,7 +120,6 @@
         <div class="box border rounded-bottom">.rounded-bottom</div>
         <div class="box border rounded-left">.rounded-left</div>
         <div class="box border rounded-circle">.rounded-circle</div>
-        <div class="box border rounded-pill"  style="width: 200px; height: 130px;">.rounded-pill</div>
     </div>
 </div>
 :::

@@ -15,10 +15,10 @@ html {
 
 body {
     margin: 0;
-    color: @color;
-    font-size: unit(@font-size, px);
     font-family: @font-family;
+    font-size: unit(@font-size, px);
     line-height: @line-height;
+    color: @color;
     text-align: left;
     background-color: @body-bg-color;
 }
@@ -50,8 +50,8 @@ figure {
 }
 
 menu {
-    margin: 0;
     padding: unit(@font-size, px) unit(round(@font-size / 2), px);
+    margin: 0;
 }
 
 audio,
@@ -83,29 +83,28 @@ a {
     color: @color-primary;
     text-decoration: none;
     background-color: transparent;
-}
 
-a:active,
-a:hover {
-    outline: 0;
-}
+    &:active,
+    &:hover {
+        outline: 0;
+    }
 
-a:hover {
-    color: darken(@color-primary, 10%);
-    text-decoration: underline;
-}
+    &:hover {
+        color: darken(@color-primary, 10%);
+        text-decoration: underline;
+    }
 
-a:not([href]) {
-    color: inherit;
-    text-decoration: none;
+    &:not([href]) {
+        color: inherit;
+        text-decoration: none;
+    }
 }
 
 abbr[title],
 abbr[data-original-title] {
     text-decoration: none;
-    border-bottom: @border-width dotted @color-primary;
     cursor: help;
-    text-decoration-skip-ink: none;
+    border-bottom: @border-width dashed @color-primary;
 }
 
 b,
@@ -133,15 +132,15 @@ h6,
 .h4,
 .h5,
 .h6 {
-    color: inherit;
-    font-weight: 500;
     font-family: inherit;
+    font-weight: 500;
     line-height: 1.1;
+    color: inherit;
 
     small {
-        color: @color-primary;
         font-weight: normal;
         line-height: 1;
+        color: @color-primary;
     }
 }
 
@@ -151,8 +150,8 @@ h3,
 .h1,
 .h2,
 .h3 {
-    margin: 0;
     padding: unit(round(@font-size * 1.5), px) 0 unit(@font-size, px) 0;
+    margin: 0;
 
     small {
         font-size: 65%;
@@ -165,8 +164,8 @@ h6,
 .h4,
 .h5,
 .h6 {
-    margin: 0;
     padding: unit(@font-size, px) 0 unit(@font-size, px) 0;
+    margin: 0;
 
     small {
         font-size: 75%;
@@ -175,7 +174,7 @@ h6,
 
 h1,
 .h1 {
-    font-size: unit(round(@font-size * 2.5), px);
+    font-size: unit(round(@font-size * 2.25), px);
 }
 
 h2,
@@ -232,10 +231,10 @@ img {
 
 svg {
     vertical-align: middle;
-}
 
-svg:not(:root) {
-    overflow: hidden;
+    &:not(:root) {
+        overflow: hidden;
+    }
 }
 
 hr {
@@ -257,19 +256,19 @@ pre {
     display: block;
     padding: unit(round(@font-size * 0.6), px) unit(round(@font-size * 1.2), px);
     overflow: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
     word-break: break-all;
-    page-break-inside: avoid;
+    word-wrap: break-word;
+    white-space: pre-wrap;
     background-color: rgba(0, 0, 0, 0.03);
     border: 0;
     border-radius: unit(round(@font-size * 0.6), px);
+    page-break-inside: avoid;
 }
 
 code {
     padding: unit(round(@font-size * 0.3), px) unit(round(@font-size * 0.6), px);
-    color: @color-danger;
     font-size: 90%;
+    color: @color-danger;
     word-wrap: break-word;
     background-color: rgba(0, 0, 0, 0.03);
     border-radius: unit(round(@font-size * 0.3), px);
@@ -278,8 +277,8 @@ code {
 pre code,
 a code {
     padding: 0;
-    color: inherit;
     font-size: inherit;
+    color: inherit;
     white-space: pre-wrap;
     background-color: transparent;
     border-radius: 0;
@@ -287,18 +286,18 @@ a code {
 
 kbd {
     padding: unit(round(@font-size * 0.3), px) unit(round(@font-size * 0.6), px);
-    color: #fff;
     font-size: 90%;
+    color: #fff;
     background-color: @color-dark;
     border-radius: unit(round(@font-size * 0.3), px);
     box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.25);
-}
 
-kbd kbd {
-    padding: 0;
-    font-weight: bold;
-    font-size: 100%;
-    box-shadow: none;
+    kbd {
+        padding: 0;
+        font-size: 100%;
+        font-weight: bold;
+        box-shadow: none;
+    }
 }
 
 button,
@@ -307,8 +306,8 @@ optgroup,
 select,
 textarea {
     margin: 0;
-    font-size: inherit;
     font-family: inherit;
+    font-size: inherit;
     line-height: inherit;
 }
 
@@ -322,11 +321,11 @@ input[type='submit'] {
     font-size: unit(@font-size, px);
     line-height: 1;
     text-transform: none;
+    cursor: pointer;
     background-color: #fff;
     border: @border-width solid @color-border;
     border-radius: unit(round(@font-size * 0.3), px);
     outline: none;
-    cursor: pointer;
     transition: 0.1s;
     -webkit-appearance: button;
 
@@ -358,76 +357,32 @@ input[type='submit'] {
     &[type='submit'] {
         color: @color-primary;
         border: @border-width solid @color-primary;
+
+        &[disabled] {
+            color: mix(#fff, @color-primary, 50%);
+            border: @border-width solid mix(#fff, @color-primary, 50%);
+        }
     }
 
-    &[type='submit'][disabled] {
-        color: mix(#fff, @color-primary, 50%);
-        border: @border-width solid mix(#fff, @color-primary, 50%);
-    }
-}
+    &:not([disabled]):hover {
+        background-color: mix(#fff, @color-border, 20%);
 
-button:not([disabled]):hover,
-input[type='button']:not([disabled]):hover,
-input[type='reset']:not([disabled]):hover,
-input[type='submit']:not([disabled]):hover {
-    background-color: mix(#fff, @color-border, 20%);
-
-    &[type='submit']:not([disabled]):hover {
-        color: #fff;
-        background-color: mix(#fff, @color-primary, 5%);
+        &[type='submit']:not([disabled]):hover {
+            color: #fff;
+            background-color: mix(#fff, @color-primary, 5%);
+        }
     }
 }
 
-button[disabled],
-input[disabled] {
-    cursor: default;
-}
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-    padding: 0;
-    border: 0;
-}
-
+button,
 input {
-    line-height: normal;
-    outline: none;
-}
-
-input[type='checkbox'],
-input[type='radio'] {
-    box-sizing: border-box;
-    width: unit(round(@font-size * 1.2), px);
-    height: unit(round(@font-size * 1.2), px);
-    margin: 0;
-    padding: 0;
-    line-height: normal;
-    vertical-align: middle;
-    cursor: pointer;
-
-    &.xs {
-        width: unit(round(@font-size * 0.8), px);
-        height: unit(round(@font-size * 0.8), px);
+    &[disabled] {
+        cursor: default;
     }
 
-    &.sm {
-        width: unit(round(@font-size * 1), px);
-        height: unit(round(@font-size * 1), px);
-    }
-
-    &.md {
-        width: unit(round(@font-size * 1.2), px);
-        height: unit(round(@font-size * 1.2), px);
-    }
-
-    &.lg {
-        width: unit(round(@font-size * 1.4), px);
-        height: unit(round(@font-size * 1.4), px);
-    }
-
-    &.xl {
-        width: unit(round(@font-size * 1.6), px);
-        height: unit(round(@font-size * 1.6), px);
+    &::-moz-focus-inner {
+        padding: 0;
+        border: 0;
     }
 }
 
@@ -483,6 +438,70 @@ select {
         padding: unit(round(@font-size * 0.2), px) unit(round(@font-size * 0.8), px);
         font-size: unit(round(@font-size * 1.15), px);
     }
+
+    &:focus {
+        border: @border-width solid @color-primary;
+        box-shadow: 0 0 3px lighten(@color-primary, 20%);
+    }
+}
+
+input {
+    line-height: normal;
+    outline: none;
+
+    &[type='checkbox'],
+    &[type='radio'] {
+        box-sizing: border-box;
+        width: unit(round(@font-size * 1.2), px);
+        height: unit(round(@font-size * 1.2), px);
+        padding: 0;
+        margin: 0;
+        line-height: normal;
+        vertical-align: middle;
+        cursor: pointer;
+
+        &.xs {
+            width: unit(round(@font-size * 0.8), px);
+            height: unit(round(@font-size * 0.8), px);
+        }
+
+        &.sm {
+            width: unit(round(@font-size * 1), px);
+            height: unit(round(@font-size * 1), px);
+        }
+
+        &.md {
+            width: unit(round(@font-size * 1.2), px);
+            height: unit(round(@font-size * 1.2), px);
+        }
+
+        &.lg {
+            width: unit(round(@font-size * 1.4), px);
+            height: unit(round(@font-size * 1.4), px);
+        }
+
+        &.xl {
+            width: unit(round(@font-size * 1.6), px);
+            height: unit(round(@font-size * 1.6), px);
+        }
+    }
+
+    &[type='color'] {
+        padding: 0;
+    }
+
+    &[type='file'] {
+        display: inline-block;
+    }
+    &[type='range'] {
+        display: block;
+        width: 100%;
+    }
+
+    &[type='radio'][disabled],
+    &[type='checkbox'][disabled] {
+        cursor: not-allowed;
+    }
 }
 
 textarea {
@@ -518,88 +537,55 @@ textarea {
         padding: unit(round(@font-size * 0.4), px) unit(round(@font-size * 0.8), px);
         font-size: unit(round(@font-size * 1.15), px);
     }
-}
 
-input:not([type]):focus,
-input[type='text']:focus,
-input[type='password']:focus,
-input[type='number']:focus,
-input[type='search']:focus,
-input[type='date']:focus,
-input[type='datetime']:focus,
-input[type='datetime-local']:focus,
-input[type='email']:focus,
-input[type='month']:focus,
-input[type='tel']:focus,
-input[type='time']:focus,
-input[type='url']:focus,
-input[type='week']:focus,
-input[type='color']:focus,
-select:focus,
-textarea:focus {
-    border: @border-width solid @color-primary;
-    box-shadow: 0 0 3px lighten(@color-primary, 20%);
-}
-
-input[type='color'] {
-    padding: 0;
-}
-
-input[type='file'] {
-    display: inline-block;
-}
-input[type='range'] {
-    display: block;
-    width: 100%;
-}
-
-input[type='radio'][disabled],
-input[type='checkbox'][disabled] {
-    cursor: not-allowed;
+    &:focus {
+        border: @border-width solid @color-primary;
+        box-shadow: 0 0 3px lighten(@color-primary, 20%);
+    }
 }
 
 select {
     text-transform: none;
     outline: none;
-}
 
-select[multiple] {
-    padding: 0;
+    &[multiple] {
+        padding: 0;
 
-    option {
-        padding: unit(round(@font-size * 0.3), px) unit(round(@font-size * 0.6), px);
+        option {
+            padding: unit(round(@font-size * 0.3), px) unit(round(@font-size * 0.6), px);
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: lighten(@color-border, 50%);
+        }
+
+        &::-webkit-scrollbar {
+            width: unit(round(@font-size * 0.8), px);
+            height: unit(round(@font-size * 0.8), px);
+            background-color: lighten(@color-border, 50%);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            cursor: pointer;
+            background-color: @color-border;
+            border-radius: 0;
+        }
     }
-}
 
-select[multiple]::-webkit-scrollbar-track {
-    background-color: lighten(@color-border, 50%);
-}
+    &[multiple],
+    &[size] {
+        height: auto;
+    }
 
-select[multiple]::-webkit-scrollbar {
-    width: unit(round(@font-size * 0.8), px);
-    height: unit(round(@font-size * 0.8), px);
-    background-color: lighten(@color-border, 50%);
-}
-
-select[multiple]::-webkit-scrollbar-thumb {
-    background-color: @color-border;
-    border-radius: 0;
-    cursor: pointer;
-}
-
-select[multiple],
-select[size] {
-    height: auto;
-}
-
-optgroup {
-    font-weight: bold;
+    optgroup {
+        font-weight: bold;
+    }
 }
 
 fieldset {
     min-width: 0;
-    margin: 0;
     padding: 0;
+    margin: 0;
     border: 0;
 }
 
@@ -608,9 +594,9 @@ legend {
     width: 100%;
     max-width: 100%;
     padding: unit(round(@font-size * 0.6), px);
-    color: inherit;
     font-size: unit(round(@font-size * 1.2), px);
     line-height: inherit;
+    color: inherit;
     border: 0;
     border-bottom: @border-width solid @color-border;
 }
@@ -625,32 +611,31 @@ output {
     display: inline-block;
 }
 
-blockquote {
-    margin: 0;
-    padding: unit(round(@font-size * 0.8), px) unit(round(@font-size * 1.2), px);
-    font-size: unit(round(@font-size * 1.2), px);
-    border-left: unit(round(@font-size * 0.3), px) solid @color-border;
-}
-
-blockquote footer,
-blockquote small {
-    display: block;
-    color: @color-dark;
-    font-size: 80%;
-}
-
-blockquote footer::before,
-blockquote small::before {
-    content: '\2014 \00A0';
-}
-
 p {
     margin-top: 0;
     margin-bottom: unit(@font-size, px);
 }
 
-blockquote p {
+blockquote {
+    padding: unit(round(@font-size * 0.8), px) unit(round(@font-size * 1.2), px);
     margin: 0;
+    font-size: unit(round(@font-size * 1.2), px);
+    border-left: unit(round(@font-size * 0.3), px) solid @color-border;
+
+    p {
+        margin: 0;
+    }
+
+    footer,
+    small {
+        display: block;
+        font-size: 80%;
+        color: @color-dark;
+
+        &::before {
+            content: '\2014 \00A0';
+        }
+    }
 }
 
 address {
@@ -661,8 +646,8 @@ address {
 ol,
 ul,
 dl {
-    margin: 0;
     padding: 0;
+    margin: 0;
     list-style: none;
 }
 
@@ -677,43 +662,56 @@ dd {
 table {
     width: 100%;
     max-width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
     background-color: transparent;
     border-color: @color-border;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
 
-table caption {
-    padding: unit(round(@font-size * 0.7), px);
-    color: @color-dark;
-    font-size: unit(round(@font-size * 1.2), px);
-}
+    caption {
+        padding: unit(round(@font-size * 0.7), px);
+        font-size: unit(round(@font-size * 1.2), px);
+        color: @color-dark;
+    }
 
-table:not([border]) caption {
-    border-bottom: @border-width solid @color-border;
-}
+    &:not([border]) caption {
+        border-bottom: @border-width solid @color-border;
+    }
 
-table th,
-table td {
-    padding: unit(round(@font-size * 0.7), px);
-    vertical-align: top;
-    border-top: @border-width solid @color-border;
-}
+    tr {
+        th,
+        td {
+            padding: unit(round(@font-size * 0.7), px);
+            vertical-align: top;
+            border-top: @border-width solid @color-border;
+        }
 
-table tr:first-child th,
-table tr:first-child td {
-    border-top: 0;
-}
+        &:first-child th,
+        &:first-child td {
+            border-top: 0;
+        }
 
-table thead tr th {
-    vertical-align: bottom;
-    border-bottom: @border-width solid @color-border;
-}
+        &:hover {
+            background: lighten(@color-border, 5%);
+        }
+    }
 
-table tr:hover {
-    background: lighten(@color-border, 5%);
-}
+    thead {
+        tr {
+            &:hover {
+                background: none;
+            }
 
-table thead tr:hover {
-    background: none;
+            th {
+                vertical-align: bottom;
+                border-bottom: @border-width solid @color-border;
+            }
+        }
+    }
+
+    &[border] {
+        th,
+        td {
+            border: @border-width solid @color-border;
+        }
+    }
 }

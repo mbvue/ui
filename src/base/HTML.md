@@ -580,10 +580,38 @@ view, article, aside, details, figcaption, figure, footer, header, hgroup, main,
 
 ### 3.28、 table 标签
 
+<h6>默认表格：</h6>
+
 :::demo html
 
 <div>
     <table>
+        <caption>我是 caption</caption>
+        <tr>
+            <th>我是 th</th>
+            <th>我是 th</th>
+            <th>我是 th</th>
+        </tr>
+        <tr>
+            <td>我是 td</td>
+            <td>我是 td</td>
+            <td>我是 td</td>
+        </tr>
+        <tr>
+            <td>我是 td</td>
+            <td>我是 td</td>
+            <td>我是 td</td>
+        </tr>
+    </table>
+</div>
+:::
+
+<h6>带边框表格：</h6>
+
+:::demo html
+
+<div>
+    <table border>
         <caption>我是 caption</caption>
         <tr>
             <th>我是 th</th>

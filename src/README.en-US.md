@@ -3,4 +3,4 @@
 Browser、Uni-app
 <br/>
 <br/>
-<a href="/install"><button type="button">Quick Start</button></a>
+<a href="/ui/#/install"><button type="button">Quick Start</button></a>
