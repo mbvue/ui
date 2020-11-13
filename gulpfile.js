@@ -176,7 +176,24 @@ const buildPack = done => {
                 new CopyWebpackPlugin({
                     patterns: [
                         { from: 'LICENSE', to: 'LICENSE', toType: 'file' },
-                        { from: 'package.json', to: 'package.json' },
+                        {
+                            from: 'package.json',
+                            to: 'package.json',
+                            transform(content) {
+                                let data = JSON.parse(content.toString());
+                                delete data.scripts;
+                                delete data.devDependencies;
+                                delete data.husky;
+                                delete data['lint-staged'];
+                                delete data.browserslist;
+                                delete data.eslintConfig;
+                                delete data.stylelint;
+                                delete data.prettier;
+                                delete data.babel;
+
+                                return Buffer.from(JSON.stringify(data));
+                            }
+                        },
                         { from: 'README.md', to: 'README.md' }
                     ]
                 }),

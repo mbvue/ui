@@ -1,13 +1,20 @@
 {
     "name": "@mbvue/ui",
-    "version": "0.0.1",
+    "version": "0.0.4",
     "description": "mbvue ui",
     "main": "lib/index.js",
     "module": "es/index.js",
     "typings": "lib/index.d.ts",
     "files": [
         "es",
-        "lib"
+        "lib",
+        "base.css",
+        "base.less",
+        "index.css",
+        "index.less",
+        "index.min.css",
+        "index.min.js",
+        "index.min.js.map"
     ],
     "repository": {
         "type": "git",

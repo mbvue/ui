@@ -1,4 +1,6 @@
-import * as vue from 'vue';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+let vue = require('vue');
+vue = vue.default || vue;
 
 declare const uni: any;
 const regAgent = /micromessenger/i;
