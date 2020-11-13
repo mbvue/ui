@@ -34,12 +34,12 @@ Vue2：
 ```js
 import Vue from 'vue';
 import App from '@/App.vue';
-import MBUI from 'mb-ui';
-import 'mb-ui/index.less'; //或者 import 'mb-ui/index.css';
+import MBVueUI from '@mbvue/ui';
+import '@mbvue/ui/index.less'; //或者 import '@mbvue/ui/index.css';
 
 Vue.config.productionTip = false;
 App.mpType = 'app';
-Vue.use(MBUI);
+Vue.use(MBVueUI);
 
 new Vue({ ...App }).$mount();
 ```
@@ -66,7 +66,7 @@ app.mount('#app');
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <link rel="stylesheet" href="https://www.npmjs.com/package/@mbvue/ui/index.css">
+        <link rel="stylesheet" href="https://www.npmjs.com/package/@mbvue/ui/index.min.css">
     </head>
     <body>
         <div id="app">
@@ -117,7 +117,7 @@ import { createApp } from 'vue';
 import App from '@/App.vue';
 import Icon from '@mbvue/ui/lib/icon';
 import '@mbvue/ui/base.less'; //或者 import '@mbvue/ui/base.css';（基础标签，可不导入）
-import 'mb-ui/components/icon/style'; // 或者 mb-ui/components/icon/style/css 加载 css 文件
+import '@mbvue/ui/lib/icon/style'; // 或者 @mbvue/ui/lib/icon/style/css 加载 css 文件
 
 const app = createApp(App);
 app.component(Icon.name, Icon);

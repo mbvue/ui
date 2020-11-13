@@ -1,4 +1,5 @@
 const path = require('path');
+const baseUrl = '/ui/';
 
 module.exports = {
     entry: './docs/index.js',
@@ -15,13 +16,13 @@ module.exports = {
     },
 
     output: {
-        publicPath: '/ui/'
+        publicPath: baseUrl
     },
 
     devServer: {
         historyApiFallback: {
-            rewrites: [{ from: /./, to: '/ui/index.html' }]
+            rewrites: [{ from: /./, to: baseUrl + 'index.html' }]
         },
-        publicPath: '/ui/'
+        publicPath: baseUrl
     }
 };

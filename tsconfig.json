@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "ESNEXT",
+        "module": "ESNext",
+        "jsx": "preserve",
+        "removeComments": true,
+        "strict": true,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["dist", "docs", "node_modules", "npm"]
+}
