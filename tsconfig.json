@@ -8,7 +8,8 @@
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "suppressImplicitAnyIndexErrors": true
     },
     "include": ["src/**/*"],
     "exclude": ["dist", "docs", "node_modules", "npm"]

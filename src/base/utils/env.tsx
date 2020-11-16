@@ -1,14 +1,18 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-let vue = require('vue');
-vue = vue.default || vue;
-
 declare const uni: any;
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const vueObj = require('vue');
 const regAgent = /micromessenger/i;
 
-//判断vue版本
+//获取Vue对象
+export function vue() {
+    return vueObj.default || vueObj;
+}
+
+//获取 Vue 大版本号（没有 vue：0，2 版本：2，3 版本：3）
 export function versions() {
-    if (vue && vue.version) {
-        return vue.version.slice(0, 1) === '2' ? 2 : 3;
+    if (vue() && vue().version) {
+        return vue().version.slice(0, 1) === '2' ? 2 : 3;
     }
 
     return 0;
@@ -29,6 +33,7 @@ export function wechat() {
 }
 
 export default {
+    vue,
     versions,
     uniApp,
     wechat
