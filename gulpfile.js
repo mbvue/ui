@@ -131,7 +131,8 @@ const buildPack = done => {
                     commonjs2: 'vue',
                     commonjs: 'vue',
                     amd: 'vue'
-                }
+                },
+                axios: 'axios'
             },
             devtool: 'source-map',
             output: {

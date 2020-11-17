@@ -6,7 +6,7 @@ const regAgent = /micromessenger/i;
 
 //获取Vue对象
 export function vue() {
-    return vueObj.default || vueObj;
+    return vueObj ? vueObj.default || vueObj : null;
 }
 
 //获取 Vue 大版本号（没有 vue：0，2 版本：2，3 版本：3）

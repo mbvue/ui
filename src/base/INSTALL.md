@@ -39,6 +39,7 @@ import '@mbvue/ui/index.less'; //或者 import '@mbvue/ui/index.css';
 
 Vue.config.productionTip = false;
 App.mpType = 'app';
+
 Vue.use(MBVueUI);
 
 new Vue({ ...App }).$mount();
