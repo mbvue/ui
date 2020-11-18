@@ -2,10 +2,11 @@ import { default as Base } from './base/index';
 import { default as Ajax } from './base/ajax/index';
 import { default as Route } from './base/route/index';
 import { default as Locale } from './locale/index';
+import { default as Image } from './image/index';
 import { default as Icon } from './icon/index';
 
 const version = Base.env.versions();
-const components = [Icon];
+const components = [Image, Icon];
 
 const install = (app: any, options = <any>{ locale: 'zh_cn', langs: {} }) => {
     //定制语言
@@ -34,5 +35,5 @@ const install = (app: any, options = <any>{ locale: 'zh_cn', langs: {} }) => {
     return app;
 };
 
-export { install, Locale, Icon };
+export { install, Locale, Image, Icon };
 export default { install };

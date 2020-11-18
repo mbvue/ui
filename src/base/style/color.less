@@ -3,11 +3,13 @@
 
     .text-@{name} {
         @value: ~'color-@{name}';
+
         color: @@value;
     }
 
     .text-@{name}-light {
         @value: ~'color-@{name}-light';
+
         color: @@value;
     }
 
@@ -19,12 +21,14 @@
 
     .bg-@{name} {
         @value: ~'color-@{name}';
+
         color: #fff;
         background-color: @@value;
     }
 
     .bg-@{name}-light {
         @value: ~'color-@{name}-light';
+
         color: #fff;
         background-color: @@value;
     }
@@ -32,6 +36,7 @@
     .bg-@{name}-lighter {
         @color: ~'color-@{name}';
         @value: ~'color-@{name}-lighter';
+
         color: @@color;
         background-color: @@value;
     }

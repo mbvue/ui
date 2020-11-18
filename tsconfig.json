@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "baseUrl": ".",
         "target": "ESNEXT",
         "module": "ESNext",
         "jsx": "preserve",
@@ -11,6 +12,6 @@
         "forceConsistentCasingInFileNames": true,
         "suppressImplicitAnyIndexErrors": true
     },
-    "include": ["src/**/*"],
+    "include": ["src/**/*", "typings"],
     "exclude": ["dist", "docs", "node_modules", "npm"]
 }

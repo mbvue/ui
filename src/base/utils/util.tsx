@@ -222,7 +222,7 @@ export function getDistance(startX: number, startY: number, endX: number, endY: 
 export function transUrl(url = '', data = {}) {
     url = url || '';
 
-    const arr = [];
+    const arr: any = [];
     for (const param in data) {
         arr.push(encodeURIComponent(param) + '=' + encodeURIComponent(data[param]));
     }

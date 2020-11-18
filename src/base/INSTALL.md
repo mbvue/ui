@@ -60,6 +60,8 @@ app.mount('#app');
 
 ## 2、 浏览器引入
 
+仅支持 Vue3 版本
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -75,7 +77,13 @@ app.mount('#app');
         <div>
     </body>
     <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://www.npmjs.com/package/@mbvue/ui/index.min.js"></script>
+    <script>
+      const app = Vue.createApp({});
+      app.use(MBVueUI, { axios });
+      app.mount('#app');
+    </script>
 </html>
 ```
 
@@ -174,7 +182,7 @@ app.mount('#app');
 ```json
 {
     "easycom": {
-        "^mb-(.*)": "@mbvue/ui/lib/$1/$1.js"
+        "^mb-(.*)": "@mbvue/ui/lib/$1/index.js"
     }
 }
 ```

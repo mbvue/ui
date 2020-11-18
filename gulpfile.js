@@ -11,6 +11,7 @@ const path = require('path'),
     { readFileSync } = require('fs'),
     tsConfig = require('./tsconfig.json'),
     autoprefixer = require('autoprefixer'),
+    { VueLoaderPlugin } = require('vue-loader'),
     TerserPlugin = require('terser-webpack-plugin'),
     babelConfig = require('@mbvue/babel-preset-config'),
     browserslist = require('@mbvue/browserslist-config'),
@@ -70,6 +71,9 @@ const build = modules => {
             )
         );
 
+    //构建vue文件（兼容Vue2和Vue3，弃用ts编写组件）
+    const vue = gulp.src(['src/**/*.vue']).pipe(gulp.dest(modules === false ? es : lib));
+
     const _babel = babelConfig({ env: { modules: modules, targets: { browsers: browserslist } }, runtime: { helpers: false } });
     _babel.babelrc = false;
 
@@ -104,7 +108,7 @@ const build = modules => {
     //构建.d.ts
     const dts = tsData.dts.pipe(gulp.dest(modules === false ? es : lib));
 
-    return merge2([less, js, dts]);
+    return merge2([less, vue, js, dts]);
 };
 
 //构建压缩文件
@@ -116,11 +120,11 @@ const buildPack = done => {
         {
             mode: 'production',
             entry: {
-                index: [path.resolve('./src/index.ts'), path.resolve('./src/index.less')]
+                index: [path.resolve('./src/index.less'), path.resolve('./src/index.ts')]
             },
             resolve: {
                 modules: [path.join(__dirname, './node_modules')],
-                extensions: ['.less', '.js', '.jsx', '.ts', '.tsx', '.json'],
+                extensions: ['.less', '.js', '.jsx', '.ts', '.tsx', '.vue', '.json'],
                 alias: {
                     '@': process.cwd()
                 }
@@ -144,8 +148,13 @@ const buildPack = done => {
             optimization: {
                 minimizer: [new TerserPlugin({ sourceMap: true })]
             },
+            performance: {
+                maxEntrypointSize: 10000000,
+                maxAssetSize: 30000000
+            },
             module: {
                 rules: [
+                    { test: /\.vue$/, loader: 'vue-loader' },
                     {
                         test: /\.(js|jsx)$/,
                         exclude: /node_modules/,
@@ -170,6 +179,7 @@ const buildPack = done => {
                 ]
             },
             plugins: [
+                new VueLoaderPlugin(),
                 new webpack.LoaderOptionsPlugin({ minimize: true }),
                 new MiniCssExtractPlugin({ filename: '[name].min.css' }),
                 new OptimizeCssAssetsWebpackPlugin(),
@@ -229,7 +239,7 @@ const buildPack = done => {
 gulp.task(
     'build',
     gulp.series(
-        //构建压缩文件
+        //构建Vue3压缩文件
         done => {
             buildPack(done);
         },

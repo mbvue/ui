@@ -15,7 +15,9 @@ const langs = {
         tool: '实用工具',
         route: '路由跳转',
         ajax: '网络请求',
-        components: '应用组件'
+        components: '应用组件',
+        image: 'Image 图片',
+        icon: 'Icon 图标'
     },
     'en-US': {
         index: 'Home'
@@ -47,6 +49,17 @@ export default [
     },
     {
         title: langs[lang].components,
-        children: []
+        children: [
+            {
+                title: langs[lang].image,
+                path: 'image',
+                component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.image'*/ `@mbvue/ui/image/README${suffix}.md`))
+            },
+            {
+                title: langs[lang].icon,
+                path: 'icon',
+                component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.icon'*/ `@mbvue/ui/icon/README${suffix}.md`))
+            }
+        ]
     }
 ];
