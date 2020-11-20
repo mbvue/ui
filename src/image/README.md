@@ -181,7 +181,7 @@
 <div>
     <mb-image src="https://dss3.baidu.com/error" :width="100" :height="100">
 		<template v-slot:loading>
-			<mb-icon type="sync" :size="48" :spin="true"></mb-icon>
+			<mb-icon type="spinner" :size="48" :spin="true"></mb-icon>
 		</template>
 	</mb-image>
 </div>
@@ -194,7 +194,7 @@
 <div>
     <mb-image src="https://dss3.baidu.com/error" :width="100" :height="100">
 		<template v-slot:error>
-			<mb-icon type="skiing" :size="48"></mb-icon>
+			<mb-icon type="times" :size="48"></mb-icon>
 		</template>
 	</mb-image>
 </div>

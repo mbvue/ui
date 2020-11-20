@@ -15,7 +15,7 @@ const langs = {
         tool: '实用工具',
         route: '路由跳转',
         ajax: '网络请求',
-        components: '应用组件',
+        components: '基础组件',
         image: 'Image 图片',
         icon: 'Icon 图标'
     },

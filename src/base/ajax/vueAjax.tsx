@@ -41,7 +41,7 @@ const ajax = {
 };
 
 export default (config: any = {}, axios: any) => {
-    if (!axios) throw 'Please install Axios first';
+    if (!axios) return {};
     axios = axios.default || axios;
 
     instance = axios.create(

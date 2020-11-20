@@ -24,7 +24,7 @@ export default {
                 return {};
             }
         }, //图标样式
-        size: { type: [String, Number], default: 16 }, //图标尺寸
+        size: { type: [String, Number], default: 16 }, //图标尺寸，单位 px
         color: { type: String, default: '' }, //图标颜色
         custom: { type: String, default: '' }, //自定义字体库
         spin: { type: Boolean, default: false }, //图标是否有旋转动画
