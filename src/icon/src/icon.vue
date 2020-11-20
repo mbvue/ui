@@ -1,20 +1,20 @@
 <template>
     <div class="mb-icon">
-        <mb-image v-if="isImage" :src="type" :width="size" :height="size" :style="[buildStyle]" mode="aspectFit" loading-icon="none" error-icon="none" :fade="false"></mb-image>
+        <div v-if="isImage" :style="[buildStyle]">
+            <image v-if="env" :src="type" mode="aspectFit"></image>
+            <img v-else :src="type" style="width: 100%; height: auto" />
+        </div>
+
         <div v-else :class="[buildClass]" :style="[buildStyle]"></div>
     </div>
 </template>
 
 <script>
+import { uniApp } from '../../base/utils/env';
 import { unit } from '../../base/utils/util';
-import Image from '../../image/src/image.vue';
 
 export default {
     name: 'MbIcon',
-
-    components: {
-        'mb-image': Image
-    },
 
     props: {
         type: { type: String, default: '' }, //图标类型
@@ -30,6 +30,12 @@ export default {
         spin: { type: Boolean, default: false }, //图标是否有旋转动画
         duration: { type: [String, Number], default: 1000 }, //旋转动画间隔时间，单位ms
         rotate: { type: [String, Number], default: 0 } //图标旋转角度
+    },
+
+    data() {
+        return {
+            env: uniApp()
+        };
     },
 
     computed: {
@@ -48,7 +54,14 @@ export default {
             let style = Object.assign({}, this.css);
 
             if (this.color !== '') style.color = this.color;
-            if (!this.isImage) style.fontSize = unit(this.size);
+            if (this.isImage) {
+                style.display = 'flex';
+                style.alignItems = 'center';
+                style.width = unit(this.size);
+                style.height = unit(this.size);
+            } else {
+                style.fontSize = unit(this.size);
+            }
             if (this.spin) style.animation = `mb-icon-rotate ${unit(this.duration, 'ms')} linear infinite`;
             if (this.rotate !== 0) style.transform = `rotate(${unit(this.rotate, 'deg')})`;
 

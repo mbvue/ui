@@ -1,0 +1,307 @@
+@import '../../base/style/theme.less';
+
+.@{prefix}-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: unit(round(@font-size * 0.7), px) unit(round(@font-size * 1.4), px);
+    overflow: hidden;
+    font-size: unit(@font-size, px);
+    line-height: 1;
+    text-transform: none;
+    cursor: pointer;
+    background-color: #fff;
+    border: @border-width solid @color-border;
+    border-radius: 0;
+    outline: none;
+    transition: 0.1s;
+    -webkit-appearance: button;
+
+    &::after {
+        display: none;
+    }
+
+    .@{prefix}-button-hover-bg {
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        bottom: -1px;
+        left: -1px;
+        display: none;
+        pointer-events: none;
+        background: rgba(255, 255, 255, 0.5);
+        transform: scale(0, 1);
+    }
+
+    &.button-hover {
+        .@{prefix}-button-hover-bg {
+            display: block;
+            animation: buttonhover 0.5s linear;
+        }
+    }
+
+    &.@{prefix}-button-default {
+        &.@{prefix}-button-disabled {
+            color: mix(#fff, @color, 60%);
+            border-color: mix(#fff, @color-border, 30%);
+        }
+
+        &.@{prefix}-button-dashed {
+            border-style: dashed;
+
+            &:hover {
+                background-color: mix(#fff, @color-border, 50%);
+            }
+
+            &.@{prefix}-button-disabled {
+                background-color: #fff;
+            }
+        }
+
+        &.@{prefix}-button-ghost {
+            background-color: transparent;
+
+            .@{prefix}-button-hover-bg {
+                background: @color-border;
+            }
+
+            &:hover {
+                color: mix(#fff, @color, 30%);
+                border-color: mix(#fff, @color-border, 30%);
+            }
+
+            &.@{prefix}-button-disabled {
+                color: mix(#fff, @color, 60%);
+                border-color: mix(#fff, @color-border, 30%);
+            }
+        }
+
+        &.@{prefix}-button-plain {
+            &:hover {
+                color: @color-primary;
+                border-color: @color-primary;
+            }
+
+            &.@{prefix}-button-disabled {
+                color: mix(#fff, @color, 60%);
+                border-color: mix(#fff, @color-border, 30%);
+            }
+        }
+
+        &.@{prefix}-button-link {
+            background-color: transparent;
+            border-color: transparent;
+
+            &:hover {
+                color: mix(#fff, @color, 20%);
+            }
+
+            &.@{prefix}-button-disabled {
+                color: mix(#fff, @color, 60%);
+            }
+        }
+    }
+
+    .buttontype();
+
+    &.@{prefix}-button-xs {
+        padding: unit(round(@font-size * 0.5), px) unit(round(@font-size * 0.9), px);
+        font-size: unit(round(@font-size * 0.7), px);
+    }
+
+    &.@{prefix}-button-sm {
+        padding: unit(round(@font-size * 0.6), px) unit(round(@font-size * 1), px);
+        font-size: unit(round(@font-size * 0.85), px);
+    }
+
+    &.@{prefix}-button-md {
+        padding: unit(round(@font-size * 0.7), px) unit(round(@font-size * 1.4), px);
+    }
+
+    &.@{prefix}-button-lg {
+        padding: unit(round(@font-size * 0.85), px) unit(round(@font-size * 1.4), px);
+    }
+
+    &.@{prefix}-button-xl {
+        padding: unit(round(@font-size * 0.9), px) unit(round(@font-size * 1.6), px);
+    }
+
+    &.@{prefix}-button-circle {
+        border-radius: 50%;
+
+        .@{prefix}-button-hover-bg {
+            border-radius: 50%;
+            transform: scale(0, 0);
+        }
+
+        &.@{prefix}-button-xs {
+            padding: unit(round(@font-size * 0.5), px);
+        }
+
+        &.@{prefix}-button-sm {
+            padding: unit(round(@font-size * 0.6), px);
+        }
+
+        &.@{prefix}-button-md {
+            padding: unit(round(@font-size * 0.7), px);
+        }
+
+        &.@{prefix}-button-lg {
+            padding: unit(round(@font-size * 0.85), px);
+        }
+
+        &.@{prefix}-button-xl {
+            padding: unit(round(@font-size * 0.9), px);
+        }
+    }
+
+    &.@{prefix}-button-round {
+        border-radius: unit(round(@font-size * 3), px);
+
+        .@{prefix}-button-hover-bg {
+            border-radius: unit(round(@font-size * 3), px);
+        }
+    }
+
+    &.@{prefix}-button-pill {
+        border-radius: unit(round(@font-size * 0.3), px);
+
+        .@{prefix}-button-hover-bg {
+            border-radius: unit(round(@font-size * 0.3), px);
+        }
+
+        &.@{prefix}-button-xs {
+            border-radius: unit(round(@font-size * 0.2), px);
+        }
+
+        &.@{prefix}-button-sm {
+            border-radius: unit(round(@font-size * 0.2), px);
+        }
+
+        &.@{prefix}-button-xl {
+            font-size: unit(round(@font-size * 1.15), px);
+        }
+    }
+
+    &.@{prefix}-button-square {
+        border-radius: 0;
+    }
+
+    &.@{prefix}-button-block {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .@{prefix}-button-span {
+        display: flex;
+        align-items: center;
+    }
+
+    .mb-icon-icons {
+        font-size: inherit !important;
+    }
+}
+
+@keyframes buttonhover {
+    100% {
+        opacity: 0;
+        transform: scale(2.5);
+    }
+}
+
+.buttontype(@i:length(@style)) when(@i > 0) {
+    @name: extract(@style, @i);
+
+    &.@{prefix}-button-@{name} {
+        @value: ~'color-@{name}';
+        @light: ~'color-@{name}-light';
+        @lighter: ~'color-@{name}-lighter';
+
+        color: #fff;
+        background-color: @@value;
+        border-color: @@value;
+
+        &:hover {
+            background-color: mix(#fff, @@value, 20%);
+            border-color: mix(#fff, @@value, 20%);
+        }
+
+        &.@{prefix}-button-disabled {
+            background-color: @@light;
+            border-color: @@light;
+        }
+
+        &.@{prefix}-button-dashed {
+            color: @@value;
+            background-color: @@lighter;
+            border-style: dashed;
+
+            .@{prefix}-button-hover-bg {
+                background: @@light;
+            }
+
+            &:hover {
+                background-color: mix(#fff, @@lighter, 80%);
+                border-color: mix(#fff, @@value, 30%);
+            }
+
+            &.@{prefix}-button-disabled {
+                color: mix(#fff, @@value, 60%);
+                background-color: mix(#fff, @@lighter, 90%);
+                border-color: mix(#fff, @@value, 60%);
+            }
+        }
+
+        &.@{prefix}-button-ghost {
+            color: @@value;
+            background-color: transparent;
+
+            .@{prefix}-button-hover-bg {
+                background: @@light;
+            }
+
+            &:hover {
+                color: mix(#fff, @@value, 30%);
+                border-color: mix(#fff, @@value, 30%);
+            }
+
+            &.@{prefix}-button-disabled {
+                color: mix(#fff, @@value, 60%);
+                border-color: mix(#fff, @@value, 60%);
+            }
+        }
+
+        &.@{prefix}-button-plain {
+            color: @@value;
+            background-color: @@lighter;
+            border-color: @@value;
+
+            &:hover {
+                color: #fff;
+                background-color: @@value;
+            }
+
+            &.@{prefix}-button-disabled {
+                color: mix(#fff, @@value, 60%);
+                background-color: @@lighter;
+                border-color: @@light;
+            }
+        }
+
+        &.@{prefix}-button-link {
+            color: @@value;
+            background-color: transparent;
+            border-color: transparent;
+
+            &:hover {
+                color: mix(#fff, @@value, 20%);
+            }
+
+            &.@{prefix}-button-disabled {
+                color: mix(#fff, @@value, 60%);
+            }
+        }
+    }
+
+    .buttontype(@i - 1);
+}

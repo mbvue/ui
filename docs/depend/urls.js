@@ -17,7 +17,8 @@ const langs = {
         ajax: '网络请求',
         components: '基础组件',
         image: 'Image 图片',
-        icon: 'Icon 图标'
+        icon: 'Icon 图标',
+        button: 'Button 按钮'
     },
     'en-US': {
         index: 'Home'
@@ -59,6 +60,11 @@ export default [
                 title: langs[lang].icon,
                 path: 'icon',
                 component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.icon'*/ `@mbvue/ui/icon/README${suffix}.md`))
+            },
+            {
+                title: langs[lang].button,
+                path: 'button',
+                component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.button'*/ `@mbvue/ui/button/README${suffix}.md`))
             }
         ]
     }

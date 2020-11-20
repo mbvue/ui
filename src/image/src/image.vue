@@ -28,15 +28,14 @@
 </template>
 
 <script>
-import { uniApp } from '../../base/utils/env';
+import { vue, versions, uniApp } from '../../base/utils/env';
 import { unit } from '../../base/utils/util';
-import Icon from '../../icon/src/icon.vue';
 
 export default {
     name: 'MbImage',
 
     components: {
-        'mb-icon': Icon
+        'mb-icon': versions() === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
     },
 
     props: {
@@ -172,6 +171,7 @@ export default {
                 }
             }
 
+            this.$forceUpdate();
             this.loading = false;
             this.$emit('load');
         },

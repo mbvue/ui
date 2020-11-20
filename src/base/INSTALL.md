@@ -182,7 +182,7 @@ app.mount('#app');
 ```json
 {
     "easycom": {
-        "^mb-(.*)": "@mbvue/ui/lib/$1/index.js"
+        "^mb-(.*)": "@mbvue/ui/lib/$1/src/$1.vue"
     }
 }
 ```
