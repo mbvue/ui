@@ -101,4 +101,44 @@
             border-radius: 0;
         }
     }
+
+    mb-button {
+        &:first-child:not(:last-child) {
+            .@{prefix}-button {
+                border-right-width: 0;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }
+
+        &:last-child:not(:first-child) {
+            .@{prefix}-button {
+                border-left-width: 0;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+
+                &:nth-child(2) {
+                    border-left-width: 1px;
+                }
+            }
+        }
+
+        & + mb-button {
+            .@{prefix}-button {
+                border-left-width: 0;
+            }
+        }
+
+        &:nth-child(2) {
+            .@{prefix}-button {
+                border-left-width: 1px;
+            }
+        }
+
+        &:not(:first-child):not(:last-child) {
+            .@{prefix}-button {
+                border-radius: 0;
+            }
+        }
+    }
 }

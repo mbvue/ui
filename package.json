@@ -1,6 +1,6 @@
 {
     "name": "@mbvue/ui",
-    "version": "0.0.12",
+    "version": "0.0.13",
     "description": "mbvue ui",
     "main": "lib/index.js",
     "module": "es/index.js",
@@ -83,7 +83,15 @@
     "stylelint": {
         "extends": "@mbvue/stylelint-config",
         "rules": {
-            "font-family-no-missing-generic-family-keyword": null
+            "font-family-no-missing-generic-family-keyword": null,
+            "selector-type-no-unknown": [
+                true,
+                {
+                    "ignoreTypes": [
+                        "/^mb-/"
+                    ]
+                }
+            ]
         }
     },
     "prettier": "@mbvue/prettier-config",
