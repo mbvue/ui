@@ -1,0 +1,40 @@
+@import '../../base/style/theme.less';
+
+.@{prefix}-sider {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    transition: all 0.2s;
+
+    .@{prefix}-sider-content {
+        position: relative;
+        flex: 1;
+    }
+
+    .@{prefix}-sider-trigger {
+        padding: unit(round(@font-size * 0.7), px);
+        text-align: center;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .@{prefix}-menu-item-span {
+        span {
+            height: 100%;
+            overflow: hidden;
+        }
+    }
+
+    &.@{prefix}-sider-collapsed {
+        .@{prefix}-menu-item-span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            span {
+                display: none;
+            }
+        }
+    }
+}

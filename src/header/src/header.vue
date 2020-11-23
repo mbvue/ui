@@ -1,5 +1,5 @@
 <template>
-    <div :class="['mb-layout-header']" :style="[divStyle]">
+    <div :class="['mb-header']" :style="[divStyle]">
         <slot></slot>
     </div>
 </template>
@@ -8,7 +8,7 @@
 import { unit } from '../../base/utils/util';
 
 export default {
-    name: 'MbLayoutHeader',
+    name: 'MbHeader',
 
     props: {
         height: { type: [String, Number], default: '' } //高度

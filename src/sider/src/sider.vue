@@ -1,8 +1,8 @@
 <template>
-    <div :class="['mb-layout-sider', newCollapsed ? 'mb-layout-sider-collapsed' : '']" :style="[divStyle]">
-        <div class="mb-layout-sider-content"><slot></slot></div>
+    <div :class="['mb-sider', newCollapsed ? 'mb-sider-collapsed' : '']" :style="[divStyle]">
+        <div class="mb-sider-content"><slot></slot></div>
 
-        <div v-if="trigger" class="mb-layout-sider-trigger" @click="collapsedClick">
+        <div v-if="trigger" class="mb-sider-trigger" @click="collapsedClick">
             <mb-icon :type="newCollapsed ? triggerCollapsedIcon : triggerIcon" :size="triggerIconSize" />
         </div>
     </div>
@@ -15,7 +15,7 @@ import { unit } from '../../base/utils/util';
 const dimensionMaxMap = { xs: '479.98px', sm: '575.98px', md: '767.98px', lg: '991.98px', xl: '1199.98px', xxl: '1599.98px' };
 
 export default {
-    name: 'MbLayoutSider',
+    name: 'MbSider',
 
     components: {
         'mb-icon': versions() === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
@@ -55,7 +55,7 @@ export default {
 
     mounted() {
         if (this.$el && this.$el.parentNode) {
-            if (this.$el.parentNode.className.indexOf('mb-layout-has-sider') < 0) this.$el.parentNode.className = this.$el.parentNode.className.concat(' mb-layout-has-sider');
+            if (this.$el.parentNode.className.indexOf('mb-layout-sider') < 0) this.$el.parentNode.className = this.$el.parentNode.className.concat(' mb-layout-sider');
         }
 
         //断点响应

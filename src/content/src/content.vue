@@ -1,11 +1,11 @@
 <template>
-    <div :class="['mb-layout-footer']">
+    <div :class="['mb-content']">
         <slot></slot>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'MbLayoutFooter'
+    name: 'MbContent'
 };
 </script>

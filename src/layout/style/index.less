@@ -7,65 +7,7 @@
     flex-direction: column;
     background: @color-info-lighter;
 
-    &.@{prefix}-layout-has-sider {
+    &.@{prefix}-layout-sider {
         flex-direction: row;
-    }
-
-    .@{prefix}-layout-header {
-        position: relative;
-        display: flex;
-        align-items: center;
-        height: unit(round(@font-size * 3), px);
-        padding: 0 unit(@font-size, px);
-    }
-
-    .@{prefix}-layout-content {
-        position: relative;
-        flex: auto;
-        min-height: 0;
-    }
-
-    .@{prefix}-layout-footer {
-        flex: 0 0 auto;
-        padding: unit(round(@font-size * 0.7), px) unit(@font-size, px);
-    }
-
-    .@{prefix}-layout-sider {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        min-width: 0;
-        transition: all 0.2s;
-
-        .@{prefix}-layout-sider-content {
-            position: relative;
-            flex: 1;
-        }
-
-        .@{prefix}-layout-sider-trigger {
-            padding: unit(round(@font-size * 0.7), px);
-            text-align: center;
-            cursor: pointer;
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .@{prefix}-menu-item-span {
-            span {
-                height: 100%;
-                overflow: hidden;
-            }
-        }
-
-        &.@{prefix}-layout-sider-collapsed {
-            .@{prefix}-menu-item-span {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                span {
-                    display: none;
-                }
-            }
-        }
     }
 }

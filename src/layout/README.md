@@ -17,9 +17,9 @@ Footer：底部布局，自带默认样式，其下可嵌套任何元素，只�
 
 <div>
     <mb-layout>
-        <mb-layout-header style="background: #7dbcea; color: #fff;">Header</mb-layout-header>
-        <mb-layout-content style="height: 50px; background: #108ee9; color: #fff;">Content</mb-layout-content>
-        <mb-layout-footer style="background: #7dbcea; color: #fff;">Footer</mb-layout-footer>
+        <mb-header style="background: #7dbcea; color: #fff;">Header</mb-header>
+        <mb-content style="height: 50px; background: #108ee9; color: #fff;">Content</mb-content>
+        <mb-footer style="background: #7dbcea; color: #fff;">Footer</mb-footer>
     </mb-layout>
 </div>
 :::
@@ -30,12 +30,12 @@ Footer：底部布局，自带默认样式，其下可嵌套任何元素，只�
 
 <div>
     <mb-layout>
-        <mb-layout-header style="background: #7dbcea; color: #fff;">Header</mb-layout-header>
+        <mb-header style="background: #7dbcea; color: #fff;">Header</mb-header>
         <mb-layout>
-            <mb-layout-sider style="height: 50px; background: #3ba0e9; color: #fff;">Sider</mb-layout-sider>
-            <mb-layout-content style="background: #108ee9; color: #fff;">Content</mb-layout-content>
+            <mb-sider style="height: 50px; background: #3ba0e9; color: #fff;">Sider</mb-sider>
+            <mb-content style="background: #108ee9; color: #fff;">Content</mb-content>
         </mb-layout>
-        <mb-layout-footer style="background: #7dbcea; color: #fff;">Footer</mb-layout-footer>
+        <mb-footer style="background: #7dbcea; color: #fff;">Footer</mb-footer>
     </mb-layout>
 </div>
 :::
@@ -46,11 +46,11 @@ Footer：底部布局，自带默认样式，其下可嵌套任何元素，只�
 
 <div>
     <mb-layout>
-        <mb-layout-sider style="background: #3ba0e9; color: #fff;">Sider</mb-layout-sider>
+        <mb-sider style="background: #3ba0e9; color: #fff;">Sider</mb-sider>
         <mb-layout>
-            <mb-layout-header style="background: #7dbcea; color: #fff;">Header</mb-layout-header>
-            <mb-layout-content style="height: 50px; background: #108ee9; color: #fff;">Content</mb-layout-content>
-            <mb-layout-footer style="background: #7dbcea; color: #fff;">Footer</mb-layout-footer>
+            <mb-header style="background: #7dbcea; color: #fff;">Header</mb-header>
+            <mb-content style="height: 50px; background: #108ee9; color: #fff;">Content</mb-content>
+            <mb-footer style="background: #7dbcea; color: #fff;">Footer</mb-footer>
         </mb-layout>
     </mb-layout>
 </div>
@@ -62,17 +62,17 @@ Footer：底部布局，自带默认样式，其下可嵌套任何元素，只�
 
 <div>
     <mb-layout>
-        <mb-layout-header style="background: #7dbcea; color: #fff;">Header</mb-layout-header>
+        <mb-header style="background: #7dbcea; color: #fff;">Header</mb-header>
         <mb-layout>
-            <mb-layout-sider trigger style="background: #3ba0e9; color: #fff;">
+            <mb-sider trigger style="background: #3ba0e9; color: #fff;">
                 <ul>
                     <li class="mb-menu-item-span" style="height: 40px; line-height: 40px; overflow: hidden; padding: 0 10px; display: flex; align-items: center;"><mb-icon type="heart" :size="24"/><span>测试菜单一</span></li>
                     <li class="mb-menu-item-span" style="height: 40px; line-height: 40px; overflow: hidden; padding: 0 10px; display: flex; align-items: center;"><mb-icon type="hdd" :size="24"/><span>测试菜单二</span></li>
                     </ul>
-            </mb-layout-sider>
-            <mb-layout-content style="background: #108ee9; color: #fff;">Content</mb-layout-content>
+            </mb-sider>
+            <mb-content style="background: #108ee9; color: #fff;">Content</mb-content>
         </mb-layout>
-        <mb-layout-footer style="background: #7dbcea; color: #fff;">Footer</mb-layout-footer>
+        <mb-footer style="background: #7dbcea; color: #fff;">Footer</mb-footer>
     </mb-layout>
 </div>
 :::

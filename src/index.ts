@@ -7,11 +7,15 @@ import { default as Icon } from './icon/index';
 import { default as Button } from './button/index';
 import { default as ButtonGroup } from './button-group/index';
 import { default as Layout } from './layout/index';
+import { default as Content } from './content/index';
+import { default as Footer } from './footer/index';
+import { default as Header } from './header/index';
+import { default as Sider } from './sider/index';
 import { default as Row } from './row/index';
 import { default as Col } from './col/index';
 
 const version = Base.env.versions();
-const components = [Image, Icon, Button, ButtonGroup, Layout, Row, Col];
+const components = [Image, Icon, Button, ButtonGroup, Layout, Content, Footer, Header, Sider, Row, Col];
 
 const install = (app: any, options = <any>{ locale: 'zh_cn', langs: {} }) => {
     //定制语言
@@ -40,5 +44,5 @@ const install = (app: any, options = <any>{ locale: 'zh_cn', langs: {} }) => {
     return app;
 };
 
-export { install, Locale, Image, Icon, Button, ButtonGroup, Layout, Row, Col };
+export { install, Locale, Image, Icon, Button, ButtonGroup, Layout, Content, Footer, Header, Sider, Row, Col };
 export default { install };
