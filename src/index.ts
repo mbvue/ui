@@ -6,9 +6,12 @@ import { default as Image } from './image/index';
 import { default as Icon } from './icon/index';
 import { default as Button } from './button/index';
 import { default as ButtonGroup } from './button-group/index';
+import { default as Layout } from './layout/index';
+import { default as Row } from './row/index';
+import { default as Col } from './col/index';
 
 const version = Base.env.versions();
-const components = [Image, Icon, Button, ButtonGroup];
+const components = [Image, Icon, Button, ButtonGroup, Layout, Row, Col];
 
 const install = (app: any, options = <any>{ locale: 'zh_cn', langs: {} }) => {
     //定制语言
@@ -37,5 +40,5 @@ const install = (app: any, options = <any>{ locale: 'zh_cn', langs: {} }) => {
     return app;
 };
 
-export { install, Locale, Image, Icon, Button, ButtonGroup };
+export { install, Locale, Image, Icon, Button, ButtonGroup, Layout, Row, Col };
 export default { install };

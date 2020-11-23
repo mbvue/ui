@@ -16,15 +16,15 @@ $ yarn add axios
 
 | 名称            | 说明                                                                                                                   | 类型     | 可选值                                          | 默认值                                 |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------- | -------- | ----------------------------------------------- | -------------------------------------- |
-| baseURL         | 服务器接口前缀地址                                                                                                     | string   | -                                               | -                                      |
-| method          | 请求方法                                                                                                               | string   | GET、POST、DELETE、HEAD、OPTIONS、PUT           | GET                                    |
-| headers         | 设置请求的 header，header 中不能设置 Referer                                                                           | object   | -                                               | -                                      |
-| timeout         | 超时时间，单位 ms                                                                                                      | number   | -                                               | 60000                                  |
-| responseType    | 设置响应的数据类型。<br/>uni-app 的合法值：text、arraybuffer<br/>其他：arraybuffer、blob、document、json、text、stream | string   | arraybuffer、blob、document、json、text、stream | uni-app 默认：text<br/> 其他默认：json |
-| withCredentials | 跨域请求时是否需要使用凭证                                                                                             | boolean  | true、false                                     | false                                  |
-| request         | 请求拦截器， 参数为请求配置信息                                                                                        | function | -                                               | -                                      |
-| response        | 响应拦截器，参数为请求响应的 response.data                                                                             | function | -                                               | -                                      |
-| error           | 请求错误处理，参数为 response 完整数据                                                                                 | function | -                                               | -                                      |
+| baseURL         | 服务器接口前缀地址                                                                                                     | String   | -                                               | -                                      |
+| method          | 请求方法                                                                                                               | String   | GET、POST、DELETE、HEAD、OPTIONS、PUT           | GET                                    |
+| headers         | 设置请求的 header，header 中不能设置 Referer                                                                           | Object   | -                                               | -                                      |
+| timeout         | 超时时间，单位 ms                                                                                                      | Number   | -                                               | 60000                                  |
+| responseType    | 设置响应的数据类型。<br/>uni-app 的合法值：text、arraybuffer<br/>其他：arraybuffer、blob、document、json、text、stream | String   | arraybuffer、blob、document、json、text、stream | uni-app 默认：text<br/> 其他默认：json |
+| withCredentials | 跨域请求时是否需要使用凭证                                                                                             | Boolean  | true、false                                     | false                                  |
+| request         | 请求拦截器， 参数为请求配置信息                                                                                        | Function | -                                               | -                                      |
+| response        | 响应拦截器，参数为请求响应的 response.data                                                                             | Function | -                                               | -                                      |
+| error           | 请求错误处理，参数为 response 完整数据                                                                                 | Function | -                                               | -                                      |
 
 <br/>
 
@@ -36,10 +36,10 @@ axios 参考 [axios](http://www.axios-js.com/zh-cn/docs/) 配置
 
 | 参数       | 类型                      | 说明                                    |
 | ---------- | ------------------------- | --------------------------------------- |
-| data       | object/string/arraybuffer | 开发者服务器返回的数据                  |
-| status     | number                    | 开发者服务器返回的 HTTP 状态码          |
-| statusText | string                    | 开发者服务器返回的 HTTP 状态信息        |
-| headers    | object                    | 开发者服务器返回的 HTTP Response Header |
+| data       | Object/String/ArrayBuffer | 开发者服务器返回的数据                  |
+| status     | Number                    | 开发者服务器返回的 HTTP 状态码          |
+| statusText | String                    | 开发者服务器返回的 HTTP 状态信息        |
+| headers    | Object                    | 开发者服务器返回的 HTTP Response Header |
 
 ## 3、 如何使用
 

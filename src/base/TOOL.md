@@ -42,8 +42,8 @@ this.$m.util.unit('auto', 'px');
 
 | 名称  | 说明 | 类型           | 可选值 | 默认值 |
 | ----- | ---- | -------------- | ------ | ------ |
-| value | 值   | string、number | -      | auto   |
-| unit  | 单位 | string         | -      | px     |
+| value | 值   | String、Number | -      | auto   |
+| unit  | 单位 | String         | -      | px     |
 
 ### 2.2、 清除字符串空格
 
@@ -55,8 +55,8 @@ this.$m.util.trim('value', 'both');
 
 | 名称  | 说明 | 类型   | 可选值                                                              | 默认值 |
 | ----- | ---- | ------ | ------------------------------------------------------------------- | ------ |
-| value | 值   | string | -                                                                   | -      |
-| pos   | 位置 | string | both：前后空格<br/>left：左空格<br/>right：右空格<br/>all：所有空格 | both   |
+| value | 值   | String | -                                                                   | -      |
+| pos   | 位置 | String | both：前后空格<br/>left：左空格<br/>right：右空格<br/>all：所有空格 | both   |
 
 ### 2.3、 获取 URL 参数
 
@@ -68,7 +68,7 @@ this.$m.util.getParams('name');
 
 | 名称 | 说明 | 类型   | 可选值 | 默认值 |
 | ---- | ---- | ------ | ------ | ------ |
-| name | 键值 | string | -      | -      |
+| name | 键值 | String | -      | -      |
 
 ### 2.4、 生成随机数
 
@@ -80,8 +80,8 @@ this.$m.util.randomNumber(0, 10);
 
 | 名称 | 说明   | 类型   | 可选值 | 默认值 |
 | ---- | ------ | ------ | ------ | ------ |
-| min  | 最小值 | number | -      | -      |
-| max  | 最大值 | number | -      | -      |
+| min  | 最小值 | Number | -      | -      |
+| max  | 最大值 | Number | -      | -      |
 
 ### 2.5、 生成随机字符串
 
@@ -93,7 +93,7 @@ this.$m.util.randomString(20);
 
 | 名称   | 说明     | 类型   | 可选值 | 默认值 |
 | ------ | -------- | ------ | ------ | ------ |
-| length | 生成长度 | number | -      | 32     |
+| length | 生成长度 | Number | -      | 32     |
 
 ### 2.6、 生成 UUID
 
@@ -105,7 +105,7 @@ this.$m.util.guid(false);
 
 | 名称 | 说明         | 类型    | 可选值      | 默认值 |
 | ---- | ------------ | ------- | ----------- | ------ |
-| bar  | 是否带中横杠 | boolean | true、false | true   |
+| bar  | 是否带中横杠 | Boolean | true、false | true   |
 
 ### 2.7、 对象深度合并
 
@@ -117,8 +117,8 @@ this.$m.util.deepMerge({}, {});
 
 | 名称 | 说明           | 类型   | 可选值 | 默认值 |
 | ---- | -------------- | ------ | ------ | ------ |
-| obj1 | 目标对象       | object | -      | {}     |
-| obj2 | 需要合并的对象 | object | -      | {}     |
+| obj1 | 目标对象       | Object | -      | {}     |
+| obj2 | 需要合并的对象 | Object | -      | {}     |
 
 ### 2.8、 深度克隆对象
 
@@ -130,7 +130,7 @@ this.$m.util.deepClone({});
 
 | 名称 | 说明           | 类型   | 可选值 | 默认值 |
 | ---- | -------------- | ------ | ------ | ------ |
-| obj  | 需要克隆的对象 | object | -      | {}     |
+| obj  | 需要克隆的对象 | Object | -      | {}     |
 
 ### 2.9、 计算年龄
 
@@ -142,8 +142,8 @@ this.$m.util.getAge('1998-11-11', 'Y岁M月D天');
 
 | 名称     | 说明       | 类型   | 可选值 | 默认值         |
 | -------- | ---------- | ------ | ------ | -------------- |
-| birthday | 出生日期   | string | -      | -              |
-| format   | 格式化样式 | string | -      | Y 岁 M 月 D 天 |
+| birthday | 出生日期   | String | -      | -              |
+| format   | 格式化样式 | String | -      | Y 岁 M 月 D 天 |
 
 ### 2.10、 格式化时间
 
@@ -155,8 +155,8 @@ this.$m.util.dateFormat(new Date(), 'yyyy-mm-dd');
 
 | 名称   | 说明       | 类型         | 可选值 | 默认值     |
 | ------ | ---------- | ------------ | ------ | ---------- |
-| value  | 日期       | string、date | -      | -          |
-| format | 格式化样式 | string       | -      | yyyy-mm-dd |
+| value  | 日期       | String、date | -      | -          |
+| format | 格式化样式 | String       | -      | yyyy-mm-dd |
 
 ### 2.11、 转化显示时间
 
@@ -168,8 +168,8 @@ this.$m.util.transTime(new Date());
 
 | 名称  | 说明                                                                                                                                                                       | 类型         | 可选值 | 默认值                                                                                                 |
 | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------ | ------------------------------------------------------------------------------------------------------ |
-| value | 日期                                                                                                                                                                       | string、date | -      | -                                                                                                      |
-| opts  | 配置信息：<br/>just：小于 5 分钟显示<br/>minute：小于 1 小时显示<br/>hour：小于 24 小时显示<br/>day：小于 30 天显示<br/>month：小于 365 天显示<br/>format：超过 365 天显示 | object       | -      | { just: '刚刚', minute: '分钟前', hour: '小时前', day: '天前', month: '个月前, 'format: 'yyyy-mm-dd' } |
+| value | 日期                                                                                                                                                                       | String、Date | -      | -                                                                                                      |
+| opts  | 配置信息：<br/>just：小于 5 分钟显示<br/>minute：小于 1 小时显示<br/>hour：小于 24 小时显示<br/>day：小于 30 天显示<br/>month：小于 365 天显示<br/>format：超过 365 天显示 | Object       | -      | { just: '刚刚', minute: '分钟前', hour: '小时前', day: '天前', month: '个月前, 'format: 'yyyy-mm-dd' } |
 
 ### 2.12、 隐藏部分字符串
 
@@ -181,9 +181,9 @@ this.$m.util.hideString('15100000000', 3, 7);
 
 | 名称  | 说明     | 类型   | 可选值 | 默认值 |
 | ----- | -------- | ------ | ------ | ------ |
-| value | 字符串   | string | -      | -      |
-| start | 开始位置 | number | -      | 3      |
-| end   | 结束位置 | number | -      | 7      |
+| value | 字符串   | String | -      | -      |
+| start | 开始位置 | Number | -      | 3      |
+| end   | 结束位置 | Number | -      | 7      |
 
 ### 2.13、 计算两点距离
 
@@ -195,10 +195,10 @@ this.$m.util.getDistance(0, 0, 1, 1);
 
 | 名称   | 说明       | 类型   | 可选值 | 默认值 |
 | ------ | ---------- | ------ | ------ | ------ |
-| startX | 开始横坐标 | number | -      | -      |
-| startY | 开始纵坐标 | number | -      | -      |
-| endX   | 结束横坐标 | number | -      | -      |
-| endY   | 结束纵坐标 | number | -      | -      |
+| startX | 开始横坐标 | Number | -      | -      |
+| startY | 开始纵坐标 | Number | -      | -      |
+| endX   | 结束横坐标 | Number | -      | -      |
+| endY   | 结束纵坐标 | Number | -      | -      |
 
 <br/>
 
@@ -206,8 +206,8 @@ this.$m.util.getDistance(0, 0, 1, 1);
 
 | 名称        | 说明       | 类型   |
 | ----------- | ---------- | ------ |
-| distanceTxt | 距离字符串 | string |
-| distanceNum | 距离数字   | number |
+| distanceTxt | 距离字符串 | String |
+| distanceNum | 距离数字   | Number |
 
 ### 2.14、 构建 URL 参数
 
@@ -219,8 +219,8 @@ this.$m.util.transUrl('', {});
 
 | 名称 | 说明     | 类型   | 可选值 | 默认值 |
 | ---- | -------- | ------ | ------ | ------ |
-| url  | 前缀地址 | string | -      | -      |
-| data | 参数     | object | -      | -      |
+| url  | 前缀地址 | String | -      | -      |
+| data | 参数     | Object | -      | -      |
 
 ### 2.15、 节流防抖
 
@@ -238,9 +238,9 @@ this.$m.util.throttle(
 
 | 名称      | 说明                                     | 类型     | 可选值      | 默认值 |
 | --------- | ---------------------------------------- | -------- | ----------- | ------ |
-| fun       | 需要执行的方法                           | function | -           | -      |
-| wait      | 执行方法后相隔 wait 毫秒后才能再触发方法 | number   | -           | 500    |
-| immediate | 是否立即执行                             | boolean  | true、false | true   |
+| fun       | 需要执行的方法                           | Function | -           | -      |
+| wait      | 执行方法后相隔 wait 毫秒后才能再触发方法 | Number   | -           | 500    |
+| immediate | 是否立即执行                             | Boolean  | true、false | true   |
 
 ## 3、 匹配
 
