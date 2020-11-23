@@ -1,8 +1,7 @@
 <template>
     <div class="mb-icon">
         <div v-if="isImage" :style="[buildStyle]">
-            <image v-if="env" :src="type" mode="aspectFit"></image>
-            <img v-else :src="type" style="width: 100%; height: auto" />
+            <img :src="type" mode="aspectFit" style="width: 100%; height: auto" />
         </div>
 
         <div v-else :class="[buildClass]" :style="[buildStyle]"></div>
@@ -10,7 +9,6 @@
 </template>
 
 <script>
-import { uniApp } from '../../base/utils/env';
 import { unit } from '../../base/utils/util';
 
 export default {
@@ -30,12 +28,6 @@ export default {
         spin: { type: Boolean, default: false }, //图标是否有旋转动画
         duration: { type: [String, Number], default: 1000 }, //旋转动画间隔时间，单位ms
         rotate: { type: [String, Number], default: 0 } //图标旋转角度
-    },
-
-    data() {
-        return {
-            env: uniApp()
-        };
     },
 
     computed: {

@@ -1,0 +1,104 @@
+@import '../../base/style/theme.less';
+
+.@{prefix}-button-group {
+    display: inline-block;
+    vertical-align: middle;
+
+    &.@{prefix}-button-group-xs {
+        .@{prefix}-button {
+            padding: unit(round(@font-size * 0.5), px) unit(round(@font-size * 0.9), px);
+            font-size: unit(round(@font-size * 0.7), px);
+        }
+    }
+
+    &.@{prefix}-button-group-sm {
+        .@{prefix}-button {
+            padding: unit(round(@font-size * 0.6), px) unit(round(@font-size * 1), px);
+            font-size: unit(round(@font-size * 0.85), px);
+        }
+    }
+
+    &.@{prefix}-button-group-md {
+        .@{prefix}-button {
+            padding: unit(round(@font-size * 0.7), px) unit(round(@font-size * 1.4), px);
+        }
+    }
+
+    &.@{prefix}-button-group-lg {
+        .@{prefix}-button {
+            padding: unit(round(@font-size * 0.85), px) unit(round(@font-size * 1.4), px);
+        }
+    }
+
+    &.@{prefix}-button-group-xl {
+        .@{prefix}-button {
+            padding: unit(round(@font-size * 0.9), px) unit(round(@font-size * 1.6), px);
+        }
+    }
+
+    .@{prefix}-button {
+        &.@{prefix}-button-circle {
+            &.@{prefix}-button-xs {
+                padding: unit(round(@font-size * 0.5), px);
+            }
+
+            &.@{prefix}-button-sm {
+                padding: unit(round(@font-size * 0.6), px);
+            }
+
+            &.@{prefix}-button-md {
+                padding: unit(round(@font-size * 0.7), px);
+            }
+
+            &.@{prefix}-button-lg {
+                padding: unit(round(@font-size * 0.85), px);
+            }
+
+            &.@{prefix}-button-xl {
+                padding: unit(round(@font-size * 0.9), px);
+            }
+        }
+
+        &.@{prefix}-button-pill {
+            &.@{prefix}-button-xs {
+                border-radius: unit(round(@font-size * 0.2), px);
+            }
+
+            &.@{prefix}-button-sm {
+                border-radius: unit(round(@font-size * 0.2), px);
+            }
+
+            &.@{prefix}-button-xl {
+                font-size: unit(round(@font-size * 1.15), px);
+            }
+        }
+
+        &:first-child:not(:last-child) {
+            border-right-width: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &:last-child:not(:first-child) {
+            border-left-width: 0;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+
+            &:nth-child(2) {
+                border-left-width: 1px;
+            }
+        }
+
+        & + .@{prefix}-button {
+            border-left-width: 0;
+        }
+
+        &:nth-child(2) {
+            border-left-width: 1px;
+        }
+
+        &:not(:first-child):not(:last-child) {
+            border-radius: 0;
+        }
+    }
+}

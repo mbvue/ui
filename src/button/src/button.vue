@@ -39,12 +39,16 @@
 </template>
 
 <script>
-import { versions, uniApp } from '../../base/utils/env';
+import { vue, versions, uniApp } from '../../base/utils/env';
 import { isFunction } from '../../base/utils/test';
 import util from '../../base/utils/util';
 
 export default {
     name: 'MbButton',
+
+    components: {
+        'mb-icon': versions() === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
+    },
 
     props: {
         type: { type: String, default: 'default' }, //设置按钮类型，可选值为 primary success warning danger info dark default 或者不设
@@ -132,7 +136,7 @@ export default {
                         this.ajax().finally(() => {
                             setTimeout(() => {
                                 this.ajaxLoading = false;
-                            }, 200);
+                            }, 100);
                         });
                     }
                 },

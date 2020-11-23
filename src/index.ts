@@ -5,9 +5,10 @@ import { default as Locale } from './locale/index';
 import { default as Image } from './image/index';
 import { default as Icon } from './icon/index';
 import { default as Button } from './button/index';
+import { default as ButtonGroup } from './button-group/index';
 
 const version = Base.env.versions();
-const components = [Image, Icon, Button];
+const components = [Image, Icon, Button, ButtonGroup];
 
 const install = (app: any, options = <any>{ locale: 'zh_cn', langs: {} }) => {
     //定制语言
@@ -36,5 +37,5 @@ const install = (app: any, options = <any>{ locale: 'zh_cn', langs: {} }) => {
     return app;
 };
 
-export { install, Locale, Image, Icon, Button };
+export { install, Locale, Image, Icon, Button, ButtonGroup };
 export default { install };

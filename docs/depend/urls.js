@@ -18,7 +18,8 @@ const langs = {
         components: '基础组件',
         image: 'Image 图片',
         icon: 'Icon 图标',
-        button: 'Button 按钮'
+        button: 'Button 按钮',
+        buttongroup: 'ButtonGroup 按钮组'
     },
     'en-US': {
         index: 'Home'
@@ -65,6 +66,11 @@ export default [
                 title: langs[lang].button,
                 path: 'button',
                 component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.button'*/ `@mbvue/ui/button/README${suffix}.md`))
+            },
+            {
+                title: langs[lang].buttongroup,
+                path: 'buttongroup',
+                component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.button-group'*/ `@mbvue/ui/button-group/README${suffix}.md`))
             }
         ]
     }

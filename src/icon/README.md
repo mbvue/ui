@@ -16,7 +16,7 @@
 :::demo html
 
 <div>
-    <mb-icon type="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1"></mb-icon>
+    <mb-icon type="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg"></mb-icon>
 </div>
 :::
 

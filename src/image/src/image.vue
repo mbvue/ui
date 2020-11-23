@@ -1,19 +1,17 @@
 <template>
     <div class="mb-image" :style="[divStyle]">
-        <image
-            v-if="env"
-            v-show="!loading && !error"
+        <img
+            v-show="!loading && (!error || errorIcon === 'none')"
+            ref="img"
             :src="src"
             :mode="mode"
             :webp="webp"
             :lazy-load="lazyLoad"
             :show-menu-by-longpress="showMenuByLongpress"
-            :style="[{ width: '100%', height: '100%', animation: animation }]"
+            :style="[imgMode, { animation: animation }]"
             @load="imageLoad"
             @error="imgError"
-        ></image>
-
-        <img v-else v-show="!loading && (!error || errorIcon === 'none')" ref="img" :src="src" :style="[imgMode, { animation: animation }]" @load="imageLoad" @error="imgError" />
+        />
 
         <template v-if="loading">
             <slot v-if="$slots.loading" name="loading" :style="[{ animation: animation }]" />
@@ -56,7 +54,6 @@ export default {
 
     data() {
         return {
-            env: uniApp(),
             imgMode: {},
             loading: this.loadingIcon !== 'none' ? true : false,
             error: false
@@ -97,7 +94,7 @@ export default {
     methods: {
         //图片加载完成
         imageLoad() {
-            if (!this.env) {
+            if (!uniApp()) {
                 //构建图片模式
                 if (this.mode === 'scaleToFill') {
                     this.imgMode.width = '100%';
@@ -118,9 +115,11 @@ export default {
                     if (this.$refs.img.naturalWidth >= this.$refs.img.naturalHeight) {
                         this.imgMode.width = 'auto';
                         this.imgMode.height = '100%';
+                        this.imgMode.left = -((this.$refs.img.naturalWidth / this.$refs.img.naturalHeight) * 100 - 100) / 2 + '%';
                     } else {
                         this.imgMode.width = '100%';
                         this.imgMode.height = 'auto';
+                        this.imgMode.top = -((this.$refs.img.naturalHeight / this.$refs.img.naturalWidth) * 100 - 100) / 2 + '%';
                     }
                 } else if (this.mode === 'widthFix') {
                     this.imgMode.height = '100%';
@@ -169,9 +168,11 @@ export default {
                     this.imgMode.bottom = 0;
                     this.imgMode.right = 0;
                 }
+            } else {
+                this.imgMode.width = '100%';
+                this.imgMode.height = '100%';
             }
 
-            this.$forceUpdate();
             this.loading = false;
             this.$emit('load');
         },

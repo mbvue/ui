@@ -6,14 +6,14 @@
 
 #### 1.1.1、原图
 
-<img src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" />
+<img src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" />
 
 #### 1.1.2、scaleToFill 模式
 
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="200" :height="200" bg="#d8dbdd" mode="scaleToFill" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="scaleToFill" />
 </div>
 :::
 
@@ -22,7 +22,7 @@
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="200" :height="200" bg="#d8dbdd" mode="aspectFit" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="aspectFit" />
 </div>
 :::
 
@@ -31,7 +31,7 @@
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="200" :height="200" bg="#d8dbdd" mode="aspectFill" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="aspectFill" />
 </div>
 :::
 
@@ -40,7 +40,7 @@
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="200" :height="200" bg="#d8dbdd" mode="widthFix" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="widthFix" />
 </div>
 :::
 
@@ -49,7 +49,7 @@
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="200" :height="200" bg="#d8dbdd" mode="heightFix" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="heightFix" />
 </div>
 :::
 
@@ -58,7 +58,7 @@
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="200" :height="200" bg="#d8dbdd" mode="top" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="top" />
 </div>
 :::
 
@@ -67,7 +67,7 @@
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="200" :height="200" bg="#d8dbdd" mode="bottom" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="bottom" />
 </div>
 :::
 
@@ -76,7 +76,7 @@
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="200" :height="200" bg="#d8dbdd" mode="center" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="center" />
 </div>
 :::
 
@@ -85,7 +85,7 @@
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="200" :height="200" bg="#d8dbdd" mode="left" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="left" />
 </div>
 :::
 
@@ -94,7 +94,7 @@
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="200" :height="200" bg="#d8dbdd" mode="right" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="right" />
 </div>
 :::
 
@@ -103,7 +103,7 @@
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="200" :height="200" bg="#d8dbdd" mode="top left" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="top left" />
 </div>
 :::
 
@@ -112,7 +112,7 @@
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="200" :height="200" bg="#d8dbdd" mode="top right" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="top right" />
 </div>
 :::
 
@@ -121,7 +121,7 @@
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="200" :height="200" bg="#d8dbdd" mode="bottom left" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="bottom left" />
 </div>
 :::
 
@@ -130,7 +130,7 @@
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="200" :height="200" bg="#d8dbdd" mode="bottom right" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="bottom right" />
 </div>
 :::
 
@@ -141,7 +141,7 @@
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="100" :height="100" bg="#d8dbdd" shape="circle" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="100" :height="100" bg="#d8dbdd" shape="circle" />
 </div>
 :::
 
@@ -150,7 +150,7 @@
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="100" :height="100" bg="#d8dbdd" shape="pill" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="100" :height="100" bg="#d8dbdd" shape="pill" />
 </div>
 :::
 
@@ -159,7 +159,7 @@
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="100" :height="100" bg="#d8dbdd" shape="square" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="100" :height="100" bg="#d8dbdd" shape="square" />
 </div>
 :::
 
@@ -168,7 +168,7 @@
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="100" :height="100" bg="#d8dbdd" shape="20px" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="100" :height="100" bg="#d8dbdd" shape="20px" />
 </div>
 :::
 
@@ -205,7 +205,7 @@
 :::demo html
 
 <div>
-    <mb-image src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=882494599,551867583&fm=202&mola=new&crop=v1" :width="200" :height="200" bg="#d8dbdd" :duration="1000" mode="scaleToFill" />
+    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" :duration="1000" mode="scaleToFill" />
 </div>
 :::
 
