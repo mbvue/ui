@@ -1,7 +1,90 @@
 @import '../../base/style/theme.less';
 
+@grid-columns: 24;
+
 .@{prefix}-col {
     position: relative;
+    float: left;
     max-width: 100%;
     min-height: 1px;
+}
+
+.grid-columns(@grid-columns, ~'');
+.grid-columns(@grid-columns, ~'-xs');
+
+@media (min-width: 576px) {
+    .grid-columns(@grid-columns, ~'-sm');
+}
+
+@media (min-width: 768px) {
+    .grid-columns(@grid-columns, ~'-md');
+}
+
+@media (min-width: 992px) {
+    .grid-columns(@grid-columns, ~'-lg');
+}
+
+@media (min-width: 1200px) {
+    .grid-columns(@grid-columns, ~'-xl');
+}
+
+@media (min-width: 1600px) {
+    .grid-columns(@grid-columns, ~'-xxl');
+}
+
+.grid-columns(@index, @class) when (@index > 0) {
+    .@{prefix}-col@{class}-@{index} {
+        display: block;
+        flex: 0 0 percentage((@index / @grid-columns));
+        width: calc(100% / 24 * @index);
+        max-width: percentage((@index / @grid-columns));
+    }
+
+    .@{prefix}-col@{class}-push-@{index} {
+        left: percentage((@index / @grid-columns));
+    }
+
+    .@{prefix}-col@{class}-pull-@{index} {
+        right: percentage((@index / @grid-columns));
+    }
+
+    .@{prefix}-col@{class}-offset-@{index} {
+        margin-left: percentage((@index / @grid-columns));
+    }
+
+    .@{prefix}-col@{class}-order-@{index} {
+        order: @index;
+    }
+
+    .grid-columns((@index - 1), @class);
+}
+
+.grid-columns(@index, @class) when (@index = 0) {
+    .@{prefix}-col@{class}-@{index} {
+        display: none;
+    }
+
+    .@{prefix}-col-push-@{index} {
+        left: auto;
+    }
+
+    .@{prefix}-col-pull-@{index} {
+        right: auto;
+    }
+
+    .@{prefix}-col@{class}-push-@{index} {
+        left: auto;
+    }
+
+    .@{prefix}-col@{class}-pull-@{index} {
+        right: auto;
+    }
+
+    .@{prefix}-col@{class}-offset-@{index} {
+        margin-left: 0;
+    }
+
+    .@{prefix}-col@{class}-order-@{index} {
+        order: 0;
+    }
 }

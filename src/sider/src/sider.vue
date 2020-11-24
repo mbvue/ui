@@ -54,8 +54,8 @@ export default {
     },
 
     mounted() {
-        if (this.$el && this.$el.parentNode) {
-            if (this.$el.parentNode.className.indexOf('mb-layout-sider') < 0) this.$el.parentNode.className = this.$el.parentNode.className.concat(' mb-layout-sider');
+        if (this.$parent.$options.name === 'MbLayout') {
+            this.$parent.setSiderClass();
         }
 
         //断点响应

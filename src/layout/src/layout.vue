@@ -1,5 +1,5 @@
 <template>
-    <div :class="['mb-layout']" :style="[divStyle]">
+    <div :class="['mb-layout', sider ? 'mb-layout-sider' : '']" :style="[divStyle]">
         <slot></slot>
     </div>
 </template>
@@ -14,10 +14,22 @@ export default {
         height: { type: [String, Number], default: '' } //高度
     },
 
+    data() {
+        return {
+            sider: false
+        };
+    },
+
     computed: {
         //定义样式
         divStyle() {
             return this.height ? { height: unit(this.height) } : {};
+        }
+    },
+
+    methods: {
+        setSiderClass() {
+            this.sider = true;
         }
     }
 };

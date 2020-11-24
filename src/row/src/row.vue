@@ -17,6 +17,7 @@ import { vue, versions } from '../../base/utils/env';
 import { unit } from '../../base/utils/util';
 import { isNumber, isObject, isArray } from '../../base/utils/test';
 
+const V = vue();
 const responsiveArray = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
 const dimensionMaxMap = {
     xs: '(max-width: 575px)',
@@ -32,8 +33,8 @@ export default {
 
     provide() {
         return {
-            rowGutter: vue.computed ? vue.computed(() => this.newRowGutter) : this.newRowGutter,
-            colGutter: vue.computed ? vue.computed(() => this.newColGutter) : this.newColGutter
+            rowGutter: V.computed ? V.computed(() => this.newRowGutter) : () => this.newRowGutter,
+            colGutter: V.computed ? V.computed(() => this.newColGutter) : () => this.newColGutter
         };
     },
 
@@ -41,7 +42,7 @@ export default {
         type: { type: String, default: 'flex' }, //布局模式，可选 flex，现代浏览器 下有效
         align: { type: String, default: 'top' }, //flex 布局下的垂直对齐方式：top middle bottom full
         justify: { type: String, default: 'start' }, //flex 布局下的水平排列方式：start center end space-around space-between
-        gutter: { type: [Number, Array, Object], default: 0 } //栅格间隔，可以写成像素值或支持响应式的对象写法来设置水平间隔 { xs: 8, sm: 16, md: 24}。或者使用数组形式同时设置 [水平间距, 垂直间距]
+        gutter: { type: [Number, Array, Object], default: 0 } //栅格间隔，可以写成像素值或支持响应式的对象写法来设置水平间隔 { xs: 8, sm: 12, md: 16, lg: 18, xl: 20, xxl: 24}。或者使用数组形式同时设置 [水平间距, 垂直间距]
     },
 
     data() {
@@ -84,7 +85,7 @@ export default {
             if (this.gutter[0]) this.mapRow = this.gutter[0];
             if (this.gutter[1]) this.mapCol = this.gutter[1];
 
-            if (isNumber(this.mapRow) && isNumber(this.mapRow)) {
+            if (isNumber(this.mapRow) && isNumber(this.mapCol)) {
                 this.newRowGutter = this.mapRow * 1;
                 this.newColGutter = this.mapCol * 1;
 
@@ -103,28 +104,7 @@ export default {
             for (let obj in dimensionMaxMap) {
                 let media = window.matchMedia(dimensionMaxMap[obj]);
                 let listener = _media => {
-                    if (_media.matches) {
-                        if (isObject(this.mapRow)) {
-                            this.newRowGutter = this.mapRow[obj] ? this.mapRow[obj] * 1 : 0;
-                            if (versions() === 2) this._provided.rowGutter = this.newRowGutter;
-                        }
-
-                        if (isObject(this.mapCol)) {
-                            this.newColGutter = this.mapCol[obj] ? this.mapCol[obj] * 1 : 0;
-                            if (versions() === 2) this._provided.colGutter = this.newColGutter;
-                        }
-                    } else {
-                        let index = responsiveArray.indexOf(obj) + 1;
-                        if (isObject(this.mapRow)) {
-                            this.newRowGutter = this.mapRow[responsiveArray[index]] ? this.mapRow[responsiveArray[index]] * 1 : 0;
-                            if (versions() === 2) this._provided.rowGutter = this.newRowGutter;
-                        }
-
-                        if (isObject(this.mapCol)) {
-                            this.newColGutter = this.mapCol[responsiveArray[index]] ? this.mapCol[responsiveArray[index]] * 1 : 0;
-                            if (versions() === 2) this._provided.colGutter = this.newColGutter;
-                        }
-                    }
+                    this.responsiveHandler(_media.matches ? obj : responsiveArray[responsiveArray.indexOf(obj) + 1]);
                 };
 
                 media.addListener(listener);
@@ -145,7 +125,27 @@ export default {
     unmounted() {
         if (this.medias) {
             for (let obj in this.medias) {
-                if (this.methods[obj].media) this.methods[obj].media.removeListener(this.methods[obj].listener);
+                if (this.medias[obj].media) this.medias[obj].media.removeListener(this.medias[obj].listener);
+            }
+        }
+    },
+
+    methods: {
+        responsiveHandler(index) {
+            if (isNumber(this.mapRow)) {
+                this.newRowGutter = this.mapRow * 1;
+                if (versions() === 2) this._provided.rowGutter = this.newRowGutter;
+            } else if (isObject(this.mapRow)) {
+                this.newRowGutter = this.mapRow[index] ? this.mapRow[index] * 1 : 0;
+                if (versions() === 2) this._provided.rowGutter = this.newRowGutter;
+            }
+
+            if (isNumber(this.mapCol)) {
+                this.newColGutter = this.mapCol * 1;
+                if (versions() === 2) this._provided.colGutter = this.newColGutter;
+            } else if (isObject(this.mapCol)) {
+                this.newColGutter = this.mapCol[index] ? this.mapCol[index] * 1 : 0;
+                if (versions() === 2) this._provided.colGutter = this.newColGutter;
             }
         }
     }
