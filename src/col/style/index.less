@@ -4,7 +4,6 @@
 
 .@{prefix}-col {
     position: relative;
-    float: left;
     max-width: 100%;
     min-height: 1px;
 }
@@ -36,7 +35,6 @@
     .@{prefix}-col@{class}-@{index} {
         display: block;
         flex: 0 0 percentage((@index / @grid-columns));
-        width: calc(100% / 24 * @index);
         max-width: percentage((@index / @grid-columns));
     }
 
@@ -86,5 +84,80 @@
 
     .@{prefix}-col@{class}-order-@{index} {
         order: 0;
+    }
+}
+
+mb-col {
+    position: relative;
+}
+
+.grid-wx-columns(@grid-columns);
+
+.grid-wx-columns(@index) when (@index > 0) {
+    mb-col[data-span='@{index}'] {
+        display: block;
+        flex: 0 0 percentage((@index / @grid-columns));
+        max-width: percentage((@index / @grid-columns));
+
+        .mb-col {
+            flex: auto;
+            max-width: 100%;
+        }
+    }
+
+    mb-col[data-offset='@{index}'] {
+        margin-left: percentage((@index / @grid-columns));
+
+        .mb-col {
+            margin-left: 0;
+        }
+    }
+
+    mb-col[data-order='@{index}'] {
+        order: @index;
+
+        .mb-col {
+            order: 0;
+        }
+    }
+
+    mb-col[data-push='@{index}'] {
+        left: percentage((@index / @grid-columns));
+
+        .mb-col {
+            left: 0;
+        }
+    }
+
+    mb-col[data-pull='@{index}'] {
+        right: percentage((@index / @grid-columns));
+
+        .mb-col {
+            right: 0;
+        }
+    }
+
+    .grid-wx-columns(@index - 1);
+}
+
+.grid-wx-columns(@index) when (@index = 0) {
+    mb-col[data-span='@{index}'] {
+        display: none;
+    }
+
+    mb-col[data-offset='@{index}'] {
+        margin-left: 0;
+    }
+
+    mb-col[data-order='@{index}'] {
+        order: 0;
+    }
+
+    mb-col[data-push='@{index}'] {
+        left: auto;
+    }
+
+    mb-col[data-pull='@{index}'] {
+        right: auto;
     }
 }

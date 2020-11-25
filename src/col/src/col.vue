@@ -33,20 +33,16 @@ export default {
         divStyle() {
             let style = {};
             if (versions() === 2) {
-                style.width = `calc(100% / 24 * ${this.span >= 0 ? this.span : 0} - ${unit(this.rowGutter() * 2)})`;
-
-                if (this.rowGutter != 0) {
+                if (this.rowGutter() != 0) {
                     style.paddingLeft = unit(this.rowGutter());
                     style.paddingRight = unit(this.rowGutter());
                 }
 
-                if (this.colGutter != 0) {
+                if (this.colGutter() != 0) {
                     style.paddingTop = unit(this.colGutter());
                     style.paddingBottom = unit(this.colGutter());
                 }
             } else {
-                style.width = `calc(100% / 24 * ${this.span >= 0 ? this.span : 0} - ${unit(this.rowGutter.value * 2)})`;
-
                 if (this.rowGutter.value != 0) {
                     style.paddingLeft = unit(this.rowGutter.value);
                     style.paddingRight = unit(this.rowGutter.value);

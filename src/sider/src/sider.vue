@@ -1,5 +1,5 @@
 <template>
-    <div :class="['mb-sider', newCollapsed ? 'mb-sider-collapsed' : '']" :style="[divStyle]">
+    <div :class="['mb-sider', newCollapsed ? 'mb-sider-collapsed' : '']" :style="divStyle">
         <div class="mb-sider-content"><slot></slot></div>
 
         <div v-if="trigger" class="mb-sider-trigger" @click="collapsedClick">
@@ -54,7 +54,7 @@ export default {
     },
 
     mounted() {
-        if (this.$parent.$options.name === 'MbLayout') {
+        if (this.$parent.$options.name === 'MbLayout' && this.$parent.setSiderClass) {
             this.$parent.setSiderClass();
         }
 

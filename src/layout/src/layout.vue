@@ -1,5 +1,5 @@
 <template>
-    <div :class="['mb-layout', sider ? 'mb-layout-sider' : '']" :style="[divStyle]">
+    <div :class="['mb-layout', sider ? 'mb-layout-sider' : '']" :style="divStyle">
         <slot></slot>
     </div>
 </template>
