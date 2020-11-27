@@ -13,9 +13,12 @@ import { default as Header } from './header/index';
 import { default as Sider } from './sider/index';
 import { default as Row } from './row/index';
 import { default as Col } from './col/index';
+import { default as Input } from './input/index';
+import { default as InputGroup } from './input-group/index';
+import { default as InputNumber } from './input-number/index';
 
 const version = Base.env.versions();
-const components = [Image, Icon, Button, ButtonGroup, Layout, Content, Footer, Header, Sider, Row, Col];
+const components = [Image, Icon, Button, ButtonGroup, Layout, Content, Footer, Header, Sider, Row, Col, Input, InputGroup, InputNumber];
 
 const install = (app: any, options = <any>{ locale: 'zh_cn', langs: {} }) => {
     //定制语言
@@ -44,5 +47,5 @@ const install = (app: any, options = <any>{ locale: 'zh_cn', langs: {} }) => {
     return app;
 };
 
-export { install, Locale, Image, Icon, Button, ButtonGroup, Layout, Content, Footer, Header, Sider, Row, Col };
+export { install, Locale, Image, Icon, Button, ButtonGroup, Layout, Content, Footer, Header, Sider, Row, Col, Input, InputGroup, InputNumber };
 export default { install };

@@ -1,0 +1,179 @@
+@import '../../base/style/theme.less';
+
+.@{prefix}-input-group {
+    display: inline-block;
+    vertical-align: middle;
+
+    &.@{prefix}-input-group-xs {
+        .@{prefix}-input {
+            height: unit(round(@font-size * 2), px);
+            border-radius: unit(round(@font-size * 0.2), px);
+
+            &.@{prefix}-input-textarea {
+                height: unit(round(@font-size * 4), px);
+            }
+
+            .@{prefix}-input-input {
+                .@{prefix}-input-input-input {
+                    padding: unit(round(@font-size * 0.1), px) unit(round(@font-size * 0.5), px);
+                    font-size: unit(round(@font-size * 0.7), px);
+                }
+            }
+        }
+    }
+
+    &.@{prefix}-input-group-sm {
+        .@{prefix}-input {
+            height: unit(round(@font-size * 2.15), px);
+            border-radius: unit(round(@font-size * 0.2), px);
+
+            &.@{prefix}-input-textarea {
+                height: unit(round(@font-size * 4.3), px);
+            }
+
+            .@{prefix}-input-input {
+                .@{prefix}-input-input-input {
+                    padding: unit(round(@font-size * 0.1), px) unit(round(@font-size * 0.5), px);
+                    font-size: unit(round(@font-size * 0.85), px);
+                }
+            }
+        }
+    }
+
+    &.@{prefix}-input-group-md {
+        .@{prefix}-input {
+            height: unit(round(@font-size * 2.55), px);
+
+            &.@{prefix}-input-textarea {
+                height: unit(round(@font-size * 5.1), px);
+            }
+
+            .@{prefix}-input-input {
+                .@{prefix}-input-input-input {
+                    padding: unit(round(@font-size * 0.2), px) unit(round(@font-size * 0.8), px);
+                }
+            }
+        }
+    }
+
+    &.@{prefix}-input-group-lg {
+        .@{prefix}-input {
+            height: unit(round(@font-size * 2.85), px);
+
+            &.@{prefix}-input-textarea {
+                height: unit(round(@font-size * 5.7), px);
+            }
+
+            .@{prefix}-input-input {
+                .@{prefix}-input-input-input {
+                    padding: unit(round(@font-size * 0.2), px) unit(round(@font-size * 0.8), px);
+                }
+            }
+        }
+    }
+
+    &.@{prefix}-input-group-xl {
+        .@{prefix}-input {
+            height: unit(round(@font-size * 3.15), px);
+
+            &.@{prefix}-input-textarea {
+                height: unit(round(@font-size * 6.3), px);
+            }
+
+            .@{prefix}-input-input {
+                .@{prefix}-input-input-input {
+                    padding: unit(round(@font-size * 0.2), px) unit(round(@font-size * 0.8), px);
+                    font-size: unit(round(@font-size * 1.15), px);
+                }
+            }
+        }
+    }
+
+    .@{prefix}-input {
+        &:first-child:not(:last-child) {
+            border-right-width: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+
+            &.mb-input-focused {
+                border-right-width: @border-width;
+            }
+        }
+
+        &:last-child:not(:first-child) {
+            border-left-width: 0;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+
+            &:nth-child(2) {
+                border-left-width: 1px;
+            }
+
+            &.mb-input-focused {
+                border-left-width: @border-width;
+            }
+        }
+
+        & + .@{prefix}-input {
+            border-left-width: 0;
+
+            &.mb-input-focused {
+                margin-left: -@border-width;
+                border-left-width: @border-width;
+
+                &:not(:first-child) {
+                    margin-right: @border-width;
+                }
+            }
+        }
+
+        &:nth-child(2) {
+            margin: 0 !important;
+            border-left-width: 1px;
+        }
+
+        &:not(:first-child):not(:last-child) {
+            border-radius: 0;
+        }
+    }
+
+    mb-input {
+        &:first-child:not(:last-child) {
+            .@{prefix}-input {
+                border-right-width: 0;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }
+
+        &:last-child:not(:first-child) {
+            .@{prefix}-input {
+                border-left-width: 0;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+
+                &:nth-child(2) {
+                    border-left-width: 1px;
+                }
+            }
+        }
+
+        & + mb-input {
+            .@{prefix}-input {
+                border-left-width: 0;
+            }
+        }
+
+        &:nth-child(2) {
+            .@{prefix}-input {
+                border-left-width: 1px;
+            }
+        }
+
+        &:not(:first-child):not(:last-child) {
+            .@{prefix}-input {
+                border-radius: 0;
+            }
+        }
+    }
+}

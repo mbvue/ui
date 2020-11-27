@@ -16,7 +16,7 @@ export default {
 
     props: {
         type: { type: String, default: '' }, //图标类型
-        css: {
+        customStyle: {
             type: Object,
             default() {
                 return {};
@@ -43,7 +43,7 @@ export default {
 
         //定义样式
         buildStyle() {
-            let style = Object.assign({}, this.css);
+            let style = Object.assign({}, this.customStyle);
 
             if (this.color !== '') style.color = this.color;
             if (this.isImage) {

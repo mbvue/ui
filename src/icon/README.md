@@ -1425,12 +1425,12 @@
 
 ### 3.1、 参数
 
-| 参数     | 说明                      | 类型           | 默认值 | 可选值 |
-| -------- | ------------------------- | -------------- | ------ | ------ |
-| type     | 图标类型                  | String         | -      | -      |
-| css      | 图标样式                  | Object         | -      | -      |
-| size     | 图标尺寸，单位 px         | String, Number | 16     | -      |
-| custom   | 自定义字体库              | String         | -      | -      |
-| spin     | 图标是否有旋转动画        | Boolean        | false  | true   |
-| duration | 旋转动画时间间隔，单位 ms | String, Number | 1000   | -      |
-| rotate   | 图标旋转角度              | String, Number | 0      | -      |
+| 参数        | 说明                      | 类型           | 默认值 | 可选值 |
+| ----------- | ------------------------- | -------------- | ------ | ------ |
+| type        | 图标类型                  | String         | -      | -      |
+| customStyle | 图标样式                  | Object         | -      | -      |
+| size        | 图标尺寸，单位 px         | String, Number | 16     | -      |
+| custom      | 自定义字体库              | String         | -      | -      |
+| spin        | 图标是否有旋转动画        | Boolean        | false  | true   |
+| duration    | 旋转动画时间间隔，单位 ms | String, Number | 1000   | -      |
+| rotate      | 图标旋转角度              | String, Number | 0      | -      |

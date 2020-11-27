@@ -1,0 +1,146 @@
+@import '../../base/style/theme.less';
+
+.@{prefix}-input-number {
+    display: inline-flex;
+    width: 150px;
+    height: unit(round(@font-size * 2.55), px);
+
+    &.@{prefix}-input-number-xs {
+        height: unit(round(@font-size * 2), px);
+    }
+
+    &.@{prefix}-input-number-sm {
+        height: unit(round(@font-size * 2.15), px);
+    }
+
+    &.@{prefix}-input-number-md {
+        height: unit(round(@font-size * 2.55), px);
+    }
+
+    &.@{prefix}-input-number-lg {
+        height: unit(round(@font-size * 2.85), px);
+    }
+
+    &.@{prefix}-input-number-xl {
+        height: unit(round(@font-size * 3.15), px);
+    }
+
+    .@{prefix}-input-number-less,
+    .@{prefix}-input-number-add {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: unit(round(@font-size * 2.55), px);
+        cursor: pointer;
+        background-color: @color-info-lighter;
+
+        &.@{prefix}-input-number-action-disabled {
+            cursor: default;
+            opacity: 0.6 !important;
+        }
+    }
+
+    .@{prefix}-input-number-box {
+        position: relative;
+        flex: 1;
+        margin: 0 unit(round(@font-size * 0.3), px);
+        background-color: @color-info-lighter;
+
+        .@{prefix}-input-number-box-input {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            background: transparent;
+            border: 0;
+            border-radius: 0;
+            appearance: textfield;
+
+            &:placeholder-shown {
+                text-overflow: ellipsis;
+            }
+
+            &:focus {
+                border: 0;
+                box-shadow: none;
+            }
+
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                appearance: none;
+            }
+
+            &.@{prefix}-input-number-box-input-disabled {
+                opacity: 0.6 !important;
+
+                & + .@{prefix}-input-number-box-action {
+                    display: none;
+                }
+            }
+        }
+
+        .@{prefix}-input-number-box-action {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            width: 20px;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s;
+
+            .@{prefix}-input-number-box-action-add,
+            .@{prefix}-input-number-box-action-less {
+                display: flex;
+                flex: 1;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                background-color: #fff;
+                border: 1px solid @color-border;
+
+                &:hover {
+                    color: @color-primary;
+                }
+            }
+
+            .@{prefix}-input-number-box-action-add {
+                border-bottom: 0;
+            }
+        }
+
+        &:hover {
+            .@{prefix}-input-number-box-action {
+                opacity: 1;
+            }
+        }
+    }
+
+    &.@{prefix}-input-number-disabled {
+        opacity: 0.6 !important;
+
+        .@{prefix}-input-number-less,
+        .@{prefix}-input-number-add {
+            cursor: default;
+
+            &.@{prefix}-input-number-action-disabled {
+                opacity: 1 !important;
+            }
+        }
+
+        .@{prefix}-input-number-box {
+            .@{prefix}-input-number-box-input {
+                &.@{prefix}-input-number-box-input-disabled {
+                    opacity: 1 !important;
+                }
+            }
+
+            .@{prefix}-input-number-box-action {
+                display: none;
+            }
+        }
+    }
+}

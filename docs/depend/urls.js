@@ -21,7 +21,10 @@ const langs = {
         button: 'Button 按钮',
         buttongroup: 'ButtonGroup 按钮组',
         layout: 'Layout 布局',
-        grid: 'Grid 栅格'
+        grid: 'Grid 栅格',
+        input: 'Input 输入框',
+        inputgroup: 'InputGroup 输入框组',
+        inputnumber: 'InputNumber 数字输入框'
     },
     'en-US': {
         index: 'Home'
@@ -83,6 +86,21 @@ export default [
                 title: langs[lang].grid,
                 path: 'grid',
                 component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.grid'*/ `@mbvue/ui/row/README${suffix}.md`))
+            },
+            {
+                title: langs[lang].input,
+                path: 'input',
+                component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.input'*/ `@mbvue/ui/input/README${suffix}.md`))
+            },
+            {
+                title: langs[lang].inputgroup,
+                path: 'inputgroup',
+                component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.inputgroup'*/ `@mbvue/ui/input-group/README${suffix}.md`))
+            },
+            {
+                title: langs[lang].inputnumber,
+                path: 'inputnumber',
+                component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.inputnumber'*/ `@mbvue/ui/input-number/README${suffix}.md`))
             }
         ]
     }
