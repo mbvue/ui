@@ -18,8 +18,8 @@
                 :maxlength="maxLength"
                 :value="inputValue"
                 :style="customStyle"
-                :focus="autofocus"
-                :autofocus="autofocus"
+                :focus="autoFocus"
+                :autofocus="autoFocus"
                 :autoHeight="autoHeight"
                 :fixed="fixed"
                 :cursorSpacing="cursorSpacing"
@@ -45,8 +45,8 @@
                 :value="inputValue"
                 :confirmType="confirmType"
                 :style="customStyle"
-                :focus="autofocus"
-                :autofocus="autofocus"
+                :focus="autoFocus"
+                :autofocus="autoFocus"
                 :cursorSpacing="cursorSpacing"
                 @blur="onBlur"
                 @focus="onFocus"
@@ -68,8 +68,8 @@
                 :value="inputValue"
                 :confirmType="confirmType"
                 :style="customStyle"
-                :focus="autofocus"
-                :autofocus="autofocus"
+                :focus="autoFocus"
+                :autofocus="autoFocus"
                 :cursorSpacing="cursorSpacing"
                 :selectionStart="selectionStart"
                 :selectionEnd="selectionEnd"
@@ -137,7 +137,7 @@ export default {
                 return {};
             }
         }, //自定义输入框的样式
-        autofocus: { type: Boolean, default: false }, //是否自动获得焦点
+        autoFocus: { type: Boolean, default: false }, //是否自动获得焦点
         autoHeight: { type: Boolean, default: false }, //是否自动增高输入区域，type为textarea时有效
         fixed: { type: Boolean, default: false }, //如果type为textarea，且在一个"position:fixed"的区域，需要指明为true,仅支持uni-app
         passwordIcon: { type: Boolean, default: false }, //type为password时，是否显示右侧的密码查看图标
@@ -247,6 +247,7 @@ export default {
 
             this.inputValue = '';
             this.$emit('input', '');
+            this.$emit('change', '');
 
             return false;
         },

@@ -1,0 +1,223 @@
+@import '../../base/style/theme.less';
+
+.@{prefix}-input-search {
+    position: relative;
+    display: inline-flex;
+    flex-flow: row;
+    width: 180px;
+    height: unit(round(@font-size * 2.55), px);
+    overflow: hidden;
+    font-size: unit(round(@font-size * 1), px);
+
+    .@{prefix}-input-search-left {
+        display: flex;
+        flex: 1;
+        overflow: hidden;
+        border-color: @color-border;
+        border-style: solid;
+        border-width: 0;
+        border-radius: unit(round(@font-size * 0.3), px);
+        transition: border-color 0.3s, box-shadow 0.3s;
+
+        &.@{prefix}-input-search-left-focused {
+            border-color: @color-primary;
+            box-shadow: 0 0 3px lighten(@color-primary, 20%);
+        }
+
+        &.@{prefix}-input-search-left-border-all {
+            border-width: @border-width;
+        }
+
+        &.@{prefix}-input-search-left-border-top {
+            border-top-width: @border-width;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        &.@{prefix}-input-search-left-border-left {
+            border-left-width: @border-width;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        &.@{prefix}-input-search-left-border-bottom {
+            border-bottom-width: @border-width;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        &.@{prefix}-input-search-left-border-right {
+            border-right-width: @border-width;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        &.@{prefix}-input-search-left-border-none {
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .@{prefix}-input-search-left-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: unit(round(@font-size * 0.4), px);
+        }
+
+        .@{prefix}-input-search-left-input {
+            display: inline-block;
+            flex: 1;
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            padding: unit(round(@font-size * 0.2), px) unit(round(@font-size * 0.8), px);
+            font-size: unit(round(@font-size * 1), px);
+            border: 0;
+            border-radius: 0;
+
+            &:placeholder-shown {
+                text-overflow: ellipsis;
+            }
+
+            &:focus {
+                border: 0;
+                box-shadow: none;
+            }
+        }
+
+        .@{prefix}-input-search-left-icon + .@{prefix}-input-search-left-input {
+            padding-left: unit(round(@font-size * 0.4), px) !important;
+        }
+
+        .@{prefix}-input-search-left-clear {
+            display: flex;
+            align-items: center;
+            margin-right: unit(round(@font-size * 0.4), px);
+            margin-left: unit(round(-@font-size * 0.4), px) !important;
+            cursor: pointer;
+        }
+
+        &.@{prefix}-input-search-left-fixed {
+            padding-right: 21px !important;
+
+            .@{prefix}-input-search-left-input {
+                padding-right: unit(round(@font-size * 0.4), px) !important;
+            }
+        }
+
+        &.@{prefix}-input-search-left-botton:not(.@{prefix}-input-search-left-fixed) {
+            border-right-width: 0 !important;
+            border-top-right-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+        }
+    }
+
+    .@{prefix}-input-search-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 unit(round(@font-size * 0.4), px);
+        overflow: hidden;
+        cursor: pointer;
+
+        &.@{prefix}-input-search-right-fixed {
+            position: absolute;
+            top: 1px;
+            right: 1px;
+            bottom: 1px;
+            background-color: #fff;
+            border-top-right-radius: unit(round(@font-size * 0.3), px);
+            border-bottom-right-radius: unit(round(@font-size * 0.3), px);
+        }
+
+        &.@{prefix}-input-search-right-botton {
+            padding: 0 !important;
+
+            &.@{prefix}-input-search-right-fixed {
+                top: 0;
+                right: 0;
+                bottom: 0;
+            }
+
+            .@{prefix}-button {
+                border-top-left-radius: 0 !important;
+                border-bottom-left-radius: 0 !important;
+            }
+        }
+    }
+
+    &.@{prefix}-input-search-disabled {
+        opacity: 0.6 !important;
+
+        .@{prefix}-input-search-right {
+            cursor: default;
+        }
+    }
+
+    &.@{prefix}-input-search-xs {
+        height: unit(round(@font-size * 2), px);
+
+        .@{prefix}-input-search-left {
+            border-radius: unit(round(@font-size * 0.2), px);
+
+            .@{prefix}-input-search-left-input {
+                padding: unit(round(@font-size * 0.1), px) unit(round(@font-size * 0.5), px);
+                font-size: unit(round(@font-size * 0.7), px);
+            }
+        }
+
+        .@{prefix}-input-search-right-fixed {
+            border-top-right-radius: unit(round(@font-size * 0.2), px);
+            border-bottom-right-radius: unit(round(@font-size * 0.2), px);
+        }
+    }
+
+    &.@{prefix}-input-search-sm {
+        height: unit(round(@font-size * 2.15), px);
+
+        .@{prefix}-input-search-left {
+            border-radius: unit(round(@font-size * 0.2), px);
+
+            .@{prefix}-input-search-left-input {
+                padding: unit(round(@font-size * 0.1), px) unit(round(@font-size * 0.5), px);
+                font-size: unit(round(@font-size * 0.85), px);
+            }
+        }
+
+        .@{prefix}-input-search-right-fixed {
+            border-top-right-radius: unit(round(@font-size * 0.2), px);
+            border-bottom-right-radius: unit(round(@font-size * 0.2), px);
+        }
+    }
+
+    &.@{prefix}-input-search-md {
+        height: unit(round(@font-size * 2.55), px);
+
+        .@{prefix}-input-search-left {
+            .@{prefix}-input-search-left-input {
+                padding: unit(round(@font-size * 0.2), px) unit(round(@font-size * 0.8), px);
+            }
+        }
+    }
+
+    &.@{prefix}-input-search-lg {
+        height: unit(round(@font-size * 2.85), px);
+
+        .@{prefix}-input-search-left {
+            .@{prefix}-input-search-left-input {
+                padding: unit(round(@font-size * 0.2), px) unit(round(@font-size * 0.8), px);
+            }
+        }
+    }
+
+    &.@{prefix}-input-search-xl {
+        height: unit(round(@font-size * 3.15), px);
+
+        .@{prefix}-input-search-left {
+            .@{prefix}-input-search-left-input {
+                padding: unit(round(@font-size * 0.2), px) unit(round(@font-size * 0.8), px);
+                font-size: unit(round(@font-size * 1.15), px);
+            }
+        }
+    }
+}

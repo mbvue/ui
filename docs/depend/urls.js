@@ -24,7 +24,8 @@ const langs = {
         grid: 'Grid 栅格',
         input: 'Input 输入框',
         inputgroup: 'InputGroup 输入框组',
-        inputnumber: 'InputNumber 数字输入框'
+        inputnumber: 'InputNumber 数字输入框',
+        inputsearch: 'InputSearch 搜索框'
     },
     'en-US': {
         index: 'Home'
@@ -101,6 +102,11 @@ export default [
                 title: langs[lang].inputnumber,
                 path: 'inputnumber',
                 component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.inputnumber'*/ `@mbvue/ui/input-number/README${suffix}.md`))
+            },
+            {
+                title: langs[lang].inputsearch,
+                path: 'inputsearch',
+                component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.inputsearch'*/ `@mbvue/ui/input-search/README${suffix}.md`))
             }
         ]
     }

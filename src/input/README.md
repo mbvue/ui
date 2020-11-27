@@ -222,7 +222,7 @@
 | placeholder      | placeholder 显示值                                                                    | String          | -      | -                                     |
 | placeholderStyle | placeholder 的样式,仅支持 uni-app                                                     | String          | -      | -                                     |
 | confirmType      | 设置键盘右下角按钮的文字，仅在 uni-app 中 type 为 text 时生效                         | String          | done   | -                                     |
-| autofocus        | 是否自动获得焦点                                                                      | Boolean         | false  | true                                  |
+| autoFocus        | 是否自动获得焦点                                                                      | Boolean         | false  | true                                  |
 | autoHeight       | 是否自动增高输入区域，type 为 textarea 时有效                                         | Boolean         | false  | true                                  |
 | fixed            | 如果 type 为 textarea，且在一个"position:fixed"的区域，需要指明为 true,仅支持 uni-app | Boolean         | false  | true                                  |
 | passwordIcon     | type 为 password 时，是否显示右侧的密码查看图标                                       | Boolean         | false  | true                                  |
@@ -241,10 +241,10 @@
 
 ### 2.3、事件
 
-| 事件名  | 说明         | 回调参数 |
-| ------- | ------------ | -------- |
-| focus   | 获取光标事件 | -        |
-| blur    | 失去光标事件 | -        |
-| change  | 内容改变事件 | -        |
-| enter   | 回车事件     | -        |
-| confirm | 提交事件     | -        |
+| 事件名  | 说明                     | 回调参数 |
+| ------- | ------------------------ | -------- |
+| focus   | 获取光标事件             | event    |
+| blur    | 失去光标事件             | event    |
+| change  | 内容改变事件             | value    |
+| enter   | 回车事件                 | event    |
+| confirm | 提交事件，仅支持 uni-app | value    |

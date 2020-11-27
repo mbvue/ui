@@ -29,6 +29,10 @@
                 :cursorSpacing="cursorSpacing"
                 :style="customStyle"
                 @input="onInput"
+                @blur="onBlur"
+                @focus="onFocus"
+                @confirm="onConfirm"
+                @keyup.enter="onEnter"
             />
 
             <div v-if="action" class="mb-input-number-box-action">
@@ -212,6 +216,22 @@ export default {
                 if (event.target) event.target.value = this.inputValue;
                 if (event.detail) event.detail.value = this.inputValue;
             }
+        },
+
+        onBlur(event) {
+            this.$emit('blur', event);
+        },
+
+        onFocus(event) {
+            this.$emit('focus', event);
+        },
+
+        onEnter(event) {
+            this.$emit('enter', event);
+        },
+
+        onConfirm(event) {
+            this.$emit('confirm', event.detail.value);
         }
     }
 };

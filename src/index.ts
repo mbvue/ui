@@ -16,9 +16,10 @@ import { default as Col } from './col/index';
 import { default as Input } from './input/index';
 import { default as InputGroup } from './input-group/index';
 import { default as InputNumber } from './input-number/index';
+import { default as InputSearch } from './input-search/index';
 
 const version = Base.env.versions();
-const components = [Image, Icon, Button, ButtonGroup, Layout, Content, Footer, Header, Sider, Row, Col, Input, InputGroup, InputNumber];
+const components = [Image, Icon, Button, ButtonGroup, Layout, Content, Footer, Header, Sider, Row, Col, Input, InputGroup, InputNumber, InputSearch];
 
 const install = (app: any, options = <any>{ locale: 'zh_cn', langs: {} }) => {
     //定制语言
@@ -47,5 +48,5 @@ const install = (app: any, options = <any>{ locale: 'zh_cn', langs: {} }) => {
     return app;
 };
 
-export { install, Locale, Image, Icon, Button, ButtonGroup, Layout, Content, Footer, Header, Sider, Row, Col, Input, InputGroup, InputNumber };
+export { install, Locale, Image, Icon, Button, ButtonGroup, Layout, Content, Footer, Header, Sider, Row, Col, Input, InputGroup, InputNumber, InputSearch };
 export default { install };

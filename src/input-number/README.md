@@ -78,3 +78,22 @@
 | cursorSpacing    | 指定光标于键盘的距离，避免键盘遮挡输入框，单位 px | Number  | 0      | -                  |
 | longPress        | 是否开启长按连续递增或递减                        | Boolean | true   | false              |
 | pressTime        | 开启长按触发后，每触发一次需要多久，单位 ms       | Number  | 250    | -                  |
+
+### 2.2、插槽
+
+| 名称 | 说明               |
+| ---- | ------------------ |
+| less | 自定义左侧操作图标 |
+| add  | 自定义右侧操作图标 |
+
+### 2.3、事件
+
+| 事件名    | 说明                     | 回调参数 |
+| --------- | ------------------------ | -------- |
+| focus     | 获取光标事件             | event    |
+| blur      | 失去光标事件             | event    |
+| change    | 内容改变事件             | value    |
+| enter     | 回车事件                 | event    |
+| lessition | 减少点击事件             | value    |
+| addition  | 增加点击事件             | value    |
+| confirm   | 提交事件，仅支持 uni-app | value    |
