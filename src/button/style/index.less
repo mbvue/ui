@@ -4,7 +4,8 @@
     position: relative;
     display: inline-flex;
     align-items: center;
-    padding: unit(round(@font-size * 0.7), px) unit(round(@font-size * 1.4), px);
+    height: unit(round(@font-size * 2.55), px);
+    padding: 0 unit(round(@font-size * 1.4), px);
     overflow: hidden;
     font-size: unit(@font-size, px);
     line-height: 1;
@@ -104,25 +105,30 @@
     .buttontype();
 
     &.@{prefix}-button-xs {
-        padding: unit(round(@font-size * 0.5), px) unit(round(@font-size * 0.9), px);
+        height: unit(round(@font-size * 2), px);
+        padding: 0 unit(round(@font-size * 0.9), px);
         font-size: unit(round(@font-size * 0.7), px);
     }
 
     &.@{prefix}-button-sm {
-        padding: unit(round(@font-size * 0.6), px) unit(round(@font-size * 1), px);
+        height: unit(round(@font-size * 2.15), px);
+        padding: 0 unit(round(@font-size * 1), px);
         font-size: unit(round(@font-size * 0.85), px);
     }
 
     &.@{prefix}-button-md {
-        padding: unit(round(@font-size * 0.7), px) unit(round(@font-size * 1.4), px);
+        height: unit(round(@font-size * 2.55), px);
+        padding: 0 unit(round(@font-size * 1.4), px);
     }
 
     &.@{prefix}-button-lg {
-        padding: unit(round(@font-size * 0.85), px) unit(round(@font-size * 1.4), px);
+        height: unit(round(@font-size * 2.85), px);
+        padding: 0 unit(round(@font-size * 1.4), px);
     }
 
     &.@{prefix}-button-xl {
-        padding: unit(round(@font-size * 0.9), px) unit(round(@font-size * 1.6), px);
+        height: unit(round(@font-size * 3.15), px);
+        padding: 0 unit(round(@font-size * 1.6), px);
     }
 
     &.@{prefix}-button-circle {
@@ -134,23 +140,23 @@
         }
 
         &.@{prefix}-button-xs {
-            padding: unit(round(@font-size * 0.5), px);
+            padding: 0 unit(round(@font-size * 0.5), px);
         }
 
         &.@{prefix}-button-sm {
-            padding: unit(round(@font-size * 0.6), px);
+            padding: 0 unit(round(@font-size * 0.6), px);
         }
 
         &.@{prefix}-button-md {
-            padding: unit(round(@font-size * 0.7), px);
+            padding: 0 unit(round(@font-size * 0.7), px);
         }
 
         &.@{prefix}-button-lg {
-            padding: unit(round(@font-size * 0.85), px);
+            padding: 0 unit(round(@font-size * 0.85), px);
         }
 
         &.@{prefix}-button-xl {
-            padding: unit(round(@font-size * 0.9), px);
+            padding: 0 unit(round(@font-size * 0.9), px);
         }
     }
 
@@ -194,10 +200,6 @@
     .@{prefix}-button-span {
         display: flex;
         align-items: center;
-    }
-
-    .mb-icon-icons {
-        font-size: inherit !important;
     }
 }
 

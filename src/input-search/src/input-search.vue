@@ -46,15 +46,15 @@
             :style="actionStyle"
             @click="onSearch"
         >
-            <mb-button v-if="buildButton" :type="buildButton" :size="size" :style="buttonStyle">
+            <mb-button v-if="buildButton" :type="buildButton" :disabled="disabled" :size="size" :style="buttonStyle">
                 <slot v-if="$slots.action" name="action" />
-                <mb-icon v-else-if="buildAction" :type="buildAction" :size="actionSize" />
+                <mb-icon v-else-if="buildAction" :type="loading ? 'spinner' : buildAction" :spin="loading" :size="actionSize" />
                 <span v-if="actionText">{{ actionText }}</span>
             </mb-button>
 
             <template v-else>
                 <slot v-if="$slots.action" name="action" />
-                <mb-icon v-else-if="buildAction" :type="buildAction" :size="actionSize" />
+                <mb-icon v-else-if="buildAction" :type="loading ? 'spinner' : buildAction" :spin="loading" :size="actionSize" />
                 <span v-if="actionText">{{ actionText }}</span>
             </template>
         </div>
@@ -90,6 +90,7 @@ export default {
         value: { type: String, default: null }, //当前值
         autoFocus: { type: Boolean, default: false }, //自动获取焦点
         disabled: { type: Boolean, default: false }, //禁用
+        loading: { type: Boolean, default: false }, //右侧图标加载中
         action: { type: [Boolean, String], default: true }, //右侧图标
         actionFixed: { type: Boolean, default: false }, //右侧图标浮动
         actionSize: { type: Number, default: 16 }, //右侧图标尺寸
@@ -213,6 +214,8 @@ export default {
         },
 
         onSearch() {
+            if (this.disabled) return;
+
             this.$emit('search', this.trim ? trim(this.inputValue) : this.inputValue);
         }
     }

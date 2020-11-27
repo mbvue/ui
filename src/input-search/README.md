@@ -35,6 +35,12 @@
     <br/>
     <br/>
     <mb-input-search actionButton placeholder="请输入内容"/>
+    <br/>
+    <br/>
+    <mb-input-search loading placeholder="请输入内容"/>
+    <br/>
+    <br/>
+    <mb-input-search loading actionButton :actionSize="18" placeholder="请输入内容"/>
 </div>
 :::
 
@@ -44,6 +50,7 @@
 
 <div>
     <mb-input-search disabled placeholder="请输入内容"/>
+    <mb-input-search disabled actionButton placeholder="请输入内容"/>
 </div>
 :::
 
@@ -88,6 +95,7 @@
 | value(v-model)   | 当前值                                          | String          | -      | -                     |
 | autoFocus        | 自动获取焦点                                    | Boolean         | false  | true                  |
 | disabled         | 禁用                                            | Boolean         | false  | true                  |
+| loading          | 右侧图标加载中                                  | Boolean         | false  | true                  |
 | action           | 右侧图标，false：不显示，字符串为 icon 样式编码 | Boolean, String | true   | false                 |
 | actionFixed      | 右侧图标浮动                                    | Boolean         | false  | true                  |
 | actionSize       | 右侧图标尺寸                                    | Number          | 16     | -                     |
