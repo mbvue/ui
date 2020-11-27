@@ -250,6 +250,15 @@ export function throttle(this: any, fun: any, wait = 500, immediate = true) {
     }
 }
 
+//字符串转数字
+export function transNumber(value = '', defaultValue = 0) {
+    value = trim(String(value).replace(/[^0-9]+/g, ''));
+
+    if (value === undefined || value == null || value === '') return defaultValue;
+
+    return Number(value);
+}
+
 export default {
     unit,
     trim,
@@ -265,5 +274,6 @@ export default {
     hideString,
     getDistance,
     transUrl,
-    throttle
+    throttle,
+    transNumber
 };

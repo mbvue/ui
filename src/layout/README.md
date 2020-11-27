@@ -101,7 +101,7 @@ Footer：底部布局，自带默认样式，其下可嵌套任何元素，只�
 | trigger              | 开启收缩栏状态                      | Boolean        | false              | true               |
 | triggerIcon          | 收缩栏状态展开图标                  | String         | angle-double-left  | -                  |
 | triggerCollapsedIcon | 收缩栏状态收缩图标                  | String         | angle-double-right | -                  |
-| triggerIconSize      | 收缩栏状态图标尺寸                  | Number         | 16                 | -                  |
+| triggerIconSize      | 收缩栏状态图标尺寸                  | String, Number | 16                 | -                  |
 | breakpoint           | 触发响应式布局的断点,不支持 uni-app | String         | -                  | xs sm md lg xl xxl |
 
 <br/>

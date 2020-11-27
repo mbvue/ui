@@ -1,5 +1,5 @@
 <template>
-    <div :class="['mb-header']" :style="divStyle">
+    <div class="mb-header" :style="divStyle">
         <slot></slot>
     </div>
 </template>

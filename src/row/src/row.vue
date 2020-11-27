@@ -1,23 +1,17 @@
 <template>
-    <div
-        :class="[
-            'mb-row',
-            type ? 'mb-row-' + type : '',
-            type && type == 'flex' && align ? 'mb-row-flex-' + align : '',
-            type && type == 'flex' && justify ? 'mb-row-flex-' + justify : ''
-        ]"
-        :style="[divStyle]"
-    >
+    <div :class="buildClass" :style="[divStyle]">
         <slot></slot>
     </div>
 </template>
 
 <script>
+import { Mixins } from '../../base/base';
 import { vue, versions } from '../../base/utils/env';
-import { unit } from '../../base/utils/util';
+import { unit, transNumber } from '../../base/utils/util';
 import { isNumber, isObject, isArray } from '../../base/utils/test';
 
 const V = vue();
+const Vers = versions();
 const responsiveArray = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
 const dimensionMaxMap = {
     xs: '(max-width: 575px)',
@@ -30,6 +24,8 @@ const dimensionMaxMap = {
 
 export default {
     name: 'MbRow',
+
+    mixins: [Mixins],
 
     provide() {
         return {
@@ -56,6 +52,22 @@ export default {
     },
 
     computed: {
+        //构建Class
+        buildClass() {
+            let cls = ['mb-row'];
+
+            if (this.type) {
+                cls.push(`mb-row-${this.type}`);
+
+                if (this.type.toLowerCase() === 'flex') {
+                    if (this.align) cls.push(`mb-row-flex-${this.align}`);
+                    if (this.justify) cls.push(`mb-row-flex-${this.justify}`);
+                }
+            }
+
+            return cls;
+        },
+
         //定义样式
         divStyle() {
             let style = {};
@@ -75,23 +87,30 @@ export default {
     },
 
     mounted() {
+        //构建间距
         if (isNumber(this.gutter)) {
-            this.newRowGutter = this.gutter * 1;
-            if (versions() === 2) this._provided.rowGutter = this.gutter * 1;
+            //纯数字
+
+            this.newRowGutter = transNumber(this.gutter);
+            if (Vers === 2) this._provided.rowGutter = this.newRowGutter;
         } else if (isObject(this.gutter)) {
+            //对象
+
             this.mapRow = this.gutter;
             this.match = true;
         } else if (isArray(this.gutter)) {
+            //数组
+
             if (this.gutter[0]) this.mapRow = this.gutter[0];
             if (this.gutter[1]) this.mapCol = this.gutter[1];
 
             if (isNumber(this.mapRow) && isNumber(this.mapCol)) {
-                this.newRowGutter = this.mapRow * 1;
-                this.newColGutter = this.mapCol * 1;
+                this.newRowGutter = transNumber(this.mapRow);
+                this.newColGutter = transNumber(this.mapCol);
 
-                if (versions() === 2) {
-                    this._provided.rowGutter = this.mapRow * 1;
-                    this._provided.colGutter = this.mapCol * 1;
+                if (Vers === 2) {
+                    this._provided.rowGutter = this.newRowGutter;
+                    this._provided.colGutter = this.newColGutter;
                 }
             } else {
                 this.match = true;
@@ -112,14 +131,6 @@ export default {
                 listener(media);
             }
         }
-
-        if (versions() === 2) {
-            this.$options.destroyed = [
-                function destroyed() {
-                    this.$options.unmounted();
-                }
-            ];
-        }
     },
 
     unmounted() {
@@ -131,21 +142,32 @@ export default {
     },
 
     methods: {
+        //响应式处理
         responsiveHandler(index) {
+            //左右间距
             if (isNumber(this.mapRow)) {
-                this.newRowGutter = this.mapRow * 1;
-                if (versions() === 2) this._provided.rowGutter = this.newRowGutter;
+                //纯数字
+
+                this.newRowGutter = transNumber(this.mapRow);
+                if (Vers === 2) this._provided.rowGutter = this.newRowGutter;
             } else if (isObject(this.mapRow)) {
-                this.newRowGutter = this.mapRow[index] ? this.mapRow[index] * 1 : 0;
-                if (versions() === 2) this._provided.rowGutter = this.newRowGutter;
+                //对象
+
+                this.newRowGutter = this.mapRow[index] ? transNumber(this.mapRow[index]) : 0;
+                if (Vers === 2) this._provided.rowGutter = this.newRowGutter;
             }
 
+            //上下间距
             if (isNumber(this.mapCol)) {
-                this.newColGutter = this.mapCol * 1;
-                if (versions() === 2) this._provided.colGutter = this.newColGutter;
+                //纯数字
+
+                this.newColGutter = transNumber(this.mapCol);
+                if (Vers === 2) this._provided.colGutter = this.newColGutter;
             } else if (isObject(this.mapCol)) {
-                this.newColGutter = this.mapCol[index] ? this.mapCol[index] * 1 : 0;
-                if (versions() === 2) this._provided.colGutter = this.newColGutter;
+                //对象
+
+                this.newColGutter = this.mapCol[index] ? transNumber(this.mapCol[index]) : 0;
+                if (Vers === 2) this._provided.colGutter = this.newColGutter;
             }
         }
     }

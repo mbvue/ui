@@ -65,10 +65,7 @@ export default {
     computed: {
         //定义外层样式
         divStyle() {
-            let style = {
-                width: unit(this.width),
-                height: unit(this.height)
-            };
+            let style = { width: unit(this.width), height: unit(this.height) };
 
             if (this.shape) {
                 if (this.shape === 'circle') {

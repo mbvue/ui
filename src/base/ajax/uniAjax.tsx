@@ -2,15 +2,7 @@ import { deepMerge } from '../utils/util';
 import { isFunction, isUrl } from '../utils/test';
 
 declare const uni: any;
-
-const baseConfig = {
-    baseURL: '',
-    method: 'GET',
-    headers: {},
-    timeout: 60000,
-    responseType: 'text',
-    withCredentials: false
-};
+const baseConfig = { baseURL: '', method: 'GET', headers: {}, timeout: 60000, responseType: 'text', withCredentials: false };
 
 const ajax = {
     //基础请求
@@ -18,14 +10,12 @@ const ajax = {
         let config: any = deepMerge(Object.assign({}, baseConfig), conf);
 
         // 请求拦截
-        if (config.request && isFunction(config.request)) {
-            config = config.request(config);
-        }
+        if (config.request && isFunction(config.request)) config = config.request(config);
 
         return new Promise((resolve, reject) => {
             //执行请求
             config.complete = (response: any) => {
-                if (response.statusCode == 200) {
+                if (response.statusCode === 200) {
                     //响应拦截器
                     if (config.response && isFunction(config.response)) {
                         config
@@ -62,7 +52,7 @@ const ajax = {
             };
 
             uni.request({
-                url: isUrl(config.url) ? config.url : config.baseUrl + (config.url.indexOf('/') == 0 ? config.url : '/' + config.url),
+                url: isUrl(config.url) ? config.url : config.baseUrl + (config.url.indexOf('/') === 0 ? '' : '/') + config.url,
                 data: config.data,
                 header: config.headers,
                 method: config.method,

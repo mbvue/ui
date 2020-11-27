@@ -364,11 +364,11 @@
 
 | 参数   | 说明                                                                          | 类型          | 默认值 | 可选值 |
 | ------ | ----------------------------------------------------------------------------- | ------------- | ------ | ------ |
-| offset | 栅格左侧的间隔格数，间隔内不可以有栅格(微信小程序需设置属性 data-offset="x")  | Number        | 0      | 0 ~ 24 |
-| order  | 栅格顺序，flex 布局模式下有效(微信小程序需设置属性 data-order="x")            | Number        | 0      | 0 ~ 24 |
-| pull   | 栅格向左移动格数(微信小程序需设置属性 data-pull="x")                          | Number        | 0      | 0 ~ 24 |
-| push   | 栅格向右移动格数(微信小程序需设置属性 data-push="x")                          | Number        | 0      | 0 ~ 24 |
-| span   | 栅格占位格数，为 0 时相当于 display: none(微信小程序需设置属性 data-span="x") | Number        | 1      | 0 ~ 24 |
+| offset | 栅格左侧的间隔格数，间隔内不可以有栅格(微信小程序需设置属性 data-offset="x")  | String,Number | 0      | 0 ~ 24 |
+| order  | 栅格顺序，flex 布局模式下有效(微信小程序需设置属性 data-order="x")            | String,Number | 0      | 0 ~ 24 |
+| pull   | 栅格向左移动格数(微信小程序需设置属性 data-pull="x")                          | String,Number | 0      | 0 ~ 24 |
+| push   | 栅格向右移动格数(微信小程序需设置属性 data-push="x")                          | String,Number | 0      | 0 ~ 24 |
+| span   | 栅格占位格数，为 0 时相当于 display: none(微信小程序需设置属性 data-span="x") | String,Number | 1      | 0 ~ 24 |
 | xs     | <480px 响应式栅格，可为栅格数或一个包含其他属性的对象(微信小程序不支持)       | Number,Object | -      | -      |
 | sm     | ≥576 响应式栅格，可为栅格数或一个包含其他属性的对象(微信小程序不支持)         | Number,Object | -      | -      |
 | md     | ≥768 响应式栅格，可为栅格数或一个包含其他属性的对象(微信小程序不支持)         | Number,Object | -      | -      |

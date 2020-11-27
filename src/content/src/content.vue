@@ -1,5 +1,5 @@
 <template>
-    <div :class="['mb-content']">
+    <div class="mb-content">
         <slot></slot>
     </div>
 </template>

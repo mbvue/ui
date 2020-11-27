@@ -1428,7 +1428,7 @@
 | 参数        | 说明                      | 类型           | 默认值 | 可选值 |
 | ----------- | ------------------------- | -------------- | ------ | ------ |
 | type        | 图标类型                  | String         | -      | -      |
-| customStyle | 图标样式                  | Object         | -      | -      |
+| customStyle | 自定义图标样式            | Object         | -      | -      |
 | size        | 图标尺寸，单位 px         | String, Number | 16     | -      |
 | custom      | 自定义字体库              | String         | -      | -      |
 | spin        | 图标是否有旋转动画        | Boolean        | false  | true   |

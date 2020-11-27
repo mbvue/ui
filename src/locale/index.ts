@@ -6,12 +6,12 @@ let i18n = {}, //当前语言库
     customize = {}; //自定义语言库
 
 //切换语言
-function set(key: string) {
+function setLanguage(key: string) {
     i18n = deepMerge(deepClone(Languages[key]), customize || {});
 }
 
 //获取语言
-function get(key: string) {
+function getLanguage(key: string) {
     return key.split('.').reduce((o, i) => {
         if (o) return o[i];
     }, i18n);
@@ -20,14 +20,14 @@ function get(key: string) {
 export default {
     install: (app: any, locale = 'zh_cn', langs = {}) => {
         customize = langs;
-        set(locale);
+        setLanguage(locale);
 
         if (versions() === 2) {
-            app.prototype.$locale = set;
-            app.prototype.$t = get;
+            app.prototype.$locale = setLanguage;
+            app.prototype.$t = getLanguage;
         } else {
-            app.config.globalProperties.$locale = set;
-            app.config.globalProperties.$t = get;
+            app.config.globalProperties.$locale = setLanguage;
+            app.config.globalProperties.$t = getLanguage;
             app.provide('i18n', i18n);
         }
     }

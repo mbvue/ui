@@ -44,19 +44,8 @@ export default (config: any = {}, axios: any) => {
     if (!axios) return {};
     axios = axios.default || axios;
 
-    instance = axios.create(
-        deepMerge(
-            {
-                baseURL: '',
-                method: 'GET',
-                headers: {},
-                timeout: 60000,
-                responseType: 'json',
-                withCredentials: false
-            },
-            config
-        )
-    );
+    //创建全局实例化对象
+    instance = axios.create(deepMerge({ baseURL: '', method: 'GET', headers: {}, timeout: 60000, responseType: 'json', withCredentials: false }, config));
 
     // 请求拦截
     if (config.request && isFunction(config.request)) {

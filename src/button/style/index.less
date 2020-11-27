@@ -2,6 +2,7 @@
 
 .@{prefix}-button {
     position: relative;
+    box-sizing: border-box;
     display: inline-flex;
     align-items: center;
     height: unit(round(@font-size * 2.55), px);
@@ -11,6 +12,7 @@
     line-height: 1;
     text-transform: none;
     cursor: pointer;
+    user-select: none;
     background-color: #fff;
     border: @border-width solid @color-border;
     border-radius: 0;
@@ -23,10 +25,10 @@
 
     .@{prefix}-button-hover-bg {
         position: absolute;
-        top: -1px;
-        right: -1px;
-        bottom: -1px;
-        left: -1px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
         display: none;
         pointer-events: none;
         background: rgba(255, 255, 255, 0.5);
