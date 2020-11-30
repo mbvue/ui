@@ -17,9 +17,11 @@ import { default as Input } from './input/index';
 import { default as InputGroup } from './input-group/index';
 import { default as InputNumber } from './input-number/index';
 import { default as InputSearch } from './input-search/index';
+import { default as Radio } from './radio/index';
+import { default as RadioGroup } from './radio-group/index';
 
 const version = Base.env.versions();
-const components = [Image, Icon, Button, ButtonGroup, Layout, Content, Footer, Header, Sider, Row, Col, Input, InputGroup, InputNumber, InputSearch];
+const components = [Image, Icon, Button, ButtonGroup, Layout, Content, Footer, Header, Sider, Row, Col, Input, InputGroup, InputNumber, InputSearch, Radio, RadioGroup];
 
 const install = (app: any, options = <any>{ locale: 'zh_cn', langs: {} }) => {
     //定制语言
@@ -48,5 +50,5 @@ const install = (app: any, options = <any>{ locale: 'zh_cn', langs: {} }) => {
     return app;
 };
 
-export { install, Locale, Image, Icon, Button, ButtonGroup, Layout, Content, Footer, Header, Sider, Row, Col, Input, InputGroup, InputNumber, InputSearch };
+export { install, Locale, Image, Icon, Button, ButtonGroup, Layout, Content, Footer, Header, Sider, Row, Col, Input, InputGroup, InputNumber, InputSearch, Radio, RadioGroup };
 export default { install };

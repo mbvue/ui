@@ -4,6 +4,7 @@
     display: inline-flex;
     width: 150px;
     height: unit(round(@font-size * 2.55), px);
+    user-select: none;
 
     &.@{prefix}-input-number-xs {
         height: unit(round(@font-size * 2), px);
@@ -35,7 +36,6 @@
         background-color: @color-info-lighter;
 
         &.@{prefix}-input-number-action-disabled {
-            cursor: default;
             opacity: 0.6 !important;
         }
     }
@@ -73,6 +73,7 @@
             }
 
             &.@{prefix}-input-number-box-input-disabled {
+                cursor: not-allowed;
                 opacity: 0.6 !important;
 
                 & + .@{prefix}-input-number-box-action {
@@ -120,11 +121,12 @@
     }
 
     &.@{prefix}-input-number-disabled {
+        cursor: not-allowed;
         opacity: 0.6 !important;
 
         .@{prefix}-input-number-less,
         .@{prefix}-input-number-add {
-            cursor: default;
+            cursor: not-allowed;
 
             &.@{prefix}-input-number-action-disabled {
                 opacity: 1 !important;
@@ -133,6 +135,8 @@
 
         .@{prefix}-input-number-box {
             .@{prefix}-input-number-box-input {
+                cursor: not-allowed;
+
                 &.@{prefix}-input-number-box-input-disabled {
                     opacity: 1 !important;
                 }

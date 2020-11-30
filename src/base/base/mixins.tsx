@@ -13,5 +13,22 @@ export default {
                 }
             ];
         }
+    },
+
+    methods: {
+        //获取父级
+        getParent(this: any, name: any) {
+            let _parent: any = this.$parent;
+
+            while (_parent) {
+                if (_parent.$options && _parent.$options.name !== name) {
+                    _parent = _parent.$parent;
+                } else {
+                    return _parent;
+                }
+            }
+
+            return false;
+        }
     }
 };

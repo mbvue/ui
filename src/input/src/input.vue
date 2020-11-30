@@ -13,7 +13,7 @@
                 class="mb-input-input-input mb-input-input-textarea"
                 :placeholder="placeholder"
                 :placeholderStyle="placeholderStyle"
-                :disabled="disabled"
+                :disabled="buildDisabled"
                 :readonly="readonly"
                 :maxlength="maxLength"
                 :value="inputValue"
@@ -39,7 +39,7 @@
                 :type="buildType"
                 :placeholder="placeholder"
                 :placeholderStyle="placeholderStyle"
-                :disabled="disabled"
+                :disabled="buildDisabled"
                 :readonly="readonly"
                 :maxlength="maxLength"
                 :value="inputValue"
@@ -62,7 +62,7 @@
                 :type="buildType"
                 :placeholder="placeholder"
                 :placeholderStyle="placeholderStyle"
-                :disabled="disabled"
+                :disabled="buildDisabled"
                 :readonly="buildType === 'select' || readonly"
                 :maxlength="maxLength"
                 :password="type.toLowerCase() === 'password' ? true : false"
@@ -182,7 +182,7 @@ export default {
 
             if (this.focused) cls.push('mb-input-focused');
 
-            if (this.disabled) cls.push('mb-input-disabled');
+            if (this.buildDisabled) cls.push('mb-input-disabled');
 
             if (this.buildType === 'textarea') cls.push('mb-input-textarea');
 
@@ -197,6 +197,11 @@ export default {
             if (this.$slots.suffix || this.suffix || this.allowClear) cls.push(`mb-input-has-suffix`);
 
             return cls;
+        },
+
+        //是否禁用
+        buildDisabled() {
+            return this.disabled || (this.$parent && this.$parent.$options.name === 'MbInputGroup' && this.$parent.disabled) ? true : false;
         }
     },
 

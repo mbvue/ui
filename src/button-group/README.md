@@ -122,6 +122,13 @@
         <mb-button type="primary" ghost="ghost" :disabled="true">第二个按钮</mb-button>
         <mb-button type="primary" ghost="ghost" :disabled="true">第三个按钮</mb-button>
     </mb-button-group>
+    <br/>
+    <br/>
+    <mb-button-group disabled>
+        <mb-button type="primary" ghost="ghost">第一个按钮</mb-button>
+        <mb-button type="primary" ghost="ghost">第二个按钮</mb-button>
+        <mb-button type="primary" ghost="ghost">第三个按钮</mb-button>
+    </mb-button-group>
 </div>
 :::
 
@@ -170,9 +177,10 @@
 
 ### 2.1、 参数
 
-| 参数 | 说明         | 类型   | 默认值 | 可选值             |
-| ---- | ------------ | ------ | ------ | ------------------ |
-| size | 设置按钮大小 | String | md     | xs、sm、md、lg、xl |
+| 参数     | 说明         | 类型    | 默认值 | 可选值             |
+| -------- | ------------ | ------- | ------ | ------------------ |
+| size     | 设置按钮大小 | String  | md     | xs、sm、md、lg、xl |
+| disabled | 是否禁用状态 | Boolean | false  | true               |
 
 ### 2.2、事件
 

@@ -2,7 +2,7 @@
     <button
         :class="buildClass"
         :type="htmlType"
-        :disabled="disabled || loading || ajaxLoading"
+        :disabled="buildDisabled || loading || ajaxLoading"
         :open-type="openType"
         :hover-class="hoverClass"
         :hover-stay-time="throttle"
@@ -93,7 +93,7 @@ export default {
             if (this.ghost) cls.push(`mb-button-${this.ghost}`);
             if (this.size) cls.push(`mb-button-${this.size}`);
             if (this.shape) cls.push(`mb-button-${this.shape}`);
-            if (this.disabled || this.loading || this.ajaxLoading) cls.push(`mb-button-disabled`);
+            if (this.buildDisabled || this.loading || this.ajaxLoading) cls.push(`mb-button-disabled`);
             if (this.block) cls.push(`mb-button-block`);
 
             return cls;
@@ -107,6 +107,11 @@ export default {
         //构建加载中图标尺寸
         buildLoadingSize() {
             return transNumber(this.loadingSize);
+        },
+
+        //是否禁用
+        buildDisabled() {
+            return this.disabled || (this.$parent && this.$parent.$options.name === 'MbButtonGroup' && this.$parent.disabled) ? true : false;
         }
     },
 
@@ -125,7 +130,7 @@ export default {
     methods: {
         //点击事件
         handleClick(event) {
-            if (this.loading || this.ajaxLoading || this.disabled) return;
+            if (this.loading || this.ajaxLoading || this.buildDisabled) return;
 
             //兼容web端阻止冒泡事件
             if (!IsUni && this.hoverStopPropagation) {

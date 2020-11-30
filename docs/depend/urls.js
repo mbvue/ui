@@ -25,7 +25,9 @@ const langs = {
         input: 'Input 输入框',
         inputgroup: 'InputGroup 输入框组',
         inputnumber: 'InputNumber 数字输入框',
-        inputsearch: 'InputSearch 搜索框'
+        inputsearch: 'InputSearch 搜索框',
+        radio: 'Radio 单选',
+        radiogroup: 'RadioGroup 单选组'
     },
     'en-US': {
         index: 'Home'
@@ -107,6 +109,16 @@ export default [
                 title: langs[lang].inputsearch,
                 path: 'inputsearch',
                 component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.inputsearch'*/ `@mbvue/ui/input-search/README${suffix}.md`))
+            },
+            {
+                title: langs[lang].radio,
+                path: 'radio',
+                component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.radio'*/ `@mbvue/ui/radio/README${suffix}.md`))
+            },
+            {
+                title: langs[lang].radiogroup,
+                path: 'radiogroup',
+                component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.radiogroup'*/ `@mbvue/ui/radio-group/README${suffix}.md`))
             }
         ]
     }

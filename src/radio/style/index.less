@@ -1,0 +1,135 @@
+@import '../../base/style/theme.less';
+
+.@{prefix}-radio {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+
+    .@{prefix}-radio-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: unit(round(@font-size * 1), px);
+        height: unit(round(@font-size * 1), px);
+        margin-right: unit(round(@font-size * 0.1), px);
+        border: @border-width solid @color-info;
+        transition: all 0.3s;
+
+        .@{prefix}-radio-icon-round {
+            width: unit(round(@font-size * 0.5), px);
+            height: unit(round(@font-size * 0.5), px);
+            overflow: hidden;
+            background-color: transparent;
+            opacity: 0;
+            transition: all 0.3s;
+            transform: scale(0);
+        }
+
+        &.@{prefix}-radio-icon-xs {
+            width: unit(round(@font-size * 0.7), px);
+            height: unit(round(@font-size * 0.7), px);
+
+            .@{prefix}-radio-icon-round {
+                width: unit(round(@font-size * 0.4), px);
+                height: unit(round(@font-size * 0.4), px);
+            }
+        }
+
+        &.@{prefix}-radio-icon-sm {
+            width: unit(round(@font-size * 0.8), px);
+            height: unit(round(@font-size * 0.8), px);
+
+            .@{prefix}-radio-icon-round {
+                width: unit(round(@font-size * 0.5), px);
+                height: unit(round(@font-size * 0.5), px);
+            }
+        }
+
+        &.@{prefix}-radio-icon-md {
+            width: unit(round(@font-size * 1), px);
+            height: unit(round(@font-size * 1), px);
+
+            .@{prefix}-radio-icon-round {
+                width: unit(round(@font-size * 0.6), px);
+                height: unit(round(@font-size * 0.6), px);
+            }
+        }
+
+        &.@{prefix}-radio-icon-lg {
+            width: unit(round(@font-size * 1.1), px);
+            height: unit(round(@font-size * 1.1), px);
+
+            .@{prefix}-radio-icon-round {
+                width: unit(round(@font-size * 0.65), px);
+                height: unit(round(@font-size * 0.65), px);
+            }
+        }
+
+        &.@{prefix}-radio-icon-xl {
+            width: unit(round(@font-size * 1.2), px);
+            height: unit(round(@font-size * 1.2), px);
+
+            .@{prefix}-radio-icon-round {
+                width: unit(round(@font-size * 0.75), px);
+                height: unit(round(@font-size * 0.75), px);
+            }
+        }
+
+        &.@{prefix}-radio-icon-circle {
+            border-radius: 50%;
+
+            .@{prefix}-radio-icon-round {
+                border-radius: 50%;
+            }
+        }
+
+        &.@{prefix}-radio-icon-pill {
+            border-radius: unit(round(@font-size * 0.3), px);
+
+            .@{prefix}-radio-icon-round {
+                border-radius: unit(round(@font-size * 0.15), px);
+            }
+        }
+
+        &.@{prefix}-radio-icon-square {
+            border-radius: 0;
+
+            .@{prefix}-radio-icon-round {
+                border-radius: 0;
+            }
+        }
+    }
+
+    &.@{prefix}-radio-label {
+        flex: 1;
+    }
+
+    &.@{prefix}-radio-checked {
+        .@{prefix}-radio-icon {
+            border-color: @color-primary;
+
+            .@{prefix}-radio-icon-round {
+                background-color: @color-primary;
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    }
+
+    &.@{prefix}-radio-disabled {
+        cursor: not-allowed;
+        opacity: 0.6 !important;
+
+        &.@{prefix}-radio-checked {
+            .@{prefix}-radio-icon {
+                border-color: @color-info !important;
+
+                .@{prefix}-radio-icon-round {
+                    background-color: @color-info !important;
+                }
+            }
+        }
+    }
+}

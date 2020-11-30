@@ -9,7 +9,8 @@ export default {
     name: 'MbInputGroup',
 
     props: {
-        size: { type: String, default: '' } //设置按钮大小，可选值为 xs sm md lg xl 或者不设
+        size: { type: String, default: '' }, //设置按钮大小，可选值为 xs sm md lg xl 或者不设
+        disabled: { type: Boolean, default: false } //是否禁用状态
     },
 
     computed: {

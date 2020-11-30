@@ -82,10 +82,52 @@
 </div>
 :::
 
+### 1.3、 禁用
+
+:::demo html
+
+<div>
+    <mb-input-group disabled size="xs">
+        <mb-input placeholder="请输入内容"/>
+        <mb-input placeholder="请输入内容"/>
+        <mb-input placeholder="请输入内容"/>
+    </mb-input-group>
+    <br/>
+    <br/>
+    <mb-input-group disabled size="sm">
+        <mb-input placeholder="请输入内容"/>
+        <mb-input placeholder="请输入内容"/>
+        <mb-input placeholder="请输入内容"/>
+    </mb-input-group>
+    <br/>
+    <br/>
+    <mb-input-group disabled size="md">
+        <mb-input placeholder="请输入内容"/>
+        <mb-input placeholder="请输入内容"/>
+        <mb-input placeholder="请输入内容"/>
+    </mb-input-group>
+    <br/>
+    <br/>
+    <mb-input-group disabled size="lg">
+        <mb-input placeholder="请输入内容"/>
+        <mb-input placeholder="请输入内容"/>
+        <mb-input placeholder="请输入内容"/>
+    </mb-input-group>
+    <br/>
+    <br/>
+    <mb-input-group disabled size="xl">
+        <mb-input placeholder="请输入内容"/>
+        <mb-input placeholder="请输入内容"/>
+        <mb-input placeholder="请输入内容"/>
+    </mb-input-group>
+</div>
+:::
+
 ## 2、 API 配置
 
 ### 2.1、 参数
 
-| 参数 | 说明         | 类型   | 默认值 | 可选值             |
-| ---- | ------------ | ------ | ------ | ------------------ |
-| size | 设置按钮大小 | String | md     | xs、sm、md、lg、xl |
+| 参数     | 说明         | 类型    | 默认值 | 可选值             |
+| -------- | ------------ | ------- | ------ | ------------------ |
+| size     | 设置按钮大小 | String  | md     | xs、sm、md、lg、xl |
+| disabled | 是否禁用状态 | Boolean | false  | true               |
