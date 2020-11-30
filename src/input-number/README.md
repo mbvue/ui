@@ -78,6 +78,7 @@
 | cursorSpacing    | 指定光标于键盘的距离，避免键盘遮挡输入框，单位 px | Number  | 0      | -                  |
 | longPress        | 是否开启长按连续递增或递减                        | Boolean | true   | false              |
 | pressTime        | 开启长按触发后，每触发一次需要多久，单位 ms       | Number  | 250    | -                  |
+| scroll           | 鼠标滚动数字增加/减少                             | Boolean | true   | false              |
 
 ### 2.2、插槽
 

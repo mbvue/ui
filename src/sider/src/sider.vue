@@ -13,13 +13,14 @@ import { Mixins } from '../../base/base';
 import { vue, versions } from '../../base/utils/env';
 import { unit, transNumber } from '../../base/utils/util';
 
+const Vers = versions();
 const dimensionMaxMap = { xs: '479.98px', sm: '575.98px', md: '767.98px', lg: '991.98px', xl: '1199.98px', xxl: '1599.98px' };
 
 export default {
     name: 'MbSider',
 
     components: {
-        'mb-icon': versions() === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
+        'mb-icon': Vers === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
     },
 
     mixins: [Mixins],
@@ -34,6 +35,8 @@ export default {
         triggerIconSize: { type: [String, Number], default: 16 }, //收缩栏状态图标尺寸
         breakpoint: { type: String, default: '' } //触发响应式布局的断点，可选值为 xs sm md lg xl xxl 或者不设
     },
+
+    emits: ['collapse', 'breakpoint'],
 
     data() {
         return {

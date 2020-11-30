@@ -7,7 +7,7 @@
 
         <div class="mb-input-input">
             <textarea
-                v-if="buildType == 'textarea'"
+                v-if="buildType === 'textarea'"
                 :id="id"
                 ref="textarea"
                 class="mb-input-input-input mb-input-input-textarea"
@@ -33,7 +33,7 @@
             />
 
             <input
-                v-else-if="buildType == 'number'"
+                v-else-if="buildType === 'number'"
                 :id="id"
                 class="mb-input-input-input"
                 :type="buildType"
@@ -63,8 +63,9 @@
                 :placeholder="placeholder"
                 :placeholderStyle="placeholderStyle"
                 :disabled="disabled"
-                :readonly="type == 'select' || readonly"
+                :readonly="buildType === 'select' || readonly"
                 :maxlength="maxLength"
+                :password="type.toLowerCase() === 'password' ? true : false"
                 :value="inputValue"
                 :confirmType="confirmType"
                 :style="customStyle"
@@ -79,7 +80,6 @@
                 @confirm="onConfirm"
                 @keyup.enter="onEnter"
             />
-            <!-- && inputValue != '' && focused-->
 
             <div v-if="allowClear && inputValue != '' && focused" class="mb-input-input-clear">
                 <mb-icon type="times-circle" :size="16" @mousedown="onClear" @touchstart="onClear" />
@@ -106,11 +106,14 @@ import { vue, versions, uniApp } from '../../base/utils/env';
 import { isBoolean } from '../../base/utils/test';
 import { trim } from '../../base/utils/util';
 
+const Vers = versions();
+const IsUni = uniApp();
+
 export default {
     name: 'MbInput',
 
     components: {
-        'mb-icon': versions() === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
+        'mb-icon': Vers === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
     },
 
     props: {
@@ -148,6 +151,8 @@ export default {
         trim: { type: Boolean, default: true } //是否自动去除两端的空格
     },
 
+    emits: ['focus', 'blur', 'change', 'input', 'enter', 'confirm'],
+
     data() {
         return {
             inputValue: this.defaultValue || this.value, //值
@@ -158,17 +163,20 @@ export default {
     },
 
     computed: {
+        //构建类型
         buildType() {
-            if (this.type == 'password' && (uniApp() || this.showPassword)) return 'text';
-            return this.type;
+            if (this.type.toLowerCase() === 'password' && (IsUni || this.showPassword)) return 'text';
+
+            return this.type.toLowerCase();
         },
 
+        //构建样式
         buildClass() {
             let cls = ['mb-input'];
 
             if (isBoolean(this.border)) {
                 cls.push(this.border ? 'mb-input-border-all' : 'mb-input-border-none');
-            } else {
+            } else if (this.border) {
                 cls.push(`mb-input-border-${this.border}`);
             }
 
@@ -176,11 +184,11 @@ export default {
 
             if (this.disabled) cls.push('mb-input-disabled');
 
-            if (this.type == 'textarea') cls.push('mb-input-textarea');
+            if (this.buildType === 'textarea') cls.push('mb-input-textarea');
 
-            if (this.type == 'textarea' && this.autoHeight) cls.push('mb-input-textarea-auto');
+            if (this.buildType === 'textarea' && this.autoHeight) cls.push('mb-input-textarea-auto');
 
-            if (this.type == 'select') cls.push('mb-input-select');
+            if (this.buildType === 'select') cls.push('mb-input-select');
 
             if (this.size) cls.push(`mb-input-${this.size}`);
 
@@ -196,7 +204,7 @@ export default {
         value(nVal, oVal) {
             this.inputValue = nVal;
 
-            if (nVal != oVal && this.type == 'select') {
+            if (nVal != oVal && this.buildType === 'select') {
                 this.onInput({ target: { value: nVal } });
             } else if (nVal != oVal) {
                 this.$emit('change', nVal);
@@ -205,6 +213,7 @@ export default {
     },
 
     methods: {
+        //输入处理
         onInput(event) {
             let value = event.target.value || event.detail.value;
             if (this.trim) value = trim(value);
@@ -214,33 +223,40 @@ export default {
             this.$emit('change', value);
 
             //兼容web端自动增加高度
-            if (this.type == 'textarea' && this.autoHeight && !uniApp()) {
+            if (this.buildType === 'textarea' && this.autoHeight && !IsUni) {
                 if (!this.baseHeight) this.baseHeight = parseFloat(window.getComputedStyle(this.$refs.input, null).height) || 50;
 
                 this.$refs.textarea.style.height = 'auto';
-                this.$refs.input.style.height = (this.$refs.textarea.scrollHeight > this.baseHeight ? this.$refs.textarea.scrollHeight : this.baseHeight) + 'px';
-                this.$refs.textarea.style.height = '100%';
+                this.$nextTick(() => {
+                    this.$refs.input.style.height = (this.$refs.textarea.scrollHeight > this.baseHeight ? this.$refs.textarea.scrollHeight : this.baseHeight) + 'px';
+                    this.$refs.textarea.style.height = '100%';
+                });
             }
         },
 
+        //获取光标
         onFocus(event) {
             this.focused = true;
             this.$emit('focus', event);
         },
 
+        //失去光标
         onBlur(event) {
             this.focused = false;
             this.$emit('blur', event);
         },
 
+        //确定提交
         onConfirm(event) {
             this.$emit('confirm', event.detail.value);
         },
 
+        //回车事件
         onEnter(event) {
             this.$emit('enter', event);
         },
 
+        //清除输入
         onClear(event) {
             event.stopPropagation();
             event.preventDefault();
@@ -252,6 +268,7 @@ export default {
             return false;
         },
 
+        //显示密码
         onPassword(event) {
             event.stopPropagation();
             event.preventDefault();

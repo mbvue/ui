@@ -291,6 +291,7 @@ export default {
 
 | 事件名         | 说明                                                                                                                         | 回调参数 |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------- |
+| click          | 点击事件                                                                                                                     | event    |
 | getphonenumber | 获取用户手机号回调，仅 open-type="getPhoneNumber"有效                                                                        | res      |
 | getuserinfo    | 用户点击该按钮时，会返回获取到的用户信息，从返回参数的 detail 中获取到的值同 uni.getUserInfo，仅 open-type="getUserInfo"有效 | res      |
 | error          | 当使用开放能力时，发生错误的回调，仅 open-type="launchApp"有效                                                               | res      |

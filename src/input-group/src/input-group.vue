@@ -1,5 +1,5 @@
 <template>
-    <div :class="['mb-input-group', size ? 'mb-input-group-' + size : '']">
+    <div :class="buildClass">
         <slot></slot>
     </div>
 </template>
@@ -10,6 +10,17 @@ export default {
 
     props: {
         size: { type: String, default: '' } //设置按钮大小，可选值为 xs sm md lg xl 或者不设
+    },
+
+    computed: {
+        //构建样式
+        buildClass() {
+            let cls = ['mb-input-group'];
+
+            if (this.size) cls.push(`mb-input-group-${this.size}`);
+
+            return cls;
+        }
     }
 };
 </script>

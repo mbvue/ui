@@ -1,5 +1,5 @@
 <template>
-    <div :class="buildClass" :style="[divStyle]">
+    <div :class="buildClass" :style="[divStyle]" @click="onClick">
         <slot></slot>
     </div>
 </template>
@@ -8,6 +8,8 @@
 import { versions } from '../../base/utils/env';
 import { unit, transNumber } from '../../base/utils/util';
 import { isNumber, isObject } from '../../base/utils/test';
+
+const Vers = versions();
 
 export default {
     name: 'MbCol',
@@ -58,7 +60,7 @@ export default {
         divStyle() {
             let style = {};
 
-            if (versions() === 2) {
+            if (Vers === 2) {
                 if (this.rowGutter() != 0) {
                     style.paddingLeft = unit(this.rowGutter());
                     style.paddingRight = unit(this.rowGutter());
@@ -81,6 +83,14 @@ export default {
             }
 
             return style;
+        }
+    },
+
+    methods: {
+        //点击事件
+        onClick(event) {
+            //兼容vue2 点击事件
+            if (Vers === 2) this.$emit('click', event);
         }
     }
 };

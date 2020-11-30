@@ -112,6 +112,8 @@
 | confirmType      | 设置键盘右下角按钮的文字，仅在 uni-app 中生效   | String          | done   | -                     |
 | cursorSpacing    | 指定光标与键盘的距离，单位 px                   | Number          | 0      | -                     |
 | trim             | 是否自动去除两端的空格                          | Boolean         | true   | false                 |
+| enterSearch      | 是否回车触发查询                                | Boolean         | true   | false                 |
+| history          | 历史搜索记录                                    | Array           | []     | -                     |
 
 ### 2.2、插槽
 

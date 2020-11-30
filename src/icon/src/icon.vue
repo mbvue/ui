@@ -1,6 +1,6 @@
 <template>
     <div class="mb-icon">
-        <div v-if="isImage" :style="[buildStyle]">
+        <div v-if="isImage" :style="[buildStyle]" @click="onClick">
             <img :src="type" mode="aspectFit" style="width: 100%; height: auto" />
         </div>
 
@@ -9,7 +9,10 @@
 </template>
 
 <script>
+import { versions } from '../../base/utils/env';
 import { unit } from '../../base/utils/util';
+
+const Vers = versions();
 
 export default {
     name: 'MbIcon',
@@ -58,6 +61,14 @@ export default {
             if (this.rotate !== 0) style.transform = `rotate(${unit(this.rotate, 'deg')})`;
 
             return style;
+        }
+    },
+
+    methods: {
+        //点击事件
+        onClick(event) {
+            //兼容vue2 点击事件
+            if (Vers === 2) this.$emit('click', event);
         }
     }
 };

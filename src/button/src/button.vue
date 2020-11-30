@@ -36,11 +36,14 @@ import { vue, versions, uniApp } from '../../base/utils/env';
 import { isFunction } from '../../base/utils/test';
 import { throttle, transNumber } from '../../base/utils/util';
 
+const Vers = versions();
+const IsUni = uniApp();
+
 export default {
     name: 'MbButton',
 
     components: {
-        'mb-icon': versions() === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
+        'mb-icon': Vers === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
     },
 
     mixins: [Mixins],
@@ -72,6 +75,8 @@ export default {
         autoFocus: { type: Boolean, default: false }, //是否默认聚焦
         ajax: { type: Function, default: null } //ajax请求封装自动处理Loading状态
     },
+
+    emits: ['getphonenumber', 'getuserinfo', 'error', 'opensetting', 'launchapp'],
 
     data() {
         return {
@@ -119,13 +124,13 @@ export default {
 
     methods: {
         //点击事件
-        handleClick(evt) {
+        handleClick(event) {
             if (this.loading || this.ajaxLoading || this.disabled) return;
 
             //兼容web端阻止冒泡事件
-            if (!uniApp() && this.hoverStopPropagation) {
-                if (evt && evt.stopPropagation()) {
-                    evt.stopPropagation();
+            if (!IsUni && this.hoverStopPropagation) {
+                if (event && event.stopPropagation()) {
+                    event.stopPropagation();
                 } else {
                     window.event.cancelBubble = true;
                 }
@@ -135,11 +140,11 @@ export default {
                 this,
                 () => {
                     //增加web端点击添加HoverClass
-                    if (!uniApp() && this.hoverClass !== '' && !this.hoverTime) {
+                    if (!IsUni && this.hoverClass !== '' && !this.hoverTime) {
                         this.$el.className = this.$el.className.concat(' ' + this.hoverClass);
 
                         //兼容vue2 点击事件
-                        if (versions() === 2) this.$emit('click', evt);
+                        if (Vers === 2) this.$emit('click', event);
 
                         this.hoverTime = setTimeout(() => {
                             this.$el.className = this.$el.className.replace(' ' + this.hoverClass, '');
@@ -151,9 +156,12 @@ export default {
                     //Ajax处理
                     if (this.ajax && isFunction(this.ajax)) {
                         this.ajaxLoading = true;
+                        this.$emit('update:loading', this.ajaxLoading);
+
                         this.ajax().finally(() => {
                             setTimeout(() => {
                                 this.ajaxLoading = false;
+                                this.$emit('update:loading', this.ajaxLoading);
                             }, 100);
                         });
                     }

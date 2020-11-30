@@ -1,15 +1,6 @@
 <template>
-    <div :class="['mb-input-search', disabled ? 'mb-input-search-disabled' : '', size ? 'mb-input-search-' + size : '']">
-        <div
-            :class="[
-                'mb-input-search-left',
-                buildBorder,
-                focused ? 'mb-input-search-left-focused' : '',
-                actionFixed ? 'mb-input-search-left-fixed' : '',
-                buildButton ? 'mb-input-search-left-botton' : ''
-            ]"
-            :style="customStyle"
-        >
+    <div :class="buildDivClass">
+        <div :class="buildLeftClass" :style="customStyle">
             <div v-if="$slots.icon || buildIcon" class="mb-input-search-left-icon" :style="iconStyle">
                 <slot v-if="$slots.icon" name="icon" />
                 <mb-icon v-else-if="buildIcon" :type="buildIcon" :size="iconSize" />
@@ -40,13 +31,8 @@
             </div>
         </div>
 
-        <div
-            v-if="$slots.action || buildAction || actionText"
-            :class="['mb-input-search-right', actionFixed ? 'mb-input-search-right-fixed' : '', buildButton ? 'mb-input-search-right-botton' : '']"
-            :style="actionStyle"
-            @click="onSearch"
-        >
-            <mb-button v-if="buildButton" :type="buildButton" :disabled="disabled" :size="size" :style="buttonStyle">
+        <div v-if="$slots.action || buildAction || actionText" :class="buildRightClass" :style="actionStyle" @click="onSearch">
+            <mb-button v-if="buildButton" :type="buildButton" :disabled="disabled || loading" :size="size" :style="buttonStyle">
                 <slot v-if="$slots.action" name="action" />
                 <mb-icon v-else-if="buildAction" :type="loading ? 'spinner' : buildAction" :spin="loading" :size="actionSize" />
                 <span v-if="actionText">{{ actionText }}</span>
@@ -66,12 +52,14 @@ import { vue, versions } from '../../base/utils/env';
 import { isBoolean } from '../../base/utils/test';
 import { trim } from '../../base/utils/util';
 
+const vers = versions();
+
 export default {
     name: 'MbInputSearch',
 
     components: {
-        'mb-icon': versions() === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue'),
-        'mb-button': versions() === 3 ? vue().defineAsyncComponent(() => import('../../button/src/button.vue')) : () => import('../../button/src/button.vue')
+        'mb-icon': vers === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue'),
+        'mb-button': vers === 3 ? vue().defineAsyncComponent(() => import('../../button/src/button.vue')) : () => import('../../button/src/button.vue')
     },
 
     props: {
@@ -120,17 +108,65 @@ export default {
         size: { type: String, default: 'md' }, //输入框大小 xs、sm、md、lg、xl
         confirmType: { type: String, default: 'done' }, //设置键盘右下角按钮的文字，仅在uni-app中type为text时生效
         cursorSpacing: { type: Number, default: 0 }, //指定光标与键盘的距离，单位px
-        trim: { type: Boolean, default: true } //是否自动去除两端的空格
+        trim: { type: Boolean, default: true }, //是否自动去除两端的空格
+        enterSearch: { type: Boolean, default: true }, //是否回车触发查询
+        history: {
+            type: Array,
+            default: () => {
+                return [];
+            }
+        } //历史搜索记录
     },
+
+    emits: ['focus', 'blur', 'change', 'input', 'enter', 'confirm', 'search'],
 
     data() {
         return {
             inputValue: this.defaultValue || this.value, //值
-            focused: false // 当前是否处于获得焦点的状态
+            focused: false, // 当前是否处于获得焦点的状态
+            historyList: this.history || [] //历史搜索记录
         };
     },
 
     computed: {
+        //构建外层Class
+        buildDivClass() {
+            let cls = ['mb-input-search'];
+
+            if (this.disabled) cls.push(`mb-input-search-disabled`);
+            if (this.size) cls.push(`mb-input-search-${this.size}`);
+
+            return cls;
+        },
+
+        //构建左侧Class
+        buildLeftClass() {
+            let cls = ['mb-input-search-left'];
+
+            if (isBoolean(this.border)) {
+                cls.push(this.border ? `mb-input-search-left-border-all` : `mb-input-search-left-border-none`);
+            } else {
+                cls.push(`mb-input-search-left-border-${this.border}`);
+            }
+
+            if (this.focused) cls.push(`mb-input-search-left-focused`);
+            if (this.actionFixed) cls.push(`mb-input-search-left-fixed`);
+            if (this.buildButton) cls.push(`mb-input-search-left-botton`);
+
+            return cls;
+        },
+
+        //构建右侧Class
+        buildRightClass() {
+            let cls = ['mb-input-search-right'];
+
+            if (this.actionFixed) cls.push(`mb-input-search-right-fixed`);
+            if (this.buildButton) cls.push(`mb-input-search-right-botton`);
+
+            return cls;
+        },
+
+        //构建左侧图标
         buildIcon() {
             if (isBoolean(this.icon)) {
                 return this.icon ? 'sistrix' : false;
@@ -139,6 +175,7 @@ export default {
             }
         },
 
+        //构建右侧图标
         buildAction() {
             if (isBoolean(this.action)) {
                 return this.action ? 'sistrix' : false;
@@ -147,14 +184,7 @@ export default {
             }
         },
 
-        buildBorder() {
-            if (isBoolean(this.border)) {
-                return this.border ? 'mb-input-search-left-border-all' : 'mb-input-search-left-border-none';
-            } else {
-                return `mb-input-search-left-border-${this.border}`;
-            }
-        },
-
+        //构建右侧按钮
         buildButton() {
             if (isBoolean(this.actionButton)) {
                 return this.actionButton ? 'primary' : false;
@@ -171,10 +201,15 @@ export default {
             if (nVal != oVal) {
                 this.$emit('change', nVal);
             }
+        },
+
+        history(nval) {
+            this.historyList = nval || [];
         }
     },
 
     methods: {
+        //输入值
         onInput(event) {
             let value = event.target.value || event.detail.value;
             if (this.trim) value = trim(value);
@@ -184,24 +219,31 @@ export default {
             this.$emit('change', value);
         },
 
+        //获取光标
         onFocus(event) {
             this.focused = true;
             this.$emit('focus', event);
         },
 
+        //失去光标
         onBlur(event) {
             this.focused = false;
             this.$emit('blur', event);
         },
 
+        //确定提交
         onConfirm(event) {
             this.$emit('confirm', event.detail.value);
         },
 
+        //回车事件
         onEnter(event) {
             this.$emit('enter', event);
+
+            if (this.enterSearch) this.onSearch();
         },
 
+        //清除事件
         onClear(event) {
             event.stopPropagation();
             event.preventDefault();
@@ -213,10 +255,17 @@ export default {
             return false;
         },
 
+        //查询事件
         onSearch() {
             if (this.disabled) return;
 
-            this.$emit('search', this.trim ? trim(this.inputValue) : this.inputValue);
+            let val = this.trim ? trim(this.inputValue) : this.inputValue;
+
+            //记录历史查询记录
+            this.historyList.push(val);
+            this.$emit('update:history', this.historyList);
+
+            this.$emit('search', val);
         }
     }
 };

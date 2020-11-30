@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-image" :style="[divStyle]">
+    <div class="mb-image" :style="[divStyle]" @click="onClick">
         <img
             v-show="!loading && (!error || errorIcon === 'none')"
             ref="img"
@@ -29,11 +29,13 @@
 import { vue, versions, uniApp } from '../../base/utils/env';
 import { unit } from '../../base/utils/util';
 
+const Vers = versions();
+
 export default {
     name: 'MbImage',
 
     components: {
-        'mb-icon': versions() === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
+        'mb-icon': Vers === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
     },
 
     props: {
@@ -53,6 +55,8 @@ export default {
         webp: { type: Boolean, default: true }, //只支持网络资源，只对微信小程序有效
         bg: { type: String, default: '' } //背景颜色
     },
+
+    emits: ['load', 'error'],
 
     data() {
         return {
@@ -180,6 +184,12 @@ export default {
             if (this.$slots.error || this.errorIcon !== 'none') this.error = true;
 
             this.$emit('error');
+        },
+
+        //点击事件
+        onClick(event) {
+            //兼容vue2 点击事件
+            if (Vers === 2) this.$emit('click', event);
         }
     }
 };

@@ -1434,3 +1434,9 @@
 | spin        | 图标是否有旋转动画        | Boolean        | false  | true   |
 | duration    | 旋转动画时间间隔，单位 ms | String, Number | 1000   | -      |
 | rotate      | 图标旋转角度              | String, Number | 0      | -      |
+
+### 3.2、事件
+
+| 事件名 | 说明     | 回调参数 |
+| ------ | -------- | -------- |
+| click  | 点击事件 | event    |

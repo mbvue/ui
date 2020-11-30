@@ -1,8 +1,8 @@
 <template>
-    <div :class="['mb-input-number', disabled ? 'mb-input-number-disabled' : '', size ? 'mb-input-number-' + size : '']">
+    <div :class="buildDivClass">
         <div
             v-if="$slots.less || less"
-            :class="['mb-input-number-less', disabledLess ? 'mb-input-number-action-disabled' : '']"
+            :class="buildLessClass"
             :style="lessStyle"
             @mousedown.stop.prevent="longStart('onLess')"
             @mouseup.stop.prevent="longEnd"
@@ -16,7 +16,7 @@
         <div class="mb-input-number-box">
             <input
                 type="number"
-                :class="['mb-input-number-box-input', disabledInput ? 'mb-input-number-box-input-disabled' : '']"
+                :class="buildNumberClass"
                 :placeholder="placeholder"
                 :placeholderStyle="placeholderStyle"
                 :value="inputValue"
@@ -33,6 +33,8 @@
                 @focus="onFocus"
                 @confirm="onConfirm"
                 @keyup.enter="onEnter"
+                @mousewheel="onScroll"
+                @DOMMouseScroll="onScroll"
             />
 
             <div v-if="action" class="mb-input-number-box-action">
@@ -60,7 +62,7 @@
 
         <div
             v-if="$slots.add || add"
-            :class="['mb-input-number-add', disabledAdd ? 'mb-input-number-action-disabled' : '']"
+            :class="buildAddClass"
             :style="addStyle"
             @mousedown.stop.prevent="longStart('onAdd')"
             @mouseup.stop.prevent="longEnd"
@@ -74,15 +76,20 @@
 </template>
 
 <script>
+import { Mixins } from '../../base/base';
 import { vue, versions } from '../../base/utils/env';
 import { isUndefined, isNull } from '../../base/utils/test';
+
+const Vers = versions();
 
 export default {
     name: 'MbInputNumber',
 
     components: {
-        'mb-icon': versions() === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
+        'mb-icon': Vers === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
     },
+
+    mixins: [Mixins],
 
     props: {
         less: { type: Boolean, default: true }, //是否显示左侧减
@@ -120,8 +127,11 @@ export default {
         value: { type: Number, default: null }, //当前值
         cursorSpacing: { type: Number, default: 0 }, //指定光标于键盘的距离，避免键盘遮挡输入框，单位px
         longPress: { type: Boolean, default: true }, //是否开启长按连续递增或递减
-        pressTime: { type: Number, default: 250 } //开启长按触发后，每触发一次需要多久，单位ms
+        pressTime: { type: Number, default: 250 }, //开启长按触发后，每触发一次需要多久，单位ms
+        scroll: { type: Boolean, default: true } //鼠标滚动数字增加/减少
     },
+
+    emits: ['focus', 'blur', 'change', 'input', 'enter', 'lessition', 'addition', 'confirm'],
 
     data() {
         return {
@@ -131,19 +141,48 @@ export default {
         };
     },
 
-    watch: {
-        value(nVal) {
-            this.setValue(nVal);
+    computed: {
+        //构建外层Class
+        buildDivClass() {
+            let cls = ['mb-input-number'];
+
+            if (this.disabled) cls.push(`mb-input-number-disabled`);
+            if (this.size) cls.push(`mb-input-number-${this.size}`);
+
+            return cls;
+        },
+
+        //构建左侧减Class
+        buildLessClass() {
+            let cls = ['mb-input-number-less'];
+
+            if (this.disabledLess) cls.push(`mb-input-number-action-disabled`);
+
+            return cls;
+        },
+
+        //构建右侧加Class
+        buildAddClass() {
+            let cls = ['mb-input-number-add'];
+
+            if (this.disabledAdd) cls.push(`mb-input-number-action-disabled`);
+
+            return cls;
+        },
+
+        //构建数字框Class
+        buildNumberClass() {
+            let cls = ['mb-input-number-box-input'];
+
+            if (this.disabledInput) cls.push(`mb-input-number-box-input-disabled`);
+
+            return cls;
         }
     },
 
-    mounted() {
-        if (versions() === 2) {
-            this.$options.destroyed = [
-                function destroyed() {
-                    this.$options.unmounted();
-                }
-            ];
+    watch: {
+        value(nVal) {
+            this.setValue(nVal);
         }
     },
 
@@ -155,15 +194,20 @@ export default {
     },
 
     methods: {
+        //设置值
         setValue(val) {
             let value = Number(isUndefined(val) || isNull(val) || val === '' ? 0 : val);
             this.disabledLess = false;
             this.disabledAdd = false;
 
             if (!isUndefined(this.min) && !isNull(this.min) && this.min !== '' && value <= Number(this.min)) {
+                //最小值
+
                 this.disabledLess = true;
                 this.inputValue = Number(Number(this.min).toFixed(this.precision));
             } else if (!isUndefined(this.max) && !isNull(this.max) && this.max !== '' && value >= Number(this.max)) {
+                //最大值
+
                 this.disabledAdd = true;
                 this.inputValue = Number(Number(this.max).toFixed(this.precision));
             } else {
@@ -174,6 +218,7 @@ export default {
             this.$emit('input', this.inputValue);
         },
 
+        //减少值事件
         onLess() {
             if (this.disabled || this.disabledLess) return;
             if (isUndefined(this.inputValue) || isNull(this.inputValue) || this.inputValue === '') this.inputValue = this.min || 0;
@@ -182,6 +227,7 @@ export default {
             this.$emit('lessition', this.inputValue);
         },
 
+        //增加值事件
         onAdd() {
             if (this.disabled || this.disabledAdd) return;
             if (isUndefined(this.inputValue) || isNull(this.inputValue) || this.inputValue === '') this.inputValue = this.min || 0;
@@ -190,6 +236,7 @@ export default {
             this.$emit('addition', this.inputValue);
         },
 
+        //开始长按
         longStart(callback) {
             this[callback]();
 
@@ -202,6 +249,7 @@ export default {
             }, this.pressTime);
         },
 
+        //结束长按
         longEnd() {
             this.$nextTick(() => {
                 clearInterval(this.timer);
@@ -209,6 +257,7 @@ export default {
             });
         },
 
+        //输入值
         onInput(event) {
             let value = event.target.value || event.detail.value;
             if (!isUndefined(value) && !isNull(value) && value !== '') {
@@ -218,20 +267,41 @@ export default {
             }
         },
 
+        //失去光标
         onBlur(event) {
             this.$emit('blur', event);
         },
 
+        //获取光标
         onFocus(event) {
             this.$emit('focus', event);
         },
 
+        //回车事件
         onEnter(event) {
             this.$emit('enter', event);
         },
 
+        //提交事件
         onConfirm(event) {
             this.$emit('confirm', event.detail.value);
+        },
+
+        //输入框滚动事件
+        onScroll(event) {
+            if (this.scroll) return true;
+
+            event = event || window.event;
+
+            if (event.preventDefault) {
+                event.preventDefault();
+                event.stopPropagation();
+            } else {
+                event.cancelBubble = true;
+                event.returnValue = false;
+            }
+
+            return false;
         }
     }
 };

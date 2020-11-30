@@ -1,5 +1,5 @@
 <template>
-    <div :class="buildClass" :style="[divStyle]">
+    <div :class="buildClass" :style="[divStyle]" @click="onClick">
         <slot></slot>
     </div>
 </template>
@@ -169,6 +169,12 @@ export default {
                 this.newColGutter = this.mapCol[index] ? transNumber(this.mapCol[index]) : 0;
                 if (Vers === 2) this._provided.colGutter = this.newColGutter;
             }
+        },
+
+        //点击事件
+        onClick(event) {
+            //兼容vue2 点击事件
+            if (Vers === 2) this.$emit('click', event);
         }
     }
 };
