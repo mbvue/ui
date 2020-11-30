@@ -155,7 +155,7 @@ export default {
 
     data() {
         return {
-            inputValue: this.defaultValue || this.value, //值
+            inputValue: this.defaultValue || this.value || '', //值
             baseHeight: null, //输入框基础高度
             focused: false, // 当前是否处于获得焦点的状态
             showPassword: false // 是否预览密码

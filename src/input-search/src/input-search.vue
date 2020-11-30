@@ -122,7 +122,7 @@ export default {
 
     data() {
         return {
-            inputValue: this.defaultValue || this.value, //值
+            inputValue: this.defaultValue || this.value || '', //值
             focused: false, // 当前是否处于获得焦点的状态
             historyList: this.history || [] //历史搜索记录
         };

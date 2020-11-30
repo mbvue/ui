@@ -2,6 +2,7 @@
 
 .@{prefix}-input {
     position: relative;
+    box-sizing: border-box;
     display: inline-flex;
     flex-flow: row;
     width: 180px;
@@ -217,24 +218,112 @@
         border-top-width: @border-width;
         border-radius: 0;
         box-shadow: none;
+
+        &::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 1;
+            height: @border-width;
+            content: '';
+            background: @color-primary;
+            transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale3d(0, 1, 1);
+            transform-origin: center bottom;
+        }
+
+        &.@{prefix}-input-focused {
+            border-color: transparent;
+
+            &::after {
+                transform: scale3d(1, 1, 1);
+            }
+        }
     }
 
     &.@{prefix}-input-border-left {
         border-left-width: @border-width;
         border-radius: 0;
         box-shadow: none;
+
+        &::after {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            width: @border-width;
+            content: '';
+            background: @color-primary;
+            transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale3d(1, 0, 1);
+            transform-origin: center bottom;
+        }
+
+        &.@{prefix}-input-focused {
+            border-color: transparent;
+
+            &::after {
+                transform: scale3d(1, 1, 1);
+            }
+        }
     }
 
     &.@{prefix}-input-border-bottom {
         border-bottom-width: @border-width;
         border-radius: 0;
         box-shadow: none;
+
+        &::after {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            height: @border-width;
+            content: '';
+            background: @color-primary;
+            transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale3d(0, 1, 1);
+            transform-origin: center bottom;
+        }
+
+        &.@{prefix}-input-focused {
+            border-color: transparent;
+
+            &::after {
+                transform: scale3d(1, 1, 1);
+            }
+        }
     }
 
     &.@{prefix}-input-border-right {
         border-right-width: @border-width;
         border-radius: 0;
         box-shadow: none;
+
+        &::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            width: @border-width;
+            content: '';
+            background: @color-primary;
+            transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale3d(1, 0, 1);
+            transform-origin: center bottom;
+        }
+
+        &.@{prefix}-input-focused {
+            border-color: transparent;
+
+            &::after {
+                transform: scale3d(1, 1, 1);
+            }
+        }
     }
 
     &.@{prefix}-input-border-none {

@@ -197,6 +197,12 @@
     &.@{prefix}-button-block {
         justify-content: center;
         width: 100%;
+
+        &.button-hover {
+            .@{prefix}-button-hover-bg {
+                animation: buttonhover 1s linear;
+            }
+        }
     }
 
     .@{prefix}-button-span {
@@ -223,6 +229,7 @@
         color: #fff;
         background-color: @@value;
         border-color: @@value;
+        border-width: 0;
 
         &:hover {
             background-color: mix(#fff, @@value, 20%);
@@ -238,6 +245,7 @@
             color: @@value;
             background-color: @@lighter;
             border-style: dashed;
+            border-width: @border-width;
 
             .@{prefix}-button-hover-bg {
                 background: @@light;
@@ -258,6 +266,7 @@
         &.@{prefix}-button-ghost {
             color: @@value;
             background-color: transparent;
+            border-width: @border-width;
 
             .@{prefix}-button-hover-bg {
                 background: @@light;
@@ -278,6 +287,7 @@
             color: @@value;
             background-color: @@lighter;
             border-color: @@value;
+            border-width: @border-width;
 
             &:hover {
                 color: #fff;

@@ -1,6 +1,6 @@
 <template>
-    <div class="mb-icon">
-        <div v-if="isImage" :style="[buildStyle]" @click="onClick">
+    <div class="mb-icon" @click="onClick">
+        <div v-if="isImage" :style="[buildStyle]">
             <img :src="type" mode="aspectFit" style="width: 100%; height: auto" />
         </div>
 
@@ -41,7 +41,7 @@ export default {
 
         //类名称
         buildClass() {
-            return this.custom ? [this.custom, this.type] : ['mb-icon-icons', 'mb-icon-' + this.type];
+            return this.custom ? [this.custom, this.type] : ['mb-icon-icon', 'mb-icon-' + this.type];
         },
 
         //定义样式
