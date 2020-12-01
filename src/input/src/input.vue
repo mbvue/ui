@@ -102,6 +102,7 @@
 </template>
 
 <script>
+import { Mixins } from '../../base/base';
 import { vue, versions, uniApp } from '../../base/utils/env';
 import { isBoolean } from '../../base/utils/test';
 import { trim } from '../../base/utils/util';
@@ -116,14 +117,16 @@ export default {
         'mb-icon': Vers === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
     },
 
+    mixins: [Mixins],
+
     props: {
         type: { type: String, default: 'text' }, //声明 input 类型，同原生 input 标签的 type 属性 select / password / textarea / number
         id: { type: String, default: null }, //输入框的 id
         border: { type: [Boolean, String], default: true }, //边框 top left bottom right
         readonly: { type: Boolean, default: false }, //是否只读
-        disabled: { type: Boolean, default: false }, //是否禁用状态
+        disabled: { type: Boolean, default: null }, //是否禁用状态
         maxLength: { type: Number, default: null }, //最大长度
-        size: { type: String, default: 'md' }, //输入框大小 xs、sm、md、lg、xl
+        size: { type: String, default: '' }, //输入框大小 xs、sm、md、lg、xl
         prefix: { type: String, default: '' }, //带有前缀图标的 input
         prefixSize: { type: Number, default: 16 }, //前缀图标尺寸
         suffix: { type: String, default: '' }, //带有后缀图标的 input
@@ -190,7 +193,7 @@ export default {
 
             if (this.buildType === 'select') cls.push('mb-input-select');
 
-            if (this.size) cls.push(`mb-input-${this.size}`);
+            if (this.buildSize) cls.push(`mb-input-${this.buildSize}`);
 
             if (this.$slots.prefix || this.prefix) cls.push(`mb-input-has-prefix`);
 
@@ -201,7 +204,12 @@ export default {
 
         //是否禁用
         buildDisabled() {
-            return this.disabled || (this.$parent && this.$parent.$options.name === 'MbInputGroup' && this.$parent.disabled) ? true : false;
+            return this.disabled !== null || !this.parent ? this.disabled : this.parent ? this.parent.disabled : false;
+        },
+
+        //按钮大小
+        buildSize() {
+            return this.size ? this.size : this.parent ? this.$parent.size : 'md';
         }
     },
 
@@ -215,6 +223,10 @@ export default {
                 this.$emit('change', nVal);
             }
         }
+    },
+
+    beforeMount() {
+        this.parent = this.getParent('MbInputGroup');
     },
 
     methods: {

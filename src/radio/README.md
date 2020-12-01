@@ -78,11 +78,12 @@
 
 | 参数           | 说明             | 类型                    | 默认值         | 可选值             |
 | -------------- | ---------------- | ----------------------- | -------------- | ------------------ |
-| disabled       | 是否禁用状态     | String, Boolean         | -              | -                  |
+| disabled       | 是否禁用状态     | Boolean                 | -              | true false         |
 | checked        | 是否被选中       | Boolean                 | false          | true               |
 | defaultChecked | 初始是否选中     | Boolean                 | false          | true               |
 | value(v-model) | 选中内容         | String, Number, Boolean | -              | -                  |
-| data           | 备选值           | String, Number, Boolean | -              | -                  |
+| checkedValue   | 选中的值         | String, Number, Boolean | -              | -                  |
+| defaultValue   | 未选中的值       | String, Number, Boolean | -              | -                  |
 | shape          | 设置按钮形状     | String                  | circle         | circle pill square |
 | size           | 设置按钮大小     | String                  | xs sm md lg xl | md                 |
 | activeColor    | 选中状态下的颜色 | String                  | -              | -                  |

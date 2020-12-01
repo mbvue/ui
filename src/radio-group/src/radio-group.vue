@@ -1,10 +1,14 @@
 <template>
-    <div class="mb-radio-group">
+    <div class="mb-radio-group" @click="onClick">
         <slot />
     </div>
 </template>
 
 <script>
+import { versions } from '../../base/utils/env';
+
+const Vers = versions();
+
 export default {
     name: 'MbRadioGroup',
 
@@ -22,13 +26,26 @@ export default {
         };
     },
 
+    watch: {
+        //监听值改变
+        value(nVal) {
+            this.checkedValue = nVal;
+        }
+    },
+
     methods: {
+        //点击事件
+        onClick(event) {
+            //兼容vue2 点击事件
+            if (Vers === 2) this.$emit('click', event);
+        },
+
         //设置值
         setValue(value) {
-            this.checkedValue = value;
+            if (this.checkedValue !== value) this.$emit('change', value);
 
+            this.checkedValue = value;
             this.$emit('input', value);
-            this.$emit('change', value);
         }
     }
 };

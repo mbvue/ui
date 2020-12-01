@@ -22,19 +22,22 @@ export default {
     mixins: [Mixins],
 
     props: {
-        disabled: { type: [String, Boolean], default: '' }, //是否禁用状态
+        disabled: { type: Boolean, default: null }, //是否禁用状态
         checked: { type: Boolean, default: false }, //是否被选中
         defaultChecked: { type: Boolean, default: false }, //初始是否选中
         value: { type: [String, Number, Boolean], default: null }, //选中内容
-        data: { type: [String, Number, Boolean], default: null }, //备选值
+        checkedValue: { type: [String, Number, Boolean], default: true }, //选中的值
+        defaultValue: { type: [String, Number, Boolean], default: false }, //未选中的值
         shape: { type: String, default: '' }, //设置按钮形状，可选值为 circle pill square 或者不设
         size: { type: String, default: '' }, //设置按钮大小，可选值为 xs sm md lg xl 或者不设
         activeColor: { type: String, default: '' } //选中状态下的颜色
     },
 
+    emits: ['input', 'update:checked'],
+
     data() {
         return {
-            checkedValue: this.defaultChecked || this.checked || false //是否选中
+            checkedStatus: this.defaultChecked || this.checked || false //是否选中
         };
     },
 
@@ -44,13 +47,7 @@ export default {
             let cls = ['mb-radio'];
 
             if (this.buildDisabled) cls.push(`mb-radio-disabled`);
-
-            console.log(this.parent);
-            if (
-                this.checkedValue ||
-                (this.parent && this.parent.$options.name === 'MbRadioGroup' && this.parent.$options.checkedValue != null && this.parent.$options.checkedValue == this.data)
-            )
-                cls.push(`mb-radio-checked`);
+            if (this.buildStatus) cls.push(`mb-radio-checked`);
 
             return cls;
         },
@@ -69,7 +66,7 @@ export default {
         buildIconBorderColor() {
             let style = {};
 
-            if (this.buildActiveColor && this.checkedValue) style.borderColor = this.buildActiveColor;
+            if (this.buildActiveColor && this.buildStatus) style.borderColor = this.buildActiveColor;
 
             return style;
         },
@@ -78,14 +75,14 @@ export default {
         buildIconBgColor() {
             let style = {};
 
-            if (this.buildActiveColor && this.checkedValue) style.backgroundColor = this.buildActiveColor;
+            if (this.buildActiveColor && this.buildStatus) style.backgroundColor = this.buildActiveColor;
 
             return style;
         },
 
         //是否禁用
         buildDisabled() {
-            return this.disabled !== '' ? this.disabled : this.parent ? this.parent.disabled : false;
+            return this.disabled !== null || !this.parent ? this.disabled : this.parent ? this.parent.disabled : false;
         },
 
         //按钮形状
@@ -101,17 +98,29 @@ export default {
         //选中状态下的颜色
         buildActiveColor() {
             return this.activeColor ? this.activeColor : this.parent ? this.parent.activeColor : '';
+        },
+
+        //构建状态
+        buildStatus() {
+            if (!this.parent) return this.checkedStatus;
+
+            return this.parent.checkedValue === this.checkedValue ? true : false;
         }
     },
 
     watch: {
+        //监听选中状态改变
         checked(nVal) {
-            this.setValue(nVal);
-            this.$emit('input', this.checkedValue ? this.data : null);
+            this.setValue(nVal).then(data => {
+                this.$emit('input', data);
+            });
         },
 
+        //监听值改变
         value(nVal) {
-            this.setValue(this.data == nVal && nVal != null ? true : false);
+            this.setValue(this.checkedValue === nVal ? true : false).then(() => {
+                this.$emit('update:checked', this.buildStatus);
+            });
         }
     },
 
@@ -124,9 +133,11 @@ export default {
         onClick(event) {
             if (this.buildDisabled) return;
 
-            this.setValue(!this.checkedValue);
-            this.$emit('update:checked', this.checkedValue);
-            this.$emit('input', this.checkedValue ? this.data : null);
+            //设置值
+            this.setValue(!this.buildStatus).then(data => {
+                this.$emit('update:checked', this.buildStatus);
+                this.$emit('input', data);
+            });
 
             //兼容vue2 点击事件
             if (Vers === 2) this.$emit('click', event);
@@ -134,8 +145,12 @@ export default {
 
         //设置值
         setValue(checked) {
-            this.checkedValue = checked;
-            if (this.parent) this.parent.setValue(this.checkedValue ? this.data : null);
+            this.checkedStatus = checked;
+
+            let data = this.checkedStatus ? this.checkedValue : this.defaultValue;
+            if (this.checkedStatus && this.parent && this.parent.setValue) this.parent.setValue(data);
+
+            return Promise.resolve(data);
         }
     }
 };

@@ -1,5 +1,5 @@
 <template>
-    <div :class="buildClass" @click="onClick">
+    <div class="mb-button-group" @click="onClick">
         <slot></slot>
     </div>
 </template>
@@ -13,19 +13,8 @@ export default {
     name: 'MbButtonGroup',
 
     props: {
-        size: { type: String, default: '' }, //设置按钮大小，可选值为 xs sm md lg xl 或者不设
+        size: { type: String, default: 'md' }, //设置按钮大小，可选值为 xs sm md lg xl 或者不设
         disabled: { type: Boolean, default: false } //是否禁用状态
-    },
-
-    computed: {
-        //构建Class
-        buildClass() {
-            let cls = ['mb-button-group'];
-
-            if (this.size) cls.push(`mb-button-group-${this.size}`);
-
-            return cls;
-        }
     },
 
     methods: {

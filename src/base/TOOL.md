@@ -242,6 +242,18 @@ this.$m.util.throttle(
 | wait      | 执行方法后相隔 wait 毫秒后才能再触发方法 | Number   | -           | 500    |
 | immediate | 是否立即执行                             | Boolean  | true、false | true   |
 
+### 2.16、 字符串去除非数字及小数点后转数字
+
+```js
+this.$m.util.transNumber('');
+```
+
+### 2.17、 字符串，布尔值转布尔值
+
+```js
+this.$m.util.transBoolean('');
+```
+
 ## 3、 匹配
 
 ### 3.1、 校验 Undefined

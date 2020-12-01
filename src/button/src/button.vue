@@ -55,11 +55,11 @@ export default {
         icon: { type: String, default: '' }, //设置按钮的图标类型
         iconSize: { type: [String, Number], default: 16 }, //按钮的图标尺寸
         shape: { type: String, default: 'pill' }, //设置按钮形状，可选值为 circle round pill square 或者不设
-        size: { type: String, default: 'md' }, //设置按钮大小，可选值为 xs sm md lg xl 或者不设
+        size: { type: String, default: '' }, //设置按钮大小，可选值为 xs sm md lg xl 或者不设
         loading: { type: Boolean, default: false }, //设置按钮载入状态
         loadingIcon: { type: String, default: 'spinner' }, //自定义加载中图标
         loadingSize: { type: [String, Number], default: 16 }, //自定义加载中图标尺寸
-        disabled: { type: Boolean, default: false }, //按钮失效状态
+        disabled: { type: Boolean, default: null }, //按钮失效状态
         block: { type: Boolean, default: false }, //将按钮宽度调整为其父宽度的选项
         openType: { type: String, default: '' }, //开放能力
         hoverClass: { type: String, default: 'button-hover' }, //指定按钮按下去的样式类。当 hover-class="none" 时，没有点击态效果
@@ -91,7 +91,7 @@ export default {
 
             if (this.type) cls.push(`mb-button-${this.type}`);
             if (this.ghost) cls.push(`mb-button-${this.ghost}`);
-            if (this.size) cls.push(`mb-button-${this.size}`);
+            if (this.buildSize) cls.push(`mb-button-${this.buildSize}`);
             if (this.shape) cls.push(`mb-button-${this.shape}`);
             if (this.buildDisabled || this.loading || this.ajaxLoading) cls.push(`mb-button-disabled`);
             if (this.block) cls.push(`mb-button-block`);
@@ -111,8 +111,17 @@ export default {
 
         //是否禁用
         buildDisabled() {
-            return this.disabled || (this.$parent && this.$parent.$options.name === 'MbButtonGroup' && this.$parent.disabled) ? true : false;
+            return this.disabled !== null || !this.parent ? this.disabled : this.parent ? this.parent.disabled : false;
+        },
+
+        //按钮大小
+        buildSize() {
+            return this.size ? this.size : this.parent ? this.$parent.size : 'md';
         }
+    },
+
+    beforeMount() {
+        this.parent = this.getParent('MbButtonGroup');
     },
 
     unmounted() {

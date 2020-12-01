@@ -250,13 +250,22 @@ export function throttle(this: any, fun: any, wait = 500, immediate = true) {
     }
 }
 
-//字符串转数字
+//字符串去除非数字及小数点后转数字
 export function transNumber(value = '', defaultValue = 0) {
-    value = trim(String(value).replace(/[^0-9]+/g, ''));
+    value = trim(String(value).replace(/[^0-9|\\.]+/g, ''));
 
     if (value === undefined || value == null || value === '') return defaultValue;
 
     return Number(value);
+}
+
+//字符串，布尔值转布尔值
+export function transBoolean(value = '') {
+    if (!value) return false;
+
+    if (Object.prototype.toString.call(value) === '[object String]') return trim(value).toLowerCase() === 'true' ? true : false;
+
+    return true;
 }
 
 export default {
@@ -275,5 +284,6 @@ export default {
     getDistance,
     transUrl,
     throttle,
-    transNumber
+    transNumber,
+    transBoolean
 };
