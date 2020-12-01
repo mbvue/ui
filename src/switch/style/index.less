@@ -1,0 +1,144 @@
+@import '../../base/style/theme.less';
+
+.@{prefix}-switch {
+    position: relative;
+    display: inline-block;
+    min-width: unit(round(@font-size * 3.25), px);
+    height: unit(round(@font-size * 1.5), px);
+    overflow: hidden;
+    cursor: pointer;
+    background-color: @color-info;
+    border-radius: unit(round(@font-size * 1.5), px);
+    transition: all 0.2s;
+
+    .@{prefix}-switch-label {
+        display: block;
+        margin-left: unit(round(@font-size * 1.8), px);
+        line-height: unit(round(@font-size * 1.5), px);
+        color: #fff;
+        transition: all 0.38s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+
+        .@{prefix}-icon {
+            .@{prefix}-icon-icon {
+                line-height: normal;
+            }
+        }
+    }
+
+    .@{prefix}-switch-botton {
+        position: absolute;
+        top: unit(round(@font-size * 0.1), px);
+        left: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: unit(round(@font-size * 1.3), px);
+        height: unit(round(@font-size * 1.3), px);
+        overflow: hidden;
+        color: @color-primary;
+        background-color: #fff;
+        border-radius: 50%;
+        box-shadow: 0 2px 4px 0 rgba(0, 35, 11, 0.2);
+        transition: all 0.38s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+    }
+
+    &.@{prefix}-switch-xs {
+        min-width: unit(round(@font-size * 2.6), px);
+        height: unit(round(@font-size * 1.15), px);
+        border-radius: unit(round(@font-size * 1.15), px);
+
+        .@{prefix}-switch-label {
+            margin-left: unit(round(@font-size * 1.3), px);
+            font-size: 12px;
+            line-height: unit(round(@font-size * 1.15), px);
+        }
+
+        .@{prefix}-switch-botton {
+            width: unit(round(@font-size * 1), px);
+            height: unit(round(@font-size * 1), px);
+        }
+    }
+
+    &.@{prefix}-switch-sm {
+        min-width: unit(round(@font-size * 2.9), px);
+        height: unit(round(@font-size * 1.3), px);
+        border-radius: unit(round(@font-size * 1.3), px);
+
+        .@{prefix}-switch-label {
+            margin-left: unit(round(@font-size * 1.7), px);
+            font-size: 12px;
+            line-height: unit(round(@font-size * 1.3), px);
+        }
+
+        .@{prefix}-switch-botton {
+            width: unit(round(@font-size * 1.15), px);
+            height: unit(round(@font-size * 1.15), px);
+        }
+    }
+
+    &.@{prefix}-switch-md {
+        min-width: unit(round(@font-size * 3.4), px);
+        height: unit(round(@font-size * 1.5), px);
+        border-radius: unit(round(@font-size * 1.5), px);
+
+        .@{prefix}-switch-label {
+            margin-left: unit(round(@font-size * 1.8), px);
+            line-height: unit(round(@font-size * 1.5), px);
+        }
+
+        .@{prefix}-switch-botton {
+            width: unit(round(@font-size * 1.35), px);
+            height: unit(round(@font-size * 1.35), px);
+        }
+    }
+
+    &.@{prefix}-switch-lg {
+        min-width: unit(round(@font-size * 4), px);
+        height: unit(round(@font-size * 1.7), px);
+        border-radius: unit(round(@font-size * 1.7), px);
+
+        .@{prefix}-switch-label {
+            margin-left: unit(round(@font-size * 2.3), px);
+            line-height: unit(round(@font-size * 1.7), px);
+        }
+
+        .@{prefix}-switch-botton {
+            width: unit(round(@font-size * 1.55), px);
+            height: unit(round(@font-size * 1.55), px);
+        }
+    }
+
+    &.@{prefix}-switch-xl {
+        min-width: unit(round(@font-size * 4.7), px);
+        height: unit(round(@font-size * 2), px);
+        border-radius: unit(round(@font-size * 2), px);
+
+        .@{prefix}-switch-label {
+            margin-left: unit(round(@font-size * 3), px);
+            line-height: unit(round(@font-size * 2), px);
+        }
+
+        .@{prefix}-switch-botton {
+            width: unit(round(@font-size * 1.85), px);
+            height: unit(round(@font-size * 1.85), px);
+        }
+    }
+
+    &.@{prefix}-switch-checked {
+        background-color: @color-primary;
+
+        .@{prefix}-switch-botton {
+            margin-left: -1px;
+            transform: translateX(150%);
+        }
+
+        .@{prefix}-switch-label {
+            margin-left: unit(round(@font-size * 0.5), px);
+        }
+    }
+
+    &.@{prefix}-switch-disabled {
+        cursor: not-allowed;
+        opacity: 0.6 !important;
+    }
+}

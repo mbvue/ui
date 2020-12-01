@@ -12,16 +12,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: unit(round(@font-size * 1), px);
-        height: unit(round(@font-size * 1), px);
+        width: unit(round(@font-size * 1.2), px);
+        height: unit(round(@font-size * 1.2), px);
         margin-right: unit(round(@font-size * 0.1), px);
         overflow: hidden;
         border: @border-width solid @color-info;
         transition: all 0.3s;
 
         .@{prefix}-radio-icon-round {
-            width: unit(round(@font-size * 0.5), px);
-            height: unit(round(@font-size * 0.5), px);
+            width: unit(round(@font-size * 0.8), px);
+            height: unit(round(@font-size * 0.8), px);
             overflow: hidden;
             background-color: transparent;
             opacity: 0;
@@ -30,16 +30,6 @@
         }
 
         &.@{prefix}-radio-icon-xs {
-            width: unit(round(@font-size * 0.7), px);
-            height: unit(round(@font-size * 0.7), px);
-
-            .@{prefix}-radio-icon-round {
-                width: unit(round(@font-size * 0.4), px);
-                height: unit(round(@font-size * 0.4), px);
-            }
-        }
-
-        &.@{prefix}-radio-icon-sm {
             width: unit(round(@font-size * 0.8), px);
             height: unit(round(@font-size * 0.8), px);
 
@@ -49,7 +39,7 @@
             }
         }
 
-        &.@{prefix}-radio-icon-md {
+        &.@{prefix}-radio-icon-sm {
             width: unit(round(@font-size * 1), px);
             height: unit(round(@font-size * 1), px);
 
@@ -59,23 +49,33 @@
             }
         }
 
-        &.@{prefix}-radio-icon-lg {
-            width: unit(round(@font-size * 1.1), px);
-            height: unit(round(@font-size * 1.1), px);
-
-            .@{prefix}-radio-icon-round {
-                width: unit(round(@font-size * 0.65), px);
-                height: unit(round(@font-size * 0.65), px);
-            }
-        }
-
-        &.@{prefix}-radio-icon-xl {
+        &.@{prefix}-radio-icon-md {
             width: unit(round(@font-size * 1.2), px);
             height: unit(round(@font-size * 1.2), px);
 
             .@{prefix}-radio-icon-round {
-                width: unit(round(@font-size * 0.75), px);
-                height: unit(round(@font-size * 0.75), px);
+                width: unit(round(@font-size * 0.8), px);
+                height: unit(round(@font-size * 0.8), px);
+            }
+        }
+
+        &.@{prefix}-radio-icon-lg {
+            width: unit(round(@font-size * 1.4), px);
+            height: unit(round(@font-size * 1.4), px);
+
+            .@{prefix}-radio-icon-round {
+                width: unit(round(@font-size * 1), px);
+                height: unit(round(@font-size * 1), px);
+            }
+        }
+
+        &.@{prefix}-radio-icon-xl {
+            width: unit(round(@font-size * 1.6), px);
+            height: unit(round(@font-size * 1.6), px);
+
+            .@{prefix}-radio-icon-round {
+                width: unit(round(@font-size * 1.15), px);
+                height: unit(round(@font-size * 1.15), px);
             }
         }
 

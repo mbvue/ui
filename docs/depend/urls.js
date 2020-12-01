@@ -29,7 +29,9 @@ const langs = {
         radio: 'Radio 单选',
         radiogroup: 'RadioGroup 单选组',
         checkbox: 'Checkbox 复选',
-        checkboxgroup: 'CheckboxGroup 复选组'
+        checkboxgroup: 'CheckboxGroup 复选组',
+        switch: 'Switch 开关',
+        form: 'Form 表单'
     },
     'en-US': {
         index: 'Home'
@@ -131,6 +133,16 @@ export default [
                 title: langs[lang].checkboxgroup,
                 path: 'checkboxgroup',
                 component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.checkboxgroup'*/ `@mbvue/ui/checkbox-group/README${suffix}.md`))
+            },
+            {
+                title: langs[lang].switch,
+                path: 'switch',
+                component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.switch'*/ `@mbvue/ui/switch/README${suffix}.md`))
+            },
+            {
+                title: langs[lang].form,
+                path: 'form',
+                component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.form'*/ `@mbvue/ui/form/README${suffix}.md`))
             }
         ]
     }

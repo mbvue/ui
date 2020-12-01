@@ -21,6 +21,9 @@ import { default as Radio } from './radio/index';
 import { default as RadioGroup } from './radio-group/index';
 import { default as Checkbox } from './checkbox/index';
 import { default as CheckboxGroup } from './checkbox-group/index';
+import { default as Switch } from './switch/index';
+import { default as Form } from './form/index';
+import { default as FormItem } from './form-item/index';
 
 const version = Base.env.versions();
 const components = [
@@ -42,7 +45,10 @@ const components = [
     Radio,
     RadioGroup,
     Checkbox,
-    CheckboxGroup
+    CheckboxGroup,
+    Switch,
+    Form,
+    FormItem
 ];
 
 const install = (app: any, options = <any>{ locale: 'zh_cn', langs: {} }) => {
@@ -93,6 +99,9 @@ export {
     Radio,
     RadioGroup,
     Checkbox,
-    CheckboxGroup
+    CheckboxGroup,
+    Switch,
+    Form,
+    FormItem
 };
 export default { install };
