@@ -1,0 +1,202 @@
+@import '../../base/style/theme.less';
+
+.@{prefix}-checkbox {
+    position: relative;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+
+    .@{prefix}-checkbox-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: unit(round(@font-size * 1), px);
+        height: unit(round(@font-size * 1), px);
+        margin-right: unit(round(@font-size * 0.1), px);
+        overflow: hidden;
+        border: @border-width solid @color-info;
+        transition: all 0.3s;
+
+        .@{prefix}-checkbox-icon-round {
+            width: unit(round(@font-size * 0.4), px);
+            height: unit(round(@font-size * 0.6), px);
+            overflow: hidden;
+            border-right: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            opacity: 0;
+            transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6), opacity 0.1s;
+            transform: rotate(45deg) scale(0) translate(-50%, -50%);
+        }
+
+        &.@{prefix}-checkbox-icon-xs {
+            width: unit(round(@font-size * 0.7), px);
+            height: unit(round(@font-size * 0.7), px);
+
+            .@{prefix}-checkbox-icon-round {
+                width: unit(round(@font-size * 0.3), px);
+                height: unit(round(@font-size * 0.4), px);
+                border-right: 1px solid #fff;
+                border-bottom: 1px solid #fff;
+            }
+        }
+
+        &.@{prefix}-checkbox-icon-sm {
+            width: unit(round(@font-size * 0.8), px);
+            height: unit(round(@font-size * 0.8), px);
+
+            .@{prefix}-checkbox-icon-round {
+                width: unit(round(@font-size * 0.4), px);
+                height: unit(round(@font-size * 0.5), px);
+                border-right: 1px solid #fff;
+                border-bottom: 1px solid #fff;
+            }
+        }
+
+        &.@{prefix}-checkbox-icon-md {
+            width: unit(round(@font-size * 1), px);
+            height: unit(round(@font-size * 1), px);
+
+            .@{prefix}-checkbox-icon-round {
+                width: unit(round(@font-size * 0.4), px);
+                height: unit(round(@font-size * 0.6), px);
+            }
+        }
+
+        &.@{prefix}-checkbox-icon-lg {
+            width: unit(round(@font-size * 1.1), px);
+            height: unit(round(@font-size * 1.1), px);
+
+            .@{prefix}-checkbox-icon-round {
+                width: unit(round(@font-size * 0.5), px);
+                height: unit(round(@font-size * 0.65), px);
+            }
+        }
+
+        &.@{prefix}-checkbox-icon-xl {
+            width: unit(round(@font-size * 1.2), px);
+            height: unit(round(@font-size * 1.2), px);
+
+            .@{prefix}-checkbox-icon-round {
+                width: unit(round(@font-size * 0.6), px);
+                height: unit(round(@font-size * 0.75), px);
+            }
+        }
+
+        &.@{prefix}-checkbox-icon-circle {
+            border-radius: 50%;
+        }
+
+        &.@{prefix}-checkbox-icon-pill {
+            border-radius: unit(round(@font-size * 0.2), px);
+        }
+
+        &.@{prefix}-checkbox-icon-square {
+            border-radius: 0;
+        }
+    }
+
+    &.@{prefix}-checkbox-label {
+        flex: 1;
+    }
+
+    &.@{prefix}-checkbox-checked {
+        .@{prefix}-checkbox-icon {
+            background-color: @color-primary;
+            border-color: @color-primary;
+
+            .@{prefix}-checkbox-icon-round {
+                opacity: 1;
+                transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+                transform: rotate(45deg) scale(1) translate(-10%);
+            }
+        }
+    }
+
+    &.@{prefix}-checkbox-indeterminate {
+        .@{prefix}-checkbox-icon {
+            .@{prefix}-checkbox-icon-round {
+                width: unit(round(@font-size * 0.6), px) !important;
+            }
+
+            &.@{prefix}-checkbox-icon-xs {
+                .@{prefix}-checkbox-icon-round {
+                    width: unit(round(@font-size * 0.4), px) !important;
+                }
+            }
+
+            &.@{prefix}-checkbox-icon-sm {
+                .@{prefix}-checkbox-icon-round {
+                    width: unit(round(@font-size * 0.5), px) !important;
+                }
+            }
+
+            &.@{prefix}-checkbox-icon-md {
+                .@{prefix}-checkbox-icon-round {
+                    width: unit(round(@font-size * 0.6), px) !important;
+                }
+            }
+
+            &.@{prefix}-checkbox-icon-lg {
+                .@{prefix}-checkbox-icon-round {
+                    width: unit(round(@font-size * 0.65), px) !important;
+                }
+            }
+
+            &.@{prefix}-checkbox-icon-xl {
+                .@{prefix}-checkbox-icon-round {
+                    width: unit(round(@font-size * 0.75), px) !important;
+                }
+            }
+
+            &.@{prefix}-checkbox-icon-circle {
+                .@{prefix}-checkbox-icon-round {
+                    border-radius: 50%;
+                }
+            }
+
+            &.@{prefix}-checkbox-icon-pill {
+                .@{prefix}-checkbox-icon-round {
+                    border-radius: unit(round(@font-size * 0.15), px);
+                }
+            }
+        }
+
+        &.@{prefix}-checkbox-checked {
+            .@{prefix}-checkbox-icon {
+                background-color: transparent !important;
+
+                .@{prefix}-checkbox-icon-round {
+                    background-color: @color-primary;
+                    border: 0;
+                    transform: rotate(0) scale(1) translate(0);
+                }
+            }
+        }
+    }
+
+    &.@{prefix}-checkbox-disabled {
+        cursor: not-allowed;
+        opacity: 0.6 !important;
+
+        &.@{prefix}-checkbox-checked {
+            .@{prefix}-checkbox-icon {
+                background-color: @color-info !important;
+                border-color: @color-info !important;
+            }
+        }
+
+        &.@{prefix}-checkbox-indeterminate {
+            &.@{prefix}-checkbox-checked {
+                .@{prefix}-checkbox-icon {
+                    background-color: transparent !important;
+
+                    .@{prefix}-checkbox-icon-round {
+                        background-color: @color-info !important;
+                    }
+                }
+            }
+        }
+    }
+}

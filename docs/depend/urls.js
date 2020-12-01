@@ -27,7 +27,9 @@ const langs = {
         inputnumber: 'InputNumber 数字输入框',
         inputsearch: 'InputSearch 搜索框',
         radio: 'Radio 单选',
-        radiogroup: 'RadioGroup 单选组'
+        radiogroup: 'RadioGroup 单选组',
+        checkbox: 'Checkbox 复选',
+        checkboxgroup: 'CheckboxGroup 复选组'
     },
     'en-US': {
         index: 'Home'
@@ -119,6 +121,16 @@ export default [
                 title: langs[lang].radiogroup,
                 path: 'radiogroup',
                 component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.radiogroup'*/ `@mbvue/ui/radio-group/README${suffix}.md`))
+            },
+            {
+                title: langs[lang].checkbox,
+                path: 'checkbox',
+                component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.checkbox'*/ `@mbvue/ui/checkbox/README${suffix}.md`))
+            },
+            {
+                title: langs[lang].checkboxgroup,
+                path: 'checkboxgroup',
+                component: defineAsyncComponent(() => import(/*webpackChunkName: 'components.checkboxgroup'*/ `@mbvue/ui/checkbox-group/README${suffix}.md`))
             }
         ]
     }

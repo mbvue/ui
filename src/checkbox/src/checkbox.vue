@@ -1,10 +1,10 @@
 <template>
     <div :class="buildDivClass" @click="onClick">
         <div :class="buildIconClass" :style="buildIconBorderColor">
-            <div class="mb-radio-icon-round" :style="buildIconBgColor"></div>
+            <div class="mb-checkbox-icon-round" :style="buildIconBgColor"></div>
         </div>
 
-        <div class="mb-radio-label">
+        <div class="mb-checkbox-label">
             <slot />
         </div>
     </div>
@@ -17,7 +17,7 @@ import { versions } from '../../base/utils/env';
 const Vers = versions();
 
 export default {
-    name: 'MbRadio',
+    name: 'MbCheckbox',
 
     mixins: [Mixins],
 
@@ -28,6 +28,7 @@ export default {
         value: { type: [String, Number, Boolean], default: null }, //选中内容
         checkedValue: { type: [String, Number, Boolean], default: true }, //选中的值
         defaultValue: { type: [String, Number, Boolean], default: false }, //未选中的值
+        indeterminate: { type: Boolean, default: null }, //只控制半选样式
         shape: { type: String, default: '' }, //设置按钮形状，可选值为 circle pill square 或者不设
         size: { type: String, default: '' }, //设置按钮大小，可选值为 xs sm md lg xl 或者不设
         activeColor: { type: String, default: '' } //选中状态下的颜色
@@ -44,20 +45,21 @@ export default {
     computed: {
         //构建外层Class
         buildDivClass() {
-            let cls = ['mb-radio'];
+            let cls = ['mb-checkbox'];
 
-            if (this.buildDisabled) cls.push(`mb-radio-disabled`);
-            if (this.buildStatus) cls.push(`mb-radio-checked`);
+            if (this.buildDisabled) cls.push(`mb-checkbox-disabled`);
+            if (this.buildStatus) cls.push(`mb-checkbox-checked`);
+            if (this.buildIndeterminate) cls.push(`mb-checkbox-indeterminate`);
 
             return cls;
         },
 
         //构建图标Class
         buildIconClass() {
-            let cls = ['mb-radio-icon'];
+            let cls = ['mb-checkbox-icon'];
 
-            if (this.buildSize) cls.push(`mb-radio-icon-${this.buildSize}`);
-            if (this.buildShape) cls.push(`mb-radio-icon-${this.buildShape}`);
+            if (this.buildSize) cls.push(`mb-checkbox-icon-${this.buildSize}`);
+            if (this.buildShape) cls.push(`mb-checkbox-icon-${this.buildShape}`);
 
             return cls;
         },
@@ -67,6 +69,7 @@ export default {
             let style = {};
 
             if (this.buildActiveColor && this.buildStatus) style.borderColor = this.buildActiveColor;
+            if (this.buildActiveColor && this.buildStatus) style.backgroundColor = this.buildActiveColor;
 
             return style;
         },
@@ -75,7 +78,7 @@ export default {
         buildIconBgColor() {
             let style = {};
 
-            if (this.buildActiveColor && this.buildStatus) style.backgroundColor = this.buildActiveColor;
+            if (this.buildActiveColor && this.buildIndeterminate && this.buildStatus) style.backgroundColor = this.buildActiveColor;
 
             return style;
         },
@@ -87,7 +90,7 @@ export default {
 
         //按钮形状
         buildShape() {
-            return this.shape ? this.shape : this.parent ? this.parent.shape : 'circle';
+            return this.shape ? this.shape : this.parent ? this.parent.shape : 'pill';
         },
 
         //按钮大小
@@ -104,7 +107,12 @@ export default {
         buildStatus() {
             if (!this.parent) return this.checkedStatus;
 
-            return this.parent.checkedValue === this.checkedValue ? true : false;
+            return this.parent.checkedValue.find(item => item === this.checkedValue) ? true : false;
+        },
+
+        //半选样式
+        buildIndeterminate() {
+            return this.indeterminate !== null || !this.parent ? this.indeterminate : this.parent ? this.parent.indeterminate : false;
         }
     },
 
@@ -125,13 +133,13 @@ export default {
     },
 
     beforeMount() {
-        this.parent = this.getParent('MbRadioGroup');
+        this.parent = this.getParent('MbCheckboxGroup');
     },
 
     methods: {
         //点击事件
         onClick(event) {
-            if (this.buildDisabled || this.buildStatus) return;
+            if (this.buildDisabled) return;
 
             //设置值
             this.setValue(!this.buildStatus).then(data => {
@@ -148,7 +156,7 @@ export default {
             this.checkedStatus = checked;
 
             let data = this.checkedStatus ? this.checkedValue : this.defaultValue;
-            if (this.checkedStatus && this.parent && this.parent.setValue) this.parent.setValue(data);
+            if (this.parent && this.parent.setValue) this.parent.setValue(this.checkedValue, this.checkedStatus);
 
             return Promise.resolve(data);
         }

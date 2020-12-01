@@ -19,9 +19,31 @@ import { default as InputNumber } from './input-number/index';
 import { default as InputSearch } from './input-search/index';
 import { default as Radio } from './radio/index';
 import { default as RadioGroup } from './radio-group/index';
+import { default as Checkbox } from './checkbox/index';
+import { default as CheckboxGroup } from './checkbox-group/index';
 
 const version = Base.env.versions();
-const components = [Image, Icon, Button, ButtonGroup, Layout, Content, Footer, Header, Sider, Row, Col, Input, InputGroup, InputNumber, InputSearch, Radio, RadioGroup];
+const components = [
+    Image,
+    Icon,
+    Button,
+    ButtonGroup,
+    Layout,
+    Content,
+    Footer,
+    Header,
+    Sider,
+    Row,
+    Col,
+    Input,
+    InputGroup,
+    InputNumber,
+    InputSearch,
+    Radio,
+    RadioGroup,
+    Checkbox,
+    CheckboxGroup
+];
 
 const install = (app: any, options = <any>{ locale: 'zh_cn', langs: {} }) => {
     //定制语言
@@ -50,5 +72,27 @@ const install = (app: any, options = <any>{ locale: 'zh_cn', langs: {} }) => {
     return app;
 };
 
-export { install, Locale, Image, Icon, Button, ButtonGroup, Layout, Content, Footer, Header, Sider, Row, Col, Input, InputGroup, InputNumber, InputSearch, Radio, RadioGroup };
+export {
+    install,
+    Locale,
+    Image,
+    Icon,
+    Button,
+    ButtonGroup,
+    Layout,
+    Content,
+    Footer,
+    Header,
+    Sider,
+    Row,
+    Col,
+    Input,
+    InputGroup,
+    InputNumber,
+    InputSearch,
+    Radio,
+    RadioGroup,
+    Checkbox,
+    CheckboxGroup
+};
 export default { install };

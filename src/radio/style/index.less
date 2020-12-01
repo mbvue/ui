@@ -15,6 +15,7 @@
         width: unit(round(@font-size * 1), px);
         height: unit(round(@font-size * 1), px);
         margin-right: unit(round(@font-size * 0.1), px);
+        overflow: hidden;
         border: @border-width solid @color-info;
         transition: all 0.3s;
 
@@ -87,7 +88,7 @@
         }
 
         &.@{prefix}-radio-icon-pill {
-            border-radius: unit(round(@font-size * 0.3), px);
+            border-radius: unit(round(@font-size * 0.2), px);
 
             .@{prefix}-radio-icon-round {
                 border-radius: unit(round(@font-size * 0.15), px);
