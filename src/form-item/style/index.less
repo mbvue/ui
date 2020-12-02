@@ -1,0 +1,160 @@
+@import '../../base/style/theme.less';
+
+.@{prefix}-form-item {
+    position: relative;
+    padding: unit(round(@font-size * 0.5), px) 0;
+
+    .@{prefix}-form-item-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        .@{prefix}-form-item-wrapper-lable {
+            margin-right: unit(round(@font-size * 0.3), px);
+        }
+
+        .@{prefix}-form-item-wrapper-children {
+            flex: 1;
+        }
+    }
+
+    &.@{prefix}-form-item-required {
+        .@{prefix}-form-item-wrapper {
+            .@{prefix}-form-item-wrapper-lable {
+                &::before {
+                    display: inline-block;
+                    margin-right: unit(round(@font-size * 0.4), px);
+                    font-family: SimSun, sans-serif;
+                    line-height: 1;
+                    color: @color-danger;
+                    content: '*';
+                }
+            }
+        }
+    }
+
+    .@{prefix}-form-item-explain {
+        color: @color-danger;
+        transition: all 0.4s ease;
+    }
+
+    &.@{prefix}-form-item-same-width {
+        .@{prefix}-form-item-wrapper {
+            .@{prefix}-form-item-wrapper-children {
+                .@{prefix}-input {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &.@{prefix}-form-item-colon {
+        .@{prefix}-form-item-wrapper {
+            .@{prefix}-form-item-wrapper-lable {
+                &::after {
+                    display: inline-block;
+                    font-family: SimSun, sans-serif;
+                    line-height: 1;
+                    content: ':';
+                }
+            }
+        }
+    }
+
+    &.@{prefix}-form-item-vertical {
+        .@{prefix}-form-item-wrapper {
+            flex-direction: column;
+
+            .@{prefix}-form-item-wrapper-lable {
+                flex: 1;
+                width: 100% !important;
+                margin-bottom: unit(round(@font-size * 0.3), px);
+            }
+
+            .@{prefix}-form-item-wrapper-children {
+                width: 100% !important;
+            }
+        }
+    }
+
+    &.@{prefix}-form-item-inline {
+        display: inline-block;
+        margin-right: unit(round(@font-size * 1), px);
+
+        .@{prefix}-form-item-wrapper {
+            display: inline-block;
+
+            .@{prefix}-form-item-wrapper-lable {
+                display: inline-block;
+            }
+
+            .@{prefix}-form-item-wrapper-children {
+                display: inline-block;
+            }
+        }
+    }
+
+    &.@{prefix}-form-item-error {
+        .@{prefix}-form-item-wrapper {
+            .@{prefix}-form-item-wrapper-children {
+                .@{prefix}-input {
+                    border-color: @color-danger;
+
+                    &::after {
+                        display: none !important;
+                    }
+                }
+
+                .@{prefix}-input-number {
+                    .@{prefix}-input-number-box {
+                        &::after {
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            z-index: 3;
+                            display: block;
+                            width: 100%;
+                            height: 1px;
+                            content: ' ';
+                            background-color: @color-danger;
+                            transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+                            transform-origin: center bottom;
+                            animation: fromItemFadeNumber 0.3s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.@{prefix}-form-item-explain-enter-active {
+    animation: fromItemFadeIn 0.3s;
+}
+
+.@{prefix}-form-item-explain-leave-to {
+    opacity: 0;
+    transform: translateY(-5px);
+}
+
+@keyframes fromItemFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fromItemFadeNumber {
+    from {
+        transform: scale3d(0, 1, 1);
+    }
+
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}

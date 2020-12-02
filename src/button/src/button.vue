@@ -111,7 +111,7 @@ export default {
 
         //是否禁用
         buildDisabled() {
-            return this.disabled !== null || !this.parent ? this.disabled : this.parent ? this.parent.disabled : false;
+            return this.disabled !== null ? this.disabled : this.parent ? this.parent.disabled : false;
         },
 
         //按钮大小

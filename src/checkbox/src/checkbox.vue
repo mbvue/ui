@@ -1,5 +1,5 @@
 <template>
-    <div :class="buildDivClass" @click="onClick">
+    <div :class="buildDivClass" tabindex="0" @click="onClick" @blur="onBlur">
         <div :class="buildIconClass" :style="buildIconBorderColor">
             <div class="mb-checkbox-icon-round" :style="buildIconBgColor"></div>
         </div>
@@ -34,7 +34,7 @@ export default {
         activeColor: { type: String, default: '' } //选中状态下的颜色
     },
 
-    emits: ['input', 'update:checked'],
+    emits: ['input', 'blur', 'update:checked'],
 
     data() {
         return {
@@ -85,7 +85,7 @@ export default {
 
         //是否禁用
         buildDisabled() {
-            return this.disabled !== null || !this.parent ? this.disabled : this.parent ? this.parent.disabled : false;
+            return this.disabled !== null ? this.disabled : this.parent ? this.parent.disabled : false;
         },
 
         //按钮形状
@@ -112,7 +112,7 @@ export default {
 
         //半选样式
         buildIndeterminate() {
-            return this.indeterminate !== null || !this.parent ? this.indeterminate : this.parent ? this.parent.indeterminate : false;
+            return this.indeterminate !== null ? this.indeterminate : this.parent ? this.parent.indeterminate : false;
         }
     },
 
@@ -121,6 +121,10 @@ export default {
         checked(nVal) {
             this.setValue(nVal).then(data => {
                 this.$emit('input', data);
+
+                this.$nextTick(() => {
+                    if (this.item) this.item.onFieldChange(this.inputValue);
+                });
             });
         },
 
@@ -134,6 +138,7 @@ export default {
 
     beforeMount() {
         this.parent = this.getParent('MbCheckboxGroup');
+        this.item = this.getParent('MbFormItem');
     },
 
     methods: {
@@ -145,6 +150,10 @@ export default {
             this.setValue(!this.buildStatus).then(data => {
                 this.$emit('update:checked', this.buildStatus);
                 this.$emit('input', data);
+
+                this.$nextTick(() => {
+                    if (this.item) this.item.onFieldChange(this.inputValue);
+                });
             });
 
             //兼容vue2 点击事件
@@ -159,6 +168,13 @@ export default {
             if (this.parent && this.parent.setValue) this.parent.setValue(this.checkedValue, this.checkedStatus);
 
             return Promise.resolve(data);
+        },
+
+        //失去光标
+        onBlur(event) {
+            this.$emit('blur', event);
+
+            if (this.item) this.item.onFieldBlur(this.inputValue);
         }
     }
 };

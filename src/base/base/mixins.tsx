@@ -1,5 +1,20 @@
 import { versions } from '../utils/env';
 
+//遍历子级
+function getChildrenList(this: any, name: any) {
+    const childrens: any = [];
+
+    this.$children.map((child: any) => {
+        if (name === child.$options.name) {
+            childrens.push(child);
+        } else {
+            childrens.concat(getChildrenList.call(child, name) as any);
+        }
+    });
+
+    return childrens;
+}
+
 //混入编程
 export default {
     beforeMount() {
@@ -29,6 +44,11 @@ export default {
             }
 
             return false;
+        },
+
+        //获取所有子级
+        getChildren(this: any, name: any) {
+            return getChildrenList.call(this, name);
         }
     }
 };

@@ -186,6 +186,10 @@ export default {
         }
     },
 
+    beforeMount() {
+        this.item = this.getParent('MbFormItem');
+    },
+
     unmounted() {
         if (this.timer) {
             clearInterval(this.timer);
@@ -216,6 +220,10 @@ export default {
 
             this.$emit('change', this.inputValue);
             this.$emit('input', this.inputValue);
+
+            this.$nextTick(() => {
+                if (this.item) this.item.onFieldChange(this.inputValue);
+            });
         },
 
         //减少值事件
@@ -264,12 +272,28 @@ export default {
                 this.setValue(value);
                 if (event.target) event.target.value = this.inputValue;
                 if (event.detail) event.detail.value = this.inputValue;
+            } else {
+                this.disabledLess = false;
+                this.disabledAdd = false;
+                this.inputValue = null;
+
+                this.$emit('change', this.inputValue);
+                this.$emit('input', this.inputValue);
+
+                this.$nextTick(() => {
+                    if (this.item) this.item.onFieldChange(this.inputValue);
+                });
+
+                if (event.target) event.target.value = this.inputValue;
+                if (event.detail) event.detail.value = this.inputValue;
             }
         },
 
         //失去光标
         onBlur(event) {
             this.$emit('blur', event);
+
+            if (this.item) this.item.onFieldBlur(this.inputValue);
         },
 
         //获取光标

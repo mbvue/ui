@@ -387,3 +387,28 @@ this.$m.test.isUrl('');
 ```js
 this.$m.test.isIdCard('');
 ```
+
+## 4、 事件发送劫持
+
+### 4.1、 事件劫持
+
+```js
+this.$m.emit.$on('foo', e => console.log('foo', e));
+this.$m.emit.$on('*', (type, e) => console.log(type, e));
+```
+
+### 4.2、 事件发送
+
+```js
+this.$m.emit.$emit('foo', { a: 'b' });
+```
+
+### 4.3、 事件清除
+
+```js
+this.$m.emit.$off('foo', e => console.log('foo', e));
+```
+
+```js
+this.$m.emit.$clear();
+```

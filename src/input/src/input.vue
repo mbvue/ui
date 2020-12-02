@@ -204,7 +204,7 @@ export default {
 
         //是否禁用
         buildDisabled() {
-            return this.disabled !== null || !this.parent ? this.disabled : this.parent ? this.parent.disabled : false;
+            return this.disabled !== null ? this.disabled : this.parent ? this.parent.disabled : false;
         },
 
         //按钮大小
@@ -227,6 +227,7 @@ export default {
 
     beforeMount() {
         this.parent = this.getParent('MbInputGroup');
+        this.item = this.getParent('MbFormItem');
     },
 
     methods: {
@@ -249,6 +250,10 @@ export default {
                     this.$refs.textarea.style.height = '100%';
                 });
             }
+
+            this.$nextTick(() => {
+                if (this.item) this.item.onFieldChange(this.inputValue);
+            });
         },
 
         //获取光标
@@ -261,6 +266,8 @@ export default {
         onBlur(event) {
             this.focused = false;
             this.$emit('blur', event);
+
+            if (this.item) this.item.onFieldBlur(this.inputValue);
         },
 
         //确定提交
