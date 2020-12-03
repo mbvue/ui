@@ -45,31 +45,24 @@ view, article, aside, details, figcaption, figure, footer, header, hgroup, main,
 
 :::demo html
 
-<div>
-    <menu>我是 menu 标签</menu>
-</div>
+<menu>我是 menu 标签</menu>
 :::
 
 ### 3.3、 a 标签
 
 :::demo html
 
-<div>
-    <a href="#">我是 a 标签</a> &nbsp;&nbsp;&nbsp;&nbsp; <a>我是 a 标签我没有 href</a>
-</div>
+<a href="#">我是 a 标签</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a>我是 a 标签我没有 href</a>
 :::
 
 ### 3.4、 abbr 标签
 
 :::demo html
 
-<div>
-    <abbr>我是 abbr 标签</abbr>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <abbr title="我的title">我是 abbr 标签我有 title</abbr>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <abbr data-original-title="我的data-original-title">我是 abbr 标签我有 data-original-title</abbr>
-</div>
+<abbr>我是 abbr 标签</abbr>&nbsp;&nbsp;&nbsp;&nbsp;
+<abbr title="我的title">我是 abbr 标签我有 title</abbr>&nbsp;&nbsp;&nbsp;&nbsp;
+<abbr data-original-title="我的data-original-title">我是 abbr 标签我有 data-original-title</abbr>
 :::
 
 ### 3.5、 b 标签
@@ -112,14 +105,12 @@ view, article, aside, details, figcaption, figure, footer, header, hgroup, main,
 
 :::demo html
 
-<div>
-    <h1>我是 h1 标签<small>我是 small 标签</small></h1>
-    <h2>我是 h2 标签<small>我是 small 标签</small></h2>
-    <h3>我是 h3 标签<small>我是 small 标签</small></h3>
-    <h4>我是 h4 标签<small>我是 small 标签</small></h4>
-    <h5>我是 h5 标签<small>我是 small 标签</small></h5>
-    <h6>我是 h6 标签<small>我是 small 标签</small></h6>
-</div>
+<h1>我是 h1 标签<small>我是 small 标签</small></h1>
+<h2>我是 h2 标签<small>我是 small 标签</small></h2>
+<h3>我是 h3 标签<small>我是 small 标签</small></h3>
+<h4>我是 h4 标签<small>我是 small 标签</small></h4>
+<h5>我是 h5 标签<small>我是 small 标签</small></h5>
+<h6>我是 h6 标签<small>我是 small 标签</small></h6>
 :::
 
 ### 3.10、 mark 标签

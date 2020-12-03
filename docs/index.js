@@ -11,7 +11,7 @@ import './index.less';
 const app = createApp(App);
 
 app.use(router);
-app.use(Markdom);
+app.use(Markdom, [MBVueUI]);
 app.use(MBVueUI, { axios });
 
 app.mount('#app');

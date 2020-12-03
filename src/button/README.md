@@ -6,15 +6,13 @@
 
 :::demo html
 
-<div>
-    <mb-button type="default">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="success">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="warning">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="danger">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="info">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="dark">第一个按钮</mb-button>&nbsp;&nbsp;
-</div>
+<mb-button type="default">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="success">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="warning">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="danger">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="info">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="dark">第一个按钮</mb-button>
 :::
 
 ### 1.2、 幽灵按钮样式
