@@ -122,7 +122,7 @@ export default {
         border: { type: [Boolean, String], default: true }, //边框 top left bottom right
         readonly: { type: Boolean, default: false }, //是否只读
         disabled: { type: Boolean, default: null }, //是否禁用状态
-        maxLength: { type: Number, default: null }, //最大长度
+        maxLength: { type: Number, default: -1 }, //最大长度
         size: { type: String, default: '' }, //输入框大小 xs、sm、md、lg、xl
         prefix: { type: String, default: '' }, //带有前缀图标的 input
         prefixSize: { type: Number, default: 16 }, //前缀图标尺寸

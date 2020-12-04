@@ -203,31 +203,33 @@ export default {
     methods: {
         //设置值
         setValue(val) {
-            let value = Number(isUndefined(val) || isNull(val) || val === '' ? 0 : val);
-            this.disabledLess = false;
-            this.disabledAdd = false;
-
-            if (!isUndefined(this.min) && !isNull(this.min) && this.min !== '' && value <= Number(this.min)) {
-                //最小值
-
-                this.disabledLess = true;
-                this.inputValue = Number(Number(this.min).toFixed(this.precision));
-            } else if (!isUndefined(this.max) && !isNull(this.max) && this.max !== '' && value >= Number(this.max)) {
-                //最大值
-
-                this.disabledAdd = true;
-                this.inputValue = Number(Number(this.max).toFixed(this.precision));
+            if (isUndefined(val) || isNull(val) || val === '') {
+                this.inputValue = null;
             } else {
-                this.inputValue = Number(value.toFixed(this.precision));
+                let value = Number(val);
+                this.disabledLess = false;
+                this.disabledAdd = false;
+
+                if (!isUndefined(this.min) && !isNull(this.min) && this.min !== '' && value <= Number(this.min)) {
+                    //最小值
+
+                    this.disabledLess = true;
+                    this.inputValue = Number(Number(this.min).toFixed(this.precision));
+                } else if (!isUndefined(this.max) && !isNull(this.max) && this.max !== '' && value >= Number(this.max)) {
+                    //最大值
+
+                    this.disabledAdd = true;
+                    this.inputValue = Number(Number(this.max).toFixed(this.precision));
+                } else {
+                    this.inputValue = Number(value.toFixed(this.precision));
+                }
             }
 
             this.$emit('change', this.inputValue);
             this.$emit('input', this.inputValue);
             this.$emit('update:modelValue', this.inputValue);
 
-            this.$nextTick(() => {
-                if (this.item) this.item.onFieldChange(this.inputValue);
-            });
+            return Promise.resolve(this.inputValue);
         },
 
         //减少值事件
@@ -235,7 +237,11 @@ export default {
             if (this.disabled || this.disabledLess) return;
             if (isUndefined(this.inputValue) || isNull(this.inputValue) || this.inputValue === '') this.inputValue = this.min || 0;
 
-            this.setValue(Number(this.inputValue) - Number(this.step || 1));
+            this.setValue(Number(this.inputValue) - Number(this.step || 1)).then(data => {
+                this.$nextTick(() => {
+                    if (this.item) this.item.onFieldChange(data);
+                });
+            });
             this.$emit('lessition', this.inputValue);
         },
 
@@ -244,7 +250,11 @@ export default {
             if (this.disabled || this.disabledAdd) return;
             if (isUndefined(this.inputValue) || isNull(this.inputValue) || this.inputValue === '') this.inputValue = this.min || 0;
 
-            this.setValue(Number(this.inputValue) + Number(this.step || 1));
+            this.setValue(Number(this.inputValue) + Number(this.step || 1)).then(data => {
+                this.$nextTick(() => {
+                    if (this.item) this.item.onFieldChange(data);
+                });
+            });
             this.$emit('addition', this.inputValue);
         },
 
@@ -273,7 +283,11 @@ export default {
         onInput(event) {
             let value = event.target.value || event.detail.value;
             if (!isUndefined(value) && !isNull(value) && value !== '') {
-                this.setValue(value);
+                this.setValue(value).then(data => {
+                    this.$nextTick(() => {
+                        if (this.item) this.item.onFieldChange(data);
+                    });
+                });
                 if (event.target) event.target.value = this.inputValue;
                 if (event.detail) event.detail.value = this.inputValue;
             } else {

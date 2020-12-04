@@ -102,7 +102,7 @@ export default {
         }, //自定义输入框的样式
         id: { type: String, default: null }, //输入框的 id
         border: { type: [Boolean, String], default: true }, //边框 top left bottom right
-        maxLength: { type: Number, default: null }, //最大长度
+        maxLength: { type: Number, default: -1 }, //最大长度
         size: { type: String, default: 'md' }, //输入框大小 xs、sm、md、lg、xl
         confirmType: { type: String, default: 'done' }, //设置键盘右下角按钮的文字，仅在uni-app中type为text时生效
         cursorSpacing: { type: Number, default: 0 }, //指定光标与键盘的距离，单位px
