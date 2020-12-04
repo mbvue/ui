@@ -3,7 +3,7 @@
 .@{prefix}-switch {
     position: relative;
     display: inline-block;
-    min-width: unit(round(@font-size * 3.25), px);
+    min-width: unit(round(@font-size * 2.86), px);
     height: unit(round(@font-size * 1.5), px);
     overflow: hidden;
     cursor: pointer;
@@ -13,12 +13,17 @@
 
     .@{prefix}-switch-label {
         display: block;
-        margin-left: unit(round(@font-size * 1.8), px);
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin-left: unit(round(@font-size * 1.6), px);
         line-height: unit(round(@font-size * 1.5), px);
         color: #fff;
         transition: all 0.38s cubic-bezier(0.78, 0.14, 0.15, 0.86);
 
         .@{prefix}-icon {
+            margin-left: -3px;
+
             .@{prefix}-icon-icon {
                 line-height: normal;
             }
@@ -43,12 +48,12 @@
     }
 
     &.@{prefix}-switch-xs {
-        min-width: unit(round(@font-size * 2.6), px);
+        min-width: unit(round(@font-size * 2.2), px);
         height: unit(round(@font-size * 1.15), px);
         border-radius: unit(round(@font-size * 1.15), px);
 
         .@{prefix}-switch-label {
-            margin-left: unit(round(@font-size * 1.3), px);
+            margin-left: unit(round(@font-size * 1.15), px);
             font-size: 12px;
             line-height: unit(round(@font-size * 1.15), px);
         }
@@ -60,12 +65,12 @@
     }
 
     &.@{prefix}-switch-sm {
-        min-width: unit(round(@font-size * 2.9), px);
+        min-width: unit(round(@font-size * 2.53), px);
         height: unit(round(@font-size * 1.3), px);
         border-radius: unit(round(@font-size * 1.3), px);
 
         .@{prefix}-switch-label {
-            margin-left: unit(round(@font-size * 1.7), px);
+            margin-left: unit(round(@font-size * 1.35), px);
             font-size: 12px;
             line-height: unit(round(@font-size * 1.3), px);
         }
@@ -77,12 +82,12 @@
     }
 
     &.@{prefix}-switch-md {
-        min-width: unit(round(@font-size * 3.4), px);
+        min-width: unit(round(@font-size * 2.97), px);
         height: unit(round(@font-size * 1.5), px);
         border-radius: unit(round(@font-size * 1.5), px);
 
         .@{prefix}-switch-label {
-            margin-left: unit(round(@font-size * 1.8), px);
+            margin-left: unit(round(@font-size * 1.65), px);
             line-height: unit(round(@font-size * 1.5), px);
         }
 
@@ -93,12 +98,12 @@
     }
 
     &.@{prefix}-switch-lg {
-        min-width: unit(round(@font-size * 4), px);
+        min-width: unit(round(@font-size * 3.5), px);
         height: unit(round(@font-size * 1.7), px);
         border-radius: unit(round(@font-size * 1.7), px);
 
         .@{prefix}-switch-label {
-            margin-left: unit(round(@font-size * 2.3), px);
+            margin-left: unit(round(@font-size * 2), px);
             line-height: unit(round(@font-size * 1.7), px);
         }
 
@@ -109,12 +114,12 @@
     }
 
     &.@{prefix}-switch-xl {
-        min-width: unit(round(@font-size * 4.7), px);
+        min-width: unit(round(@font-size * 4.1), px);
         height: unit(round(@font-size * 2), px);
         border-radius: unit(round(@font-size * 2), px);
 
         .@{prefix}-switch-label {
-            margin-left: unit(round(@font-size * 3), px);
+            margin-left: unit(round(@font-size * 2.5), px);
             line-height: unit(round(@font-size * 2), px);
         }
 
@@ -128,12 +133,42 @@
         background-color: @color-primary;
 
         .@{prefix}-switch-botton {
-            margin-left: -1px;
-            transform: translateX(150%);
+            margin-left: -2px;
+            transform: translateX(120%);
         }
 
         .@{prefix}-switch-label {
-            margin-left: unit(round(@font-size * 0.5), px);
+            margin-left: unit(round(@font-size * 0.4), px);
+        }
+
+        &.@{prefix}-switch-xs {
+            .@{prefix}-switch-label {
+                margin-left: unit(round(@font-size * 0.3), px);
+            }
+        }
+
+        &.@{prefix}-switch-sm {
+            .@{prefix}-switch-label {
+                margin-left: unit(round(@font-size * 0.4), px);
+            }
+        }
+
+        &.@{prefix}-switch-md {
+            .@{prefix}-switch-label {
+                margin-left: unit(round(@font-size * 0.4), px);
+            }
+        }
+
+        &.@{prefix}-switch-lg {
+            .@{prefix}-switch-label {
+                margin-left: unit(round(@font-size * 0.6), px);
+            }
+        }
+
+        &.@{prefix}-switch-xl {
+            .@{prefix}-switch-label {
+                margin-left: unit(round(@font-size * 0.7), px);
+            }
         }
     }
 
