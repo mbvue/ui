@@ -80,21 +80,10 @@ export default {
         buildLabelStyle() {
             let style = {};
 
-            if (this.parent && this.parent.labelStyle) {
-                style = deepMerge(style, this.parent.labelStyle);
-            }
-
-            if (this.labelStyle) {
-                style = deepMerge(style, this.labelStyle);
-            }
-
-            if (this.buildLabelWidth) {
-                style.width = unit(this.buildLabelWidth);
-            }
-
-            if (this.buildLabelAlign) {
-                style.textAlign = this.buildLabelAlign;
-            }
+            if (this.parent && this.parent.labelStyle) style = deepMerge(style, this.parent.labelStyle);
+            if (this.labelStyle) style = deepMerge(style, this.labelStyle);
+            if (this.buildLabelWidth) style.width = unit(this.buildLabelWidth);
+            if (this.buildLabelAlign) style.textAlign = this.buildLabelAlign;
 
             return style;
         },
@@ -103,13 +92,8 @@ export default {
         buildChildrenStyle() {
             let style = {};
 
-            if (this.parent && this.parent.childrenStyle) {
-                style = deepMerge(style, this.parent.childrenStyle);
-            }
-
-            if (this.childrenStyle) {
-                style = deepMerge(style, this.childrenStyle);
-            }
+            if (this.parent && this.parent.childrenStyle) style = deepMerge(style, this.parent.childrenStyle);
+            if (this.childrenStyle) style = deepMerge(style, this.childrenStyle);
 
             return style;
         },
@@ -153,11 +137,11 @@ export default {
         buildRules() {
             let rules = [];
 
-            if (this.parent && this.parent.rules) rules.concat(this.parent.rules[this.prop] || []);
+            if (this.parent && this.parent.rules) rules = rules.concat(this.parent.rules[this.prop] || []);
 
             if (this.rules) {
                 if (isArray(this.rules)) {
-                    rules.concat(this.rules || []);
+                    rules = rules.concat(this.rules || []);
                 } else if (JSON.stringify(this.rules) !== '{}') {
                     rules.push(this.rules);
                 }

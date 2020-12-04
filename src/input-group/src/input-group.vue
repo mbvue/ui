@@ -1,6 +1,6 @@
 <template>
     <div class="mb-input-group">
-        <slot></slot>
+        <slot />
     </div>
 </template>
 

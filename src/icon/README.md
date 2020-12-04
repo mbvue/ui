@@ -6,67 +6,55 @@
 
 :::demo html
 
-<div>
-    <mb-icon type="user"></mb-icon>
-</div>
+<mb-icon type="user"></mb-icon>
 :::
 
 ### 1.2、 图片图标
 
 :::demo html
 
-<div>
-    <mb-icon type="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg"></mb-icon>
-</div>
+<mb-icon type="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg"></mb-icon>
 :::
 
 ### 1.3、 图标尺寸
 
 :::demo html
 
-<div>
-    <mb-icon type="user" :size="14"></mb-icon>
-    <mb-icon type="user" :size="16"></mb-icon>
-    <mb-icon type="user" :size="18"></mb-icon>
-    <mb-icon type="user" :size="24"></mb-icon>
-    <mb-icon type="user" :size="32"></mb-icon>
-</div>
+<mb-icon type="user" :size="14"></mb-icon>
+<mb-icon type="user" :size="16"></mb-icon>
+<mb-icon type="user" :size="18"></mb-icon>
+<mb-icon type="user" :size="24"></mb-icon>
+<mb-icon type="user" :size="32"></mb-icon>
 :::
 
 ### 1.4、 图标颜色
 
 :::demo html
 
-<div>
-    <mb-icon type="user" :size="24" color="#409eff"></mb-icon>
-    <mb-icon type="user" :size="24" color="#67c23a"></mb-icon>
-    <mb-icon type="user" :size="24" color="#e6a23c"></mb-icon>
-    <mb-icon type="user" :size="24" color="#f56c6c"></mb-icon>
-    <mb-icon type="user" :size="24" color="#909399"></mb-icon>
-    <mb-icon type="user" :size="24" color="#343a40"></mb-icon>
-</div>
+<mb-icon type="user" :size="24" color="#409eff"></mb-icon>
+<mb-icon type="user" :size="24" color="#67c23a"></mb-icon>
+<mb-icon type="user" :size="24" color="#e6a23c"></mb-icon>
+<mb-icon type="user" :size="24" color="#f56c6c"></mb-icon>
+<mb-icon type="user" :size="24" color="#909399"></mb-icon>
+<mb-icon type="user" :size="24" color="#343a40"></mb-icon>
 :::
 
 ### 1.5、 旋转角度
 
 :::demo html
 
-<div>
-    <mb-icon type="user" :size="16" :rotate="45"></mb-icon>
-    <mb-icon type="user" :size="16" :rotate="90"></mb-icon>
-    <mb-icon type="user" :size="16" :rotate="180"></mb-icon>
-    <mb-icon type="user" :size="16" rotate="270deg"></mb-icon>
-</div>
+<mb-icon type="user" :size="16" :rotate="45"></mb-icon>
+<mb-icon type="user" :size="16" :rotate="90"></mb-icon>
+<mb-icon type="user" :size="16" :rotate="180"></mb-icon>
+<mb-icon type="user" :size="16" rotate="270deg"></mb-icon>
 :::
 
 ### 1.6、 旋转动画
 
 :::demo html
 
-<div>
-    <mb-icon type="spinner" :size="16" :spin="true"></mb-icon>
-    <mb-icon type="sync" :size="16" :spin="true"></mb-icon>
-</div>
+<mb-icon type="spinner" :size="16" :spin="true"></mb-icon>
+<mb-icon type="sync" :size="16" :spin="true"></mb-icon>
 :::
 
 ## 2、 图标

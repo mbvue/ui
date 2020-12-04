@@ -19,239 +19,225 @@
 
 :::demo html
 
-<div>
-    <mb-button type="default" ghost="dashed">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="default" ghost="ghost">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="default" ghost="plain">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="default" ghost="link">第一个按钮</mb-button>&nbsp;&nbsp;
-    <br />
-    <br />
-    <mb-button type="primary" ghost="dashed">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" ghost="ghost">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" ghost="plain">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" ghost="link">第一个按钮</mb-button>&nbsp;&nbsp;
-    <br />
-    <br />
-    <mb-button type="warning" ghost="dashed">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="warning" ghost="ghost">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="warning" ghost="plain">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="warning" ghost="link">第一个按钮</mb-button>&nbsp;&nbsp;
-    <br />
-    <br />
-    <mb-button type="danger" ghost="dashed">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="danger" ghost="ghost">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="danger" ghost="plain">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="danger" ghost="link">第一个按钮</mb-button>&nbsp;&nbsp;
-    <br />
-    <br />
-    <mb-button type="info" ghost="dashed">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="info" ghost="ghost">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="info" ghost="plain">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="info" ghost="link">第一个按钮</mb-button>&nbsp;&nbsp;
-    <br />
-    <br />
-    <mb-button type="dark" ghost="dashed">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="dark" ghost="ghost">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="dark" ghost="plain">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="dark" ghost="link">第一个按钮</mb-button>&nbsp;&nbsp;
-</div>
+<mb-button type="default" ghost="dashed">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="default" ghost="ghost">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="default" ghost="plain">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="default" ghost="link">第一个按钮</mb-button>
+<br />
+<br />
+<mb-button type="primary" ghost="dashed">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" ghost="ghost">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" ghost="plain">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" ghost="link">第一个按钮</mb-button>
+<br />
+<br />
+<mb-button type="warning" ghost="dashed">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="warning" ghost="ghost">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="warning" ghost="plain">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="warning" ghost="link">第一个按钮</mb-button>
+<br />
+<br />
+<mb-button type="danger" ghost="dashed">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="danger" ghost="ghost">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="danger" ghost="plain">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="danger" ghost="link">第一个按钮</mb-button>
+<br />
+<br />
+<mb-button type="info" ghost="dashed">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="info" ghost="ghost">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="info" ghost="plain">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="info" ghost="link">第一个按钮</mb-button>
+<br />
+<br />
+<mb-button type="dark" ghost="dashed">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="dark" ghost="ghost">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="dark" ghost="plain">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="dark" ghost="link">第一个按钮</mb-button>
 :::
 
 ### 1.3、 禁用按钮
 
 :::demo html
 
-<div>
-    <mb-button type="default" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="success" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="warning" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="danger" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="info" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="dark" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <br />
-    <br />
-    <mb-button type="default" ghost="dashed" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="default" ghost="ghost" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="default" ghost="plain" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="default" ghost="link" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <br />
-    <br />
-    <mb-button type="primary" ghost="dashed" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" ghost="ghost" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" ghost="plain" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" ghost="link" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <br />
-    <br />
-    <mb-button type="warning" ghost="dashed" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="warning" ghost="ghost" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="warning" ghost="plain" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="warning" ghost="link" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <br />
-    <br />
-    <mb-button type="danger" ghost="dashed" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="danger" ghost="ghost" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="danger" ghost="plain" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="danger" ghost="link" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <br />
-    <br />
-    <mb-button type="info" ghost="dashed" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="info" ghost="ghost" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="info" ghost="plain" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="info" ghost="link" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <br />
-    <br />
-    <mb-button type="dark" ghost="dashed" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="dark" ghost="ghost" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="dark" ghost="plain" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="dark" ghost="link" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
-</div>
+<mb-button type="default" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="success" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="warning" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="danger" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="info" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="dark" :disabled="true">第一个按钮</mb-button>
+<br />
+<br />
+<mb-button type="default" ghost="dashed" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="default" ghost="ghost" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="default" ghost="plain" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="default" ghost="link" :disabled="true">第一个按钮</mb-button>
+<br />
+<br />
+<mb-button type="primary" ghost="dashed" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" ghost="ghost" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" ghost="plain" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" ghost="link" :disabled="true">第一个按钮</mb-button>
+<br />
+<br />
+<mb-button type="warning" ghost="dashed" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="warning" ghost="ghost" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="warning" ghost="plain" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="warning" ghost="link" :disabled="true">第一个按钮</mb-button>
+<br />
+<br />
+<mb-button type="danger" ghost="dashed" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="danger" ghost="ghost" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="danger" ghost="plain" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="danger" ghost="link" :disabled="true">第一个按钮</mb-button>
+<br />
+<br />
+<mb-button type="info" ghost="dashed" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="info" ghost="ghost" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="info" ghost="plain" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="info" ghost="link" :disabled="true">第一个按钮</mb-button>
+<br />
+<br />
+<mb-button type="dark" ghost="dashed" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="dark" ghost="ghost" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="dark" ghost="plain" :disabled="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="dark" ghost="link" :disabled="true">第一个按钮</mb-button>
 :::
 
 ### 1.4、 图标按钮
 
 :::demo html
 
-<div>
-    <mb-button type="default" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="success" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="warning" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="danger" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="info" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="dark" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
-    <br />
-    <br />
-    <mb-button type="primary" ghost="dashed" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" ghost="ghost" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" ghost="plain" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" ghost="link" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
-</div>
+<mb-button type="default" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="success" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="warning" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="danger" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="info" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="dark" icon="heart">第一个按钮</mb-button>
+<br />
+<br />
+<mb-button type="primary" ghost="dashed" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" ghost="ghost" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" ghost="plain" icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" ghost="link" icon="heart">第一个按钮</mb-button>
 :::
 
 ### 1.5、 按钮尺寸
 
 :::demo html
 
-<div>
-    <mb-button type="default" size="xs">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="default" size="sm">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="default" size="md">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="default" size="lg">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="default" size="xl">第一个按钮</mb-button>&nbsp;&nbsp;
-    <br />
-    <br />
-    <mb-button type="primary" size="xs">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" size="sm">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" size="md">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" size="lg">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" size="xl">第一个按钮</mb-button>&nbsp;&nbsp;
-</div>
+<mb-button type="default" size="xs">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="default" size="sm">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="default" size="md">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="default" size="lg">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="default" size="xl">第一个按钮</mb-button>
+<br />
+<br />
+<mb-button type="primary" size="xs">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" size="sm">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" size="md">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" size="lg">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" size="xl">第一个按钮</mb-button>
 :::
 
 ### 1.6、 按钮圆角样式
 
 :::demo html
 
-<div>
-    <mb-button type="default" shape="circle" icon="heart"></mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" shape="circle" icon="heart"></mb-button>&nbsp;&nbsp;
-    <mb-button type="success" shape="circle" icon="heart"></mb-button>&nbsp;&nbsp;
-    <mb-button type="warning" shape="circle" icon="heart"></mb-button>&nbsp;&nbsp;
-    <mb-button type="danger" shape="circle" icon="heart"></mb-button>&nbsp;&nbsp;
-    <mb-button type="info" shape="circle" icon="heart"></mb-button>&nbsp;&nbsp;
-    <mb-button type="dark" shape="circle" icon="heart"></mb-button>&nbsp;&nbsp;
-    <br />
-    <br />
-    <mb-button type="default" shape="round">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" shape="round">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="success" shape="round">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="warning" shape="round">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="danger" shape="round">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="info" shape="round">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="dark" shape="round">第一个按钮</mb-button>&nbsp;&nbsp;
-    <br />
-    <br />
-    <mb-button type="default" shape="pill">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" shape="pill">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="success" shape="pill">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="warning" shape="pill">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="danger" shape="pill">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="info" shape="pill">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="dark" shape="pill">第一个按钮</mb-button>&nbsp;&nbsp;
-    <br />
-    <br />
-    <mb-button type="default" shape="square">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" shape="square">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="success" shape="square">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="warning" shape="square">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="danger" shape="square">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="info" shape="square">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="dark" shape="square">第一个按钮</mb-button>&nbsp;&nbsp;
-</div>
+<mb-button type="default" shape="circle" icon="heart"></mb-button>&nbsp;&nbsp;
+<mb-button type="primary" shape="circle" icon="heart"></mb-button>&nbsp;&nbsp;
+<mb-button type="success" shape="circle" icon="heart"></mb-button>&nbsp;&nbsp;
+<mb-button type="warning" shape="circle" icon="heart"></mb-button>&nbsp;&nbsp;
+<mb-button type="danger" shape="circle" icon="heart"></mb-button>&nbsp;&nbsp;
+<mb-button type="info" shape="circle" icon="heart"></mb-button>&nbsp;&nbsp;
+<mb-button type="dark" shape="circle" icon="heart"></mb-button>
+<br />
+<br />
+<mb-button type="default" shape="round">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" shape="round">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="success" shape="round">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="warning" shape="round">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="danger" shape="round">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="info" shape="round">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="dark" shape="round">第一个按钮</mb-button>
+<br />
+<br />
+<mb-button type="default" shape="pill">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" shape="pill">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="success" shape="pill">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="warning" shape="pill">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="danger" shape="pill">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="info" shape="pill">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="dark" shape="pill">第一个按钮</mb-button>
+<br />
+<br />
+<mb-button type="default" shape="square">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" shape="square">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="success" shape="square">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="warning" shape="square">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="danger" shape="square">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="info" shape="square">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="dark" shape="square">第一个按钮</mb-button>
 :::
 
 ### 1.7、 按钮加载中
 
 :::demo html
 
-<div>
-    <mb-button type="default" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="success" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="warning" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="danger" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="info" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="dark" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <br />
-    <br />
-    <mb-button type="primary" ghost="dashed" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" ghost="ghost" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" ghost="plain" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" ghost="link" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
-    <br />
-    <br />
-    自定义加载中图标：
-    <br />
-    <br />
-    <mb-button type="primary" :loading="true" loadingIcon="redo-alt">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" :disabled="true"> <mb-icon type="user" :size="16"></mb-icon>第一个按钮 </mb-button>
-</div>
+<mb-button type="default" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="success" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="warning" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="danger" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="info" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="dark" :loading="true">第一个按钮</mb-button>
+<br />
+<br />
+<mb-button type="primary" ghost="dashed" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" ghost="ghost" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" ghost="plain" :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" ghost="link" :loading="true">第一个按钮</mb-button>
+<br />
+<br />
+<mb-button type="primary" :loading="true" loadingIcon="redo-alt">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" :disabled="true"> <mb-icon type="user" :size="16"></mb-icon>第一个按钮 </mb-button>
 :::
 
 ### 1.8、 按钮宽度调整为其父宽度
 
 :::demo html
 
-<div>
-    <mb-button type="primary" block>第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" block icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
-    <mb-button type="primary" block :loading="true">第一个按钮</mb-button>&nbsp;&nbsp;
-</div>
+<mb-button type="primary" block>第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" block icon="heart">第一个按钮</mb-button>&nbsp;&nbsp;
+<mb-button type="primary" block :loading="true">第一个按钮</mb-button>
 :::
 
 ### 1.9、 ajax 请求封装自动处理 Loading 状态
 
-```html
-<mb-button type="primary" :ajax="action" shape="square">第一个按钮</mb-button>&nbsp;&nbsp;
-```
+:::demo vue
 
-```js
-export default {
-    methods: {
-        action() {
-            return this.$m.ajax
-                .get('http://www.baidu.com')
-                .then(data => {
-                    console.log(data);
-                })
-                .catch(data => {
-                    console.log(data);
-                });
+<template>
+<mb-button type="primary" :ajax="action" shape="square">第一个按钮</mb-button>
+</template>
+<script>
+    export default {
+        methods: {
+            action() {
+                return this.$m.ajax
+                    .get('http://www.baidu.com')
+                    .then(data => {
+                        console.log(data);
+                    })
+                    .catch(data => {
+                        console.log(data);
+                    });
+            }
         }
-    }
-};
-```
+    };
+</script>
+
+:::
 
 ## 2、 API 配置
 

@@ -6,77 +6,65 @@
 
 :::demo html
 
-<div>
-    <mb-input-search placeholder="请输入内容"/>
-</div>
+<mb-input-search placeholder="请输入内容"/>
 :::
 
 ### 1.2、 左侧图标
 
 :::demo html
 
-<div>
-    <mb-input-search icon placeholder="请输入内容"/>
-</div>
+<mb-input-search icon placeholder="请输入内容"/>
 :::
 
 ### 1.3、 右侧配置
 
 :::demo html
 
-<div>
-    <mb-input-search actionText="搜索" placeholder="请输入内容"/>
-    <br/>
-    <br/>
-    <mb-input-search :action="false" actionText="搜索" placeholder="请输入内容"/>
-    <br/>
-    <br/>
-    <mb-input-search actionFixed placeholder="请输入内容"/>
-    <br/>
-    <br/>
-    <mb-input-search actionButton placeholder="请输入内容"/>
-    <br/>
-    <br/>
-    <mb-input-search loading placeholder="请输入内容"/>
-    <br/>
-    <br/>
-    <mb-input-search loading actionButton :actionSize="18" placeholder="请输入内容"/>
-</div>
+<mb-input-search actionText="搜索" placeholder="请输入内容"/>
+<br/>
+<br/>
+<mb-input-search :action="false" actionText="搜索" placeholder="请输入内容"/>
+<br/>
+<br/>
+<mb-input-search actionFixed placeholder="请输入内容"/>
+<br/>
+<br/>
+<mb-input-search actionButton placeholder="请输入内容"/>
+<br/>
+<br/>
+<mb-input-search loading placeholder="请输入内容"/>
+<br/>
+<br/>
+<mb-input-search loading actionButton :actionSize="18" placeholder="请输入内容"/>
 :::
 
 ### 1.4、 禁用
 
 :::demo html
 
-<div>
-    <mb-input-search disabled placeholder="请输入内容"/>
-    <mb-input-search disabled actionButton placeholder="请输入内容"/>
-</div>
+<mb-input-search disabled placeholder="请输入内容"/>
+<mb-input-search disabled actionButton placeholder="请输入内容"/>
 :::
 
 ### 1.5、 尺寸
 
 :::demo html
 
-<div>
-    <mb-input-search size="xs" placeholder="请输入内容"/>&nbsp;&nbsp;
-    <mb-input-search size="sm" placeholder="请输入内容"/>&nbsp;&nbsp;
-    <mb-input-search size="md" placeholder="请输入内容"/>&nbsp;&nbsp;
-    <mb-input-search size="lg" placeholder="请输入内容"/>&nbsp;&nbsp;
-    <mb-input-search size="xl" placeholder="请输入内容"/>
-</div>
+<mb-input-search size="xs" placeholder="请输入内容"/>&nbsp;&nbsp;
+<mb-input-search size="sm" placeholder="请输入内容"/>&nbsp;&nbsp;
+<mb-input-search size="md" placeholder="请输入内容"/>&nbsp;&nbsp;
+<mb-input-search size="lg" placeholder="请输入内容"/>&nbsp;&nbsp;
+<mb-input-search size="xl" placeholder="请输入内容"/>
 :::
 
 ### 1.6、 清除
 
 :::demo html
 
-<div>
-    <mb-input-search allowClear placeholder="请输入内容"/>
-    <br/>
-    <br/>
-    <mb-input-search allowClear actionFixed placeholder="请输入内容"/>
-</div>
+<mb-input-search allowClear placeholder="请输入内容"/>
+<br/>
+<br/>
+<mb-input-search allowClear actionFixed placeholder="请输入内容"/>
 :::
 
 ## 2、 API 配置

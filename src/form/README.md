@@ -4,157 +4,134 @@
 
 ### 1.1、 基础使用
 
-:::demo html
+:::demo vue
 
-<div>
-    <mb-form ref="form" labelWidth="60">
-        <mb-form-item required help="请输入内容" label="内容">
-            <mb-input />
-        </mb-form-item>
-        <mb-form-item required help="请输入内容" label="内容">
-            <mb-input border="bottom" />
-        </mb-form-item>
-        <mb-form-item required help="请输入内容" label="内容">
-            <mb-input-number placeholder="请输入内容"/>
-        </mb-form-item>
-        <mb-form-item required help="请选择内容" label="年龄">
-            <mb-radio-group>
-                <mb-radio checkedValue="1">1岁</mb-radio>&nbsp;&nbsp;
+<template>
+    <mb-form ref="form" :model="formData" labelWidth="60">
+        <mb-form-item required help="请输入内容" label="内容" prop="content1"><mb-input v-model="formData.content1" /></mb-form-item>
+        <mb-form-item required help="请输入内容" label="内容" prop="content2"><mb-input v-model="formData.content2" border="bottom" /></mb-form-item>
+        <mb-form-item required help="请输入内容" label="内容" prop="content3"><mb-input-number v-model="formData.content3" placeholder="请输入内容"/></mb-form-item>
+        <mb-form-item required help="请选择内容" label="年龄" prop="content4">
+            <mb-radio-group v-model="formData.content4">
+                <mb-radio defaultChecked checkedValue="1">1岁</mb-radio>&nbsp;&nbsp;
                 <mb-radio checkedValue="2">2岁</mb-radio>
             </mb-radio-group>
         </mb-form-item>
-        <mb-form-item required help="请选择内容" label="年龄">
-            <mb-checkbox-group>
-                <mb-checkbox checkedValue="1">复选框</mb-checkbox>&nbsp;&nbsp;
+        <mb-form-item required help="请选择内容" label="年龄" prop="content5">
+            <mb-checkbox-group v-model="formData.content5">
+                <mb-checkbox defaultChecked checkedValue="1">复选框</mb-checkbox>&nbsp;&nbsp;
                 <mb-checkbox checkedValue="2">复选框</mb-checkbox>
             </mb-checkbox-group>
         </mb-form-item>
         <mb-form-item :colon="false">
-            <mb-button type="primary" @click="$refs.form.validate()">提交</mb-button>&nbsp;&nbsp;
-            <mb-button @click="$refs.form.resetFields()">重置</mb-button>
+            <mb-button type="primary" @click="action">提交</mb-button>&nbsp;&nbsp;
+            <mb-button @click="reset">重置</mb-button>
         </mb-form-item>
     </mb-form>
-</div>
+</template>
+<script>
+    export default {
+        data() {
+            return {
+                formData: {
+                    content1: '',
+                    content2: '',
+                    content3: null,
+                    content4: null,
+                    content5: []
+                }
+            }
+        },
+        methods: {
+            action() {
+                this.$refs.form.validate();
+            },
+            reset() {
+                this.$refs.form.resetFields();
+            }
+        }
+    };
+</script>
 :::
 
 ### 1.2、 隐藏必填
 
 :::demo html
 
-<div>
-    <mb-form>
-        <mb-form-item required hideRequiredMark label="姓名">
-            <mb-input />
-        </mb-form-item>
-        <mb-form-item required label="年龄">
-            <mb-input />
-        </mb-form-item>
-    </mb-form>
-</div>
+<mb-form>
+    <mb-form-item required hideRequiredMark label="姓名"><mb-input /></mb-form-item>
+    <mb-form-item required label="年龄"><mb-input /></mb-form-item>
+</mb-form>
 :::
+
+<br/>
 
 :::demo html
 
-<div>
-    <mb-form hideRequiredMark>
-        <mb-form-item required label="姓名">
-            <mb-input />
-        </mb-form-item>
-        <mb-form-item required label="年龄">
-            <mb-input />
-        </mb-form-item>
-    </mb-form>
-</div>
+<mb-form hideRequiredMark>
+    <mb-form-item required label="姓名"><mb-input /></mb-form-item>
+    <mb-form-item required label="年龄"><mb-input /></mb-form-item>
+</mb-form>
 :::
 
 ### 1.3、 label 后面的冒号
 
 :::demo html
 
-<div>
-    <mb-form>
-        <mb-form-item :colon="false" label="姓名">
-            <mb-input />
-        </mb-form-item>
-        <mb-form-item label="年龄">
-            <mb-input />
-        </mb-form-item>
-    </mb-form>
-</div>
+<mb-form>
+    <mb-form-item :colon="false" label="姓名"><mb-input /></mb-form-item>
+    <mb-form-item label="年龄"><mb-input /></mb-form-item>
+</mb-form>
 :::
+
+<br/>
 
 :::demo html
 
-<div>
-    <mb-form :colon="false">
-        <mb-form-item label="姓名">
-            <mb-input />
-        </mb-form-item>
-        <mb-form-item label="年龄">
-            <mb-input />
-        </mb-form-item>
-    </mb-form>
-</div>
+<mb-form :colon="false">
+    <mb-form-item label="姓名"><mb-input /></mb-form-item>
+    <mb-form-item label="年龄"><mb-input /></mb-form-item>
+</mb-form>
 :::
 
 ### 1.4、 label 宽度
 
 :::demo html
 
-<div>
-    <mb-form>
-        <mb-form-item labelWidth="90" label="姓名">
-            <mb-input />
-        </mb-form-item>
-        <mb-form-item label="年龄">
-            <mb-input />
-        </mb-form-item>
-    </mb-form>
-</div>
+<mb-form>
+    <mb-form-item labelWidth="90" label="姓名"><mb-input /></mb-form-item>
+    <mb-form-item label="年龄"><mb-input /></mb-form-item>
+</mb-form>
 :::
+
+<br/>
 
 :::demo html
 
-<div>
-    <mb-form labelWidth="90">
-        <mb-form-item label="姓名">
-            <mb-input />
-        </mb-form-item>
-        <mb-form-item label="年龄">
-            <mb-input />
-        </mb-form-item>
-    </mb-form>
-</div>
+<mb-form labelWidth="90">
+    <mb-form-item label="姓名"><mb-input /></mb-form-item>
+    <mb-form-item label="年龄"><mb-input /></mb-form-item>
+</mb-form>
 :::
 
 ### 1.5、 label 对齐方式
 
 :::demo html
 
-<div>
-    <mb-form labelWidth="90">
-        <mb-form-item labelAlign="right" label="姓名">
-            <mb-input />
-        </mb-form-item>
-        <mb-form-item label="年龄">
-            <mb-input />
-        </mb-form-item>
-    </mb-form>
-</div>
+<mb-form labelWidth="90">
+    <mb-form-item labelAlign="right" label="姓名"><mb-input /></mb-form-item>
+    <mb-form-item label="年龄"><mb-input /></mb-form-item>
+</mb-form>
 :::
+
+<br/>
 
 :::demo html
 
-<div>
-    <mb-form labelWidth="90" labelAlign="right">
-        <mb-form-item label="姓名">
-            <mb-input />
-        </mb-form-item>
-        <mb-form-item label="年龄">
-            <mb-input />
-        </mb-form-item>
-    </mb-form>
-</div>
+<mb-form labelWidth="90" labelAlign="right">
+    <mb-form-item label="姓名"><mb-input /></mb-form-item>
+    <mb-form-item label="年龄"><mb-input /></mb-form-item>
+</mb-form>
 :::
 
 ### 1.6、 布局
@@ -163,82 +140,120 @@
 
 :::demo html
 
-<div>
-    <mb-form layout="horizontal">
-        <mb-form-item label="姓名">
-            <mb-input />
-        </mb-form-item>
-        <mb-form-item label="年龄">
-            <mb-input />
-        </mb-form-item>
-    </mb-form>
-</div>
+<mb-form layout="horizontal">
+    <mb-form-item label="姓名"><mb-input /></mb-form-item>
+    <mb-form-item label="年龄"><mb-input /></mb-form-item>
+</mb-form>
 :::
 
 #### 1.6.2、 vertical 布局
 
 :::demo html
 
-<div>
-    <mb-form layout="vertical">
-        <mb-form-item label="姓名">
-            <mb-input />
-        </mb-form-item>
-        <mb-form-item label="年龄">
-            <mb-input />
-        </mb-form-item>
-    </mb-form>
-</div>
+<mb-form layout="vertical">
+    <mb-form-item label="姓名"><mb-input /></mb-form-item>
+    <mb-form-item label="年龄"><mb-input /></mb-form-item>
+</mb-form>
 :::
 
 #### 1.6.3、 inline 布局
 
 :::demo html
 
-<div>
-    <mb-form layout="inline">
-        <mb-form-item label="姓名">
-            <mb-input />
-        </mb-form-item>
-        <mb-form-item label="年龄">
-            <mb-input />
-        </mb-form-item>
-    </mb-form>
-</div>
+<mb-form layout="inline">
+    <mb-form-item label="姓名"><mb-input /></mb-form-item>
+    <mb-form-item label="年龄"><mb-input /></mb-form-item>
+</mb-form>
 :::
 
 ### 1.7、 标签是否同宽
 
 :::demo html
 
-<div>
-    <mb-form sameWidth>
-        <mb-form-item label="姓名">
-            <mb-input />
-        </mb-form-item>
-    </mb-form>
-</div>
+<mb-form sameWidth>
+    <mb-form-item label="姓名"><mb-input /></mb-form-item>
+</mb-form>
 :::
 
 ### 1.8、 校验规则
 
-#### 1.8.1、 必须快捷校验
+:::demo vue
 
-:::demo html
-
-<div>
-    <mb-form labelWidth="60">
-        <mb-form-item required help="请输入内容" label="姓名">
-            <mb-input />
-        </mb-form-item>
-        <mb-form-item required help="请输入内容" label="姓名">
-            <mb-input border="bottom" />
-        </mb-form-item>
-        <mb-form-item :rules="{ trigger: ['change', 'blur'], min: 3, message: '最小长度为三' }" label="姓名">
-            <mb-input border="bottom" />
+<template>
+    <mb-form ref="form" :model="formData" labelWidth="60">
+        <mb-form-item required help="请输入内容" label="姓名" prop="content1"><mb-input v-model="formData.content1" /></mb-form-item>
+        <mb-form-item required help="请输入内容" label="姓名" prop="content2"><mb-input v-model="formData.content2" border="bottom" /></mb-form-item>
+        <mb-form-item :rules="{ trigger: ['change', 'blur'], min: 3, message: '最小长度为三' }" label="姓名" prop="content3"><mb-input v-model="formData.content3" border="bottom" /></mb-form-item>
+        <mb-form-item :colon="false">
+            <mb-button type="primary" @click="action">提交</mb-button>&nbsp;&nbsp;
+            <mb-button @click="reset">重置</mb-button>
         </mb-form-item>
     </mb-form>
-</div>
+</template>
+<script>
+    export default {
+        data() {
+            return {
+                formData: {
+                    content1: '',
+                    content2: '',
+                    content3: ''
+                }
+            }
+        },
+        methods: {
+            action() {
+                this.$refs.form.validate();
+            },
+            reset() {
+                this.$refs.form.resetFields();
+            }
+        }
+    };
+</script>
+:::
+
+<br/>
+
+:::demo vue
+
+<template>
+    <mb-form ref="form" :model="formData" :rules="formRules" labelWidth="60">
+        <mb-form-item label="姓名" prop="content1"><mb-input v-model="formData.content1" /></mb-form-item>
+        <mb-form-item label="姓名" prop="content2"><mb-input v-model="formData.content2" border="bottom" /></mb-form-item>
+        <mb-form-item label="姓名" prop="content3"><mb-input v-model="formData.content3" border="bottom" /></mb-form-item>
+        <mb-form-item :colon="false">
+            <mb-button type="primary" @click="action">提交</mb-button>&nbsp;&nbsp;
+            <mb-button @click="reset">重置</mb-button>
+        </mb-form-item>
+    </mb-form>
+</template>
+<script>
+    export default {
+        data() {
+            return {
+                formData: {
+                    content1: '',
+                    content2: '',
+                    content3: ''
+                },
+                formRules: {
+                    content1: [{ trigger: ['change', 'blur'], required: true, message: '请输入内容' }],
+                    content2: [{ trigger: ['change', 'blur'], required: true, message: '请输入内容' }],
+                    content3: [{ trigger: ['change', 'blur'], min: 3, message: '最小长度为三' }]
+                }
+            }
+        },
+        methods: {
+            action() {
+                this.$refs.form.validate();
+            },
+            reset() {
+                this.$refs.form.resetFields();
+            }
+        }
+    };
+</script>
 :::
 
 ## 2、 API 配置
@@ -294,8 +309,8 @@
 
 ### 2.4、 From 方法
 
-| 方法名        | 说明                         | 参数 |
-| ------------- | ---------------------------- | ---- |
-| validate      | 对整个表单进行校验的方法     |      |
-| validateField | 对部分表单字段进行校验的方法 |      |
-| resetFields   | 对整个表单进行重置           |      |
+| 方法名        | 说明                         | 参数                                     | 返回参数                                                                                   |
+| ------------- | ---------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------ |
+| validate      | 对整个表单进行校验的方法     | callback(回调方法)                       | valid(全部正确为 true，否则为 false)，data(表单数据)，error(错误信息：[{ prop, message }]) |
+| validateField | 对部分表单字段进行校验的方法 | fields(字段名称数组), callback(回调方法) | valid(全部正确为 true，否则为 false)，data(表单数据)，error(错误信息：[{ prop, message }]) |
+| resetFields   | 对整个表单进行重置           | -                                        | -                                                                                          |

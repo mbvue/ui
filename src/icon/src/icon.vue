@@ -9,10 +9,8 @@
 </template>
 
 <script>
-import { versions } from '../../base/utils/env';
+import { vueVer } from '../../base/utils/env';
 import { unit } from '../../base/utils/util';
-
-const Vers = versions();
 
 export default {
     name: 'MbIcon',
@@ -67,8 +65,7 @@ export default {
     methods: {
         //点击事件
         onClick(event) {
-            //兼容vue2 点击事件
-            if (Vers === 2) this.$emit('click', event);
+            if (vueVer === 2) this.$emit('click', event); //兼容vue2 点击事件
         }
     }
 };

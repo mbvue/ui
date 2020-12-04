@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import { isFunction } from '../../base/utils/test';
+
 export default {
     name: 'MbForm',
 
@@ -64,22 +66,19 @@ export default {
         },
 
         //校验数据
-        validate() {
-            return new Promise((resolve, reject) => {
+        validate(callback) {
+            return new Promise(resolve => {
                 let _count = 0,
                     _error = [];
 
                 this.fields.map(field => {
-                    field.validation((error, message, prop) => {
+                    field.validation('', (error, message, prop) => {
                         if (error) _error.push({ prop, message });
 
                         //完成校验
                         if (++_count === this.fields.length) {
-                            if (_error.length) {
-                                reject(_error);
-                            } else {
-                                resolve();
-                            }
+                            resolve(_error.length ? false : true, this.model, _error);
+                            if (callback && isFunction(callback)) callback(_error.length ? false : true, this.model, _error);
                         }
                     });
                 });
@@ -87,8 +86,8 @@ export default {
         },
 
         //校验数据
-        validateField(fields) {
-            return new Promise((resolve, reject) => {
+        validateField(fields, callback) {
+            return new Promise(resolve => {
                 let _count = 0,
                     _error = [];
 
@@ -103,11 +102,8 @@ export default {
 
                     //完成校验
                     if (_count === this.fields.length) {
-                        if (_error.length) {
-                            reject(_error);
-                        } else {
-                            resolve();
-                        }
+                        resolve(_error.length ? false : true, this.model, _error);
+                        if (callback && isFunction(callback)) callback(_error.length ? false : true, this.model, _error);
                     }
                 });
             });

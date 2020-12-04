@@ -6,68 +6,79 @@
 
 :::demo html
 
-<div>
-    左侧内容区域<mb-input placeholder="请输入内容" />右侧内容区域
-</div>
+左侧内容区域<mb-input placeholder="请输入内容" />右侧内容区域
 :::
 
 ### 1.2、边框
 
 :::demo html
 
-<div>
-    顶部边框:<br/>
-    <mb-input border="top" placeholder="请输入内容" />
-    <br/><br/>
-    左侧边框:<br/>
-    <mb-input border="left" placeholder="请输入内容" />
-    <br/><br/>
-    底部边框:<br/>
-    <mb-input border="bottom" placeholder="请输入内容" />
-    <br/><br/>
-    右侧边框:<br/>
-    <mb-input border="right" placeholder="请输入内容" />
-    <br/><br/>
-    无边框:<br/>
-    <mb-input :border="false" placeholder="请输入内容" />
-</div>
+顶部边框:
+<br/>
+<mb-input border="top" placeholder="请输入内容" />
+<br/>
+<br/>
+左侧边框:
+<br/>
+<mb-input border="left" placeholder="请输入内容" />
+<br/>
+<br/>
+底部边框:
+<br/>
+<mb-input border="bottom" placeholder="请输入内容" />
+<br/>
+<br/>
+右侧边框:
+<br/>
+<mb-input border="right" placeholder="请输入内容" />
+<br/>
+<br/>
+无边框:
+<br/>
+<mb-input :border="false" placeholder="请输入内容" />
 :::
 
 ### 1.3、禁用输入框
 
 :::demo html
 
-<div>
-    <mb-input disabled placeholder="请输入内容" />
-    <br/><br/>
-    顶部边框:<br/>
-    <mb-input border="top" disabled placeholder="请输入内容" />
-    <br/><br/>
-    左侧边框:<br/>
-    <mb-input border="left" disabled placeholder="请输入内容" />
-    <br/><br/>
-    底部边框:<br/>
-    <mb-input border="bottom" disabled placeholder="请输入内容" />
-    <br/><br/>
-    右侧边框:<br/>
-    <mb-input border="right" disabled placeholder="请输入内容" />
-    <br/><br/>
-    无边框:<br/>
-    <mb-input :border="false" disabled placeholder="请输入内容" />
-</div>
+<mb-input disabled placeholder="请输入内容" />
+<br/>
+<br/>
+顶部边框:
+<br/>
+<mb-input border="top" disabled placeholder="请输入内容" />
+<br/>
+<br/>
+左侧边框:
+<br/>
+<mb-input border="left" disabled placeholder="请输入内容" />
+<br/>
+<br/>
+底部边框:
+<br/>
+<mb-input border="bottom" disabled placeholder="请输入内容" />
+<br/>
+<br/>
+右侧边框:
+<br/>
+<mb-input border="right" disabled placeholder="请输入内容" />
+<br/>
+<br/>
+无边框:
+<br/>
+<mb-input :border="false" disabled placeholder="请输入内容" />
 :::
 
 ### 1.3、尺寸
 
 :::demo html
 
-<div>
-    <mb-input size="xs" placeholder="请输入内容" /> &nbsp;&nbsp;
-    <mb-input size="sm" placeholder="请输入内容" /> &nbsp;&nbsp;
-    <mb-input size="md" placeholder="请输入内容" /> &nbsp;&nbsp;
-    <mb-input size="lg" placeholder="请输入内容" /> &nbsp;&nbsp;
-    <mb-input size="xl" placeholder="请输入内容" /> &nbsp;&nbsp;
-</div>
+<mb-input size="xs" placeholder="请输入内容" />&nbsp;&nbsp;
+<mb-input size="sm" placeholder="请输入内容" />&nbsp;&nbsp;
+<mb-input size="md" placeholder="请输入内容" />&nbsp;&nbsp;
+<mb-input size="lg" placeholder="请输入内容" />&nbsp;&nbsp;
+<mb-input size="xl" placeholder="请输入内容" />
 :::
 
 ### 1.3、前缀图标
@@ -76,26 +87,20 @@
 
 :::demo html
 
-<div>
-    <mb-input size="xs" prefix="user" placeholder="请输入内容" /> &nbsp;&nbsp;
-    <mb-input size="sm" prefix="user" placeholder="请输入内容" /> &nbsp;&nbsp;
-    <mb-input size="md" prefix="user" placeholder="请输入内容" /> &nbsp;&nbsp;
-    <mb-input size="lg" prefix="user" placeholder="请输入内容" /> &nbsp;&nbsp;
-    <mb-input size="xl" prefix="user" placeholder="请输入内容" /> &nbsp;&nbsp;
-</div>
+<mb-input size="xs" prefix="user" placeholder="请输入内容" />&nbsp;&nbsp;
+<mb-input size="sm" prefix="user" placeholder="请输入内容" />&nbsp;&nbsp;
+<mb-input size="md" prefix="user" placeholder="请输入内容" />&nbsp;&nbsp;
+<mb-input size="lg" prefix="user" placeholder="请输入内容" />&nbsp;&nbsp;
+<mb-input size="xl" prefix="user" placeholder="请输入内容" />
 :::
 
 #### 1.3.2、插槽前缀
 
 :::demo html
 
-<div>
-    <mb-input placeholder="请输入内容">
-        <template v-slot:prefix>
-			<mb-icon type="spinner" :size="18" :spin="true"></mb-icon>
-		</template>
-    </mb-input>
-</div>
+<mb-input placeholder="请输入内容">
+    <template v-slot:prefix><mb-icon type="spinner" :size="18" :spin="true"></mb-icon></template>
+</mb-input>
 :::
 
 ### 1.4、后缀图标
@@ -104,40 +109,30 @@
 
 :::demo html
 
-<div>
-    <mb-input size="xs" suffix="user" placeholder="请输入内容" /> &nbsp;&nbsp;
-    <mb-input size="sm" suffix="user" placeholder="请输入内容" /> &nbsp;&nbsp;
-    <mb-input size="md" suffix="user" placeholder="请输入内容" /> &nbsp;&nbsp;
-    <mb-input size="lg" suffix="user" placeholder="请输入内容" /> &nbsp;&nbsp;
-    <mb-input size="xl" suffix="user" placeholder="请输入内容" /> &nbsp;&nbsp;
-</div>
+<mb-input size="xs" suffix="user" placeholder="请输入内容" />&nbsp;&nbsp;
+<mb-input size="sm" suffix="user" placeholder="请输入内容" />&nbsp;&nbsp;
+<mb-input size="md" suffix="user" placeholder="请输入内容" />&nbsp;&nbsp;
+<mb-input size="lg" suffix="user" placeholder="请输入内容" />&nbsp;&nbsp;
+<mb-input size="xl" suffix="user" placeholder="请输入内容" />
 :::
 
 #### 1.4.2、插槽后缀
 
 :::demo html
 
-<div>
-    <mb-input placeholder="请输入内容">
-        <template v-slot:suffix>
-			<mb-icon type="spinner" :size="18" :spin="true"></mb-icon>
-		</template>
-    </mb-input>
-    <br/>
-    <br/>
-    <mb-input placeholder="请输入内容">
-        <template v-slot:suffix>RMB</template>
-    </mb-input>
-</div>
+<mb-input placeholder="请输入内容">
+    <template v-slot:suffix><mb-icon type="spinner" :size="18" :spin="true"></mb-icon></template>
+</mb-input>
+<br/>
+<br/>
+<mb-input placeholder="请输入内容"><template v-slot:suffix>RMB</template></mb-input>
 :::
 
 ### 1.5、清除
 
 :::demo html
 
-<div>
-    <mb-input allowClear placeholder="请输入内容" /> 
-</div>
+<mb-input allowClear placeholder="请输入内容" /> 
 :::
 
 ### 1.6、文本框
@@ -146,58 +141,48 @@
 
 :::demo html
 
-<div>
-    <mb-input size="xs" type="textarea" placeholder="请输入内容" />
-    <br/>
-    <br/>
-    <mb-input size="sm" type="textarea" placeholder="请输入内容" />
-    <br/>
-    <br/>
-    <mb-input size="md" type="textarea" placeholder="请输入内容" />
-    <br/>
-    <br/>
-    <mb-input size="lg" type="textarea" placeholder="请输入内容" />
-    <br/>
-    <br/>
-    <mb-input size="xl" type="textarea" placeholder="请输入内容" />
-</div>
+<mb-input size="xs" type="textarea" placeholder="请输入内容" />
+<br/>
+<br/>
+<mb-input size="sm" type="textarea" placeholder="请输入内容" />
+<br/>
+<br/>
+<mb-input size="md" type="textarea" placeholder="请输入内容" />
+<br/>
+<br/>
+<mb-input size="lg" type="textarea" placeholder="请输入内容" />
+<br/>
+<br/>
+<mb-input size="xl" type="textarea" placeholder="请输入内容" />
 :::
 
 #### 1.6.1、自动高度文本框
 
 :::demo html
 
-<div>
-    <mb-input autoHeight type="textarea" placeholder="请输入内容" />
-</div>
+<mb-input autoHeight type="textarea" placeholder="请输入内容" />
 :::
 
 ### 1.7、密码输入框
 
 :::demo html
 
-<div>
-    <mb-input type="password" placeholder="请输入内容" />&nbsp;&nbsp;
-    <mb-input passwordIcon type="password" placeholder="请输入内容" />
-</div>
+<mb-input type="password" placeholder="请输入内容" />&nbsp;&nbsp;
+<mb-input passwordIcon type="password" placeholder="请输入内容" />
 :::
 
 ### 1.8、下拉选择
 
 :::demo html
 
-<div>
-    <mb-input type="select" placeholder="请输入内容" />
-</div>
+<mb-input type="select" placeholder="请输入内容" />
 :::
 
 ### 1.9、数字输入框
 
 :::demo html
 
-<div>
-    <mb-input type="number" placeholder="请输入内容" />
-</div>
+<mb-input type="number" placeholder="请输入内容" />
 :::
 
 ## 2、 API 配置

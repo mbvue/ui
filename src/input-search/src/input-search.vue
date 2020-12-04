@@ -48,18 +48,16 @@
 </template>
 
 <script>
-import { vue, versions } from '../../base/utils/env';
+import { vue } from '../../base/utils/env';
 import { isBoolean } from '../../base/utils/test';
 import { trim } from '../../base/utils/util';
-
-const vers = versions();
 
 export default {
     name: 'MbInputSearch',
 
     components: {
-        'mb-icon': vers === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue'),
-        'mb-button': vers === 3 ? vue().defineAsyncComponent(() => import('../../button/src/button.vue')) : () => import('../../button/src/button.vue')
+        'mb-icon': vue.defineAsyncComponent ? vue.defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue'),
+        'mb-button': vue.defineAsyncComponent ? vue.defineAsyncComponent(() => import('../../button/src/button.vue')) : () => import('../../button/src/button.vue')
     },
 
     props: {
@@ -168,29 +166,17 @@ export default {
 
         //构建左侧图标
         buildIcon() {
-            if (isBoolean(this.icon)) {
-                return this.icon ? 'sistrix' : false;
-            } else {
-                return this.icon;
-            }
+            return isBoolean(this.icon) ? (this.icon ? 'sistrix' : false) : this.icon;
         },
 
         //构建右侧图标
         buildAction() {
-            if (isBoolean(this.action)) {
-                return this.action ? 'sistrix' : false;
-            } else {
-                return this.action;
-            }
+            return isBoolean(this.action) ? (this.action ? 'sistrix' : false) : this.action;
         },
 
         //构建右侧按钮
         buildButton() {
-            if (isBoolean(this.actionButton)) {
-                return this.actionButton ? 'primary' : false;
-            } else {
-                return this.actionButton;
-            }
+            return isBoolean(this.actionButton) ? (this.actionButton ? 'primary' : false) : this.actionButton;
         }
     },
 

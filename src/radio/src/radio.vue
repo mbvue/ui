@@ -12,9 +12,7 @@
 
 <script>
 import { Mixins } from '../../base/base';
-import { versions } from '../../base/utils/env';
-
-const Vers = versions();
+import { vueVer } from '../../base/utils/env';
 
 export default {
     name: 'MbRadio',
@@ -26,6 +24,7 @@ export default {
         checked: { type: Boolean, default: false }, //是否被选中
         defaultChecked: { type: Boolean, default: false }, //初始是否选中
         value: { type: [String, Number, Boolean], default: null }, //选中内容
+        modelValue: { type: [String, Number, Boolean], default: null }, //选中内容
         checkedValue: { type: [String, Number, Boolean], default: true }, //选中的值
         defaultValue: { type: [String, Number, Boolean], default: false }, //未选中的值
         shape: { type: String, default: '' }, //设置按钮形状，可选值为 circle pill square 或者不设
@@ -33,11 +32,11 @@ export default {
         activeColor: { type: String, default: '' } //选中状态下的颜色
     },
 
-    emits: ['input', 'blur', 'update:checked'],
+    emits: ['input', 'update:modelValue', 'blur', 'update:checked'],
 
     data() {
         return {
-            checkedStatus: this.defaultChecked || this.checked || false //是否选中
+            checkedStatus: this.defaultChecked || this.checked || this.modelValue || false //是否选中
         };
     },
 
@@ -113,6 +112,7 @@ export default {
         checked(nVal) {
             this.setValue(nVal).then(data => {
                 this.$emit('input', data);
+                this.$emit('update:modelValue', data);
 
                 this.$nextTick(() => {
                     if (this.item) this.item.onFieldChange(this.inputValue);
@@ -125,33 +125,25 @@ export default {
             this.setValue(this.checkedValue === nVal ? true : false).then(() => {
                 this.$emit('update:checked', this.buildStatus);
             });
+        },
+
+        //监听值改变
+        modelValue(nVal) {
+            this.setValue(this.checkedValue === nVal ? true : false).then(() => {
+                this.$emit('update:checked', this.buildStatus);
+            });
         }
     },
 
     beforeMount() {
         this.parent = this.getParent('MbRadioGroup');
         this.item = this.getParent('MbFormItem');
+
+        //默认选中处理
+        if ((this.defaultChecked || this.checked) && this.parent && this.parent.setValue) this.parent.setValue(this.checkedValue);
     },
 
     methods: {
-        //点击事件
-        onClick(event) {
-            if (this.buildDisabled || this.buildStatus) return;
-
-            //设置值
-            this.setValue(!this.buildStatus).then(data => {
-                this.$emit('update:checked', this.buildStatus);
-                this.$emit('input', data);
-
-                this.$nextTick(() => {
-                    if (this.item) this.item.onFieldChange(this.inputValue);
-                });
-            });
-
-            //兼容vue2 点击事件
-            if (Vers === 2) this.$emit('click', event);
-        },
-
         //设置值
         setValue(checked) {
             this.checkedStatus = checked;
@@ -160,6 +152,24 @@ export default {
             if (this.checkedStatus && this.parent && this.parent.setValue) this.parent.setValue(data);
 
             return Promise.resolve(data);
+        },
+
+        //点击事件
+        onClick(event) {
+            if (this.buildDisabled || this.buildStatus) return;
+
+            //设置值
+            this.setValue(!this.buildStatus).then(data => {
+                this.$emit('update:checked', this.buildStatus);
+                this.$emit('input', data);
+                this.$emit('update:modelValue', data);
+
+                this.$nextTick(() => {
+                    if (this.item) this.item.onFieldChange(this.inputValue);
+                });
+            });
+
+            if (vueVer === 2) this.$emit('click', event); //兼容vue2 点击事件
         },
 
         //失去光标

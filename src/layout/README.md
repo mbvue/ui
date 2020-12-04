@@ -15,66 +15,58 @@ Footer：底部布局，自带默认样式，其下可嵌套任何元素，只�
 
 :::demo html
 
-<div>
-    <mb-layout>
-        <mb-header style="background: #7dbcea; color: #fff;">Header</mb-header>
-        <mb-content style="height: 50px; background: #108ee9; color: #fff;">Content</mb-content>
-        <mb-footer style="background: #7dbcea; color: #fff;">Footer</mb-footer>
-    </mb-layout>
-</div>
+<mb-layout>
+    <mb-header style="background: #7dbcea; color: #fff;">Header</mb-header>
+    <mb-content style="height: 50px; background: #108ee9; color: #fff;">Content</mb-content>
+    <mb-footer style="background: #7dbcea; color: #fff;">Footer</mb-footer>
+</mb-layout>
 :::
 
 #### 1.1.2、上-中（左-右）-下 布局
 
 :::demo html
 
-<div>
+<mb-layout>
+    <mb-header style="background: #7dbcea; color: #fff;">Header</mb-header>
     <mb-layout>
-        <mb-header style="background: #7dbcea; color: #fff;">Header</mb-header>
-        <mb-layout>
-            <mb-sider style="height: 50px; background: #3ba0e9; color: #fff;">Sider</mb-sider>
-            <mb-content style="background: #108ee9; color: #fff;">Content</mb-content>
-        </mb-layout>
-        <mb-footer style="background: #7dbcea; color: #fff;">Footer</mb-footer>
+        <mb-sider style="height: 50px; background: #3ba0e9; color: #fff;">Sider</mb-sider>
+        <mb-content style="background: #108ee9; color: #fff;">Content</mb-content>
     </mb-layout>
-</div>
+    <mb-footer style="background: #7dbcea; color: #fff;">Footer</mb-footer>
+</mb-layout>
 :::
 
 #### 1.1.3、左-右（上-中-下） 布局
 
 :::demo html
 
-<div>
+<mb-layout>
+    <mb-sider style="background: #3ba0e9; color: #fff;">Sider</mb-sider>
     <mb-layout>
-        <mb-sider style="background: #3ba0e9; color: #fff;">Sider</mb-sider>
-        <mb-layout>
-            <mb-header style="background: #7dbcea; color: #fff;">Header</mb-header>
-            <mb-content style="height: 50px; background: #108ee9; color: #fff;">Content</mb-content>
-            <mb-footer style="background: #7dbcea; color: #fff;">Footer</mb-footer>
-        </mb-layout>
+        <mb-header style="background: #7dbcea; color: #fff;">Header</mb-header>
+        <mb-content style="height: 50px; background: #108ee9; color: #fff;">Content</mb-content>
+        <mb-footer style="background: #7dbcea; color: #fff;">Footer</mb-footer>
     </mb-layout>
-</div>
+</mb-layout>
 :::
 
 ### 1.2、 侧边栏收缩
 
 :::demo html
 
-<div>
+<mb-layout>
+    <mb-header style="background: #7dbcea; color: #fff;">Header</mb-header>
     <mb-layout>
-        <mb-header style="background: #7dbcea; color: #fff;">Header</mb-header>
-        <mb-layout>
-            <mb-sider trigger style="background: #3ba0e9; color: #fff;">
-                <ul>
-                    <li class="mb-menu-item-span" style="height: 40px; line-height: 40px; overflow: hidden; padding: 0 10px; display: flex; align-items: center;"><mb-icon type="heart" :size="24"/><span>测试菜单一</span></li>
-                    <li class="mb-menu-item-span" style="height: 40px; line-height: 40px; overflow: hidden; padding: 0 10px; display: flex; align-items: center;"><mb-icon type="hdd" :size="24"/><span>测试菜单二</span></li>
-                    </ul>
-            </mb-sider>
-            <mb-content style="background: #108ee9; color: #fff;">Content</mb-content>
-        </mb-layout>
-        <mb-footer style="background: #7dbcea; color: #fff;">Footer</mb-footer>
+        <mb-sider trigger style="background: #3ba0e9; color: #fff;">
+            <ul>
+                <li class="mb-menu-item-span" style="height: 40px; line-height: 40px; overflow: hidden; padding: 0 10px; display: flex; align-items: center;"><mb-icon type="heart" :size="24"/><span>测试菜单一</span></li>
+                <li class="mb-menu-item-span" style="height: 40px; line-height: 40px; overflow: hidden; padding: 0 10px; display: flex; align-items: center;"><mb-icon type="hdd" :size="24"/><span>测试菜单二</span></li>
+            </ul>
+        </mb-sider>
+        <mb-content style="background: #108ee9; color: #fff;">Content</mb-content>
     </mb-layout>
-</div>
+    <mb-footer style="background: #7dbcea; color: #fff;">Footer</mb-footer>
+</mb-layout>
 :::
 
 ## 2、 API 配置

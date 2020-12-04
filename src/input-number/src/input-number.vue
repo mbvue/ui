@@ -77,16 +77,14 @@
 
 <script>
 import { Mixins } from '../../base/base';
-import { vue, versions } from '../../base/utils/env';
+import { vue } from '../../base/utils/env';
 import { isUndefined, isNull } from '../../base/utils/test';
-
-const Vers = versions();
 
 export default {
     name: 'MbInputNumber',
 
     components: {
-        'mb-icon': Vers === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
+        'mb-icon': vue.defineAsyncComponent ? vue.defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
     },
 
     mixins: [Mixins],
@@ -125,17 +123,18 @@ export default {
         size: { type: String, default: 'md' }, //输入框大小 xs、sm、md、lg、xl
         step: { type: Number, default: 1 }, //每次改变步数，可以为小数
         value: { type: Number, default: null }, //当前值
+        modelValue: { type: Number, default: null }, //当前值
         cursorSpacing: { type: Number, default: 0 }, //指定光标于键盘的距离，避免键盘遮挡输入框，单位px
         longPress: { type: Boolean, default: true }, //是否开启长按连续递增或递减
         pressTime: { type: Number, default: 250 }, //开启长按触发后，每触发一次需要多久，单位ms
         scroll: { type: Boolean, default: true } //鼠标滚动数字增加/减少
     },
 
-    emits: ['focus', 'blur', 'change', 'input', 'enter', 'lessition', 'addition', 'confirm'],
+    emits: ['focus', 'blur', 'change', 'input', 'update:modelValue', 'enter', 'lessition', 'addition', 'confirm'],
 
     data() {
         return {
-            inputValue: this.defaultValue || this.value, //值
+            inputValue: this.defaultValue || this.value || this.modelValue, //值
             disabledLess: false, //禁用左侧
             disabledAdd: false //禁用右侧
         };
@@ -183,6 +182,10 @@ export default {
     watch: {
         value(nVal) {
             this.setValue(nVal);
+        },
+
+        modelValue(nVal) {
+            this.setValue(nVal);
         }
     },
 
@@ -220,6 +223,7 @@ export default {
 
             this.$emit('change', this.inputValue);
             this.$emit('input', this.inputValue);
+            this.$emit('update:modelValue', this.inputValue);
 
             this.$nextTick(() => {
                 if (this.item) this.item.onFieldChange(this.inputValue);
@@ -279,6 +283,7 @@ export default {
 
                 this.$emit('change', this.inputValue);
                 this.$emit('input', this.inputValue);
+                this.$emit('update:modelValue', this.inputValue);
 
                 this.$nextTick(() => {
                     if (this.item) this.item.onFieldChange(this.inputValue);

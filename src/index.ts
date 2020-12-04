@@ -25,7 +25,7 @@ import { default as Switch } from './switch/index';
 import { default as Form } from './form/index';
 import { default as FormItem } from './form-item/index';
 
-const version = Base.env.versions();
+const version = Base.env.vueVer;
 const components = [
     Image,
     Icon,

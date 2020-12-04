@@ -5,7 +5,7 @@
 ### 1.2、 获取 Vue
 
 ```js
-this.$m.env.vue();
+this.$m.env.vue;
 ```
 
 ### 1.2、 获取 Vue 大版本号
@@ -13,13 +13,13 @@ this.$m.env.vue();
 无 vue：0<br/>2 版本：2<br/>3 版本：3
 
 ```js
-this.$m.env.versions();
+this.$m.env.vueVer;
 ```
 
 ### 1.3、 uni-app 环境
 
 ```js
-this.$m.env.uniApp();
+this.$m.env.uniApp;
 ```
 
 ### 1.4、 微信浏览器

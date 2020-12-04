@@ -3,5 +3,5 @@ import uniRoute from './uniRoute';
 import vueRoute from './vueRoute';
 
 export default (router: any) => {
-    return uniApp() ? uniRoute : vueRoute(router);
+    return uniApp ? uniRoute : vueRoute(router);
 };

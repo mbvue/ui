@@ -12,126 +12,98 @@
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="scaleToFill" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="scaleToFill" />
 :::
 
 #### 1.1.3、aspectFit 模式
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="aspectFit" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="aspectFit" />
 :::
 
 #### 1.1.4、aspectFill 模式
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="aspectFill" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="aspectFill" />
 :::
 
 #### 1.1.5、widthFix 模式
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="widthFix" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="widthFix" />
 :::
 
 #### 1.1.6、heightFix 模式
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="heightFix" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="heightFix" />
 :::
 
 #### 1.1.7、top 模式
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="top" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="top" />
 :::
 
 #### 1.1.8、bottom 模式
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="bottom" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="bottom" />
 :::
 
 #### 1.1.9、center 模式
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="center" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="center" />
 :::
 
 #### 1.1.10、left 模式
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="left" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="left" />
 :::
 
 #### 1.1.11、right 模式
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="right" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="right" />
 :::
 
 #### 1.1.12、top left 模式
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="top left" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="top left" />
 :::
 
 #### 1.1.13、top right 模式
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="top right" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="top right" />
 :::
 
 #### 1.1.14、bottom left 模式
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="bottom left" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="bottom left" />
 :::
 
 #### 1.1.15、bottom right 模式
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="bottom right" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" mode="bottom right" />
 :::
 
 ### 1.2、 圆角
@@ -140,36 +112,28 @@
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="100" :height="100" bg="#d8dbdd" shape="circle" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="100" :height="100" bg="#d8dbdd" shape="circle" />
 :::
 
 #### 1.2.2、pill 圆角
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="100" :height="100" bg="#d8dbdd" shape="pill" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="100" :height="100" bg="#d8dbdd" shape="pill" />
 :::
 
 #### 1.2.3、square 圆角
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="100" :height="100" bg="#d8dbdd" shape="square" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="100" :height="100" bg="#d8dbdd" shape="square" />
 :::
 
 #### 1.2.4、任意圆角
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="100" :height="100" bg="#d8dbdd" shape="20px" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="100" :height="100" bg="#d8dbdd" shape="20px" />
 :::
 
 ### 1.3、 自定义图标
@@ -178,35 +142,25 @@
 
 :::demo html
 
-<div>
-    <mb-image src="https://dss3.baidu.com/error" :width="100" :height="100">
-		<template v-slot:loading>
-			<mb-icon type="spinner" :size="48" :spin="true"></mb-icon>
-		</template>
-	</mb-image>
-</div>
+<mb-image src="https://dss3.baidu.com/error" :width="100" :height="100">
+    <template v-slot:loading><mb-icon type="spinner" :size="48" :spin="true"></mb-icon></template>
+</mb-image>
 :::
 
 #### 1.3.1、自定义加载失败图标
 
 :::demo html
 
-<div>
-    <mb-image src="https://dss3.baidu.com/error" :width="100" :height="100">
-		<template v-slot:error>
-			<mb-icon type="times" :size="48"></mb-icon>
-		</template>
-	</mb-image>
-</div>
+<mb-image src="https://dss3.baidu.com/error" :width="100" :height="100">
+    <template v-slot:error><mb-icon type="times" :size="48"></mb-icon></template>
+</mb-image>
 :::
 
 ### 1.4、自定义动画时间
 
 :::demo html
 
-<div>
-    <mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" :duration="1000" mode="scaleToFill" />
-</div>
+<mb-image src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg" :width="200" :height="200" bg="#d8dbdd" :duration="1000" mode="scaleToFill" />
 :::
 
 ## 2、API 配置

@@ -6,49 +6,39 @@
 
 :::demo html
 
-<div>
-    <mb-input-number placeholder="请输入内容"/>
-    <br/>
-    <br/>
-    <mb-input-number :less="false" placeholder="请输入内容"/>
-    <br/>
-    <br/>
-    <mb-input-number :add="false" placeholder="请输入内容"/>
-    <br/>
-    <br/>
-    <mb-input-number :less="false" :add="false" :step="0.01" placeholder="请输入内容"/>
-    <br/>
-    <br/>
-    <mb-input-number :less="false" :add="false" :step="0.01" :action="true" :customStyle="{ border: '1px solid #dee2e6', background: '#ffffff' }" placeholder="请输入内容"/>
-</div>
+<mb-input-number placeholder="请输入内容"/>
+<br/>
+<br/>
+<mb-input-number :less="false" placeholder="请输入内容"/>
+<br/>
+<br/>
+<mb-input-number :add="false" placeholder="请输入内容"/>
+<br/>
+<br/>
+<mb-input-number :less="false" :add="false" :step="0.01" placeholder="请输入内容"/>
+<br/>
+<br/>
+<mb-input-number :less="false" :add="false" :step="0.01" :action="true" :customStyle="{ border: '1px solid #dee2e6', background: '#ffffff' }" placeholder="请输入内容"/>
 :::
 
 ### 1.2、 禁用
 
 :::demo html
 
-<div>
-    <mb-input-number disabled placeholder="请输入内容"/>
-    <br/>
-    <br/>
-    <mb-input-number disabledInput placeholder="请输入内容"/>
-    <br/>
-    <br/>
-    <mb-input-number disabled disabledInput placeholder="请输入内容"/>
-</div>
+<mb-input-number disabled placeholder="请输入内容"/>&nbsp;&nbsp;
+<mb-input-number disabledInput placeholder="请输入内容"/>&nbsp;&nbsp;
+<mb-input-number disabled disabledInput placeholder="请输入内容"/>
 :::
 
 ### 1.3、 尺寸
 
 :::demo html
 
-<div>
-    <mb-input-number size="xs" placeholder="请输入内容"/>&nbsp;&nbsp;
-    <mb-input-number size="sm" placeholder="请输入内容"/>&nbsp;&nbsp;
-    <mb-input-number size="md" placeholder="请输入内容"/>&nbsp;&nbsp;
-    <mb-input-number size="lg" placeholder="请输入内容"/>&nbsp;&nbsp;
-    <mb-input-number size="xl" placeholder="请输入内容"/>
-</div>
+<mb-input-number size="xs" placeholder="请输入内容"/>&nbsp;&nbsp;
+<mb-input-number size="sm" placeholder="请输入内容"/>&nbsp;&nbsp;
+<mb-input-number size="md" placeholder="请输入内容"/>&nbsp;&nbsp;
+<mb-input-number size="lg" placeholder="请输入内容"/>&nbsp;&nbsp;
+<mb-input-number size="xl" placeholder="请输入内容"/>
 :::
 
 ## 2、 API 配置

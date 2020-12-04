@@ -6,25 +6,23 @@
 
 :::demo html
 
-<div>
-    <mb-row>
-        <mb-col :span="12" style="height: 50px; background: #7dbcea; color: #fff;">col-12</mb-col>
-        <mb-col :span="12" style="height: 50px; background: #108ee9; color: #fff;">col-12</mb-col>
-    </mb-row>
-    <br/>
-    <mb-row>
-        <mb-col :span="8" style="height: 50px; background: #7dbcea; color: #fff;">col-8</mb-col>
-        <mb-col :span="8" style="height: 50px; background: #108ee9; color: #fff;">col-8</mb-col>
-        <mb-col :span="8" style="height: 50px; background: #7dbcea; color: #fff;">col-8</mb-col>
-    </mb-row>
-    <br/>
-    <mb-row>
-        <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
-        <mb-col :span="6" style="height: 50px; background: #108ee9; color: #fff;">col-6</mb-col>
-        <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
-        <mb-col :span="6" style="height: 50px; background: #108ee9; color: #fff;">col-6</mb-col>
-    </mb-row>
-</div>
+<mb-row>
+    <mb-col :span="12" style="height: 50px; background: #7dbcea; color: #fff;">col-12</mb-col>
+    <mb-col :span="12" style="height: 50px; background: #108ee9; color: #fff;">col-12</mb-col>
+</mb-row>
+<br/>
+<mb-row>
+    <mb-col :span="8" style="height: 50px; background: #7dbcea; color: #fff;">col-8</mb-col>
+    <mb-col :span="8" style="height: 50px; background: #108ee9; color: #fff;">col-8</mb-col>
+    <mb-col :span="8" style="height: 50px; background: #7dbcea; color: #fff;">col-8</mb-col>
+</mb-row>
+<br/>
+<mb-row>
+    <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
+    <mb-col :span="6" style="height: 50px; background: #108ee9; color: #fff;">col-6</mb-col>
+    <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
+    <mb-col :span="6" style="height: 50px; background: #108ee9; color: #fff;">col-6</mb-col>
+</mb-row>
 :::
 
 ### 1.2、 flex 布局下的垂直对齐方式
@@ -33,56 +31,48 @@
 
 :::demo html
 
-<div>
-    <mb-row>
-        <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
-        <mb-col :span="6" style="height: 30px; background: #108ee9; color: #fff;">col-6</mb-col>
-        <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
-        <mb-col :span="6" style="height: 30px; background: #108ee9; color: #fff;">col-6</mb-col>
-    </mb-row>
-</div>
+<mb-row>
+    <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
+    <mb-col :span="6" style="height: 30px; background: #108ee9; color: #fff;">col-6</mb-col>
+    <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
+    <mb-col :span="6" style="height: 30px; background: #108ee9; color: #fff;">col-6</mb-col>
+</mb-row>
 :::
 
 #### 1.2.2、 middle
 
 :::demo html
 
-<div>
-    <mb-row align="middle">
-        <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
-        <mb-col :span="6" style="height: 30px; background: #108ee9; color: #fff;">col-6</mb-col>
-        <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
-        <mb-col :span="6" style="height: 30px; background: #108ee9; color: #fff;">col-6</mb-col>
-    </mb-row>
-</div>
+<mb-row align="middle">
+    <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
+    <mb-col :span="6" style="height: 30px; background: #108ee9; color: #fff;">col-6</mb-col>
+    <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
+    <mb-col :span="6" style="height: 30px; background: #108ee9; color: #fff;">col-6</mb-col>
+</mb-row>
 :::
 
 #### 1.2.3、 bottom
 
 :::demo html
 
-<div>
-    <mb-row align="bottom">
-        <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
-        <mb-col :span="6" style="height: 30px; background: #108ee9; color: #fff;">col-6</mb-col>
-        <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
-        <mb-col :span="6" style="height: 30px; background: #108ee9; color: #fff;">col-6</mb-col>
-    </mb-row>
-</div>
+<mb-row align="bottom">
+    <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
+    <mb-col :span="6" style="height: 30px; background: #108ee9; color: #fff;">col-6</mb-col>
+    <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
+    <mb-col :span="6" style="height: 30px; background: #108ee9; color: #fff;">col-6</mb-col>
+</mb-row>
 :::
 
 #### 1.2.4、 full
 
 :::demo html
 
-<div>
-    <mb-row align="full">
-        <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
-        <mb-col :span="6" style="background: #108ee9; color: #fff;">col-6</mb-col>
-        <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
-        <mb-col :span="6" style="background: #108ee9; color: #fff;">col-6</mb-col>
-    </mb-row>
-</div>
+<mb-row align="full">
+    <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
+    <mb-col :span="6" style="background: #108ee9; color: #fff;">col-6</mb-col>
+    <mb-col :span="6" style="height: 50px; background: #7dbcea; color: #fff;">col-6</mb-col>
+    <mb-col :span="6" style="background: #108ee9; color: #fff;">col-6</mb-col>
+</mb-row>
 :::
 
 ### 1.3、 flex 布局下的水平排列方式
@@ -91,70 +81,60 @@
 
 :::demo html
 
-<div>
-    <mb-row justify="start">
-        <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
-        <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
-        <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
-        <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
-    </mb-row>
-</div>
+<mb-row justify="start">
+    <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
+    <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
+    <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
+    <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
+</mb-row>
 :::
 
 #### 1.3.2、 center
 
 :::demo html
 
-<div>
-    <mb-row justify="center">
-        <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
-        <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
-        <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
-        <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
-    </mb-row>
-</div>
+<mb-row justify="center">
+    <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
+    <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
+    <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
+    <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
+</mb-row>
 :::
 
 #### 1.3.3、 end
 
 :::demo html
 
-<div>
-    <mb-row justify="end">
-        <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
-        <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
-        <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
-        <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
-    </mb-row>
-</div>
+<mb-row justify="end">
+    <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
+    <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
+    <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
+    <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
+</mb-row>
 :::
 
 #### 1.3.4、 space-around
 
 :::demo html
 
-<div>
-    <mb-row justify="space-around">
-        <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
-        <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
-        <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
-        <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
-    </mb-row>
-</div>
+<mb-row justify="space-around">
+    <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
+    <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
+    <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
+    <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
+</mb-row>
 :::
 
 #### 1.3.5、 space-between
 
 :::demo html
 
-<div>
-    <mb-row justify="space-between">
-        <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
-        <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
-        <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
-        <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
-    </mb-row>
-</div>
+<mb-row justify="space-between">
+    <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
+    <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
+    <mb-col :span="4" style="height: 50px; background: #7dbcea; color: #fff;">col-4</mb-col>
+    <mb-col :span="4" style="height: 50px; background: #108ee9; color: #fff;">col-4</mb-col>
+</mb-row>
 :::
 
 ### 1.4、 栅格间隔
@@ -163,190 +143,122 @@
 
 :::demo html
 
-<div>
-    <mb-row :gutter="16">
-        <mb-col :span="6">
-            <div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #108ee9; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #108ee9; color: #fff;">col-6</div>
-        </mb-col>
-    </mb-row>
-</div>
+<mb-row :gutter="16">
+    <mb-col :span="6"><div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #108ee9; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #108ee9; color: #fff;">col-6</div></mb-col>
+</mb-row>
 :::
 
 #### 1.4.2、 响应式对象水平间距
 
 :::demo html
 
-<div>
-    <mb-row :gutter="{ xs: 8, sm: 12, md: 16, lg: 18, xl: 20, xxl: 24}">
-        <mb-col :span="6">
-            <div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #108ee9; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #108ee9; color: #fff;">col-6</div>
-        </mb-col>
-    </mb-row>
-</div>
+<mb-row :gutter="{ xs: 8, sm: 12, md: 16, lg: 18, xl: 20, xxl: 24}">
+    <mb-col :span="6"><div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #108ee9; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #108ee9; color: #fff;">col-6</div></mb-col>
+</mb-row>
 :::
 
 #### 1.4.3、 垂直间距
 
 :::demo html
 
-<div>
-    <mb-row :gutter="[16, 16]">
-        <mb-col :span="6">
-            <div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #108ee9; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #108ee9; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #108ee9; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #108ee9; color: #fff;">col-6</div>
-        </mb-col>
-    </mb-row>
-</div>
+<mb-row :gutter="[16, 16]">
+    <mb-col :span="6"><div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #108ee9; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #108ee9; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #108ee9; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #108ee9; color: #fff;">col-6</div></mb-col>
+</mb-row>
 :::
 
 #### 1.4.4、 响应式对象垂直间距
 
 :::demo html
 
-<div>
-    <mb-row :gutter="[10, { xs: 8, sm: 12, md: 16, lg: 18, xl: 20, xxl: 24}]">
-        <mb-col :span="6">
-            <div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #108ee9; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #108ee9; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #108ee9; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div>
-        </mb-col>
-        <mb-col :span="6">
-            <div style="height: 50px; background: #108ee9; color: #fff;">col-6</div>
-        </mb-col>
-    </mb-row>
-</div>
+<mb-row :gutter="[10, { xs: 8, sm: 12, md: 16, lg: 18, xl: 20, xxl: 24}]">
+    <mb-col :span="6"><div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #108ee9; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #108ee9; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #108ee9; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6"><div style="height: 50px; background: #108ee9; color: #fff;">col-6</div></mb-col>
+</mb-row>
 :::
 
 ### 1.5、 右偏移
 
 :::demo html
 
-<div>
-    <mb-row>
-        <mb-col :span="8" style="height: 50px; background: #7dbcea; color: #fff;">col-8</mb-col>
-        <mb-col :span="8" :offset="7" style="height: 50px; background: #7dbcea; color: #fff;">col-8</mb-col>
-    </mb-row>
-</div>
+<mb-row>
+    <mb-col :span="8" style="height: 50px; background: #7dbcea; color: #fff;">col-8</mb-col>
+    <mb-col :span="8" :offset="7" style="height: 50px; background: #7dbcea; color: #fff;">col-8</mb-col>
+</mb-row>
 :::
 
 ### 1.6、 栅格顺序
 
 :::demo html
 
-<div>
-    <mb-row :gutter="8">
-        <mb-col :span="8" :order="3"><div style="height: 50px; background: #7dbcea; color: #fff;">col-8-1</div></mb-col>
-        <mb-col :span="8" :order="2"><div style="height: 50px; background: #108ee9; color: #fff;">col-8-2</div></mb-col>
-        <mb-col :span="8" :order="1"><div style="height: 50px; background: #7dbcea; color: #fff;">col-8-3</div></mb-col>
-    </mb-row>
-</div>
+<mb-row :gutter="8">
+    <mb-col :span="8" :order="3"><div style="height: 50px; background: #7dbcea; color: #fff;">col-8-1</div></mb-col>
+    <mb-col :span="8" :order="2"><div style="height: 50px; background: #108ee9; color: #fff;">col-8-2</div></mb-col>
+    <mb-col :span="8" :order="1"><div style="height: 50px; background: #7dbcea; color: #fff;">col-8-3</div></mb-col>
+</mb-row>
 :::
 
 ### 1.7、 栅格向左移动格数
 
 :::demo html
 
-<div>
-    <mb-row :gutter="8">
-        <mb-col :span="8"><div style="height: 50px; background: #7dbcea; color: #fff;">col-8-1</div></mb-col>
-        <mb-col :span="8" :pull="1"><div style="height: 50px; background: #108ee9; color: #fff;">col-8-2</div></mb-col>
-        <mb-col :span="8"><div style="height: 50px; background: #7dbcea; color: #fff;">col-8-3</div></mb-col>
-    </mb-row>
-</div>
+<mb-row :gutter="8">
+    <mb-col :span="8"><div style="height: 50px; background: #7dbcea; color: #fff;">col-8-1</div></mb-col>
+    <mb-col :span="8" :pull="1"><div style="height: 50px; background: #108ee9; color: #fff;">col-8-2</div></mb-col>
+    <mb-col :span="8"><div style="height: 50px; background: #7dbcea; color: #fff;">col-8-3</div></mb-col>
+</mb-row>
 :::
 
 ### 1.8、 栅格向右移动格数
 
 :::demo html
 
-<div>
-    <mb-row :gutter="8">
-        <mb-col :span="8"><div style="height: 50px; background: #7dbcea; color: #fff;">col-8-1</div></mb-col>
-        <mb-col :span="8" :push="1"><div style="height: 50px; background: #108ee9; color: #fff;">col-8-2</div></mb-col>
-        <mb-col :span="8"><div style="height: 50px; background: #7dbcea; color: #fff;">col-8-3</div></mb-col>
-    </mb-row>
-</div>
+<mb-row :gutter="8">
+    <mb-col :span="8"><div style="height: 50px; background: #7dbcea; color: #fff;">col-8-1</div></mb-col>
+    <mb-col :span="8" :push="1"><div style="height: 50px; background: #108ee9; color: #fff;">col-8-2</div></mb-col>
+    <mb-col :span="8"><div style="height: 50px; background: #7dbcea; color: #fff;">col-8-3</div></mb-col>
+</mb-row>
 :::
 
 ### 1.9、 响应式
 
 :::demo html
 
-<div>
-    <mb-row :gutter="8">
-        <mb-col :xs="{ span: 8 }" :sm="{ span: 9 }" :md="{ span: 10 }" :lg="{ span: 11 }" :xl="{ span: 12 }" :xxl="{ span: 13 }"><div style="height: 50px; background: #7dbcea; color: #fff;">col-x-1</div></mb-col>
-        <mb-col :xs="8" :sm="7" :md="6" :lg="5" :xl="4" :xxl="3"><div style="height: 50px; background: #108ee9; color: #fff;">col-x-2</div></mb-col>
-        <mb-col :span="8"><div style="height: 50px; background: #7dbcea; color: #fff;">col-8-3</div></mb-col>
-    </mb-row>
-</div>
+<mb-row :gutter="8">
+    <mb-col :xs="{ span: 8 }" :sm="{ span: 9 }" :md="{ span: 10 }" :lg="{ span: 11 }" :xl="{ span: 12 }" :xxl="{ span: 13 }"><div style="height: 50px; background: #7dbcea; color: #fff;">col-x-1</div></mb-col>
+    <mb-col :xs="8" :sm="7" :md="6" :lg="5" :xl="4" :xxl="3"><div style="height: 50px; background: #108ee9; color: #fff;">col-x-2</div></mb-col>
+    <mb-col :span="8"><div style="height: 50px; background: #7dbcea; color: #fff;">col-8-3</div></mb-col>
+</mb-row>
 :::
 
 ### 1.10、 兼容微信小程序
 
 :::demo html
 
-<div>
-    <mb-row :gutter="8">
-        <mb-col :span="6" data-span="6"><div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div></mb-col>
-        <mb-col :span="6" data-span="6"><div style="height: 30px; background: #108ee9; color: #fff;">col-6</div></mb-col>
-        <mb-col :span="6" data-span="6"><div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div></mb-col>
-        <mb-col :span="6" data-span="6"><div style="height: 30px; background: #108ee9; color: #fff;">col-6</div></mb-col>
-    </mb-row>
-</div>
+<mb-row :gutter="8">
+    <mb-col :span="6" data-span="6"><div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6" data-span="6"><div style="height: 30px; background: #108ee9; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6" data-span="6"><div style="height: 50px; background: #7dbcea; color: #fff;">col-6</div></mb-col>
+    <mb-col :span="6" data-span="6"><div style="height: 30px; background: #108ee9; color: #fff;">col-6</div></mb-col>
+</mb-row>
 :::
 
 ## 2、 API 配置

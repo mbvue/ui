@@ -24,7 +24,7 @@
     >
         <mb-icon v-if="loading || ajaxLoading" :type="loadingIcon" :size="buildLoadingSize" :spin="true" />
         <mb-icon v-if="icon && !loading && !ajaxLoading" :type="icon" :size="buildIconSize" />
-        <span v-if="$slots.default" class="mb-button-span"><slot></slot></span>
+        <span v-if="$slots.default" class="mb-button-span"><slot /></span>
 
         <div class="mb-button-hover-bg"></div>
     </button>
@@ -32,18 +32,15 @@
 
 <script>
 import { Mixins } from '../../base/base';
-import { vue, versions, uniApp } from '../../base/utils/env';
+import { vue, vueVer, uniApp } from '../../base/utils/env';
 import { isFunction } from '../../base/utils/test';
 import { throttle, transNumber } from '../../base/utils/util';
-
-const Vers = versions();
-const IsUni = uniApp();
 
 export default {
     name: 'MbButton',
 
     components: {
-        'mb-icon': Vers === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
+        'mb-icon': vue.defineAsyncComponent ? vue.defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
     },
 
     mixins: [Mixins],
@@ -142,7 +139,7 @@ export default {
             if (this.loading || this.ajaxLoading || this.buildDisabled) return;
 
             //兼容web端阻止冒泡事件
-            if (!IsUni && this.hoverStopPropagation) {
+            if (!uniApp && this.hoverStopPropagation) {
                 if (event && event.stopPropagation()) {
                     event.stopPropagation();
                 } else {
@@ -154,11 +151,10 @@ export default {
                 this,
                 () => {
                     //增加web端点击添加HoverClass
-                    if (!IsUni && this.hoverClass !== '' && !this.hoverTime) {
+                    if (!uniApp && this.hoverClass !== '' && !this.hoverTime) {
                         this.$el.className = this.$el.className.concat(' ' + this.hoverClass);
 
-                        //兼容vue2 点击事件
-                        if (Vers === 2) this.$emit('click', event);
+                        if (vueVer === 2) this.$emit('click', event); //兼容vue2 点击事件
 
                         this.hoverTime = setTimeout(() => {
                             this.$el.className = this.$el.className.replace(' ' + this.hoverClass, '');

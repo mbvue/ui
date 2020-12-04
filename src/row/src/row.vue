@@ -1,17 +1,15 @@
 <template>
     <div :class="buildClass" :style="[divStyle]" @click="onClick">
-        <slot></slot>
+        <slot />
     </div>
 </template>
 
 <script>
 import { Mixins } from '../../base/base';
-import { vue, versions } from '../../base/utils/env';
+import { vue, vueVer } from '../../base/utils/env';
 import { unit, transNumber } from '../../base/utils/util';
 import { isNumber, isObject, isArray } from '../../base/utils/test';
 
-const V = vue();
-const Vers = versions();
 const responsiveArray = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
 const dimensionMaxMap = {
     xs: '(max-width: 575px)',
@@ -29,8 +27,8 @@ export default {
 
     provide() {
         return {
-            rowGutter: V.computed ? V.computed(() => this.newRowGutter) : () => this.newRowGutter,
-            colGutter: V.computed ? V.computed(() => this.newColGutter) : () => this.newColGutter
+            rowGutter: vue.computed ? vue.computed(() => this.newRowGutter) : () => this.newRowGutter,
+            colGutter: vue.computed ? vue.computed(() => this.newColGutter) : () => this.newColGutter
         };
     },
 
@@ -89,18 +87,12 @@ export default {
     mounted() {
         //构建间距
         if (isNumber(this.gutter)) {
-            //纯数字
-
             this.newRowGutter = transNumber(this.gutter);
-            if (Vers === 2) this._provided.rowGutter = this.newRowGutter;
+            if (vueVer === 2) this._provided.rowGutter = this.newRowGutter;
         } else if (isObject(this.gutter)) {
-            //对象
-
             this.mapRow = this.gutter;
             this.match = true;
         } else if (isArray(this.gutter)) {
-            //数组
-
             if (this.gutter[0]) this.mapRow = this.gutter[0];
             if (this.gutter[1]) this.mapCol = this.gutter[1];
 
@@ -108,7 +100,7 @@ export default {
                 this.newRowGutter = transNumber(this.mapRow);
                 this.newColGutter = transNumber(this.mapCol);
 
-                if (Vers === 2) {
+                if (vueVer === 2) {
                     this._provided.rowGutter = this.newRowGutter;
                     this._provided.colGutter = this.newColGutter;
                 }
@@ -146,35 +138,26 @@ export default {
         responsiveHandler(index) {
             //左右间距
             if (isNumber(this.mapRow)) {
-                //纯数字
-
                 this.newRowGutter = transNumber(this.mapRow);
-                if (Vers === 2) this._provided.rowGutter = this.newRowGutter;
+                if (vueVer === 2) this._provided.rowGutter = this.newRowGutter;
             } else if (isObject(this.mapRow)) {
-                //对象
-
                 this.newRowGutter = this.mapRow[index] ? transNumber(this.mapRow[index]) : 0;
-                if (Vers === 2) this._provided.rowGutter = this.newRowGutter;
+                if (vueVer === 2) this._provided.rowGutter = this.newRowGutter;
             }
 
             //上下间距
             if (isNumber(this.mapCol)) {
-                //纯数字
-
                 this.newColGutter = transNumber(this.mapCol);
-                if (Vers === 2) this._provided.colGutter = this.newColGutter;
+                if (vueVer === 2) this._provided.colGutter = this.newColGutter;
             } else if (isObject(this.mapCol)) {
-                //对象
-
                 this.newColGutter = this.mapCol[index] ? transNumber(this.mapCol[index]) : 0;
-                if (Vers === 2) this._provided.colGutter = this.newColGutter;
+                if (vueVer === 2) this._provided.colGutter = this.newColGutter;
             }
         },
 
         //点击事件
         onClick(event) {
-            //兼容vue2 点击事件
-            if (Vers === 2) this.$emit('click', event);
+            if (vueVer === 2) this.$emit('click', event); //兼容vue2 点击事件
         }
     }
 };

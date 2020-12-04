@@ -1,6 +1,6 @@
 <template>
     <div class="mb-footer">
-        <slot></slot>
+        <slot />
     </div>
 </template>
 

@@ -6,88 +6,70 @@
 
 :::demo html
 
-<div>
-    <mb-switch />&nbsp;&nbsp;
-</div>
+<mb-switch />
 :::
 
 ### 1.2、 默认选中
 
 :::demo html
 
-<div>
-    <mb-switch defaultChecked />&nbsp;&nbsp;
-</div>
+<mb-switch defaultChecked />
 :::
 
 ### 1.3、 自定义文字
 
 :::demo html
 
-<div>
-    <mb-switch checkedText="开" defaultText="关"/>&nbsp;&nbsp;
-    <mb-switch defaultChecked checkedText="开" defaultText="关"/>&nbsp;&nbsp;
-    <mb-switch checkedText="开" defaultText="关">
-        <template v-slot:checkedText>
-            <mb-icon type="check"></mb-icon>
-        </template>
-        <template v-slot:defaultText>
-            <mb-icon type="times"></mb-icon>
-        </template>
-    </mb-switch>
-</div>
+<mb-switch checkedText="开" defaultText="关"/>&nbsp;&nbsp;
+<mb-switch defaultChecked checkedText="开" defaultText="关"/>&nbsp;&nbsp;
+<mb-switch checkedText="开" defaultText="关">
+<template v-slot:checkedText><mb-icon type="check"></mb-icon></template>
+<template v-slot:defaultText><mb-icon type="times"></mb-icon></template>
+</mb-switch>
 :::
 
 ### 1.4、 禁用
 
 :::demo html
 
-<div>
-    <mb-switch disabled />&nbsp;&nbsp;
-    <mb-switch disabled defaultChecked />&nbsp;&nbsp;
-    <mb-switch disabled checkedText="开" defaultText="关"/>&nbsp;&nbsp;
-    <mb-switch disabled defaultChecked checkedText="开" defaultText="关"/>&nbsp;&nbsp;
-</div>
+<mb-switch disabled />&nbsp;&nbsp;
+<mb-switch disabled defaultChecked />&nbsp;&nbsp;
+<mb-switch disabled checkedText="开" defaultText="关"/>&nbsp;&nbsp;
+<mb-switch disabled defaultChecked checkedText="开" defaultText="关"/>
 :::
 
 ### 1.5、 加载中
 
 :::demo html
 
-<div>
-    <mb-switch loading checkedText="开" defaultText="关"/>&nbsp;&nbsp;
-    <mb-switch loading defaultChecked checkedText="开" defaultText="关"/>&nbsp;&nbsp;
-</div>
+<mb-switch loading checkedText="开" defaultText="关"/>&nbsp;&nbsp;
+<mb-switch loading defaultChecked checkedText="开" defaultText="关"/>
 :::
 
 ### 1.6、 尺寸
 
 :::demo html
 
-<div>
-    <mb-switch size="xs"/>&nbsp;&nbsp;
-    <mb-switch size="sm"/>&nbsp;&nbsp;
-    <mb-switch size="md"/>&nbsp;&nbsp;
-    <mb-switch size="lg"/>&nbsp;&nbsp;
-    <mb-switch size="xl"/>&nbsp;&nbsp;
-    <br/>
-    <br/>
-    <mb-switch size="xs" checkedText="开" defaultText="关"/>&nbsp;&nbsp;
-    <mb-switch size="sm" checkedText="开" defaultText="关"/>&nbsp;&nbsp;
-    <mb-switch size="md" checkedText="开" defaultText="关"/>&nbsp;&nbsp;
-    <mb-switch size="lg" checkedText="开" defaultText="关"/>&nbsp;&nbsp;
-    <mb-switch size="xl" checkedText="开" defaultText="关"/>&nbsp;&nbsp;
-</div>
+<mb-switch size="xs"/>&nbsp;&nbsp;
+<mb-switch size="sm"/>&nbsp;&nbsp;
+<mb-switch size="md"/>&nbsp;&nbsp;
+<mb-switch size="lg"/>&nbsp;&nbsp;
+<mb-switch size="xl"/>
+<br/>
+<br/>
+<mb-switch size="xs" checkedText="开" defaultText="关"/>&nbsp;&nbsp;
+<mb-switch size="sm" checkedText="开" defaultText="关"/>&nbsp;&nbsp;
+<mb-switch size="md" checkedText="开" defaultText="关"/>&nbsp;&nbsp;
+<mb-switch size="lg" checkedText="开" defaultText="关"/>&nbsp;&nbsp;
+<mb-switch size="xl" checkedText="开" defaultText="关"/>
 :::
 
 ### 1.7、 自定义颜色
 
 :::demo html
 
-<div>
-    <mb-switch activeColor="#e6a23c" defaultColor="#343a40"/>&nbsp;&nbsp;
-    <mb-switch activeColor="#f56c6c" defaultColor="#67c23a"/>&nbsp;&nbsp;
-</div>
+<mb-switch activeColor="#e6a23c" defaultColor="#343a40"/>&nbsp;&nbsp;
+<mb-switch activeColor="#f56c6c" defaultColor="#67c23a"/>
 :::
 
 ## 2、 API 配置

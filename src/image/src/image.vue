@@ -26,16 +26,14 @@
 </template>
 
 <script>
-import { vue, versions, uniApp } from '../../base/utils/env';
+import { vue, vueVer, uniApp } from '../../base/utils/env';
 import { unit } from '../../base/utils/util';
-
-const Vers = versions();
 
 export default {
     name: 'MbImage',
 
     components: {
-        'mb-icon': Vers === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
+        'mb-icon': vue.defineAsyncComponent ? vue.defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
     },
 
     props: {
@@ -72,11 +70,11 @@ export default {
             let style = { width: unit(this.width), height: unit(this.height) };
 
             if (this.shape) {
-                if (this.shape === 'circle') {
+                if (this.shape.toLowerCase() === 'circle') {
                     style.borderRadius = '50%';
-                } else if (this.shape === 'pill') {
+                } else if (this.shape.toLowerCase() === 'pill') {
                     style.borderRadius = '5%';
-                } else if (this.shape !== 'square') {
+                } else if (this.shape.toLowerCase() !== 'square') {
                     style.borderRadius = unit(this.shape);
                 }
             }
@@ -95,7 +93,7 @@ export default {
     methods: {
         //图片加载完成
         imageLoad() {
-            if (!uniApp()) {
+            if (!uniApp) {
                 //构建图片模式
                 if (this.mode === 'scaleToFill') {
                     this.imgMode.width = '100%';
@@ -188,8 +186,7 @@ export default {
 
         //点击事件
         onClick(event) {
-            //兼容vue2 点击事件
-            if (Vers === 2) this.$emit('click', event);
+            if (vueVer === 2) this.$emit('click', event); //兼容vue2 点击事件
         }
     }
 };

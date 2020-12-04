@@ -1,6 +1,6 @@
 <template>
     <div class="mb-header" :style="divStyle">
-        <slot></slot>
+        <slot />
     </div>
 </template>
 

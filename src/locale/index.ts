@@ -1,5 +1,5 @@
 import { deepMerge, deepClone } from '../base/utils/util';
-import { versions } from '../base/utils/env';
+import { vueVer } from '../base/utils/env';
 import Languages from './lang/index';
 
 let i18n = {}, //当前语言库
@@ -22,7 +22,7 @@ export default {
         customize = langs;
         setLanguage(locale);
 
-        if (versions() === 2) {
+        if (vueVer === 2) {
             app.prototype.$locale = setLanguage;
             app.prototype.$t = getLanguage;
         } else {

@@ -1,6 +1,6 @@
 <template>
     <div class="mb-content">
-        <slot></slot>
+        <slot />
     </div>
 </template>
 

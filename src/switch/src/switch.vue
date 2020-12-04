@@ -19,17 +19,14 @@
 </template>
 
 <script>
-import { vue, uniApp, versions } from '../../base/utils/env';
+import { vue, uniApp, vueVer } from '../../base/utils/env';
 import { transNumber } from '../../base/utils/util';
-
-const Vers = versions();
-const IsUni = uniApp();
 
 export default {
     name: 'MbSwitch',
 
     components: {
-        'mb-icon': Vers === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
+        'mb-icon': vue.defineAsyncComponent ? vue.defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
     },
 
     props: {
@@ -104,6 +101,15 @@ export default {
     },
 
     methods: {
+        //设置值
+        setValue(checked) {
+            this.checkedStatus = checked;
+
+            if (this.vibrateShort && uniApp) uniApp.vibrateShort();
+
+            return Promise.resolve(this.checkedStatus ? this.checkedValue : this.defaultValue);
+        },
+
         //点击事件
         onClick(event) {
             if (this.disabled || this.loading) return;
@@ -115,17 +121,7 @@ export default {
                 this.$emit('change', data);
             });
 
-            //兼容vue2 点击事件
-            if (Vers === 2) this.$emit('click', event);
-        },
-
-        //设置值
-        setValue(checked) {
-            this.checkedStatus = checked;
-
-            if (this.vibrateShort && IsUni) IsUni.vibrateShort();
-
-            return Promise.resolve(this.checkedStatus ? this.checkedValue : this.defaultValue);
+            if (vueVer === 2) this.$emit('click', event); //兼容vue2 点击事件
         }
     }
 };

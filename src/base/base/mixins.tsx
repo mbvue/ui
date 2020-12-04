@@ -1,4 +1,4 @@
-import { versions } from '../utils/env';
+import { vueVer } from '../utils/env';
 
 //遍历子级
 function getChildrenList(this: any, name: any) {
@@ -21,7 +21,7 @@ export default {
         const _this = this as any;
 
         //兼容vue2、3 destroyed <-> unmounted
-        if (_this.$options && _this.$options.unmounted && versions() === 2) {
+        if (_this.$options && _this.$options.unmounted && vueVer === 2) {
             _this.$options.destroyed = [
                 function destroyed() {
                     _this.$options.unmounted();

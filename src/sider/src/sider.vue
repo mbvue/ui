@@ -1,6 +1,6 @@
 <template>
     <div :class="buildClass" :style="divStyle">
-        <div class="mb-sider-content"><slot></slot></div>
+        <div class="mb-sider-content"><slot /></div>
 
         <div v-if="trigger" class="mb-sider-trigger" @click="collapsedClick">
             <mb-icon :type="newCollapsed ? triggerCollapsedIcon : triggerIcon" :size="buildTriggerIconSize" />
@@ -10,17 +10,16 @@
 
 <script>
 import { Mixins } from '../../base/base';
-import { vue, versions } from '../../base/utils/env';
+import { vue } from '../../base/utils/env';
 import { unit, transNumber } from '../../base/utils/util';
 
-const Vers = versions();
 const dimensionMaxMap = { xs: '479.98px', sm: '575.98px', md: '767.98px', lg: '991.98px', xl: '1199.98px', xxl: '1599.98px' };
 
 export default {
     name: 'MbSider',
 
     components: {
-        'mb-icon': Vers === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
+        'mb-icon': vue.defineAsyncComponent ? vue.defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
     },
 
     mixins: [Mixins],
@@ -36,7 +35,7 @@ export default {
         breakpoint: { type: String, default: '' } //触发响应式布局的断点，可选值为 xs sm md lg xl xxl 或者不设
     },
 
-    emits: ['collapse', 'breakpoint'],
+    emits: ['collapse', 'breakpoint', 'update:collapsed'],
 
     data() {
         return {
@@ -75,11 +74,12 @@ export default {
         }
     },
 
+    beforeMount() {
+        this.parent = this.getParent('MbLayout');
+    },
+
     mounted() {
-        //设置父级布局Class
-        if (this.$parent.$options.name === 'MbLayout' && this.$parent.setSiderClass) {
-            this.$parent.setSiderClass();
-        }
+        if (this.parent && this.$parent.setSiderClass) this.$parent.setSiderClass(); //设置父级布局Class
 
         //断点响应
         if (window && window.matchMedia && this.breakpoint && this.breakpoint in dimensionMaxMap) {

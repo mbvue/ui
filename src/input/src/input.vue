@@ -103,18 +103,15 @@
 
 <script>
 import { Mixins } from '../../base/base';
-import { vue, versions, uniApp } from '../../base/utils/env';
+import { vue, uniApp } from '../../base/utils/env';
 import { isBoolean } from '../../base/utils/test';
 import { trim } from '../../base/utils/util';
-
-const Vers = versions();
-const IsUni = uniApp();
 
 export default {
     name: 'MbInput',
 
     components: {
-        'mb-icon': Vers === 3 ? vue().defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
+        'mb-icon': vue.defineAsyncComponent ? vue.defineAsyncComponent(() => import('../../icon/src/icon.vue')) : () => import('../../icon/src/icon.vue')
     },
 
     mixins: [Mixins],
@@ -133,6 +130,7 @@ export default {
         suffixSize: { type: Number, default: 16 }, //后缀图标尺寸
         defaultValue: { type: [String, Number], default: '' }, //输入框默认内容
         value: { type: [String, Number], default: '' }, //输入框内容
+        modelValue: { type: [String, Number], default: '' }, //输入框内容
         allowClear: { type: Boolean, default: false }, //可以点击清除图标删除内容
         placeholder: { type: String, default: '' }, //placeholder显示值
         placeholderStyle: { type: String, default: '' }, //placeholder的样式,仅支持uni-app
@@ -154,11 +152,11 @@ export default {
         trim: { type: Boolean, default: true } //是否自动去除两端的空格
     },
 
-    emits: ['focus', 'blur', 'change', 'input', 'enter', 'confirm'],
+    emits: ['focus', 'blur', 'change', 'input', 'update:modelValue', 'enter', 'confirm'],
 
     data() {
         return {
-            inputValue: this.defaultValue || this.value || '', //值
+            inputValue: this.defaultValue || this.value || this.modelValue || '', //值
             baseHeight: null, //输入框基础高度
             focused: false, // 当前是否处于获得焦点的状态
             showPassword: false // 是否预览密码
@@ -168,7 +166,7 @@ export default {
     computed: {
         //构建类型
         buildType() {
-            if (this.type.toLowerCase() === 'password' && (IsUni || this.showPassword)) return 'text';
+            if (this.type.toLowerCase() === 'password' && (uniApp || this.showPassword)) return 'text';
 
             return this.type.toLowerCase();
         },
@@ -184,19 +182,12 @@ export default {
             }
 
             if (this.focused) cls.push('mb-input-focused');
-
             if (this.buildDisabled) cls.push('mb-input-disabled');
-
             if (this.buildType === 'textarea') cls.push('mb-input-textarea');
-
             if (this.buildType === 'textarea' && this.autoHeight) cls.push('mb-input-textarea-auto');
-
             if (this.buildType === 'select') cls.push('mb-input-select');
-
             if (this.buildSize) cls.push(`mb-input-${this.buildSize}`);
-
             if (this.$slots.prefix || this.prefix) cls.push(`mb-input-has-prefix`);
-
             if (this.$slots.suffix || this.suffix || this.allowClear) cls.push(`mb-input-has-suffix`);
 
             return cls;
@@ -222,6 +213,16 @@ export default {
             } else if (nVal != oVal) {
                 this.$emit('change', nVal);
             }
+        },
+
+        modelValue(nVal, oVal) {
+            this.inputValue = nVal;
+
+            if (nVal != oVal && this.buildType === 'select') {
+                this.onInput({ target: { value: nVal } });
+            } else if (nVal != oVal) {
+                this.$emit('change', nVal);
+            }
         }
     },
 
@@ -237,11 +238,12 @@ export default {
             if (this.trim) value = trim(value);
 
             this.inputValue = value;
-            this.$emit('input', value);
-            this.$emit('change', value);
+            this.$emit('input', this.inputValue);
+            this.$emit('update:modelValue', this.inputValue);
+            this.$emit('change', this.inputValue);
 
             //兼容web端自动增加高度
-            if (this.buildType === 'textarea' && this.autoHeight && !IsUni) {
+            if (this.buildType === 'textarea' && this.autoHeight && !uniApp) {
                 if (!this.baseHeight) this.baseHeight = parseFloat(window.getComputedStyle(this.$refs.input, null).height) || 50;
 
                 this.$refs.textarea.style.height = 'auto';
@@ -287,6 +289,7 @@ export default {
 
             this.inputValue = '';
             this.$emit('input', '');
+            this.$emit('update:modelValue', '');
             this.$emit('change', '');
 
             return false;
