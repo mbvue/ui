@@ -1,7 +1,14 @@
 const path = require('path'),
-    CopyWebpackPlugin = require('copy-webpack-plugin');
-
+    fs = require('fs');
 const baseUrl = '/ui/';
+
+class mbPlugin {
+    apply(compiler) {
+        compiler.plugin('done', function () {
+            fs.copyFileSync('./dist/index.html', './dist/404.html');
+        });
+    }
+}
 
 module.exports = {
     //入口
@@ -34,5 +41,5 @@ module.exports = {
     },
 
     //Git二级目录404处理
-    plugins: [new CopyWebpackPlugin({ patterns: [{ from: 'dist/index.html', to: 'dist/404.html' }] })]
+    plugins: [new mbPlugin()]
 };
