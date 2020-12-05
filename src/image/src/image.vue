@@ -15,12 +15,12 @@
 
         <template v-if="loading">
             <slot v-if="$slots.loading" name="loading" :style="[{ animation: animation }]" />
-            <mb-icon v-else-if="loadingIcon !== 'none'" :type="loadingIcon" :size="loadingIconSize" :style="[{ animation: animation }]" />
+            <mb-icon v-else-if="loadingIcon !== 'none'" :type="loadingIcon" :size="loadingIconSize" :custom-style="loadingIconStyle" :style="[{ animation: animation }]" />
         </template>
 
         <template v-if="error">
             <slot v-if="$slots.error" name="error" :style="[{ animation: animation }]" />
-            <mb-icon v-else-if="errorIcon !== 'none'" :type="errorIcon" :size="errorIconSize" :style="[{ animation: animation }]" />
+            <mb-icon v-else-if="errorIcon !== 'none'" :type="errorIcon" :size="errorIconSize" :custom-style="errorIconStyle" :style="[{ animation: animation }]" />
         </template>
     </div>
 </template>
@@ -46,15 +46,27 @@ export default {
         showMenuByLongpress: { type: Boolean, default: false }, //是否开启长按图片显示识别小程序码菜单，仅微信小程序有效
         loadingIcon: { type: String, default: 'image' }, //加载中的图标，或者小图片
         loadingIconSize: { type: Number, default: 36 }, //加载中的图标尺寸
+        loadingIconStyle: {
+            type: Object,
+            default() {
+                return {};
+            }
+        }, //加载中的图标样式
         errorIcon: { type: String, default: 'exclamation-circle' }, //加载失败的图标，或者小图片
         errorIconSize: { type: Number, default: 36 }, //加载失败的图标尺寸
+        errorIconStyle: {
+            type: Object,
+            default() {
+                return {};
+            }
+        }, //加载失败的图标样式
         fade: { type: Boolean, default: true }, //是否需要淡入效果
         duration: { type: [String, Number], default: 500 }, //淡入效果过渡时间，单位ms
         webp: { type: Boolean, default: true }, //只支持网络资源，只对微信小程序有效
         bg: { type: String, default: '' } //背景颜色
     },
 
-    emits: ['load', 'error'],
+    emits: ['load', 'error', 'click'],
 
     data() {
         return {

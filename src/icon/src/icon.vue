@@ -31,6 +31,8 @@ export default {
         rotate: { type: [String, Number], default: 0 } //图标旋转角度
     },
 
+    emits: ['click'],
+
     computed: {
         //判断是否是图片
         isImage() {
@@ -56,7 +58,7 @@ export default {
                 style.fontSize = unit(this.size);
             }
             if (this.spin) style.animation = `mb-icon-rotate ${unit(this.duration, 'ms')} linear infinite`;
-            if (this.rotate !== 0) style.transform = `rotate(${unit(this.rotate, 'deg')})`;
+            if (this.rotate !== null && this.rotate !== '' && this.rotate !== 0) style.transform = `rotate(${unit(this.rotate, 'deg')})`;
 
             return style;
         }

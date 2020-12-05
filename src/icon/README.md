@@ -378,7 +378,7 @@
     </tr>
 </table>
 
-### 2.7、 人图标
+### 2.7、 人物图标
 
 <table class="mb-icon">
     <tr>
@@ -1418,6 +1418,7 @@
 | type        | 图标类型                  | String         | -      | -      |
 | customStyle | 自定义图标样式            | Object         | -      | -      |
 | size        | 图标尺寸，单位 px         | String, Number | 16     | -      |
+| color       | 图标颜色                  | String         | -      | -      |
 | custom      | 自定义字体库              | String         | -      | -      |
 | spin        | 图标是否有旋转动画        | Boolean        | false  | true   |
 | duration    | 旋转动画时间间隔，单位 ms | String, Number | 1000   | -      |
