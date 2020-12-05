@@ -11,7 +11,7 @@ let _uni = null;
 try {
     _uni = uni;
 } catch (error) {
-    _uni = false;
+    _uni = null;
 }
 
 export const uniApp = _uni; // uniApp 对象

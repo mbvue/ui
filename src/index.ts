@@ -64,13 +64,13 @@ const install = (app: any, options = <any>{ locale: 'zh_cn', langs: {} }) => {
     if (version === 2) {
         app.prototype.$m = Base;
         app.prototype.$m.route = Route(options.router);
-        app.prototype.$m.ajax = Ajax(options.ajax || {}, options.axios);
+        app.prototype.$m.ajax = Ajax(options.ajax || {});
 
         if (options.apis && Base.test.isFunction(options.apis)) app.prototype.$m.apis = options.apis(app.prototype.$m.ajax, app);
     } else if (version === 3) {
         app.config.globalProperties.$m = Base;
         app.config.globalProperties.$m.route = Route(options.router);
-        app.config.globalProperties.$m.ajax = Ajax(options.ajax || {}, options.axios);
+        app.config.globalProperties.$m.ajax = Ajax(options.ajax || {});
 
         if (options.apis && Base.test.isFunction(options.apis)) app.config.globalProperties.$m.apis = options.apis(app.config.globalProperties.$m.ajax, app);
     }

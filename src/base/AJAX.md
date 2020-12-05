@@ -29,7 +29,7 @@ $ yarn add axios
 <br/>
 
 更多配置：<br/>
-若 uni-app 环境请参考 [uni.request](https://uniapp.dcloud.io/api/request/request) 配置<br/>
+uni-app 参考 [uni.request](https://uniapp.dcloud.io/api/request/request) 配置<br/>
 axios 参考 [axios](http://www.axios-js.com/zh-cn/docs/) 配置
 
 ## 2、 Response 返回数据
@@ -43,9 +43,9 @@ axios 参考 [axios](http://www.axios-js.com/zh-cn/docs/) 配置
 
 ## 3、 如何使用
 
-### 3.1、 新建配置
+### 3.1、 创建配置
 
-如”ajax.js“：
+新建配置文件 如”ajax.js“：
 
 ```js
 export default {
@@ -80,41 +80,39 @@ export default {
 };
 ```
 
-### 3.2、 入口配置
+### 3.2、 配置项目
 
-vue2.x 版本：
+[Vue2](https://cn.vuejs.org/) 版本：
 
 ```js
 import Vue from 'vue';
 import App from '@/App.vue';
 import MBVueUI from '@mbvue/ui';
 import '@mbvue/ui/index.less'; //或者 import '@mbvue/ui/index.css';
-import axios from 'axios';
 import ajax from './ajax';
 
 Vue.config.productionTip = false;
 App.mpType = 'app';
 
-Vue.use(MBVueUI, { ajax: ajax, axios }); //非uni-app环境
-//Vue.use(MBVueUI, { ajax: ajax }); //uni-app环境
+Vue.use(MBVueUI, { ajax: ajax });
 
 new Vue({ render: h => h(App) }).$mount('#app');
 ```
 
-vue3.x 版本：
+<br/>
+
+[Vue3](https://v3.cn.vuejs.org/) 版本：
 
 ```js
 import { createApp } from 'vue';
 import App from '@/App.vue';
 import MBVueUI from '@mbvue/ui';
 import '@mbvue/ui/index.less'; //或者 import '@mbvue/ui/index.css';
-import axios from 'axios';
 import ajax from './ajax';
 
 const app = createApp(App);
 
-app.use(MBVueUI, { ajax: ajax, axios }); //非uni-app环境
-//Vue.use(MBVueUI, { ajax: ajax }); //uni-app环境
+app.use(MBVueUI, { ajax: ajax });
 
 app.mount('#app');
 ```
@@ -147,9 +145,9 @@ this.$m.ajax
 
 ## 4、 API 集中营
 
-### 4.1、 新建配置
+### 4.1、 创建配置
 
-如”apis.js“：
+新建集中营配置文件 如”apis.js“：
 
 ```js
 export default ajax => {
@@ -159,43 +157,41 @@ export default ajax => {
 };
 ```
 
-### 4.2、 入口配置
+### 4.2、 配置项目
 
-vue2.x 版本：
+[Vue2](https://cn.vuejs.org/) 版本：
 
 ```js
 import Vue from 'vue';
 import App from '@/App.vue';
 import MBVueUI from '@mbvue/ui';
 import '@mbvue/ui/index.less'; //或者 import '@mbvue/ui/index.css';
-import axios from 'axios';
 import ajax from './ajax';
 import apis from './apis';
 
 Vue.config.productionTip = false;
 App.mpType = 'app';
 
-Vue.use(MBVueUI, { axios, ajax, apis }); //非uni-app环境
-//Vue.use(MBVueUI, { ajax, apis }); //uni-app环境
+Vue.use(MBVueUI, { ajax, apis });
 
 new Vue({ render: h => h(App) }).$mount('#app');
 ```
 
-vue3.x 版本：
+<br/>
+
+[Vue3](https://v3.cn.vuejs.org/) 版本：
 
 ```js
 import { createApp } from 'vue';
 import App from '@/App.vue';
 import MBVueUI from '@mbvue/ui';
 import '@mbvue/ui/index.less'; //或者 import '@mbvue/ui/index.css';
-import axios from 'axios';
 import ajax from './ajax';
 import apis from './apis';
 
 const app = createApp(App);
 
-app.use(MBVueUI, { axios, ajax, apis }); //非uni-app环境
-//Vue.use(MBVueUI, { ajax, apis }); //uni-app环境
+app.use(MBVueUI, { ajax, apis });
 
 app.mount('#app');
 ```

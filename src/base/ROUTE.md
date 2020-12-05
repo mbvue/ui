@@ -1,6 +1,6 @@
 # 路由跳转
 
-此为一个路由跳转方法，内部是对 uni-app 路由跳转及 vue-router 的 api 统一封装<br/>
+路由跳转是对 uni-app 路由跳转及 vue-router 的 api 统一封装<br/>
 
 在 uni-app 环境只能使用：navigateTo、to、redirectTo、redirect、switchTab、tab、reLaunch、launch、navigateBack、back<br/>
 在非 uni-app 环境且已配置 vue-router 只能使用：push、replace、go<br/>
@@ -62,6 +62,8 @@ this.$m.route({
 });
 ```
 
+<br/>
+
 简写模式（只支持 vue-router 的 push 和 uni-app 的 navigateTo）：
 
 ```js
@@ -81,7 +83,7 @@ this.$m.route(
 
 ## 3、 Vue 配置 vue-router
 
-vue2.x 版本：
+[Vue2](https://cn.vuejs.org/) 版本：
 
 ```js
 import Vue from 'vue';
@@ -107,7 +109,9 @@ Vue.use(MBVueUI, { router });
 new Vue({ router, render: h => h(App) }).$mount('#app');
 ```
 
-vue3.x 版本：
+<br/>
+
+[Vue3](https://v3.cn.vuejs.org/) 版本：
 
 ```js
 import { createApp } from 'vue';

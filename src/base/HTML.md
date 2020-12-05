@@ -53,6 +53,8 @@ view, article, aside, details, figcaption, figure, footer, header, hgroup, main,
 :::demo html
 
 <a href="#">我是 a 标签</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="dotted" href="#">我是 a 标签</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="dashed" href="#">我是 a 标签</a>&nbsp;&nbsp;&nbsp;&nbsp;
 <a>我是 a 标签我没有 href</a>
 :::
 
@@ -60,8 +62,8 @@ view, article, aside, details, figcaption, figure, footer, header, hgroup, main,
 
 :::demo html
 
-<abbr>我是 abbr 标签</abbr>&nbsp;&nbsp;&nbsp;&nbsp;
-<abbr title="我的title">我是 abbr 标签我有 title</abbr>&nbsp;&nbsp;&nbsp;&nbsp;
+<abbr>我是 abbr 标签</abbr>
+<abbr title="我的title">我是 abbr 标签我有 title</abbr>
 <abbr data-original-title="我的data-original-title">我是 abbr 标签我有 data-original-title</abbr>
 :::
 

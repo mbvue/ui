@@ -7,63 +7,32 @@ declare const uni: any;
 export default (...args: any[]) => {
     const config: any = params(args);
 
-    if (config.type.toLowerCase() === 'redirectto' || config.type.toLowerCase() === 'redirect') {
-        //redirectTo
+    const type = config.type.toLowerCase();
+    const obj: any = {
+        url: transUrl(config.url, config.params),
+        success: () => {
+            if (config.success && isFunction(config.success)) config.success();
+        },
+        fail: () => {
+            if (config.fail && isFunction(config.fail)) config.fail();
+        }
+    };
 
-        return uni.redirectTo({
-            url: transUrl(config.url, config.params),
-            success: () => {
-                if (config.success && isFunction(config.success)) config.success();
-            },
-            fail: () => {
-                if (config.fail && isFunction(config.fail)) config.fail();
-            }
-        });
-    } else if (config.type.toLowerCase() === 'switchtab' || config.type.toLowerCase() === 'tab') {
-        //switchTab
-
-        return uni.switchTab({
-            url: transUrl(config.url, config.params),
-            success: () => {
-                if (config.success && isFunction(config.success)) config.success();
-            },
-            fail: () => {
-                if (config.fail && isFunction(config.fail)) config.fail();
-            }
-        });
-    } else if (config.type.toLowerCase() === 'relaunch' || config.type.toLowerCase() === 'launch') {
-        //reLaunch
-
-        return uni.reLaunch({
-            url: transUrl(config.url, config.params),
-            success: () => {
-                if (config.success && isFunction(config.success)) config.success();
-            },
-            fail: () => {
-                if (config.fail && isFunction(config.fail)) config.fail();
-            }
-        });
-    } else if (config.type.toLowerCase() === 'navigateback' || config.type.toLowerCase() === 'back') {
-        //navigateBack
-
+    if ('redirectto|redirect'.indexOf(type) !== -1) {
+        return uni.redirectTo(obj);
+    } else if ('switchtab|tab'.indexOf(type) !== -1) {
+        return uni.switchTab(obj);
+    } else if ('relaunch|launch'.indexOf(type) !== -1) {
+        return uni.reLaunch(obj);
+    } else if ('navigateback|back'.indexOf(type) !== -1) {
         return uni.navigateBack({ delta: config.delta, animationType: config.animationType, animationDuration: config.animationDuration });
     } else {
         if (isUrl(config.url) && window && window.location) {
             window.location.href = transUrl(config.url, config.params);
         } else {
-            //navigateTo
-
-            return uni.navigateTo({
-                url: transUrl(config.url, config.params),
-                animationType: config.animationType,
-                animationDuration: config.animationDuration,
-                success: () => {
-                    if (config.success && isFunction(config.success)) config.success();
-                },
-                fail: () => {
-                    if (config.fail && isFunction(config.fail)) config.fail();
-                }
-            });
+            obj.animationType = config.animationType;
+            obj.animationDuration = config.animationDuration;
+            return uni.navigateTo(obj);
         }
     }
 };

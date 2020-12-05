@@ -1,3 +1,6 @@
+.textcolor();
+.bgcolor();
+
 .textcolor(@i:length(@style)) when(@i > 0) {
     @name: extract(@style, @i);
 
@@ -43,6 +46,3 @@
 
     .bgcolor(@i - 1);
 }
-
-.textcolor();
-.bgcolor();

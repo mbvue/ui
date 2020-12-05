@@ -118,26 +118,13 @@
 </div>
 :::
 
-## 5、 文字省略
-
-:::demo html
-
-<div class="flex row-around">
-    <div class="border line-1" style="width: 100px;">.line-1 文字超出内容盒子时显示省略号.line-1 文字超出内容盒子时显示省略号</div>
-    <div class="border line-2" style="width: 100px;">.line-2 文字超出内容盒子时显示省略号.line-2 文字超出内容盒子时显示省略号</div>
-    <div class="border line-3" style="width: 100px;">.line-3 文字超出内容盒子时显示省略号.line-3 文字超出内容盒子时显示省略号</div>
-    <div class="border line-4" style="width: 100px;">.line-4 文字超出内容盒子时显示省略号.line-4 文字超出内容盒子时显示省略号</div>
-    <div class="border line-5" style="width: 100px;">.line-5 文字超出内容盒子时显示省略号.line-5 文字超出内容盒子时显示省略号.line-5 文字超出内容盒子时显示省略号</div>
-</div>
-:::
-
-## 6、 定位
+## 5、 定位
 
 .relative<br/>
 .absolute<br/>
 .fixed
 
-## 7、 字体大小
+## 6、 字体大小
 
 :::demo html
 
@@ -150,6 +137,43 @@
 <span class="font-lg">.font-lg 字体大小</span>
 <br />
 <span class="font-xl">.font-xl 字体大小</span>
+:::
+
+<br />
+具体尺寸（从 9px 到 24px，单位 px）：
+
+:::demo html
+
+<span class="font-9">.font-9 字体大小</span>
+<br />
+<span class="font-10">.font-10 字体大小</span>
+<br />
+<span class="font-11">.font-11 字体大小</span>
+<br />
+<span class="font-12">.font-12 字体大小</span>
+<br />
+<span class="font-13">.font-13 字体大小</span>
+<br />
+...
+<br />
+<span class="font-22">.font-22 字体大小</span>
+<br />
+<span class="font-23">.font-23 字体大小</span>
+<br />
+<span class="font-24">.font-24 字体大小</span>
+:::
+
+## 7、 文字省略
+
+支持 1 行到 10 行
+
+:::demo html
+
+<div class="flex row-around">
+    <div class="border line-1" style="width: 100px;">.line-1 文字超出内容盒子时显示省略号.line-1 文字超出内容盒子时显示省略号</div>
+    <div class="border line-2" style="width: 100px;">.line-2 文字超出内容盒子时显示省略号.line-2 文字超出内容盒子时显示省略号</div>
+    <div class="border line-3" style="width: 100px;">.line-3 文字超出内容盒子时显示省略号.line-3 文字超出内容盒子时显示省略号</div>
+</div>
 :::
 
 ## 8、 字体对齐方式
@@ -182,11 +206,11 @@ class：.row 或者不写(默认为水平方向)
 
 #### 9.1.2、 垂直方向
 
-class：.column
+class：.col
 
 :::demo html
 
-<div class="flex column" style="width: 360px">
+<div class="flex col" style="width: 360px">
     <div class="box" style="background: #00a0e9; margin-bottom: 10px; color: #fff;">1</div>
     <div class="box" style="background: #00a0e9; margin-bottom: 10px; color: #fff;">2</div>
     <div class="box" style="background: #00a0e9; color: #fff;">3</div>
@@ -339,5 +363,18 @@ class：.col-bottom
     <div class="box" style="background: #00a0e9; margin-right: 10px; color: #fff;">1</div>
     <div class="box" style="height: 100px; background: #00a0e9; margin-right: 10px; color: #fff;">2</div>
     <div class="box" style="background: #00a0e9; margin-right: 10px; color: #fff;">3</div>
+</div>
+:::
+
+### 9.5、 flex 等分
+
+支持 1 行到 24 等分
+
+:::demo html
+
+<div class="flex">
+    <div class="box flex-1" style="background: #00a0e9; margin-right: 10px; color: #fff;">1</div>
+    <div class="box flex-2" style="background: #00a0e9; margin-right: 10px; color: #fff;">2</div>
+    <div class="box flex-3" style="background: #00a0e9; color: #fff;">3</div>
 </div>
 :::

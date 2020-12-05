@@ -1,10 +1,12 @@
 # 国际化配置
 
-默认语言是”zh_cn“，按需加载需要单独配置语言
+:::warning
+默认语言是”zh_cn“，按需加载需时要配置
+:::
 
-## 1、 初始化指定语言
+## 1、 指定语言
 
-Vue2：
+[Vue2](https://cn.vuejs.org/)：
 
 ```js
 import Vue from 'vue';
@@ -20,7 +22,9 @@ Vue.use(MBVueUI, { locale: 'zh_cn' });
 new Vue({ ...App }).$mount();
 ```
 
-Vue3：
+<br/>
+
+[Vue3](https://v3.cn.vuejs.org/)：
 
 ```js
 import { createApp } from 'vue';
@@ -35,7 +39,7 @@ app.mount('#app');
 
 ## 2、 定制语言
 
-Vue2：
+[Vue2](https://cn.vuejs.org/)：
 
 ```js
 import Vue from 'vue';
@@ -52,7 +56,9 @@ Vue.use(MBVueUI, { lang: lang });
 new Vue({ ...App }).$mount();
 ```
 
-Vue3：
+<br/>
+
+[Vue3](https://v3.cn.vuejs.org/)：
 
 ```js
 import { createApp } from 'vue';
@@ -82,7 +88,7 @@ this.$t('a.b');
 
 ## 5、 按需加载配置
 
-vue2：
+[Vue2](https://cn.vuejs.org/)：
 
 ```js
 import Vue from 'vue';
@@ -98,7 +104,9 @@ Vue.use(Locale, { locale: 'zh_cn', lang: lang });
 new Vue({ ...App }).$mount();
 ```
 
-Vue3：
+<br/>
+
+[Vue3](https://v3.cn.vuejs.org/)：
 
 ```js
 import { createApp } from 'vue';

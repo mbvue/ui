@@ -76,17 +76,17 @@ export function justDigits(value: any) {
     return /^\d+$/.test(value);
 }
 
-//校验是否值包含字母
+//校验是否只是字母
 export function justEn(value: any) {
     return /^[a-zA-Z]*$/.test(value);
 }
 
-//校验是否值包含中文
+//校验是否只是中文
 export function justChinese(value: any) {
     return /^[\u4e00-\u9fa5]+$/gi.test(value);
 }
 
-//校验是否值包含字母或者数字
+//校验是否只是字母或者数字
 export function justEnOrNum(value: any) {
     return /^[0-9a-zA-Z]*$/g.test(value);
 }

@@ -1,55 +1,13 @@
+.font-size();
+.font-size-number();
+
 .line-1 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.line-2,
-.line-3,
-.line-4,
-.line-5 {
-    display: -webkit-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-break: break-all;
-    -webkit-box-orient: vertical;
-}
-
-.line-2 {
-    -webkit-line-clamp: 2;
-}
-
-.line-3 {
-    -webkit-line-clamp: 3;
-}
-
-.line-4 {
-    -webkit-line-clamp: 4;
-}
-
-.line-5 {
-    -webkit-line-clamp: 5;
-}
-
-.font-xs {
-    font-size: unit(round(@font-size * 0.7), px);
-}
-
-.font-sm {
-    font-size: unit(round(@font-size * 0.85), px);
-}
-
-.font-md {
-    font-size: unit(round(@font-size * 1), px);
-}
-
-.font-lg {
-    font-size: unit(round(@font-size * 1.15), px);
-}
-
-.font-xl {
-    font-size: unit(round(@font-size * 1.3), px);
-}
+.font-line();
 
 .text-left {
     text-align: left;
@@ -61,4 +19,35 @@
 
 .text-right {
     text-align: right;
+}
+
+.font-size(@i:length(@size)) when(@i > 0) {
+    @name: extract(@size, @i);
+
+    .font-@{name} {
+        font-size: unit(round(@font-size * (0.7 + (@i - 1) * 0.15)), px);
+    }
+
+    .font-size(@i - 1);
+}
+
+.font-size-number(@i:9) when(@i < 25) {
+    .font-@{i} {
+        font-size: unit(@i, px);
+    }
+
+    .font-size-number(@i + 1);
+}
+
+.font-line(@i:2) when(@i < 11) {
+    .line-@{i} {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: @i;
+    }
+
+    .font-line(@i + 1);
 }

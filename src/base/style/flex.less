@@ -7,7 +7,7 @@
         flex-direction: row;
     }
 
-    &.column {
+    &.col {
         flex-direction: column;
     }
 
@@ -54,4 +54,14 @@
     &.row-around {
         justify-content: space-around;
     }
+
+    .flex-flex();
+}
+
+.flex-flex(@i:1) when(@i < 25) {
+    .flex-@{i} {
+        flex: @i;
+    }
+
+    .flex-flex(@i + 1);
 }

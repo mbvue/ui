@@ -1,4 +1,3 @@
-const browser = location ? location.href : '';
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
 //计算尺寸单位
@@ -27,9 +26,9 @@ export function trim(value: string, pos = 'both') {
 //获取URL参数
 export function getParams(name: string) {
     name = trim(name);
-    if (!browser || !name) return '';
+    if (!window || !window.location || !name) return '';
 
-    return new RegExp('(^|\\?|&)' + name + '=([^&]*)(\\s|&|$)', 'i').test(browser) ? unescape(RegExp.$2.replace(/\+/g, '')) : '';
+    return new RegExp('(^|\\?|&)' + name + '=([^&]*)(\\s|&|$)', 'i').test(location.href) ? unescape(RegExp.$2.replace(/\+/g, '')) : '';
 }
 
 //两个数字之间生成随机数
@@ -268,6 +267,12 @@ export function transBoolean(value = '') {
     return true;
 }
 
+//相对地址构建URL
+export function localUrl(url = '') {
+    if (!window || !window.location) return url;
+    return window.location.origin + (url.indexOf('/') === 0 ? '' : '/') + url;
+}
+
 export default {
     unit,
     trim,
@@ -285,5 +290,6 @@ export default {
     transUrl,
     throttle,
     transNumber,
-    transBoolean
+    transBoolean,
+    localUrl
 };

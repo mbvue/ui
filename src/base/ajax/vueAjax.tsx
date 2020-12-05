@@ -1,6 +1,10 @@
 import { deepMerge } from '../utils/util';
 import { isFunction } from '../utils/test';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+let axios = require('axios');
+axios = axios ? axios.default || axios : null;
+
 let instance: any = null;
 
 const ajax = {
@@ -40,9 +44,8 @@ const ajax = {
     }
 };
 
-export default (config: any = {}, axios: any) => {
+export default (config: any = {}) => {
     if (!axios) return {};
-    axios = axios.default || axios;
 
     //创建全局实例化对象
     instance = axios.create(deepMerge({ baseURL: '', method: 'GET', headers: {}, timeout: 60000, responseType: 'json', withCredentials: false }, config));

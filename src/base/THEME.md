@@ -42,7 +42,7 @@
 
 ### 2.1、 全局配置
 
-在 vue.config.js 增加以下配置：
+在 [vue.config.js](https://cli.vuejs.org/zh/config/) 增加以下配置：
 
 ```js
 module.exports = {

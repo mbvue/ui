@@ -12,9 +12,11 @@ const langs = {
         style: '内置样式',
         locale: '国际化配置',
         theme: '定制主题',
-        tool: '实用工具',
         route: '路由跳转',
         ajax: '网络请求',
+        toolbase: '核心工具',
+        toolcheck: '校验工具',
+        toolother: '其他工具',
         components: '基础组件',
         image: 'Image 图片',
         icon: 'Icon 图标',
@@ -56,9 +58,23 @@ export default [
                 component: defineAsyncComponent(() => import(/*webpackChunkName: 'guide.locale'*/ `@mbvue/ui/locale/README${suffix}.md`))
             },
             { title: langs[lang].theme, path: 'theme', component: defineAsyncComponent(() => import(/*webpackChunkName: 'guide.theme'*/ `@mbvue/ui/base/THEME${suffix}.md`)) },
-            { title: langs[lang].tool, path: 'tool', component: defineAsyncComponent(() => import(/*webpackChunkName: 'guide.tool'*/ `@mbvue/ui/base/TOOL${suffix}.md`)) },
             { title: langs[lang].route, path: 'route', component: defineAsyncComponent(() => import(/*webpackChunkName: 'guide.route'*/ `@mbvue/ui/base/ROUTE${suffix}.md`)) },
-            { title: langs[lang].ajax, path: 'ajax', component: defineAsyncComponent(() => import(/*webpackChunkName: 'guide.ajax'*/ `@mbvue/ui/base/AJAX${suffix}.md`)) }
+            { title: langs[lang].ajax, path: 'ajax', component: defineAsyncComponent(() => import(/*webpackChunkName: 'guide.ajax'*/ `@mbvue/ui/base/AJAX${suffix}.md`)) },
+            {
+                title: langs[lang].toolbase,
+                path: 'toolbase',
+                component: defineAsyncComponent(() => import(/*webpackChunkName: 'guide.toolbase'*/ `@mbvue/ui/base/TOOLBASE${suffix}.md`))
+            },
+            {
+                title: langs[lang].toolcheck,
+                path: 'toolcheck',
+                component: defineAsyncComponent(() => import(/*webpackChunkName: 'guide.toolcheck'*/ `@mbvue/ui/base/TOOLCHECK${suffix}.md`))
+            },
+            {
+                title: langs[lang].toolother,
+                path: 'toolother',
+                component: defineAsyncComponent(() => import(/*webpackChunkName: 'guide.toolother'*/ `@mbvue/ui/base/TOOLOTHER${suffix}.md`))
+            }
         ]
     },
     {
