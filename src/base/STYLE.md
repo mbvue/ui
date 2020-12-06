@@ -368,7 +368,7 @@ class：.col-bottom
 
 ### 9.5、 flex 等分
 
-支持 1 行到 24 等分
+支持 1 到 24 等分
 
 :::demo html
 

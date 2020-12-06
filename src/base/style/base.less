@@ -322,7 +322,8 @@ input[type='button'],
 input[type='reset'],
 input[type='submit'] {
     display: inline-block;
-    padding: unit(round(@font-size * 0.7), px) unit(round(@font-size * 1.4), px);
+    height: unit(round(@font-size * 2.45), px);
+    padding: 0 unit(round(@font-size * 1.2), px);
     overflow: hidden;
     font-size: unit(@font-size, px);
     line-height: 1;
@@ -333,32 +334,9 @@ input[type='submit'] {
     border: @border-width solid @color-border;
     border-radius: unit(round(@font-size * 0.3), px);
     outline: none;
-    transition: all 0.3s;
+    transition: all 0.36s;
 
-    &.xs {
-        padding: unit(round(@font-size * 0.5), px) unit(round(@font-size * 0.9), px);
-        font-size: unit(round(@font-size * 0.7), px);
-        border-radius: unit(round(@font-size * 0.2), px);
-    }
-
-    &.sm {
-        padding: unit(round(@font-size * 0.6), px) unit(round(@font-size * 1), px);
-        font-size: unit(round(@font-size * 0.85), px);
-        border-radius: unit(round(@font-size * 0.2), px);
-    }
-
-    &.md {
-        padding: unit(round(@font-size * 0.7), px) unit(round(@font-size * 1.4), px);
-    }
-
-    &.lg {
-        padding: unit(round(@font-size * 0.85), px) unit(round(@font-size * 1.4), px);
-    }
-
-    &.xl {
-        padding: unit(round(@font-size * 0.9), px) unit(round(@font-size * 1.6), px);
-        font-size: unit(round(@font-size * 1.15), px);
-    }
+    .btn-size();
 
     &[type='submit'] {
         color: @color-primary;
@@ -409,42 +387,14 @@ input[type='week'],
 input[type='color'],
 select {
     display: inline-block;
-    height: unit(round(@font-size * 2.55), px);
-    padding: unit(round(@font-size * 0.2), px) unit(round(@font-size * 0.8), px);
-    font-size: unit(round(@font-size * 1), px);
+    height: unit(round(@font-size * (2.45)), px);
+    padding: 0 unit(round(@font-size * 0.7), px);
+    font-size: unit(@font-size, px);
     border: @border-width solid @color-border;
     border-radius: unit(round(@font-size * 0.3), px);
-    transition: all 0.3s;
+    transition: all 0.36s;
 
-    &.xs {
-        height: unit(round(@font-size * 2), px);
-        padding: unit(round(@font-size * 0.1), px) unit(round(@font-size * 0.5), px);
-        font-size: unit(round(@font-size * 0.7), px);
-        border-radius: unit(round(@font-size * 0.2), px);
-    }
-
-    &.sm {
-        height: unit(round(@font-size * 2.15), px);
-        padding: unit(round(@font-size * 0.1), px) unit(round(@font-size * 0.5), px);
-        font-size: unit(round(@font-size * 0.85), px);
-        border-radius: unit(round(@font-size * 0.2), px);
-    }
-
-    &.md {
-        height: unit(round(@font-size * 2.55), px);
-        padding: unit(round(@font-size * 0.2), px) unit(round(@font-size * 0.8), px);
-    }
-
-    &.lg {
-        height: unit(round(@font-size * 2.85), px);
-        padding: unit(round(@font-size * 0.2), px) unit(round(@font-size * 0.8), px);
-    }
-
-    &.xl {
-        height: unit(round(@font-size * 3.15), px);
-        padding: unit(round(@font-size * 0.2), px) unit(round(@font-size * 0.8), px);
-        font-size: unit(round(@font-size * 1.15), px);
-    }
+    .inpt-size();
 
     &:focus {
         border: @border-width solid @color-primary;
@@ -470,32 +420,9 @@ input {
         line-height: normal;
         vertical-align: middle;
         cursor: pointer;
-        transition: all 0.3s;
+        transition: all 0.36s;
 
-        &.xs {
-            width: unit(round(@font-size * 0.8), px);
-            height: unit(round(@font-size * 0.8), px);
-        }
-
-        &.sm {
-            width: unit(round(@font-size * 1), px);
-            height: unit(round(@font-size * 1), px);
-        }
-
-        &.md {
-            width: unit(round(@font-size * 1.2), px);
-            height: unit(round(@font-size * 1.2), px);
-        }
-
-        &.lg {
-            width: unit(round(@font-size * 1.4), px);
-            height: unit(round(@font-size * 1.4), px);
-        }
-
-        &.xl {
-            width: unit(round(@font-size * 1.6), px);
-            height: unit(round(@font-size * 1.6), px);
-        }
+        .inpt-cr-size();
     }
 
     &[type='color'] {
@@ -526,38 +453,15 @@ input {
 
 textarea {
     width: 100%;
-    padding: unit(round(@font-size * 0.3), px) unit(round(@font-size * 0.8), px);
+    padding: unit(round(@font-size * 0.3), px) unit(round(@font-size * 0.7), px);
     overflow: auto;
-    font-size: unit(round(@font-size * 1), px);
+    font-size: unit(@font-size, px);
     border: @border-width solid @color-border;
     border-radius: unit(round(@font-size * 0.3), px);
     outline: none;
-    transition: all 0.3s;
+    transition: all 0.36s;
 
-    &.xs {
-        padding: unit(round(@font-size * 0.2), px) unit(round(@font-size * 0.5), px);
-        font-size: unit(round(@font-size * 0.7), px);
-        border-radius: unit(round(@font-size * 0.2), px);
-    }
-
-    &.sm {
-        padding: unit(round(@font-size * 0.2), px) unit(round(@font-size * 0.5), px);
-        font-size: unit(round(@font-size * 0.85), px);
-        border-radius: unit(round(@font-size * 0.2), px);
-    }
-
-    &.md {
-        padding: unit(round(@font-size * 0.3), px) unit(round(@font-size * 0.8), px);
-    }
-
-    &.lg {
-        padding: unit(round(@font-size * 0.3), px) unit(round(@font-size * 0.8), px);
-    }
-
-    &.xl {
-        padding: unit(round(@font-size * 0.4), px) unit(round(@font-size * 0.8), px);
-        font-size: unit(round(@font-size * 1.15), px);
-    }
+    .inpt-area-size();
 
     &:focus {
         border: @border-width solid @color-primary;
@@ -699,7 +603,7 @@ table {
     }
 
     tr {
-        transition: all 0.3s;
+        transition: all 0.36s;
 
         th,
         td {
@@ -746,4 +650,52 @@ table {
     }
 
     .h-x(@i + 1);
+}
+
+.btn-size(@i:length(@size)) when(@i > 0) {
+    @name: extract(@size, @i);
+
+    &.@{name} {
+        height: unit(round(@font-size * (1.85 + (@i - 1) * 0.3)), px);
+        padding: 0 unit(round(@font-size * (0.8 + (@i - 1) * 0.2)), px);
+        font-size: unit(round(@font-size * (0.7 + (@i - 1) * 0.15)), px);
+    }
+
+    .btn-size(@i - 1);
+}
+
+.inpt-size(@i:length(@size)) when(@i > 0) {
+    @name: extract(@size, @i);
+
+    &.@{name} {
+        height: unit(round(@font-size * (1.85 + (@i - 1) * 0.3)), px);
+        padding: 0 unit(round(@font-size * (0.3 + (@i - 1) * 0.2)), px);
+        font-size: unit(round(@font-size * (0.7 + (@i - 1) * 0.15)), px);
+        border-radius: unit(round(@font-size * (0.2 + (@i - 1) * 0.05)), px);
+    }
+
+    .inpt-size(@i - 1);
+}
+
+.inpt-cr-size(@i:length(@size)) when(@i > 0) {
+    @name: extract(@size, @i);
+
+    &.@{name} {
+        width: unit(round(@font-size * (0.8 + (@i - 1) * 0.2)), px);
+        height: unit(round(@font-size * (0.8 + (@i - 1) * 0.2)), px);
+    }
+
+    .inpt-cr-size(@i - 1);
+}
+
+.inpt-area-size(@i:length(@size)) when(@i > 0) {
+    @name: extract(@size, @i);
+
+    &.@{name} {
+        padding: unit(round(@font-size * (0.1 + (@i - 1) * 0.1)), px) unit(round(@font-size * (0.3 + (@i - 1) * 0.2)), px);
+        font-size: unit(round(@font-size * (0.7 + (@i - 1) * 0.15)), px);
+        border-radius: unit(round(@font-size * (0.2 + (@i - 1) * 0.05)), px);
+    }
+
+    .inpt-area-size(@i - 1);
 }

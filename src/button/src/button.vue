@@ -73,7 +73,7 @@ export default {
         ajax: { type: Function, default: null } //ajax请求封装自动处理Loading状态
     },
 
-    emits: ['getphonenumber', 'getuserinfo', 'error', 'opensetting', 'launchapp'],
+    emits: ['click', 'getphonenumber', 'getuserinfo', 'error', 'opensetting', 'launchapp'],
 
     data() {
         return {

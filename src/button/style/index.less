@@ -5,10 +5,7 @@
     box-sizing: border-box;
     display: inline-flex;
     align-items: center;
-    height: unit(round(@font-size * 2.55), px);
-    padding: 0 unit(round(@font-size * 1.4), px);
     overflow: hidden;
-    font-size: unit(@font-size, px);
     line-height: 1;
     text-transform: none;
     cursor: pointer;
@@ -17,7 +14,7 @@
     border: @border-width solid @color-border;
     border-radius: 0;
     outline: none;
-    transition: 0.1s;
+    transition: all 0.36s;
 
     &::after {
         display: none;
@@ -38,7 +35,7 @@
     &.button-hover {
         .@{prefix}-button-hover-bg {
             display: block;
-            animation: buttonhover 0.5s linear;
+            animation: mb-button-hover 0.5s linear;
         }
     }
 
@@ -109,61 +106,18 @@
         }
     }
 
-    .buttontype();
-
-    &.@{prefix}-button-xs {
-        height: unit(round(@font-size * 2), px);
-        padding: 0 unit(round(@font-size * 0.9), px);
-        font-size: unit(round(@font-size * 0.7), px);
-    }
-
-    &.@{prefix}-button-sm {
-        height: unit(round(@font-size * 2.15), px);
-        padding: 0 unit(round(@font-size * 1), px);
-        font-size: unit(round(@font-size * 0.85), px);
-    }
-
-    &.@{prefix}-button-md {
-        height: unit(round(@font-size * 2.55), px);
-        padding: 0 unit(round(@font-size * 1.4), px);
-    }
-
-    &.@{prefix}-button-lg {
-        height: unit(round(@font-size * 2.85), px);
-        padding: 0 unit(round(@font-size * 1.4), px);
-    }
-
-    &.@{prefix}-button-xl {
-        height: unit(round(@font-size * 3.15), px);
-        padding: 0 unit(round(@font-size * 1.6), px);
-    }
+    .button-size();
+    .button-type();
 
     &.@{prefix}-button-circle {
+        padding: 0;
         border-radius: 50%;
+
+        .button-circle-size();
 
         .@{prefix}-button-hover-bg {
             border-radius: 50%;
             transform: scale(0, 0);
-        }
-
-        &.@{prefix}-button-xs {
-            padding: 0 unit(round(@font-size * 0.5), px);
-        }
-
-        &.@{prefix}-button-sm {
-            padding: 0 unit(round(@font-size * 0.6), px);
-        }
-
-        &.@{prefix}-button-md {
-            padding: 0 unit(round(@font-size * 0.7), px);
-        }
-
-        &.@{prefix}-button-lg {
-            padding: 0 unit(round(@font-size * 0.85), px);
-        }
-
-        &.@{prefix}-button-xl {
-            padding: 0 unit(round(@font-size * 0.9), px);
         }
     }
 
@@ -205,7 +159,7 @@
 
         &.button-hover {
             .@{prefix}-button-hover-bg {
-                animation: buttonhover 1s linear;
+                animation: mb-button-hover 1s linear;
             }
         }
     }
@@ -216,14 +170,39 @@
     }
 }
 
-@keyframes buttonhover {
+@keyframes mb-button-hover {
     100% {
         opacity: 0;
         transform: scale(2.5);
     }
 }
 
-.buttontype(@i:length(@style)) when(@i > 0) {
+.button-size(@i:length(@size)) when(@i > 0) {
+    @name: extract(@size, @i);
+
+    &.@{prefix}-button-@{name} {
+        height: unit(round(@font-size * (1.85 + (@i - 1) * 0.3)), px);
+        padding: 0 unit(round(@font-size * (0.8 + (@i - 1) * 0.2)), px);
+        font-size: unit(round(@font-size * (0.7 + (@i - 1) * 0.15)), px);
+    }
+
+    .button-size(@i - 1);
+}
+
+.button-circle-size(@i:length(@size)) when(@i > 0) {
+    @name: extract(@size, @i);
+
+    &.@{prefix}-button-@{name} {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: unit(round(@font-size * (1.85 + (@i - 1) * 0.3)), px);
+    }
+
+    .button-circle-size(@i - 1);
+}
+
+.button-type(@i:length(@style)) when(@i > 0) {
     @name: extract(@style, @i);
 
     &.@{prefix}-button-@{name} {
@@ -326,5 +305,5 @@
         }
     }
 
-    .buttontype(@i - 1);
+    .button-type(@i - 1);
 }
