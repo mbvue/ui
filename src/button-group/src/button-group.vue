@@ -5,8 +5,6 @@
 </template>
 
 <script>
-import { vueVer } from '../../base/utils/env';
-
 export default {
     name: 'MbButtonGroup',
 
@@ -15,10 +13,12 @@ export default {
         disabled: { type: Boolean, default: false } //是否禁用状态
     },
 
+    emits: ['click'],
+
     methods: {
         //点击事件
         onClick(event) {
-            if (vueVer === 2) this.$emit('click', event); //兼容vue2 点击事件
+            this.$emit('click', event);
         }
     }
 };

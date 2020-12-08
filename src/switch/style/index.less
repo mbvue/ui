@@ -3,12 +3,9 @@
 .@{prefix}-switch {
     position: relative;
     display: inline-block;
-    min-width: unit(round(@font-size * 2.86), px);
-    height: unit(round(@font-size * 1.5), px);
     overflow: hidden;
     cursor: pointer;
     background-color: @color-info;
-    border-radius: unit(round(@font-size * 1.5), px);
     transition: all 0.2s;
 
     .@{prefix}-switch-label {
@@ -16,8 +13,6 @@
         display: flex;
         align-items: center;
         height: 100%;
-        margin-left: unit(round(@font-size * 1.6), px);
-        line-height: unit(round(@font-size * 1.5), px);
         color: #fff;
         transition: all 0.38s cubic-bezier(0.78, 0.14, 0.15, 0.86);
 
@@ -37,8 +32,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: unit(round(@font-size * 1.3), px);
-        height: unit(round(@font-size * 1.3), px);
         overflow: hidden;
         color: @color-primary;
         background-color: #fff;
@@ -47,133 +40,56 @@
         transition: all 0.38s cubic-bezier(0.78, 0.14, 0.15, 0.86);
     }
 
-    &.@{prefix}-switch-xs {
-        min-width: unit(round(@font-size * 2.2), px);
-        height: unit(round(@font-size * 1.15), px);
-        border-radius: unit(round(@font-size * 1.15), px);
-
-        .@{prefix}-switch-label {
-            margin-left: unit(round(@font-size * 1.15), px);
-            font-size: 12px;
-            line-height: unit(round(@font-size * 1.15), px);
-        }
-
-        .@{prefix}-switch-botton {
-            width: unit(round(@font-size * 1), px);
-            height: unit(round(@font-size * 1), px);
-        }
-    }
-
-    &.@{prefix}-switch-sm {
-        min-width: unit(round(@font-size * 2.53), px);
-        height: unit(round(@font-size * 1.3), px);
-        border-radius: unit(round(@font-size * 1.3), px);
-
-        .@{prefix}-switch-label {
-            margin-left: unit(round(@font-size * 1.35), px);
-            font-size: 12px;
-            line-height: unit(round(@font-size * 1.3), px);
-        }
-
-        .@{prefix}-switch-botton {
-            width: unit(round(@font-size * 1.15), px);
-            height: unit(round(@font-size * 1.15), px);
-        }
-    }
-
-    &.@{prefix}-switch-md {
-        min-width: unit(round(@font-size * 2.97), px);
-        height: unit(round(@font-size * 1.5), px);
-        border-radius: unit(round(@font-size * 1.5), px);
-
-        .@{prefix}-switch-label {
-            margin-left: unit(round(@font-size * 1.65), px);
-            line-height: unit(round(@font-size * 1.5), px);
-        }
-
-        .@{prefix}-switch-botton {
-            width: unit(round(@font-size * 1.35), px);
-            height: unit(round(@font-size * 1.35), px);
-        }
-    }
-
-    &.@{prefix}-switch-lg {
-        min-width: unit(round(@font-size * 3.5), px);
-        height: unit(round(@font-size * 1.7), px);
-        border-radius: unit(round(@font-size * 1.7), px);
-
-        .@{prefix}-switch-label {
-            margin-left: unit(round(@font-size * 2), px);
-            line-height: unit(round(@font-size * 1.7), px);
-        }
-
-        .@{prefix}-switch-botton {
-            width: unit(round(@font-size * 1.55), px);
-            height: unit(round(@font-size * 1.55), px);
-        }
-    }
-
-    &.@{prefix}-switch-xl {
-        min-width: unit(round(@font-size * 4.1), px);
-        height: unit(round(@font-size * 2), px);
-        border-radius: unit(round(@font-size * 2), px);
-
-        .@{prefix}-switch-label {
-            margin-left: unit(round(@font-size * 2.5), px);
-            line-height: unit(round(@font-size * 2), px);
-        }
-
-        .@{prefix}-switch-botton {
-            width: unit(round(@font-size * 1.85), px);
-            height: unit(round(@font-size * 1.85), px);
-        }
-    }
+    .switch-size();
 
     &.@{prefix}-switch-checked {
         background-color: @color-primary;
 
         .@{prefix}-switch-botton {
-            margin-left: -2px;
-            transform: translateX(120%);
+            margin-left: 2px;
+            transform: translateX(100%);
         }
 
-        .@{prefix}-switch-label {
-            margin-left: unit(round(@font-size * 0.4), px);
-        }
-
-        &.@{prefix}-switch-xs {
-            .@{prefix}-switch-label {
-                margin-left: unit(round(@font-size * 0.3), px);
-            }
-        }
-
-        &.@{prefix}-switch-sm {
-            .@{prefix}-switch-label {
-                margin-left: unit(round(@font-size * 0.4), px);
-            }
-        }
-
-        &.@{prefix}-switch-md {
-            .@{prefix}-switch-label {
-                margin-left: unit(round(@font-size * 0.4), px);
-            }
-        }
-
-        &.@{prefix}-switch-lg {
-            .@{prefix}-switch-label {
-                margin-left: unit(round(@font-size * 0.6), px);
-            }
-        }
-
-        &.@{prefix}-switch-xl {
-            .@{prefix}-switch-label {
-                margin-left: unit(round(@font-size * 0.7), px);
-            }
-        }
+        .switch-checked-size();
     }
 
     &.@{prefix}-switch-disabled {
         cursor: not-allowed;
         opacity: 0.6 !important;
     }
+}
+
+.switch-size(@i:length(@size)) when(@i > 0) {
+    @name: extract(@size, @i);
+
+    &.@{prefix}-switch-@{name} {
+        min-width: unit(round(@font-size * (1 + @i * 0.2)) * 2, px);
+        height: unit(round(@font-size * (1 + @i * 0.2)), px);
+        border-radius: unit(round(@font-size * (1 + @i * 0.2)), px);
+
+        .@{prefix}-switch-label {
+            margin-left: unit(round(@font-size * (1 + @i * 0.25)), px);
+            font-size: if((@name = ~'xs') or (@name = ~'sm'), unit(round(@font-size * 0.8), px), unit(@font-size, px));
+            line-height: unit(round(@font-size * (1 + @i * 0.2)), px);
+        }
+
+        .@{prefix}-switch-botton {
+            width: unit(round(@font-size * (1 + @i * 0.2)) - 2, px);
+            height: unit(round(@font-size * (1 + @i * 0.2)) - 2, px);
+        }
+    }
+
+    .switch-size(@i - 1);
+}
+
+.switch-checked-size(@i:length(@size)) when(@i > 0) {
+    @name: extract(@size, @i);
+
+    &.@{prefix}-switch-@{name} {
+        .@{prefix}-switch-label {
+            margin-left: unit(round(@font-size * (0.2 + @i * 0.1)), px);
+        }
+    }
+
+    .switch-checked-size(@i - 1);
 }

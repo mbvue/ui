@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { vue, vueVer } from '../../base/utils/env';
+import { vue } from '../../base/utils/env';
 
 export default {
     name: 'MbRadioGroup',
@@ -72,7 +72,7 @@ export default {
 
         //点击事件
         onClick(event) {
-            if (vueVer === 2) this.$emit('click', event); //兼容vue2 点击事件
+            this.$emit('click', event);
         }
     }
 };

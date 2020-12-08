@@ -17,7 +17,11 @@
             border-bottom-left-radius: 0;
 
             &:nth-child(2) {
-                border-left-width: 1px;
+                border-left-width: @border-width;
+
+                &.@{prefix}-button-link {
+                    border-left-width: 0;
+                }
             }
         }
 
@@ -26,7 +30,11 @@
         }
 
         &:nth-child(2) {
-            border-left-width: 1px;
+            border-left-width: @border-width;
+
+            &.@{prefix}-button-link {
+                border-left-width: 0;
+            }
         }
 
         &:not(:first-child):not(:last-child) {
@@ -50,7 +58,11 @@
                 border-bottom-left-radius: 0;
 
                 &:nth-child(2) {
-                    border-left-width: 1px;
+                    border-left-width: @border-width;
+
+                    &.@{prefix}-button-link {
+                        border-left-width: 0;
+                    }
                 }
             }
         }
@@ -63,7 +75,11 @@
 
         &:nth-child(2) {
             .@{prefix}-button {
-                border-left-width: 1px;
+                border-left-width: @border-width;
+
+                &.@{prefix}-button-link {
+                    border-left-width: 0;
+                }
             }
         }
 

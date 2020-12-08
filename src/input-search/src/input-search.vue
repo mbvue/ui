@@ -116,7 +116,7 @@ export default {
         } //历史搜索记录
     },
 
-    emits: ['focus', 'blur', 'change', 'input', 'enter', 'confirm', 'search'],
+    emits: ['focus', 'blur', 'change', 'input', 'enter', 'confirm', 'search', 'update:history'],
 
     data() {
         return {
@@ -142,7 +142,7 @@ export default {
             let cls = ['mb-input-search-left'];
 
             if (isBoolean(this.border)) {
-                cls.push(this.border ? `mb-input-search-left-border-all` : `mb-input-search-left-border-none`);
+                cls.push(this.border ? `mb-input-search-left-border-all` : ``);
             } else {
                 cls.push(`mb-input-search-left-border-${this.border}`);
             }

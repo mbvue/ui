@@ -32,7 +32,7 @@
 
 <script>
 import { Mixins } from '../../base/base';
-import { vue, vueVer, uniApp } from '../../base/utils/env';
+import { vue, uniApp } from '../../base/utils/env';
 import { isFunction } from '../../base/utils/test';
 import { throttle, transNumber } from '../../base/utils/util';
 
@@ -73,7 +73,7 @@ export default {
         ajax: { type: Function, default: null } //ajax请求封装自动处理Loading状态
     },
 
-    emits: ['click', 'getphonenumber', 'getuserinfo', 'error', 'opensetting', 'launchapp'],
+    emits: ['click', 'update:loading', 'getphonenumber', 'getuserinfo', 'error', 'opensetting', 'launchapp'],
 
     data() {
         return {
@@ -154,7 +154,7 @@ export default {
                     if (!uniApp && this.hoverClass !== '' && !this.hoverTime) {
                         this.$el.className = this.$el.className.concat(' ' + this.hoverClass);
 
-                        if (vueVer === 2) this.$emit('click', event); //兼容vue2 点击事件
+                        this.$emit('click', event);
 
                         this.hoverTime = setTimeout(() => {
                             this.$el.className = this.$el.className.replace(' ' + this.hoverClass, '');

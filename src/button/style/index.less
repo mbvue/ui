@@ -39,23 +39,16 @@
         }
     }
 
-    &.@{prefix}-button-default {
-        &.@{prefix}-button-disabled {
-            color: mix(#fff, @color, 60%);
-            cursor: not-allowed;
-            border-color: mix(#fff, @color-border, 30%);
-        }
+    &.@{prefix}-button-disabled {
+        cursor: not-allowed;
+    }
 
+    &.@{prefix}-button-default {
         &.@{prefix}-button-dashed {
             border-style: dashed;
 
-            &:hover {
+            &:not(.@{prefix}-button-disabled):hover {
                 background-color: mix(#fff, @color-border, 50%);
-            }
-
-            &.@{prefix}-button-disabled {
-                cursor: not-allowed;
-                background-color: #fff;
             }
         }
 
@@ -66,28 +59,16 @@
                 background: @color-border;
             }
 
-            &:hover {
+            &:not(.@{prefix}-button-disabled):hover {
                 color: mix(#fff, @color, 30%);
-                border-color: mix(#fff, @color-border, 30%);
-            }
-
-            &.@{prefix}-button-disabled {
-                color: mix(#fff, @color, 60%);
-                cursor: not-allowed;
                 border-color: mix(#fff, @color-border, 30%);
             }
         }
 
         &.@{prefix}-button-plain {
-            &:hover {
+            &:not(.@{prefix}-button-disabled):hover {
                 color: @color-primary;
                 border-color: @color-primary;
-            }
-
-            &.@{prefix}-button-disabled {
-                color: mix(#fff, @color, 60%);
-                cursor: not-allowed;
-                border-color: mix(#fff, @color-border, 30%);
             }
         }
 
@@ -95,13 +76,8 @@
             background-color: transparent;
             border-color: transparent;
 
-            &:hover {
+            &:not(.@{prefix}-button-disabled):hover {
                 color: mix(#fff, @color, 20%);
-            }
-
-            &.@{prefix}-button-disabled {
-                color: mix(#fff, @color, 60%);
-                cursor: not-allowed;
             }
         }
     }
@@ -122,11 +98,13 @@
     }
 
     &.@{prefix}-button-round {
-        border-radius: unit(round(@font-size * 3), px);
+        border-radius: unit(round(@font-size * 2.45), px);
 
         .@{prefix}-button-hover-bg {
-            border-radius: unit(round(@font-size * 3), px);
+            border-radius: unit(round(@font-size * 2.45), px);
         }
+
+        .button-round-size();
     }
 
     &.@{prefix}-button-pill {
@@ -134,18 +112,6 @@
 
         .@{prefix}-button-hover-bg {
             border-radius: unit(round(@font-size * 0.3), px);
-        }
-
-        &.@{prefix}-button-xs {
-            border-radius: unit(round(@font-size * 0.2), px);
-        }
-
-        &.@{prefix}-button-sm {
-            border-radius: unit(round(@font-size * 0.2), px);
-        }
-
-        &.@{prefix}-button-xl {
-            font-size: unit(round(@font-size * 1.15), px);
         }
     }
 
@@ -202,6 +168,20 @@
     .button-circle-size(@i - 1);
 }
 
+.button-round-size(@i:length(@size)) when(@i > 0) {
+    @name: extract(@size, @i);
+
+    &.@{prefix}-button-@{name} {
+        border-radius: unit(round(@font-size * (1.85 + (@i - 1) * 0.3)), px);
+
+        .@{prefix}-button-hover-bg {
+            border-radius: unit(round(@font-size * (1.85 + (@i - 1) * 0.3)), px);
+        }
+    }
+
+    .button-round-size(@i - 1);
+}
+
 .button-type(@i:length(@style)) when(@i > 0) {
     @name: extract(@style, @i);
 
@@ -215,13 +195,12 @@
         border-color: @@value;
         border-width: 0;
 
-        &:hover {
+        &:not(.@{prefix}-button-disabled):hover {
             background-color: mix(#fff, @@value, 20%);
             border-color: mix(#fff, @@value, 20%);
         }
 
         &.@{prefix}-button-disabled {
-            cursor: not-allowed;
             background-color: @@light;
             border-color: @@light;
         }
@@ -236,15 +215,13 @@
                 background: @@light;
             }
 
-            &:hover {
-                background-color: mix(#fff, @@lighter, 80%);
+            &:not(.@{prefix}-button-disabled):hover {
+                background-color: transparent;
                 border-color: mix(#fff, @@value, 30%);
             }
 
             &.@{prefix}-button-disabled {
                 color: mix(#fff, @@value, 60%);
-                cursor: not-allowed;
-                background-color: mix(#fff, @@lighter, 90%);
                 border-color: mix(#fff, @@value, 60%);
             }
         }
@@ -258,14 +235,14 @@
                 background: @@light;
             }
 
-            &:hover {
+            &:not(.@{prefix}-button-disabled):hover {
                 color: mix(#fff, @@value, 30%);
+                background-color: transparent;
                 border-color: mix(#fff, @@value, 30%);
             }
 
             &.@{prefix}-button-disabled {
                 color: mix(#fff, @@value, 60%);
-                cursor: not-allowed;
                 border-color: mix(#fff, @@value, 60%);
             }
         }
@@ -276,14 +253,13 @@
             border-color: @@value;
             border-width: @border-width;
 
-            &:hover {
+            &:not(.@{prefix}-button-disabled):hover {
                 color: #fff;
                 background-color: @@value;
             }
 
             &.@{prefix}-button-disabled {
                 color: mix(#fff, @@value, 60%);
-                cursor: not-allowed;
                 background-color: @@lighter;
                 border-color: @@light;
             }
@@ -294,13 +270,13 @@
             background-color: transparent;
             border-color: transparent;
 
-            &:hover {
+            &:not(.@{prefix}-button-disabled):hover {
                 color: mix(#fff, @@value, 20%);
+                background-color: transparent;
             }
 
             &.@{prefix}-button-disabled {
                 color: mix(#fff, @@value, 60%);
-                cursor: not-allowed;
             }
         }
     }

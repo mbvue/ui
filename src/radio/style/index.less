@@ -17,16 +17,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: unit(round(@font-size * 1.2), px);
-        height: unit(round(@font-size * 1.2), px);
-        margin-right: unit(round(@font-size * 0.1), px);
+        margin-right: unit(round(@font-size * 0.15), px);
         overflow: hidden;
         border: @border-width solid @color-info;
         transition: all 0.3s;
 
         .@{prefix}-radio-icon-round {
-            width: unit(round(@font-size * 0.8), px);
-            height: unit(round(@font-size * 0.8), px);
             overflow: hidden;
             background-color: transparent;
             opacity: 0;
@@ -34,55 +30,7 @@
             transform: scale(0);
         }
 
-        &.@{prefix}-radio-icon-xs {
-            width: unit(round(@font-size * 0.8), px);
-            height: unit(round(@font-size * 0.8), px);
-
-            .@{prefix}-radio-icon-round {
-                width: unit(round(@font-size * 0.5), px);
-                height: unit(round(@font-size * 0.5), px);
-            }
-        }
-
-        &.@{prefix}-radio-icon-sm {
-            width: unit(round(@font-size * 1), px);
-            height: unit(round(@font-size * 1), px);
-
-            .@{prefix}-radio-icon-round {
-                width: unit(round(@font-size * 0.6), px);
-                height: unit(round(@font-size * 0.6), px);
-            }
-        }
-
-        &.@{prefix}-radio-icon-md {
-            width: unit(round(@font-size * 1.2), px);
-            height: unit(round(@font-size * 1.2), px);
-
-            .@{prefix}-radio-icon-round {
-                width: unit(round(@font-size * 0.8), px);
-                height: unit(round(@font-size * 0.8), px);
-            }
-        }
-
-        &.@{prefix}-radio-icon-lg {
-            width: unit(round(@font-size * 1.4), px);
-            height: unit(round(@font-size * 1.4), px);
-
-            .@{prefix}-radio-icon-round {
-                width: unit(round(@font-size * 1), px);
-                height: unit(round(@font-size * 1), px);
-            }
-        }
-
-        &.@{prefix}-radio-icon-xl {
-            width: unit(round(@font-size * 1.6), px);
-            height: unit(round(@font-size * 1.6), px);
-
-            .@{prefix}-radio-icon-round {
-                width: unit(round(@font-size * 1.15), px);
-                height: unit(round(@font-size * 1.15), px);
-            }
-        }
+        .radio-size();
 
         &.@{prefix}-radio-icon-circle {
             border-radius: 50%;
@@ -139,4 +87,20 @@
             }
         }
     }
+}
+
+.radio-size(@i:length(@size)) when(@i > 0) {
+    @name: extract(@size, @i);
+
+    &.@{prefix}-radio-icon-@{name} {
+        width: unit(ceil(@font-size * (0.8 + (@i - 1) * 0.2)), px);
+        height: unit(ceil(@font-size * (0.8 + (@i - 1) * 0.2)), px);
+
+        .@{prefix}-radio-icon-round {
+            width: unit(round(@font-size * (0.4 + (@i - 1) * 0.2)), px);
+            height: unit(round(@font-size * (0.4 + (@i - 1) * 0.2)), px);
+        }
+    }
+
+    .radio-size(@i - 1);
 }

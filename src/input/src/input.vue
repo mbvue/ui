@@ -1,11 +1,16 @@
 <template>
     <div ref="input" :class="buildClass">
-        <div v-if="$slots.prefix || prefix" class="mb-input-prefix">
-            <slot v-if="$slots.prefix" name="prefix" />
-            <mb-icon v-else-if="prefix" :type="prefix" :size="prefixSize" />
+        <div v-if="$slots.addonBefore || addonBefore" class="mb-input-addon-before">
+            <slot v-if="$slots.addonBefore" name="addonBefore" />
+            <template v-else>{{ addonBefore }}</template>
         </div>
 
-        <div class="mb-input-input">
+        <div :class="buildInputClass" :style="buildInputStyle">
+            <div v-if="$slots.prefix || prefix" class="mb-input-prefix">
+                <slot v-if="$slots.prefix" name="prefix" />
+                <mb-icon v-else-if="prefix" :type="prefix" :size="prefixSize" />
+            </div>
+
             <textarea
                 v-if="buildType === 'textarea'"
                 :id="id"
@@ -17,7 +22,6 @@
                 :readonly="readonly"
                 :maxlength="maxLength"
                 :value="inputValue"
-                :style="customStyle"
                 :focus="autoFocus"
                 :autofocus="autoFocus"
                 :autoHeight="autoHeight"
@@ -44,7 +48,6 @@
                 :maxlength="maxLength"
                 :value="inputValue"
                 :confirmType="confirmType"
-                :style="customStyle"
                 :focus="autoFocus"
                 :autofocus="autoFocus"
                 :cursorSpacing="cursorSpacing"
@@ -68,7 +71,6 @@
                 :password="type.toLowerCase() === 'password' ? true : false"
                 :value="inputValue"
                 :confirmType="confirmType"
-                :style="customStyle"
                 :focus="autoFocus"
                 :autofocus="autoFocus"
                 :cursorSpacing="cursorSpacing"
@@ -81,22 +83,31 @@
                 @keyup.enter="onEnter"
             />
 
-            <div v-if="allowClear && inputValue != '' && focused" class="mb-input-input-clear">
-                <mb-icon type="times-circle" :size="16" @mousedown="onClear" @touchstart="onClear" />
-            </div>
+            <div v-if="allowClear || (type == 'password' && passwordIcon) || type == 'select' || $slots.suffix || suffix" class="mb-input-suffix">
+                <transition name="mb-input-clear-fade">
+                    <div v-if="allowClear && inputValue != '' && focused" class="mb-input-input-clear">
+                        <mb-icon type="times-circle" :size="16" @mousedown="onClear" @touchstart="onClear" />
+                    </div>
+                </transition>
 
-            <div v-if="type == 'password' && passwordIcon" class="mb-input-input-password">
-                <mb-icon :type="showPassword ? 'eye' : 'eye-slash'" :size="16" @mousedown="onPassword" @touchstart="onPassword" />
-            </div>
+                <div v-if="type == 'password' && passwordIcon" class="mb-input-input-password">
+                    <mb-icon :type="showPassword ? 'eye' : 'eye-slash'" :size="16" @mousedown="onPassword" @touchstart="onPassword" />
+                </div>
 
-            <div v-if="type == 'select'" :class="{ 'mb-input-input-select': true, 'mb-input-input-select-open': selectOpen }">
-                <mb-icon type="caret-down" :size="16" />
+                <div v-if="type == 'select'" :class="{ 'mb-input-input-select': true, 'mb-input-input-select-open': selectOpen }">
+                    <mb-icon type="caret-down" :size="16" />
+                </div>
+
+                <div v-if="$slots.suffix || suffix" class="mb-input-suffix-suffix">
+                    <slot v-if="$slots.suffix" name="suffix" />
+                    <mb-icon v-else-if="suffix" :type="suffix" :size="suffixSize" />
+                </div>
             </div>
         </div>
 
-        <div v-if="$slots.suffix || suffix" class="mb-input-suffix">
-            <slot v-if="$slots.suffix" name="suffix" />
-            <mb-icon v-else-if="suffix" :type="suffix" :size="suffixSize" />
+        <div v-if="$slots.addonAfter || addonAfter" class="mb-input-addon-after">
+            <slot v-if="$slots.addonAfter" name="addonAfter" />
+            <template v-else>{{ addonAfter }}</template>
         </div>
     </div>
 </template>
@@ -105,7 +116,7 @@
 import { Mixins } from '../../base/base';
 import { vue, uniApp } from '../../base/utils/env';
 import { isBoolean } from '../../base/utils/test';
-import { trim } from '../../base/utils/util';
+import { unit, trim } from '../../base/utils/util';
 
 export default {
     name: 'MbInput',
@@ -128,6 +139,8 @@ export default {
         prefixSize: { type: Number, default: 16 }, //前缀图标尺寸
         suffix: { type: String, default: '' }, //带有后缀图标的 input
         suffixSize: { type: Number, default: 16 }, //后缀图标尺寸
+        addonBefore: { type: String, default: '' }, //前缀内容
+        addonAfter: { type: String, default: '' }, //后缀内容
         defaultValue: { type: [String, Number], default: '' }, //输入框默认内容
         value: { type: [String, Number], default: '' }, //输入框内容
         modelValue: { type: [String, Number], default: '' }, //输入框内容
@@ -140,7 +153,7 @@ export default {
             default: () => {
                 return {};
             }
-        }, //自定义输入框的样式
+        }, //自定义样式
         autoFocus: { type: Boolean, default: false }, //是否自动获得焦点
         autoHeight: { type: Boolean, default: false }, //是否自动增高输入区域，type为textarea时有效
         fixed: { type: Boolean, default: false }, //如果type为textarea，且在一个"position:fixed"的区域，需要指明为true,仅支持uni-app
@@ -175,22 +188,42 @@ export default {
         buildClass() {
             let cls = ['mb-input'];
 
+            if (this.buildDisabled) cls.push('mb-input-disabled');
+            if (this.buildSize) cls.push(`mb-input-${this.buildSize}`);
+            if (this.buildType === 'textarea') cls.push('mb-input-textarea');
+            if (this.buildType === 'textarea' && this.autoHeight) cls.push('mb-input-textarea-auto');
+            if (this.buildType === 'select') cls.push('mb-input-select');
+            if (this.$slots.prefix || this.prefix) cls.push(`mb-input-has-prefix`);
+            if (this.allowClear || (this.type == 'password' && this.passwordIcon) || this.type == 'select' || this.$slots.suffix || this.suffix) cls.push(`mb-input-has-suffix`);
+
+            return cls;
+        },
+
+        //构建Input样式
+        buildInputClass() {
+            let cls = ['mb-input-input'];
+
             if (isBoolean(this.border)) {
-                cls.push(this.border ? 'mb-input-border-all' : 'mb-input-border-none');
+                cls.push(this.border ? 'mb-input-border-all' : '');
             } else if (this.border) {
                 cls.push(`mb-input-border-${this.border}`);
             }
 
             if (this.focused) cls.push('mb-input-focused');
-            if (this.buildDisabled) cls.push('mb-input-disabled');
-            if (this.buildType === 'textarea') cls.push('mb-input-textarea');
-            if (this.buildType === 'textarea' && this.autoHeight) cls.push('mb-input-textarea-auto');
-            if (this.buildType === 'select') cls.push('mb-input-select');
-            if (this.buildSize) cls.push(`mb-input-${this.buildSize}`);
-            if (this.$slots.prefix || this.prefix) cls.push(`mb-input-has-prefix`);
-            if (this.$slots.suffix || this.suffix || this.allowClear) cls.push(`mb-input-has-suffix`);
 
             return cls;
+        },
+
+        //构建Input样式
+        buildInputStyle() {
+            let style = Object.assign({}, this.customStyle);
+
+            if (this.$slots.prefix || this.prefix) style.paddingLeft = unit(this.prefixSize + 10);
+            if (this.allowClear || (this.type == 'password' && this.passwordIcon) || this.type == 'select' || this.$slots.suffix || this.suffix) {
+                style.paddingRight = unit(this.suffixSize + 10);
+            }
+
+            return style;
         },
 
         //是否禁用

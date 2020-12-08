@@ -12,7 +12,6 @@
 
 <script>
 import { Mixins } from '../../base/base';
-import { vueVer } from '../../base/utils/env';
 
 export default {
     name: 'MbCheckbox',
@@ -33,7 +32,7 @@ export default {
         activeColor: { type: String, default: '' } //选中状态下的颜色
     },
 
-    emits: ['input', 'update:modelValue', 'blur', 'update:checked'],
+    emits: ['input', 'blur', 'click', 'update:modelValue', 'update:checked'],
 
     data() {
         return {
@@ -177,7 +176,7 @@ export default {
                 });
             });
 
-            if (vueVer === 2) this.$emit('click', event); //兼容vue2 点击事件
+            this.$emit('click', event);
         },
 
         //失去光标

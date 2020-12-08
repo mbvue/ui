@@ -132,7 +132,8 @@
 
 :::demo html
 
-<mb-input allowClear placeholder="请输入内容" /> 
+<mb-input allowClear placeholder="请输入内容" />&nbsp;&nbsp;
+<mb-input allowClear suffix="user" placeholder="请输入内容" />
 :::
 
 ### 1.6、文本框
@@ -185,6 +186,26 @@
 <mb-input type="number" placeholder="请输入内容" />
 :::
 
+### 1.10、输入框前后组合
+
+:::demo html
+
+<mb-input addon-before=".com" placeholder="请输入内容" />
+<br/>
+<br/>
+<mb-input placeholder="请输入内容">
+    <template v-slot:addonBefore><mb-icon type="user" :size="18"></mb-icon></template>
+</mb-input>
+<br/>
+<br/>
+<mb-input addon-after=".com" placeholder="请输入内容" />
+<br/>
+<br/>
+<mb-input placeholder="请输入内容">
+    <template v-slot:addonAfter><mb-icon type="user" :size="18"></mb-icon></template>
+</mb-input>
+:::
+
 ## 2、 API 配置
 
 ### 2.1、 参数
@@ -202,11 +223,14 @@
 | prefixSize       | 前缀图标尺寸                                                                          | Number          | 16     | -                                     |
 | suffix           | 后缀图标                                                                              | String          | -      | -                                     |
 | suffixSize       | 后缀图标尺寸                                                                          | Number          | 16     | -                                     |
+| addonBefore      | 前缀内容                                                                              | String          | -      | -                                     |
+| addonAfter       | 后缀内容                                                                              | String          | -      | -                                     |
 | value(v-model)   | 输入框内容                                                                            | String,Number   | -      | -                                     |
 | allowClear       | 可以点击清除图标删除内容                                                              | Boolean         | false  | true                                  |
 | placeholder      | placeholder 显示值                                                                    | String          | -      | -                                     |
 | placeholderStyle | placeholder 的样式,仅支持 uni-app                                                     | String          | -      | -                                     |
 | confirmType      | 设置键盘右下角按钮的文字，仅在 uni-app 中 type 为 text 时生效                         | String          | done   | -                                     |
+| customStyle      | 自定义样式                                                                            | Object          | -      | -                                     |
 | autoFocus        | 是否自动获得焦点                                                                      | Boolean         | false  | true                                  |
 | autoHeight       | 是否自动增高输入区域，type 为 textarea 时有效                                         | Boolean         | false  | true                                  |
 | fixed            | 如果 type 为 textarea，且在一个"position:fixed"的区域，需要指明为 true,仅支持 uni-app | Boolean         | false  | true                                  |
@@ -219,10 +243,12 @@
 
 ### 2.2、插槽
 
-| 名称   | 说明       |
-| ------ | ---------- |
-| prefix | 自定义前缀 |
-| suffix | 自定义后缀 |
+| 名称        | 说明       |
+| ----------- | ---------- |
+| prefix      | 自定义前缀 |
+| suffix      | 自定义后缀 |
+| addonBefore | 前缀内容   |
+| addonAfter  | 后缀内容   |
 
 ### 2.3、事件
 

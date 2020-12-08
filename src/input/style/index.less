@@ -1,33 +1,117 @@
 @import '../../base/style/theme.less';
 
+@borderPlace: ~'top', ~'right', ~'bottom', ~'left';
+
 .@{prefix}-input {
     position: relative;
     box-sizing: border-box;
     display: inline-flex;
     flex-flow: row;
     width: 180px;
-    height: unit(round(@font-size * 2.55), px);
     overflow: hidden;
-    font-size: unit(round(@font-size * 1), px);
     user-select: none;
-    border-color: @color-border;
-    border-style: solid;
-    border-width: 0;
-    border-radius: unit(round(@font-size * 0.3), px);
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: all 0.36s;
 
     &.@{prefix}-input-disabled {
         opacity: 0.6 !important;
     }
 
-    &.@{prefix}-input-focused {
-        border-color: @color-primary;
-        box-shadow: 0 0 3px lighten(@color-primary, 20%);
+    .@{prefix}-input-input {
+        flex: 1;
+        overflow: hidden;
+        border: 0 solid @color-border;
+        transition: all 0.36s;
+
+        &.@{prefix}-input-border-all {
+            border-width: @border-width;
+
+            &.@{prefix}-input-focused {
+                z-index: 1;
+                border-color: @color-primary;
+                box-shadow: 0 0 3px lighten(@color-primary, 20%);
+            }
+        }
+
+        .border-place();
+
+        .@{prefix}-input-prefix {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            padding: 0 8px;
+            line-height: 0;
+            color: rgba(0, 0, 0, 0.65);
+            transform: translateY(-50%);
+        }
+
+        .@{prefix}-input-suffix {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            padding: 0 8px;
+            line-height: 0;
+            color: rgba(0, 0, 0, 0.65);
+            transform: translateY(-50%);
+
+            .@{prefix}-input-input-clear {
+                margin-left: unit(round(@font-size * 0.4), px);
+                cursor: pointer;
+
+                &:only-child {
+                    margin: 0;
+                }
+            }
+
+            .@{prefix}-input-input-password {
+                margin-left: unit(round(@font-size * 0.4), px);
+                cursor: pointer;
+
+                &:only-child {
+                    margin: 0;
+                }
+            }
+
+            .@{prefix}-input-input-select {
+                margin-left: unit(round(@font-size * 0.4), px);
+                cursor: pointer;
+                transition: transform 0.3s;
+
+                &.@{prefix}-input-input-select-open {
+                    transform: rotate(-180deg);
+                }
+
+                &:only-child {
+                    margin: 0;
+                }
+            }
+        }
+
+        .@{prefix}-input-input-input {
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 0;
+            outline: none;
+            box-shadow: none;
+
+            &.@{prefix}-input-input-textarea {
+                word-break: break-all;
+                resize: none;
+                outline: none;
+            }
+        }
     }
 
     &.@{prefix}-input-textarea {
         width: 100%;
-        height: unit(round(@font-size * 5.1), px);
+        .input-textarea-size();
 
         &.@{prefix}-input-textarea-auto {
             .@{prefix}-input-input {
@@ -39,8 +123,6 @@
     }
 
     &.@{prefix}-input-select {
-        cursor: pointer;
-
         .@{prefix}-input-input {
             .@{prefix}-input-input-input {
                 cursor: pointer;
@@ -48,149 +130,64 @@
         }
     }
 
-    .@{prefix}-input-input {
-        display: flex;
-        flex: 1;
-        flex-flow: row;
-        align-items: center;
+    .input-size();
 
-        .@{prefix}-input-input-input {
-            display: inline-block;
-            flex: 1;
-            width: 100%;
-            max-width: 100%;
-            height: 100%;
-            padding: 0 unit(round(@font-size * 0.8), px);
-            font-size: unit(round(@font-size * 1), px);
-            border: 0;
-            border-radius: 0;
-
-            &:placeholder-shown {
-                text-overflow: ellipsis;
-            }
-
-            &:focus {
-                border: 0;
-                box-shadow: none;
-            }
-
-            &.@{prefix}-input-input-textarea {
-                word-break: break-all;
-                resize: none;
-                outline: none;
-            }
-        }
-
-        .@{prefix}-input-input-clear {
-            display: flex;
-            align-items: center;
-            margin-right: unit(round(@font-size * 0.4), px);
-            cursor: pointer;
-        }
-
-        .@{prefix}-input-input-password {
-            display: flex;
-            align-items: center;
-            margin-right: unit(round(@font-size * 0.4), px);
-            cursor: pointer;
-        }
-
-        .@{prefix}-input-input-select {
-            display: flex;
-            align-items: center;
-            margin-right: unit(round(@font-size * 0.4), px);
-            cursor: pointer;
-            transition: transform 0.3s;
-
-            &.mb-input-input-select-open {
-                transform: rotate(-180deg);
-            }
-        }
-    }
-
-    .@{prefix}-input-prefix {
+    .@{prefix}-input-addon-before,
+    .@{prefix}-input-addon-after {
+        position: relative;
         display: flex;
         align-items: center;
-        padding-left: unit(round(@font-size * 0.4), px);
+        justify-content: center;
+        transition: all 0.36s;
     }
+}
 
-    .@{prefix}-input-suffix {
-        display: flex;
-        align-items: center;
-        padding-right: unit(round(@font-size * 0.4), px);
-    }
+.border-place(@i:length(@borderPlace)) when(@i > 0) {
+    @place: extract(@borderPlace, @i);
 
-    &.@{prefix}-input-xs {
-        height: unit(round(@font-size * 2), px);
-        border-radius: unit(round(@font-size * 0.2), px);
+    &.@{prefix}-input-border-@{place} {
+        border-@{place}-width: @border-width;
 
-        &.@{prefix}-input-textarea {
-            height: unit(round(@font-size * 4), px);
+        &::after {
+            position: absolute;
+            top: if(@place = ~'bottom', auto, 0);
+            right: if(@place = ~'left', auto, 0);
+            bottom: if(@place = ~'top', auto, 0);
+            left: if(@place = ~'right', auto, 0);
+            z-index: 1;
+            width: if((@place = ~'left') or (@place = ~'right'), @border-width, 100%);
+            height: if((@place = ~'top') or (@place = ~'bottom'), @border-width, 100%);
+            content: '';
+            background: @color-primary;
+            transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale3d(if((@place = ~'top') or (@place = ~'bottom'), 0, 1), if((@place = ~'left') or (@place = ~'right'), 0, 1), 1);
+            transform-origin: center center;
         }
 
-        .@{prefix}-input-input {
-            .@{prefix}-input-input-input {
-                padding: 0 unit(round(@font-size * 0.5), px);
-                font-size: unit(round(@font-size * 0.7), px);
+        &.@{prefix}-input-focused {
+            &::after {
+                transform: scale3d(1, 1, 1);
             }
         }
     }
 
-    &.@{prefix}-input-sm {
-        height: unit(round(@font-size * 2.15), px);
-        border-radius: unit(round(@font-size * 0.2), px);
+    .border-place(@i - 1);
+}
 
-        &.@{prefix}-input-textarea {
-            height: unit(round(@font-size * 4.3), px);
-        }
+.input-size(@i:length(@size)) when(@i > 0) {
+    @name: extract(@size, @i);
+
+    &.@{prefix}-input-@{name} {
+        height: unit(round(@font-size * (1.85 + (@i - 1) * 0.3)), px);
+        font-size: unit(round(@font-size * (0.7 + (@i - 1) * 0.15)), px);
 
         .@{prefix}-input-input {
-            .@{prefix}-input-input-input {
-                padding: 0 unit(round(@font-size * 0.5), px);
-                font-size: unit(round(@font-size * 0.85), px);
+            &.@{prefix}-input-border-all {
+                border-radius: unit(round(@font-size * (0.2 + (@i - 1) * 0.05)), px);
             }
-        }
-    }
 
-    &.@{prefix}-input-md {
-        height: unit(round(@font-size * 2.55), px);
-
-        &.@{prefix}-input-textarea {
-            height: unit(round(@font-size * 5.1), px);
-        }
-
-        .@{prefix}-input-input {
             .@{prefix}-input-input-input {
-                padding: 0 unit(round(@font-size * 0.8), px);
-            }
-        }
-    }
-
-    &.@{prefix}-input-lg {
-        height: unit(round(@font-size * 2.85), px);
-
-        &.@{prefix}-input-textarea {
-            height: unit(round(@font-size * 5.7), px);
-        }
-
-        .@{prefix}-input-input {
-            .@{prefix}-input-input-input {
-                padding: 0 unit(round(@font-size * 0.8), px);
-            }
-        }
-    }
-
-    &.@{prefix}-input-xl {
-        height: unit(round(@font-size * 3.15), px);
-
-        &.@{prefix}-input-textarea {
-            height: unit(round(@font-size * 6.3), px);
-        }
-
-        .@{prefix}-input-input {
-            .@{prefix}-input-input-input {
-                padding: 0 unit(round(@font-size * 0.8), px);
-                font-size: unit(round(@font-size * 1.15), px);
+                padding: 0 unit(round(@font-size * (0.3 + (@i - 1) * 0.2)), px);
             }
         }
     }
@@ -198,7 +195,7 @@
     &.@{prefix}-input-has-prefix {
         .@{prefix}-input-input {
             .@{prefix}-input-input-input {
-                padding-left: unit(round(@font-size * 0.4), px);
+                padding-left: 0;
             }
         }
     }
@@ -206,129 +203,36 @@
     &.@{prefix}-input-has-suffix {
         .@{prefix}-input-input {
             .@{prefix}-input-input-input {
-                padding-right: unit(round(@font-size * 0.4), px);
+                padding-right: 0;
             }
         }
     }
 
-    &.@{prefix}-input-border-all {
-        border-width: @border-width;
-    }
+    .input-size(@i - 1);
+}
 
-    &.@{prefix}-input-border-top {
-        border-top-width: @border-width;
-        border-radius: 0;
-        box-shadow: none;
+.input-textarea-size(@i:length(@size)) when(@i > 0) {
+    @name: extract(@size, @i);
 
-        &::after {
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
-            z-index: 1;
-            height: @border-width;
-            content: '';
-            background: @color-primary;
-            transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: scale3d(0, 1, 1);
-            transform-origin: center bottom;
-        }
+    &.@{prefix}-input-@{name} {
+        height: unit(round(@font-size * (4.3 + @i * 0.6)), px);
 
-        &.@{prefix}-input-focused {
-            border-color: transparent;
-
-            &::after {
-                transform: scale3d(1, 1, 1);
+        .@{prefix}-input-input {
+            .@{prefix}-input-input-input {
+                padding: unit(round(@font-size * (0.3 + (@i - 1) * 0.2)), px);
             }
         }
     }
 
-    &.@{prefix}-input-border-left {
-        border-left-width: @border-width;
-        border-radius: 0;
-        box-shadow: none;
+    .input-textarea-size(@i - 1);
+}
 
-        &::after {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 1;
-            width: @border-width;
-            content: '';
-            background: @color-primary;
-            transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: scale3d(1, 0, 1);
-            transform-origin: center bottom;
-        }
+.@{prefix}-input-clear-fade-enter-active,
+.@{prefix}-input-clear-fade-leave-active {
+    transition: opacity 0.5s;
+}
 
-        &.@{prefix}-input-focused {
-            border-color: transparent;
-
-            &::after {
-                transform: scale3d(1, 1, 1);
-            }
-        }
-    }
-
-    &.@{prefix}-input-border-bottom {
-        border-bottom-width: @border-width;
-        border-radius: 0;
-        box-shadow: none;
-
-        &::after {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 1;
-            height: @border-width;
-            content: '';
-            background: @color-primary;
-            transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: scale3d(0, 1, 1);
-            transform-origin: center bottom;
-        }
-
-        &.@{prefix}-input-focused {
-            border-color: transparent;
-
-            &::after {
-                transform: scale3d(1, 1, 1);
-            }
-        }
-    }
-
-    &.@{prefix}-input-border-right {
-        border-right-width: @border-width;
-        border-radius: 0;
-        box-shadow: none;
-
-        &::after {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 1;
-            width: @border-width;
-            content: '';
-            background: @color-primary;
-            transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: scale3d(1, 0, 1);
-            transform-origin: center bottom;
-        }
-
-        &.@{prefix}-input-focused {
-            border-color: transparent;
-
-            &::after {
-                transform: scale3d(1, 1, 1);
-            }
-        }
-    }
-
-    &.@{prefix}-input-border-none {
-        border-radius: 0;
-        box-shadow: none;
-    }
+.@{prefix}-input-clear-fade-enter,
+.@{prefix}-input-clear-fade-leave-to {
+    opacity: 0;
 }

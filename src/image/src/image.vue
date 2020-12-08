@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { vue, vueVer, uniApp } from '../../base/utils/env';
+import { vue, uniApp } from '../../base/utils/env';
 import { unit } from '../../base/utils/util';
 
 export default {
@@ -198,7 +198,7 @@ export default {
 
         //点击事件
         onClick(event) {
-            if (vueVer === 2) this.$emit('click', event); //兼容vue2 点击事件
+            this.$emit('click', event);
         }
     }
 };

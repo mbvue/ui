@@ -39,6 +39,8 @@ export default {
         gutter: { type: [Number, Array, Object], default: 0 } //栅格间隔，可以写成像素值或支持响应式的对象写法来设置水平间隔 { xs: 8, sm: 12, md: 16, lg: 18, xl: 20, xxl: 24}。或者使用数组形式同时设置 [水平间距, 垂直间距]
     },
 
+    emits: ['click'],
+
     data() {
         return {
             newRowGutter: 0,
@@ -157,7 +159,7 @@ export default {
 
         //点击事件
         onClick(event) {
-            if (vueVer === 2) this.$emit('click', event); //兼容vue2 点击事件
+            this.$emit('click', event);
         }
     }
 };

@@ -28,6 +28,8 @@ export default {
         xxl: { type: [Number, Object], default: null } //≥1600 响应式栅格，可为栅格数或一个包含其他属性的对象
     },
 
+    emits: ['click'],
+
     computed: {
         //构建Class
         buildClass() {
@@ -87,7 +89,7 @@ export default {
     methods: {
         //点击事件
         onClick(event) {
-            if (vueVer === 2) this.$emit('click', event); //兼容vue2 点击事件
+            this.$emit('click', event);
         }
     }
 };

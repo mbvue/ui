@@ -5,90 +5,29 @@
     vertical-align: middle;
     user-select: none;
 
+    mb-input,
     .@{prefix}-input {
-        &:first-child:not(:last-child) {
-            border-right-width: 0;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-
-            &.mb-input-focused {
-                border-right-width: @border-width;
-            }
-        }
-
-        &:last-child:not(:first-child) {
-            border-left-width: 0;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-
-            &:nth-child(2) {
-                border-left-width: 1px;
-            }
-
-            &.mb-input-focused {
-                border-left-width: @border-width;
-            }
-        }
-
-        & + .@{prefix}-input {
-            border-left-width: 0;
-
-            &.mb-input-focused {
-                margin-left: -@border-width;
-                border-left-width: @border-width;
-
-                &:not(:first-child) {
-                    margin-right: @border-width;
-                }
-            }
-        }
-
-        &:nth-child(2) {
-            margin: 0 !important;
-            border-left-width: 1px;
+        &:not(:last-child) {
+            margin-right: -1px;
         }
 
         &:not(:first-child):not(:last-child) {
-            border-radius: 0;
+            .@{prefix}-input-border-all {
+                border-radius: 0;
+            }
         }
-    }
 
-    mb-input {
         &:first-child:not(:last-child) {
-            .@{prefix}-input {
-                border-right-width: 0;
+            .@{prefix}-input-border-all {
                 border-top-right-radius: 0;
                 border-bottom-right-radius: 0;
             }
         }
 
         &:last-child:not(:first-child) {
-            .@{prefix}-input {
-                border-left-width: 0;
+            .@{prefix}-input-border-all {
                 border-top-left-radius: 0;
                 border-bottom-left-radius: 0;
-
-                &:nth-child(2) {
-                    border-left-width: 1px;
-                }
-            }
-        }
-
-        & + mb-input {
-            .@{prefix}-input {
-                border-left-width: 0;
-            }
-        }
-
-        &:nth-child(2) {
-            .@{prefix}-input {
-                border-left-width: 1px;
-            }
-        }
-
-        &:not(:first-child):not(:last-child) {
-            .@{prefix}-input {
-                border-radius: 0;
             }
         }
     }

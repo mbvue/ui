@@ -130,7 +130,7 @@ export default {
         scroll: { type: Boolean, default: true } //鼠标滚动数字增加/减少
     },
 
-    emits: ['focus', 'blur', 'change', 'input', 'update:modelValue', 'enter', 'lessition', 'addition', 'confirm'],
+    emits: ['input', 'update:modelValue', 'focus', 'blur', 'change', 'enter', 'lessition', 'addition', 'confirm'],
 
     data() {
         return {

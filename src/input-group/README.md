@@ -33,9 +33,17 @@
 <br/>
 <br/>
 <mb-input-group>
-    <mb-input placeholder="请输入内容"/>
-    <mb-input readonly placeholder="~" style="width: 30px; border-left: 0; border-right: 0; pointer-events: none; backgroundColor: #fff"/>
-    <mb-input placeholder="请输入内容"/>
+    <mb-input placeholder="请输入内容" :customStyle="{ borderRight: 0 }"/>
+    <mb-input readonly placeholder="~" :customStyle="{ borderLeft: 0, borderRight: 0 }" style="width: 30px; pointer-events: none;"/>
+    <mb-input placeholder="请输入内容" :customStyle="{ borderLeft: 0 }"/>
+</mb-input-group>
+<br/>
+<br/>
+<mb-input-group>
+    <mb-input border="bottom" placeholder="请输入内容"/>
+    <mb-input border="bottom" placeholder="请输入内容"/>
+    <mb-input border="bottom" placeholder="请输入内容"/>
+    <mb-input border="bottom" placeholder="请输入内容"/>
 </mb-input-group>
 :::
 

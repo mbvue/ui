@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { vue, uniApp, vueVer } from '../../base/utils/env';
+import { vue, uniApp } from '../../base/utils/env';
 import { transNumber } from '../../base/utils/util';
 
 export default {
@@ -41,12 +41,12 @@ export default {
         loadingIcon: { type: String, default: 'spinner' }, //自定义加载中图标
         loadingSize: { type: [String, Number], default: 16 }, //自定义加载中图标尺寸
         vibrateShort: { type: Boolean, default: false }, //是否使手机发生短促震动，目前只在iOS的微信小程序和微信小程序开发工具有效
-        size: { type: String, default: '' }, //设置按钮大小，可选值为 xs sm md lg xl 或者不设
+        size: { type: String, default: 'md' }, //设置按钮大小，可选值为 xs sm md lg xl 或者不设
         activeColor: { type: String, default: '' }, //选中状态下的颜色
         defaultColor: { type: String, default: '' } //未选中状态下的颜色
     },
 
-    emits: ['input', 'change', 'update:checked'],
+    emits: ['input', 'change', 'click', 'update:checked'],
 
     data() {
         return {
@@ -121,7 +121,7 @@ export default {
                 this.$emit('change', data);
             });
 
-            if (vueVer === 2) this.$emit('click', event); //兼容vue2 点击事件
+            this.$emit('click', event);
         }
     }
 };
